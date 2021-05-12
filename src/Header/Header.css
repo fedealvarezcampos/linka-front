@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 95px;
+    position: fixed;
+    border-bottom: 15px solid #faf3dd;
+    background-color: #98473e;
+}
+
+.header .navProfile {
+    display: grid;
+    grid: 1fr / 50% 50%;
+    align-items: center;
+    justify-items: end;
+    margin-right: 2rem;
+    width: 6em;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.header .navProfile .love::after {
+    content: '♥';
+}
+
+.header .navProfile > img {
+    width: 62px;
+    border: 4px solid #faf3dd;
+    border-radius: 50%;
+}
+
+.header .navProfile p {
+    margin: 0;
+}
