@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import Header from './Header/Header';
 import './App.css';
+import './coolicons/coolicons.css';
 import 'normalize.css';
 
 function App() {

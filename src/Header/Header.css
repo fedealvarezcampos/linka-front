@@ -1,30 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 .header {
-    display: flex;
-    justify-content: flex-end;
-    width: 100vw;
-    height: 95px;
+    display: grid;
+    grid: 1fr / auto auto;
+    width: 100%;
+    height: 8rem;
+    padding: 1rem 2rem 1rem 2rem;
+    box-sizing: border-box;
     position: fixed;
     border-bottom: 15px solid #faf3dd;
     background-color: #98473e;
 }
 
+.header .logo {
+    font-size: 25px;
+    align-self: center;
+    justify-self: start;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #faf3dd;
+    color: #f29940;
+    float: left;
+}
+
 .header .navProfile {
     display: grid;
-    grid: 1fr / 50% 50%;
+    grid: 1fr / auto auto;
+    gap: 12px;
     align-items: center;
-    justify-items: end;
-    margin-right: 2rem;
-    width: 6em;
+    justify-self: end;
+    float: right;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
     font-style: italic;
+    color: #faf3dd;
 }
 
-.header .navProfile .love::after {
-    content: '♥';
+.header .navProfile .love {
+    font-size: 18px;
+    color: #f29940;
+    text-align: end;
 }
 
 .header .navProfile > img {
