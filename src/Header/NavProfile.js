@@ -6,7 +6,7 @@ function NavProfile({ user }) {
                 <p>{user.username}</p>
                 <p className="love">
                     {user.love}
-                    <i class="ci-heart_fill"></i>
+                    <i className="ci-heart_fill"></i>
                 </p>
             </div>
         </div>

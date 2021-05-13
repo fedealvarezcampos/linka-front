@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 
 function RegisterForm({ defaultUser }) {
     const [username, setUsername] = useState(defaultUser);
@@ -14,7 +15,6 @@ function RegisterForm({ defaultUser }) {
     };
 
     if (completed) {
-        return <div>Bienvenido, {username}!</div>;
     }
 
     return (
@@ -53,9 +53,7 @@ function RegisterForm({ defaultUser }) {
                 />
             </label>
             <br />
-            <button className="registerButton">
-                <p>REGISTER</p>
-            </button>
+            <Button>REGISTER</Button>
         </form>
     );
 }
