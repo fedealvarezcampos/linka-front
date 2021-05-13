@@ -1,31 +1,19 @@
-import logo from './logo.svg';
 import Header from './Header/Header';
+import Modal from './Modal';
+import RegisterForm from './RegisterForm';
 import './App.css';
-import './coolicons/coolicons.css';
+import './icons/coolicons.css';
 import 'normalize.css';
 
 function App() {
     return (
         <div className="App">
             <Header />
+            <Modal>
+                <RegisterForm />
+            </Modal>
         </div>
     );
 }
-
-// function App() {
-//     return (
-//         <div className="App">
-//             <header className="App-header">
-//                 <img src={logo} className="App-logo" alt="logo" />
-//                 <p>
-//                     Edit <code>src/App.js</code> and save to reload.
-//                 </p>
-//                 <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-//                     Learn React
-//                 </a>
-//             </header>
-//         </div>
-//     );
-// }
 
 export default App;

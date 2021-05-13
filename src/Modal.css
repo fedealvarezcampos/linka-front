@@ -1,0 +1,84 @@
+.modal-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.445);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-fg {
+    width: 300px;
+    height: 400px;
+    padding: 40px 11px 40px 11px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 45px;
+    border: 8px solid #faf3dd;
+    background-color: #98473e;
+    color: #faf3dd;
+}
+
+.modal-fg form {
+    margin: auto;
+    width: 92%;
+}
+
+.modal-fg form label {
+    margin-left: 2px;
+    letter-spacing: 2px;
+}
+
+.modal-fg input {
+    padding: 0.52rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    border: 4px solid #faf3dd;
+    color: #faf3dd;
+    background-color: black;
+}
+
+.modal-fg input:focus {
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    border: 4px solid #f29940;
+    color: #faf3dd;
+    background-color: black;
+}
+
+.modal-fg input::placeholder {
+    color: #faf3dd;
+    opacity: 0.4;
+}
+
+.modal-fg .registerButton {
+    padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    float: right;
+    box-sizing: border-box;
+    border-radius: 18px 18px 18px 0;
+    border: 5px solid #faf3dd;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #faf3dd;
+    background-color: black;
+}
+
+.modal-fg .registerButton p {
+    margin: 0;
+    transform: scale(1, 0.92);
+}
