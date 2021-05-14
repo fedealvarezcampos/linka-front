@@ -1,7 +1,7 @@
-.button.registerButton {
+.button {
+    width: 9rem;
     padding: 0.6rem 0.75rem 0.6rem 0.75rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin: 0.8rem 0 0.8rem 1.4rem;
     float: right;
     box-sizing: border-box;
     border-radius: 18px 18px 18px 0;
@@ -14,17 +14,17 @@
     filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
 }
 
-.button.registerButton:focus {
+.button:focus {
     outline: none;
 }
 
-.button.registerButton:active {
+.button:active {
     margin-top: 0.92rem;
     outline: none;
     filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.438));
 }
 
-.button.registerButton p {
+.button p {
     margin: 0;
     transform: scale(1, 0.92);
 }

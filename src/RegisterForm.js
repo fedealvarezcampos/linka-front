@@ -1,17 +1,32 @@
 import { useState } from 'react';
 import Button from './Button';
 
-function RegisterForm({ defaultUser }) {
+function RegisterForm({ defaultUser, onLogin }) {
     const [username, setUsername] = useState(defaultUser);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
+    const [status, setStatus] = useState();
     const [completed, setCompleted] = useState(false);
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        console.log('Has hecho submit!', username, password);
-        setCompleted(true);
+
+        const res = await fetch('http://localhost:3000/api/users', {
+            mode: 'no-cors',
+            method: 'POST',
+            body: JSON.stringify({ username, email, password, confirmPass }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (res.ok) {
+            const data = await res.json();
+            setStatus();
+            onLogin(data);
+        } else {
+            setStatus('error');
+        }
     };
 
     if (completed) {
@@ -22,7 +37,12 @@ function RegisterForm({ defaultUser }) {
             <label>
                 Username
                 <br />
-                <input placeholder="user" value={username} onChange={e => setUsername(e.target.value)} />
+                <input
+                    placeholder="user"
+                    value={username}
+                    autoFocus
+                    onChange={e => setUsername(e.target.value)}
+                />
             </label>
             <br />
             <label>
