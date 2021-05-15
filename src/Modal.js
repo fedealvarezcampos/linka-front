@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import './Modal.css';
 
-function Modal({ children }) {
-    const [n, setN] = useState(true);
-
-    const handleAnswerChange = e => {
-        if (e.key === 'Escape') {
-            setN(n ? '' : 'hidden');
-        }
-    };
-
+function Modal({ children, modal, setModal }) {
     return (
-        <div className={n ? 'modal-container' : 'hidden'} onKeyDown={handleAnswerChange}>
-            <div className="modal-fg">{children}</div>
-            <div className="modal-bg" onClick={() => setN(n ? '' : 'hidden')}></div>
+        <div
+            className="modal-container"
+            onKeyDown={e => {
+                if (e.key === 'Escape') {
+                    setModal(false);
+                }
+            }}
+        >
+            {modal && (
+                <>
+                    <div className="modal-fg">{children}</div>
+                    <div className="modal-bg" onClick={() => setModal(false)}></div>
+                </>
+            )}
         </div>
     );
 }

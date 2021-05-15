@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import Button from './Button';
 
 function RegisterForm({ defaultUser, onLogin }) {
-    const [username, setUsername] = useState(defaultUser);
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
@@ -11,9 +10,7 @@ function RegisterForm({ defaultUser, onLogin }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
         const res = await fetch('http://localhost:3000/api/users', {
-            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify({ username, email, password, confirmPass }),
             headers: {
@@ -39,8 +36,8 @@ function RegisterForm({ defaultUser, onLogin }) {
                 <br />
                 <input
                     placeholder="user"
-                    value={username}
                     autoFocus
+                    value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
             </label>
@@ -63,7 +60,7 @@ function RegisterForm({ defaultUser, onLogin }) {
             </label>
             <br />
             <label>
-                Confirm pass
+                Confirm password
                 <br />
                 <input
                     placeholder="confirm pass"
@@ -73,7 +70,7 @@ function RegisterForm({ defaultUser, onLogin }) {
                 />
             </label>
             <br />
-            <Button>REGISTER</Button>
+            <button className="button">REGISTER</button>
         </form>
     );
 }
