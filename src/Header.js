@@ -5,7 +5,7 @@ import NavProfile from './NavProfile.js';
 import users from './users.json';
 import './Header.css';
 
-function Header({ user, setUser, modal, setModal }) {
+function Header({ user, modal, setModal }) {
     return (
         <>
             <header className="header">
@@ -13,11 +13,13 @@ function Header({ user, setUser, modal, setModal }) {
                 {user ? (
                     <NavProfile user={users} />
                 ) : (
-                    <div>
+                    <div className="unloggedHead">
                         <button className="button register" onClick={() => setModal(true)}>
-                            REGISTER
+                            <p>REGISTER</p>
                         </button>
-                        <button className="button">LOGIN</button>
+                        <button className="button">
+                            <p>LOG IN</p>
+                        </button>
                     </div>
                 )}
             </header>

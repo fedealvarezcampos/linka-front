@@ -70,7 +70,9 @@ function RegisterForm({ defaultUser, onLogin }) {
                 />
             </label>
             <br />
-            <button className="button">REGISTER</button>
+            <button className="button register">
+                <p>REGISTER</p>
+            </button>
         </form>
     );
 }

@@ -36,6 +36,11 @@
     width: 92%;
 }
 
+.modal-fg form .button.register {
+    margin-top: 0.8rem;
+    background-color: #252627;
+}
+
 .modal-fg form label {
     margin-left: 2px;
     letter-spacing: 2px;
@@ -50,7 +55,7 @@
     border-radius: 10px;
     border: 4px solid #faf3dd;
     color: #faf3dd;
-    background-color: black;
+    background-color: #252627;
 }
 
 .modal-fg input:focus {

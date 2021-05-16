@@ -35,6 +35,15 @@
     color: #faf3dd;
 }
 
+.header .unloggedHead {
+    display: grid;
+    width: 20rem;
+    grid: 1fr / auto auto;
+    align-items: center;
+    justify-self: end;
+    justify-items: end;
+}
+
 .header .navProfile .love {
     font-size: 18px;
     color: #f29940;
