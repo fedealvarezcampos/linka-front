@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.hidden {
-    display: none;
-}
-
 .button {
     width: 8.4rem;
     padding: 0.7rem 1rem 0.7rem 1rem;
@@ -42,4 +38,8 @@
 
 .button.register {
     letter-spacing: 2.4px;
+}
+
+.hidden {
+    visibility: hidden;
 }

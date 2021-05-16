@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-function RegisterForm({ defaultUser, onLogin }) {
+function RegisterForm({ onLogin, setError }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    const [status, setStatus] = useState();
+    const [data, setData] = useState();
     const [completed, setCompleted] = useState(false);
 
     const handleSubmit = async e => {
@@ -18,11 +18,12 @@ function RegisterForm({ defaultUser, onLogin }) {
             },
         });
         if (res.ok) {
-            const data = await res.json();
-            setStatus();
+            const result = await res.json();
+            setData(result);
             onLogin(data);
         } else {
-            setStatus('error');
+            const err = await res.json();
+            setError(err);
         }
     };
 

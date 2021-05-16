@@ -2,6 +2,8 @@
     width: 100vw;
     height: 100vh;
     display: grid;
+    gap: 1.6rem;
+    align-content: center;
     place-items: center;
 }
 
@@ -17,6 +19,8 @@
 }
 
 .modal-fg {
+    align-self: center;
+    justify-self: center;
     z-index: 10;
     width: 70%;
     width: 300px;
@@ -68,8 +72,24 @@
     opacity: 0.4;
 }
 
-/* Hide */
+/* ERRORS */
 
-.hidden {
-    display: none;
+.errorMsg {
+    display: grid;
+    z-index: 10;
+    width: 300px;
+    min-height: 2.8rem;
+    max-height: 6rem;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 12px 20px 12px;
+    font-family: 'Fira Sans', sans-serif;
+    font-style: italic;
+    font-size: clamp(0.8rem, 1.2rem, 2rem);
+    font-weight: 600;
+    border-radius: 0 40px 40px 40px;
+    border: 8px solid #faf3dd;
+    background-color: #1f2a33;
+    color: #faf3dd;
 }

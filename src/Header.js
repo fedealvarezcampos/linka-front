@@ -6,6 +6,8 @@ import users from './users.json';
 import './Header.css';
 
 function Header({ user, modal, setModal }) {
+    const [error, setError] = useState();
+
     return (
         <>
             <header className="header">
@@ -14,20 +16,20 @@ function Header({ user, modal, setModal }) {
                     <NavProfile user={users} />
                 ) : (
                     <div className="unloggedHead">
-                        <button className="button register" onClick={() => setModal(true)}>
-                            <p>REGISTER</p>
-                        </button>
                         <button className="button">
                             <p>LOG IN</p>
+                        </button>
+                        <button className="button register" onClick={() => setModal(true)}>
+                            <p>REGISTER</p>
                         </button>
                     </div>
                 )}
             </header>
             {modal && (
-                <Modal modal={modal} setModal={setModal}>
-                    <RegisterForm />
+                <Modal modal={modal} setModal={setModal} error={error} setError={setError}>
+                    <RegisterForm setError={setError} />
                 </Modal>
-            )}
+            )}{' '}
         </>
     );
 }

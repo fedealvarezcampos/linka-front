@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Modal.css';
 
-function Modal({ children, modal, setModal }) {
+function Modal({ children, modal, setModal, error }) {
     return (
         <div
             className="modal-container"
@@ -17,6 +17,8 @@ function Modal({ children, modal, setModal }) {
                     <div className="modal-bg" onClick={() => setModal(false)}></div>
                 </>
             )}
+            {error && <div className="errorMsg bounceAnim">{error.error}</div>}
+            {!error && <div className="errorMsg hidden"></div>}
         </div>
     );
 }
