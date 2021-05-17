@@ -5,7 +5,7 @@
     height: 8rem;
     padding: 1rem 2.2rem 1rem 2.2rem;
     box-sizing: border-box;
-    position: fixed;
+    position: sticky;
     border-bottom: 15px solid #faf3dd;
     background-color: #98473e;
 }

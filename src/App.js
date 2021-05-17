@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from './Header';
+import Post from './Post';
 import './App.css';
 import './anims.css';
 import './icons/coolicons.css';
@@ -10,9 +11,12 @@ function App() {
     const [modal, setModal] = useState(false);
 
     return (
-        <div className="App">
-            <Header user={user} setUser={setUser} modal={modal} setModal={setModal} />
-        </div>
+        <>
+            <div className="App">
+                <Header user={user} setUser={setUser} modal={modal} setModal={setModal} />
+                <Post />
+            </div>
+        </>
     );
 }
 

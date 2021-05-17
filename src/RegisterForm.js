@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function RegisterForm({ onLogin, setError }) {
+function RegisterForm({ onLogin, setError, setAnimActive, animActive }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ function RegisterForm({ onLogin, setError }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await fetch('http://localhost:3000/api/users', {
+        const res = await fetch('http://localhost:8080/api/users', {
             method: 'POST',
             body: JSON.stringify({ username, email, password, confirmPass }),
             headers: {

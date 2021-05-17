@@ -4027,6 +4027,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap-icons@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "bootstrap-icons@npm:1.5.0"
+  checksum: c5c444ab07d8d1ae07f24a2e6dcd842cb6d9a39882da3d848f48f19dd6629bdc4eaea81f55ff7297a59a817b2bd3098b0434cc50415ef3a2e7e939a59c2133ce
+  languageName: node
+  linkType: hard
+
 "brace-expansion@npm:^1.1.7":
   version: 1.1.11
   resolution: "brace-expansion@npm:1.1.11"
@@ -9399,6 +9406,7 @@ fsevents@^1.2.7:
     "@testing-library/jest-dom": ^5.11.4
     "@testing-library/react": ^11.1.0
     "@testing-library/user-event": ^12.1.10
+    bootstrap-icons: ^1.5.0
     eslint-config-react-app: ^6.0.0
     leaflet: ^1.7.1
     normalize.css: ^8.0.1
