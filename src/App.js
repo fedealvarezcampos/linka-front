@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import Header from './Header';
-import Post from './Post';
+import Header from './components/Header';
+import Post from './components/Post';
 import './App.css';
-import './anims.css';
 import './icons/coolicons.css';
 import 'normalize.css';
 

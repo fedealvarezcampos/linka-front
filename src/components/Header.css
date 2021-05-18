@@ -44,6 +44,13 @@
     justify-items: end;
 }
 
+@media (max-width: 600px) {
+    .header .unloggedHead {
+        width: 10rem;
+        grid: auto auto / 1fr;
+    }
+}
+
 .header .navProfile .love {
     font-size: 18px;
     color: #f29940;
