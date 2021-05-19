@@ -1,0 +1,39 @@
+.linkPrevContainer {
+    display: grid;
+    grid: 10rem / 12rem auto;
+    gap: 0.9rem;
+    width: 70%;
+    /* margin: auto; */
+    margin-top: 2rem;
+    padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+    border: 0.35rem solid var(--base-light-color);
+    border-radius: 12px 12px 12px 0;
+    background-color: var(--item-bg-color);
+    /* filter: drop-shadow(4px 5px 3px #799eb957); */
+}
+
+.linkPrevImg {
+    border: 3px solid var(--base-light-color);
+    border-radius: 15px 15px 15px 0;
+    background-size: cover;
+    background-position: center center;
+}
+
+.linkInfoContainer {
+    display: grid;
+    grid: auto auto auto / auto;
+    border-left: 2px solid var(--base-light-color);
+    align-items: center;
+}
+
+.linkInfoContainer p {
+    margin: 0;
+    margin-left: 0.9rem;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.linkPrevTitle {
+    color: var(--base-light-color);
+    font-weight: 800;
+}

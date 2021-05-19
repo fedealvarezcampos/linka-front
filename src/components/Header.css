@@ -1,13 +1,14 @@
 .header {
     display: grid;
+    position: sticky;
+    top: 0;
     grid: 1fr / auto auto;
     width: 100%;
     height: 8rem;
     padding: 1rem 2.2rem 1rem 2.2rem;
     box-sizing: border-box;
-    position: sticky;
-    border-bottom: 15px solid #faf3dd;
-    background-color: #98473e;
+    border-bottom: 15px solid var(--base-light-color);
+    background-color: var(--highlight-color);
 }
 
 .header .logo {
@@ -16,8 +17,8 @@
     justify-self: start;
     font-size: 3rem;
     font-weight: 800;
-    color: #faf3dd;
-    color: #f29940;
+    color: var(--base-light-color) d;
+    color: var(--alt-highlight-color);
     float: left;
 }
 
@@ -32,7 +33,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     font-style: italic;
-    color: #faf3dd;
+    color: var(--base-light-color);
 }
 
 .header .unloggedHead {
@@ -54,13 +55,13 @@
 
 .header .navProfile .love {
     font-size: 18px;
-    color: #f29940;
+    color: var(--alt-highlight-color);
     text-align: end;
 }
 
 .header .navProfile > img {
     width: 62px;
-    border: 4px solid #faf3dd;
+    border: 4px solid var(--base-light-color);
     border-radius: 50%;
 }
 

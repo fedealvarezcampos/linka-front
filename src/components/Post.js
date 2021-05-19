@@ -1,3 +1,4 @@
+import LinkPreview from './LinkPreview';
 import './Post.css';
 
 function Post({ post }) {
@@ -17,6 +18,7 @@ function Post({ post }) {
             <div className="postContent">
                 <h1>{post.title}</h1>
                 <p>{post.description}</p>
+                <LinkPreview post={post} />
             </div>
             <div className="postFooter">
                 <div className="postFooterComments">

@@ -7,7 +7,7 @@
     font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0.02em;
-    color: #98473e;
+    color: var(--highlight-color);
 }
 
 .postInfo i {
@@ -20,7 +20,7 @@
 
 .postInfo .postInfoText span {
     font-style: italic;
-    color: #22262d;
+    color: var(--posts-color);
 }
 
 .postListContainer {
@@ -33,29 +33,30 @@
 }
 
 .postContainer {
+    z-index: 100;
     margin: auto;
     display: grid;
     grid: 2rem 1fr 2rem / 1fr;
     margin-top: 5rem;
     width: clamp(20rem, 48rem, 80vw);
-    height: 600px;
+    height: auto;
     border-radius: 12px 12px 12px 0px;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.25;
-    background-color: #faf3dd;
+    background-color: var(--base-light-color);
 }
 
 .postContent {
     box-sizing: border-box;
     align-self: center;
     justify-self: center;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 1.5rem 2rem 3rem 2rem;
     width: 98%;
     height: 96%;
     font-family: 'Roboto', sans-serif;
-    background-color: #22262d;
+    background-color: var(--posts-color);
 }
 
 .postContent h1 {
@@ -71,7 +72,7 @@
     font-size: 1rem;
     font-weight: 800;
     font-family: 'Roboto', sans-serif;
-    color: #98473e;
+    color: var(--highlight-color);
 }
 
 .postFooter i {
@@ -81,7 +82,7 @@
 .postFooterComments {
     display: grid;
     grid: 1fr / 1.15rem auto;
-    color: #98473e;
+    color: var(--highlight-color);
 }
 
 .postFooterLikes {
@@ -89,5 +90,5 @@
     align-self: start;
     justify-items: end;
     grid: 1fr / auto 1.2rem;
-    color: #98473e;
+    color: var(--highlight-color);
 }

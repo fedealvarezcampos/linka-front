@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSortPosts } from './api';
 import Header from './components/Header';
 import Post from './components/Post';
+import ShapeDivider from './components/ShapeDivider';
 import './App.css';
 import './icons/coolicons.css';
 import 'normalize.css';
@@ -19,6 +20,7 @@ function App() {
                 <ul className="postListContainer">
                     {postsData && postsData.map((post, i) => <Post key={post.id} post={post} />)}
                 </ul>
+                <ShapeDivider />
             </div>
         </>
     );
