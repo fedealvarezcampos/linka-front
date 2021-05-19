@@ -1,29 +1,34 @@
 import './Post.css';
 
-function Post() {
+function Post({ post }) {
+    console.log(post);
+
+    const postDate = new Date(post.created_date).toLocaleString();
+    console.log(postDate.toLocaleString());
+
     return (
-        <div className="postContainer">
+        <li className="postContainer">
             <div className="postInfo">
-                <i class="ci-link_02"></i>
+                <i className="ci-link_02"></i>
                 <span className="postInfoText">
-                    shared by <span>user</span> etc
+                    shared by <span>{post.username}</span> on {postDate}
                 </span>
             </div>
             <div className="postContent">
-                <h1>Title del post</h1>
-                <p>Body del post</p>
+                <h1>{post.title}</h1>
+                <p>{post.description}</p>
             </div>
             <div className="postFooter">
                 <div className="postFooterComments">
                     <i className="bi bi-chat-fill"></i>
-                    <span>12 comments</span>
+                    <span>{post.commented || '0'} comments</span>
                 </div>
                 <div className="postFooterLikes">
-                    <span>125</span>
+                    <span>{post.likes || '0'}</span>
                     <i className="bi bi-heart-fill"></i>
                 </div>
             </div>
-        </div>
+        </li>
     );
 }
 

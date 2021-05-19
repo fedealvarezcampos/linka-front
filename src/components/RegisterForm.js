@@ -6,11 +6,11 @@ function RegisterForm({ onLogin, setError, setAnimActive, animActive }) {
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
     const [data, setData] = useState();
-    const [completed, setCompleted] = useState(false);
+    // const [completed, setCompleted] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await fetch('http://localhost:8080/api/users', {
+        const res = await fetch('http://localhost:3001/api/users', {
             method: 'POST',
             body: JSON.stringify({ username, email, password, confirmPass }),
             headers: {
@@ -27,8 +27,8 @@ function RegisterForm({ onLogin, setError, setAnimActive, animActive }) {
         }
     };
 
-    if (completed) {
-    }
+    // if (completed) {
+    // }
 
     return (
         <form onSubmit={handleSubmit}>

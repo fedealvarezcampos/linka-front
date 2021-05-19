@@ -46,8 +46,9 @@
 
 @media (max-width: 600px) {
     .header .unloggedHead {
-        width: 10rem;
+        width: 6.2rem;
         grid: auto auto / 1fr;
+        justify-items: start;
     }
 }
 
