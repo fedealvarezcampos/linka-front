@@ -2,8 +2,6 @@ import LinkPreview from './LinkPreview';
 import './Post.css';
 
 function Post({ post }) {
-    console.log(post);
-
     const postDate = new Date(post.created_date).toLocaleString();
     console.log(postDate.toLocaleString());
 
