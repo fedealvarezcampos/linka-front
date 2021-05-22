@@ -1,7 +1,7 @@
 import LinkPreview from './LinkPreview';
 import './Post.css';
 
-function Post({ post }) {
+function Post({ post, user }) {
     const postDate = new Date(post.created_date).toLocaleString();
     console.log(postDate.toLocaleString());
 
@@ -10,7 +10,7 @@ function Post({ post }) {
             <div className="postInfo">
                 <i className="ci-link_02"></i>
                 <span className="postInfoText">
-                    shared by <span>{post.username}</span> on {postDate}
+                    shared by <span>{post.username || user}</span> on {postDate}
                 </span>
             </div>
             <div className="postContent">

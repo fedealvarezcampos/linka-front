@@ -4,6 +4,7 @@
 :root {
     --posts-color: #22262d;
     --item-bg-color: #222b35;
+    --profile-bg-color: #2e3f51;
     --main-bg-color: #799eb9;
     --highlight-color: #98473e;
     --alt-highlight-color: #f29940;
@@ -12,6 +13,7 @@
 
 body {
     margin: 0;
+    padding-bottom: 6rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;

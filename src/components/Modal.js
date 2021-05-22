@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { animated } from 'react-spring';
-import { useFadeAnimation, useSlideAnimation } from './anime';
+import { useFadeAnimation, useSlideAnimation } from '../resource/anime';
 import './Modal.css';
 
 function Modal({ children, modal, setModal, error, setError }) {

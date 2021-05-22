@@ -1,43 +1,48 @@
 .linkPrevContainer {
     display: grid;
-    grid: 8.6rem / 11rem auto;
-    gap: 0.8rem;
+    grid: 9rem / 12rem auto;
+    gap: 0.7rem;
     width: clamp(23rem, 68%, 70%);
-    /* margin: auto; */
-    margin-top: 2rem;
-    padding: 0.9rem 0.8rem 0.9rem 0.8rem;
-    border: 0.35rem solid var(--base-light-color);
+    margin-top: 1.6rem;
+    padding: 0.9rem 1rem 0.9rem 0.8rem;
+    border: 4px solid #4e657f;
     border-radius: 2rem 2rem 2rem 0;
+    text-decoration: none;
     background-color: var(--item-bg-color);
-    /* filter: drop-shadow(4px 5px 3px #799eb957); */
+    transition: border 0.3s ease-in-out;
+}
+
+.linkPrevContainer:hover {
+    border: 4px solid var(--highlight-color);
 }
 
 .linkPrevImg {
-    border: 3px solid var(--base-light-color);
-    border-radius: 1rem 1rem 1rem 0;
     background-size: cover;
     background-position: center center;
+    border: 4px solid var(--base-light-color);
+    border-radius: 1rem 1rem 1rem 0;
 }
 
 .linkInfoContainer {
     display: grid;
     grid: auto auto / auto;
     gap: 0.6rem;
+    align-content: center;
     padding-right: 0.5rem;
-    border-left: 2px solid var(--base-light-color);
+    border-left: 2px solid #3c4b5d;
     align-items: start;
 }
 
 .linkInfoContainer p {
     margin: 0;
-    margin-top: 0.3rem;
-    margin-left: 0.9rem;
+    margin-top: 0.1rem;
+    margin-left: 0.7rem;
     font-style: italic;
-    font-size: 0.85rem;
 }
 
 .linkPrevTitle {
     color: var(--base-light-color);
+    font-size: 0.94rem;
     font-weight: 800;
 }
 
@@ -45,13 +50,13 @@
     color: var(--main-bg-color);
     overflow: hidden;
     overflow-wrap: break-word;
+    font-size: 0.84rem;
 }
 
 @media (max-width: 1000px) {
     .linkPrevContainer {
         grid: 9rem / 14rem auto;
-        gap: 0.8rem;
-        width: clamp(26rem, 68%, 70%);
+        width: clamp(26rem, 68%, 72%);
     }
 }
 

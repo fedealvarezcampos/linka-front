@@ -15,7 +15,7 @@
 }
 
 .postInfo .postInfoText {
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.08rem;
 }
 
 .postInfo .postInfoText span {
@@ -38,13 +38,13 @@
     display: grid;
     grid: 2rem 1fr 2rem / 1fr;
     margin-top: 3.8rem;
-    width: clamp(20rem, 48rem, 70vw);
+    width: clamp(20rem, 60vw, 50rem);
     height: auto;
     border-radius: 12px 12px 12px 0px;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.26;
     background-color: var(--base-light-color);
 }
 

@@ -1,0 +1,7 @@
+.userPageContainer {
+    display: grid;
+    place-content: center;
+    align-items: start;
+    gap: 2rem;
+    grid: auto / auto 18rem;
+}

@@ -1,6 +1,7 @@
 .header {
     display: grid;
     position: sticky;
+    z-index: 100;
     top: 0;
     grid: 1fr / auto auto;
     width: 100%;

@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { useUser } from '../context/UserContext';
 import RegisterForm from './RegisterForm';
 import Modal from './Modal';
 import NavProfile from './NavProfile.js';
 import users from './users.json';
 import './Header.css';
 
-function Header({ user, modal, setModal }) {
+function Header({ modal, setModal }) {
+    const user = useUser();
     const [error, setError] = useState();
 
     return (
