@@ -1,6 +1,7 @@
 .linkPrevContainer {
     display: grid;
     grid: 9rem / 12rem auto;
+    z-index: 5;
     gap: 0.7rem;
     width: clamp(23rem, 68%, 70%);
     margin-top: 1.6rem;
@@ -9,6 +10,7 @@
     border-radius: 2rem 2rem 2rem 0;
     text-decoration: none;
     background-color: var(--item-bg-color);
+    will-change: transform;
     transition: border 0.3s ease-in-out;
 }
 

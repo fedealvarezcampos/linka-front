@@ -8,7 +8,6 @@ function Home() {
     const [modal, setModal] = useState(false);
 
     const postsData = useGetPosts();
-    console.log(postsData);
 
     return (
         <>

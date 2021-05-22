@@ -29,7 +29,7 @@ function Header({ modal, setModal }) {
             </header>
             {modal && (
                 <Modal modal={modal} setModal={setModal} error={error} setError={setError}>
-                    <RegisterForm setError={setError} />
+                    <RegisterForm setModal={setModal} setError={setError} />
                 </Modal>
             )}{' '}
         </>

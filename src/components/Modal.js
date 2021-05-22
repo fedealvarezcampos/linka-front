@@ -34,7 +34,7 @@ function Modal({ children, modal, setModal, error, setError }) {
             )}
             {error && (
                 <animated.div style={slideAnime} className="errorMsg">
-                    {error.error}
+                    {error}
                 </animated.div>
             )}
             {!error && <div className="errorMsg hidden"></div>}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { register } from '../api/users';
 
-function RegisterForm({ onLogin, setError, setAnimActive, animActive }) {
+function RegisterForm({ onLogin, setError, setModal }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,25 +11,19 @@ function RegisterForm({ onLogin, setError, setAnimActive, animActive }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await fetch('http://localhost:3001/api/users', {
-            method: 'POST',
-            body: JSON.stringify({ username, email, password, confirmPass }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        if (res.ok) {
-            const result = await res.json();
-            setData(result);
-            onLogin(data);
-        } else {
-            const err = await res.json();
-            setError(err);
+        try {
+            const response = await register({
+                username,
+                email,
+                password,
+                confirmPass,
+            });
+            setData(response);
+            setModal(false);
+        } catch (error) {
+            setError(error.response.data.error);
         }
     };
-
-    // if (completed) {
-    // }
 
     return (
         <form onSubmit={handleSubmit}>

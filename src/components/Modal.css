@@ -5,6 +5,7 @@
     width: 100vw;
     height: 100vh;
     gap: 1.5rem;
+    z-index: 100;
     place-items: center;
 }
 
@@ -16,11 +17,9 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    z-index: 5;
 }
 
 .modal-fg {
-    z-index: 10;
     align-self: end;
     width: 300px;
     height: 400px;
@@ -29,6 +28,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 40px 40px 40px 0;
+    z-index: 100;
     border: 8px solid var(--base-light-color);
     background-color: var(--highlight-color);
     color: var(--base-light-color);

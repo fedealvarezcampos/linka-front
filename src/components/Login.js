@@ -1,51 +1,47 @@
 import { useState } from 'react';
-import './Login.css';
-import { useSetUser } from './UserContext';
+import { Redirect } from 'react-router-dom';
+import { useSetUser, useUser } from './UserContext';
+import { login } from '../api/users';
 
-function LoginModal({ setSignup, closeModal }) {
+function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const user = useUser();
     const setUser = useSetUser();
 
-    const handleLogin = async e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        const res = await fetch('http://poi-api.trek-quest.com/api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (res.ok) {
-            const data = await res.json();
+        try {
+            const data = login({ username, password });
             setUser(data);
-            closeModal();
-        }
+        } catch (error) {}
     };
 
+    if (user) {
+        return <Redirect to="/" />;
+    }
+
     return (
-        <form onSubmit={handleLogin}>
-            <h1>Iniciar sesión</h1>
-            <label>
-                Usuario:
-                <input name="username" value={username} onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Contraseña:
+        <div className="login">
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    name="username"
+                    placeholder="Username..."
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                />
                 <input
                     name="password"
                     type="password"
+                    placeholder="Password..."
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-            </label>
-            <button>Iniciar sesión</button>
-            <p>
-                Aún no tienes cuenta?
-                <button type="button" onClick={() => setSignup(true)}>
-                    Regístrate
-                </button>
-            </p>
-        </form>
+                <button>Log in</button>
+            </form>
+        </div>
     );
 }
 
-export default LoginModal;
+export default Login;

@@ -10,7 +10,6 @@ const UserProfile = () => {
     const [modal, setModal] = useState(false);
     const { username } = useParams();
     const profileData = useGetProfile(username);
-    console.log(profileData);
 
     if (!profileData) {
         return <div>Loading...</div>;

@@ -3,7 +3,6 @@ import './Post.css';
 
 function Post({ post, user }) {
     const postDate = new Date(post.created_date).toLocaleString();
-    console.log(postDate.toLocaleString());
 
     return (
         <li className="postContainer">
