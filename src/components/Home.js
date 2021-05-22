@@ -1,18 +1,15 @@
-import { useState } from 'react';
+import { useModal, useSetModal } from '../context/ModalContext';
 import { useGetPosts } from '../api/posts';
 import Header from './Header';
 import Post from './Post';
-import ShapeDivider from './ShapeDivider';
 
 function Home() {
-    const [modal, setModal] = useState(false);
-
     const postsData = useGetPosts();
 
     return (
         <>
             <div className="App">
-                <Header modal={modal} setModal={setModal} />
+                <Header />
                 <ul className="postListContainer">
                     {postsData && postsData.map(post => <Post key={post.postId} post={post} />)}
                 </ul>

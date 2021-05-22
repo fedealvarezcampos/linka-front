@@ -1,16 +1,18 @@
 import { animated } from 'react-spring';
 import { useState } from 'react';
-import { useHoverAnimation } from '../resource/anime';
+// import { useHoverAnimation } from '../resource/anime';
 import './LinkPreview.css';
 
 function LinkPreview({ post }) {
     const [hover, setHover] = useState();
+    const [active, setActive] = useState();
 
     return (
-        <animated.a
-            style={useHoverAnimation(hover)}
-            onMouseOver={() => setHover(true)}
-            onMouseOut={() => setHover(false)}
+        <a
+            // style={useHoverAnimation(hover, active)}
+            // onMouseOver={() => setHover(true)}
+            // onMouseOut={() => setHover(false)}
+            // onClick={() => setActive(true)}
             className="linkPrevContainer"
             href={post.link}
         >
@@ -23,7 +25,7 @@ function LinkPreview({ post }) {
                 <p className="linkPrevTitle">{post.linkTitle}</p>
                 <p className="linkPrevDesc">{post.linkDesc}</p>
             </div>
-        </animated.a>
+        </a>
     );
 }
 

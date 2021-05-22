@@ -1,19 +1,20 @@
-import { useState } from 'react';
 import { useUser } from '../context/UserContext';
-import RegisterForm from './RegisterForm';
-import Modal from './Modal';
+import { useSetModal } from '../context/ModalContext';
+import { NavLink } from 'react-router-dom';
 import NavProfile from './NavProfile.js';
 import users from './users.json';
 import './Header.css';
 
-function Header({ modal, setModal }) {
+function Header() {
     const user = useUser();
-    const [error, setError] = useState();
+    const setModal = useSetModal();
 
     return (
         <>
             <header className="header">
-                <div className="logo">LOGO</div>
+                <NavLink className="logo" to="/">
+                    LOGO
+                </NavLink>
                 {user ? (
                     <NavProfile user={users} />
                 ) : (
@@ -27,11 +28,6 @@ function Header({ modal, setModal }) {
                     </div>
                 )}
             </header>
-            {modal && (
-                <Modal modal={modal} setModal={setModal} error={error} setError={setError}>
-                    <RegisterForm setModal={setModal} setError={setError} />
-                </Modal>
-            )}{' '}
         </>
     );
 }

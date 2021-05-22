@@ -10,13 +10,13 @@ const useSlideAnimation = () =>
         reset: true,
     });
 
-const useHoverAnimation = hover =>
-    useSpring({
-        config: { tension: 1100, friction: 30 },
-        to: {
-            transform: hover ? 'scale(1.02)' : 'scale(1)',
-        },
-        reset: true,
-    });
+// const useHoverAnimation = (hover, active) =>
+//     useSpring({
+//         config: { tension: 1100, friction: 30 },
+//         to: {
+//             transform: hover ? 'scale(1.02)' : 'scale(1)',
+//         },
+//         reset: true,
+//     });
 
-export { useFadeAnimation, useSlideAnimation, useHoverAnimation };
+export { useFadeAnimation, useSlideAnimation };

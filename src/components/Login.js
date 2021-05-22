@@ -14,7 +14,9 @@ function Login() {
         try {
             const data = login({ username, password });
             setUser(data);
-        } catch (error) {}
+        } catch (error) {
+            setError(error.response.data.error);
+        }
     };
 
     if (user) {

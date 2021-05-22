@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
 import App from './App';
 import UserContextProvider from './context/UserContext';
+import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
+import './index.css';
 
 ReactDOM.render(
     <React.StrictMode>
         <UserContextProvider>
-            <Router>
-                <App />
-            </Router>
+            <ModalContextProvider>
+                <Router>
+                    <App />
+                </Router>
+            </ModalContextProvider>
         </UserContextProvider>
     </React.StrictMode>,
     document.getElementById('root')

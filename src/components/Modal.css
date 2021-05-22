@@ -1,12 +1,12 @@
 .modal-container {
     display: grid;
-    grid: 55vh 20vh / 1fr;
+    grid: 70vh 3vh / 1fr;
+    place-items: center;
     position: fixed;
     width: 100vw;
     height: 100vh;
     gap: 1.5rem;
     z-index: 100;
-    place-items: center;
 }
 
 .modal-bg {
@@ -20,18 +20,18 @@
 }
 
 .modal-fg {
-    align-self: end;
     width: 300px;
     height: 400px;
-    padding: 40px 12px 42px 11px;
+    z-index: 100;
+    align-self: end;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
+    padding: 40px 12px 42px 11px;
     border-radius: 40px 40px 40px 0;
-    z-index: 100;
     border: 8px solid var(--base-light-color);
-    background-color: var(--highlight-color);
     color: var(--base-light-color);
+    background-color: var(--highlight-color);
 }
 
 .modal-fg form {

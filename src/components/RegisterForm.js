@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { register } from '../api/users';
 
-function RegisterForm({ onLogin, setError, setModal }) {
+function RegisterForm({ setError, setModal }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    const [data, setData] = useState();
-    // const [completed, setCompleted] = useState(false);
+    const [, setData] = useState();
+    const [completed, setCompleted] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -19,11 +20,16 @@ function RegisterForm({ onLogin, setError, setModal }) {
                 confirmPass,
             });
             setData(response);
+            setCompleted(true);
             setModal(false);
         } catch (error) {
             setError(error.response.data.error);
         }
     };
+
+    if (completed) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <form onSubmit={handleSubmit}>
