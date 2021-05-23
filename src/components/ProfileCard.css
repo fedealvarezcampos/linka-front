@@ -4,7 +4,7 @@
     font-family: 'Fira Sans', sans-serif;
     margin-top: 3.8rem;
     padding: 0.75rem 0.5rem 2.6rem 0.5rem;
-    border-radius: 12px 12px 12px 0px;
+    border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
 }
 
@@ -14,7 +14,7 @@
     gap: 3px;
     grid: auto / auto auto;
     align-items: baseline;
-    margin: 0.1rem 0 0.65rem 0.3rem;
+    margin: 0.1rem 0 0.65rem 0.4rem;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.02em;

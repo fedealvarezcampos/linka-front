@@ -40,11 +40,11 @@
     margin-top: 3.8rem;
     width: clamp(20rem, 60vw, 50rem);
     height: auto;
-    border-radius: 12px 12px 12px 0px;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.26;
+    border-radius: 16px 16px 16px 0px;
     background-color: var(--base-light-color);
 }
 
@@ -68,7 +68,7 @@
     display: grid;
     grid: 1fr / auto auto;
     width: 95%;
-    margin: 0.1rem auto auto auto;
+    margin: 0.15rem auto auto auto;
     font-size: 1rem;
     font-weight: 800;
     font-family: 'Roboto', sans-serif;

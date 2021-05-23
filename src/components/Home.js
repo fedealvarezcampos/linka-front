@@ -9,7 +9,6 @@ function Home() {
     return (
         <>
             <div className="App">
-                <Header />
                 <ul className="postListContainer">
                     {postsData && postsData.map(post => <Post key={post.postId} post={post} />)}
                 </ul>

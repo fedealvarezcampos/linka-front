@@ -1,4 +1,4 @@
-import { useClosingKey } from '../hooks/keyHooks';
+import { useClosingKey } from '../hooks/useClosingKey';
 import { useModal, useSetModal } from '../context/ModalContext';
 import { animated } from 'react-spring';
 import { useFadeAnimation, useSlideAnimation } from '../assets/anime';

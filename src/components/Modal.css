@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     gap: 1.5rem;
-    z-index: 100;
+    z-index: 2400;
 }
 
 .modal-bg {
@@ -22,7 +22,7 @@
 .modal-fg {
     width: 300px;
     height: 400px;
-    z-index: 100;
+    z-index: 2500;
     align-self: end;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1.2rem;

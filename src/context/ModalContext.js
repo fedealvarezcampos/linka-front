@@ -3,7 +3,7 @@ import { useState, createContext, useContext } from 'react';
 const ModalContext = createContext();
 
 function ModalContextProvider({ children }) {
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState();
 
     return <ModalContext.Provider value={[modal, setModal]}>{children}</ModalContext.Provider>;
 }

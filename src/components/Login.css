@@ -1,0 +1,35 @@
+.login {
+    position: fixed;
+    right: 10.4rem;
+    top: 7.5rem;
+    width: 16rem;
+    height: auto;
+    z-index: 100;
+    align-self: end;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 16px 22px 22px 22px;
+    border-radius: 0 0 40px 0;
+    border: 8px solid var(--base-light-color);
+    color: var(--base-light-color);
+    background-color: var(--item-bg-color);
+}
+
+.login input {
+    padding: 0.52rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.9rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    border: 4px solid var(--base-light-color);
+    color: var(--base-light-color);
+    background-color: var(--posts-color);
+}
+
+.login button {
+    align-self: start;
+    justify-self: end;
+    margin-top: 0.4rem;
+}

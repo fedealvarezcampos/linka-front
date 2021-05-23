@@ -1,4 +1,4 @@
-import useAPIGet from '../hooks/APIhooks';
+import useAPIGet from '../hooks/useAPIGet';
 import axios from 'axios';
 
 const baseURL = 'http://localhost:3001/api';

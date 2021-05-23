@@ -1,19 +1,27 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSetUser, useUser } from './UserContext';
+import { useSetUser, useUser } from '../context/UserContext';
 import { login } from '../api/users';
+import './anims.css';
+import './Login.css';
 
-function Login() {
-    const [username, setUsername] = useState('');
+function Login({ setError, nodeRef }) {
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const user = useUser();
     const setUser = useSetUser();
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const data = login({ username, password });
-            setUser(data);
+            const response = await login({
+                email,
+                password,
+            });
+            setUser(response);
+            // setCompleted(true);
+            // setModal(false);
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -24,23 +32,17 @@ function Login() {
     }
 
     return (
-        <div className="login">
-            <h1>Login</h1>
+        <div ref={nodeRef} className="login dropMenu">
             <form onSubmit={handleSubmit}>
+                <input placeholder="email@email.com" value={email} onChange={e => setEmail(e.target.value)} />
+                <br />
                 <input
-                    name="username"
-                    placeholder="Username..."
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password..."
+                    placeholder="pass"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    type="password"
                 />
-                <button>Log in</button>
+                <button className="button">LOG IN</button>
             </form>
         </div>
     );

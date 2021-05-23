@@ -17,7 +17,6 @@ const UserProfile = () => {
 
     return (
         <>
-            <Header modal={modal} setModal={setModal} />
             <div className="userPageContainer">
                 <ul className="postListContainer">
                     {profileData &&
