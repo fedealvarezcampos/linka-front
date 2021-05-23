@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
+import { useModal, useSetModal } from '../context/ModalContext';
 
-const useEscapingKey = (modal, setModal) => {
+const useClosingKey = key => {
+    const modal = useModal();
+    const setModal = useSetModal();
+
     useEffect(() => {
         const f = e => {
             if (e.code === 'Escape') {
@@ -8,10 +12,10 @@ const useEscapingKey = (modal, setModal) => {
             }
         };
         window.addEventListener('keydown', f);
-        return window.removeEventListener('keydown', f);
+        return () => window.removeEventListener('keydown', f);
     }, [setModal]);
 
     return modal;
 };
 
-export default useEscapingKey;
+export { useClosingKey };

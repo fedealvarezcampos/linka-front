@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useClosingKey } from '../hooks/keyHooks';
 import { useModal, useSetModal } from '../context/ModalContext';
 import { animated } from 'react-spring';
-import { useFadeAnimation, useSlideAnimation } from '../resource/anime';
+import { useFadeAnimation, useSlideAnimation } from '../assets/anime';
 import './Modal.css';
 
 function Modal({ children, error, setError }) {
@@ -15,15 +15,7 @@ function Modal({ children, error, setError }) {
         setError();
     };
 
-    useEffect(() => {
-        const f = e => {
-            if (e.code === 'Escape') {
-                setModal(false);
-            }
-        };
-        window.addEventListener('keydown', f);
-        return () => window.removeEventListener('keydown', f);
-    }, [setModal]);
+    useClosingKey('Escape');
 
     return (
         <div className="modal-container">
