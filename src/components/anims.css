@@ -50,7 +50,7 @@
     0% {
         transform: rotateX(-90deg);
     }
-    70% {
+    60% {
         transform: rotateX(20deg);
     }
     100% {

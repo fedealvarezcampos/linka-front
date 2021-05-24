@@ -1,0 +1,67 @@
+.errorContainer {
+    height: 100vh;
+    width: 100vw;
+}
+
+.notfound {
+    display: grid;
+    gap: 0.8rem;
+    height: 100%;
+    width: 100%;
+    place-content: center;
+    justify-items: center;
+}
+
+.notfound .notfound-404 h1 {
+    margin: 0px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 18.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -50px;
+    margin-top: -3.2rem;
+    margin-bottom: -3rem;
+    margin-left: -55px;
+}
+
+.notfound .notfound-404 h1 > span {
+    text-shadow: -8px 0px 0px var(--highlight-color);
+}
+
+.notfound .notfound-404 h3 {
+    color: var(--highlight-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.notfound h2 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--base-light-color);
+    text-shadow: -3px 2px 0px var(--highlight-color);
+}
+
+.notfound p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--highlight-color);
+}
+
+.notfound .button {
+    font-size: 0.9rem;
+    width: 6.8rem;
+    padding: 0.6rem 0.4rem 0.6rem 0.4rem;
+    margin-top: 0.4rem;
+    color: var(--base-light-color);
+    background-color: var(--highlight-color);
+    border: 5px solid var(--base-light-color);
+}

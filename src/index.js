@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
+import ErrorBoundary from './components/ErrorBoundary';
 import UserContextProvider from './context/UserContext';
 import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
@@ -12,7 +13,9 @@ ReactDOM.render(
         <UserContextProvider>
             <ModalContextProvider>
                 <Router>
-                    <App />
+                    <ErrorBoundary>
+                        <App />
+                    </ErrorBoundary>
                 </Router>
             </ModalContextProvider>
         </UserContextProvider>

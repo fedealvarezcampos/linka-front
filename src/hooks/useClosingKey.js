@@ -1,24 +1,6 @@
 import { useEffect } from 'react';
-import { useModal, useSetModal } from '../context/ModalContext';
 
-const useClosingKey = key => {
-    const modal = useModal();
-    const setModal = useSetModal();
-
-    useEffect(() => {
-        const f = e => {
-            if (e.code === key) {
-                setModal(false);
-            }
-        };
-        window.addEventListener('keydown', f);
-        return () => window.removeEventListener('keydown', f);
-    }, [setModal, key]);
-
-    return modal;
-};
-
-const useClosingLoginKey = (key, state, setState) => {
+const useClosingKey = (key, state, setState) => {
     useEffect(() => {
         const f = e => {
             if (e.code === key) {
@@ -32,4 +14,4 @@ const useClosingLoginKey = (key, state, setState) => {
     return state;
 };
 
-export { useClosingKey, useClosingLoginKey };
+export { useClosingKey };

@@ -28,8 +28,24 @@
     background-color: var(--posts-color);
 }
 
+.login input:focus {
+    outline: none;
+    border: 4px solid var(--alt-highlight-color);
+}
+
+.login input::placeholder {
+    color: var(--base-light-color);
+    opacity: 0.4;
+}
+
 .login button {
+    width: 5.8rem;
     align-self: start;
     justify-self: end;
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
+    padding: 0.6rem 0.4rem 0.6rem 0.4rem;
+    border-radius: 14px 14px 14px 0;
+    border: 4px solid var(--base-light-color);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
 }

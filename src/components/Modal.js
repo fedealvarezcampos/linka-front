@@ -15,7 +15,8 @@ function Modal({ children, error, setError }) {
         setError();
     };
 
-    useClosingKey('Escape');
+    // useClosingKey('Escape');
+    useClosingKey('Escape', modal, setModal);
 
     return (
         <div className="modal-container">

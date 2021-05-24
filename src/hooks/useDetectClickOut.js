@@ -4,8 +4,8 @@ function useDetectClickOut(initState) {
     const nodeRef = useRef(null);
 
     const [show, setShow] = useState(initState);
-    const handleClickOutside = event => {
-        if (nodeRef.current && !nodeRef.current.contains(event.target)) {
+    const handleClickOutside = e => {
+        if (nodeRef.current && !nodeRef.current.contains(e.target)) {
             return setShow(false);
         }
     };
