@@ -1,7 +1,10 @@
 function NavProfile({ user }) {
     return (
         <div className="navProfile">
-            <img src={user.avatar} alt="Avatar" />
+            <div
+                className="avatar"
+                style={{ backgroundImage: `url(http://localhost:3001/images/avatars/${user.avatar})` }}
+            />
             <div>
                 <p>{user.username}</p>
                 <p className="love">
@@ -14,3 +17,5 @@ function NavProfile({ user }) {
 }
 
 export default NavProfile;
+
+// /home/fede/linka/static/images/avatars/10b16a10-884f-492b-9cd8-358a6651098f.jpg

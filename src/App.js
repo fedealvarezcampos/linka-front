@@ -36,6 +36,9 @@ function App() {
                 <Route path="/users/:username" exact>
                     <UserProfile />
                 </Route>
+                <Route path="/">
+                    <div>TODOMAL</div>
+                </Route>
             </Switch>
             <ShapeDivider />
         </>

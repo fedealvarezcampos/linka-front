@@ -13,7 +13,7 @@ const ProfileCard = ({ user }) => {
             <div className="userCardContent">
                 <div
                     className="userCardAvatar"
-                    style={{ backgroundImage: `url(https://i.imgur.com/AWJbxCk.jpg)` }}
+                    style={{ backgroundImage: `url(http://localhost:3001/images/avatars/${user.avatar})` }}
                     alt="user avatar"
                 ></div>
                 <div className="userCardSocial"></div>
