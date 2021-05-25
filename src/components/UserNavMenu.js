@@ -1,6 +1,9 @@
+import { useUser } from '../context/UserContext';
 import './UserNavMenu.css';
 
-function UserNavMenu({ user, show, nodeRef }) {
+function UserNavMenu({ show, nodeRef }) {
+    const user = useUser();
+
     return (
         <>
             {show && user && (

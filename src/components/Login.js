@@ -10,6 +10,7 @@ function Login({ setError, nodeRef, setShow }) {
 
     const user = useUser();
     const setUser = useSetUser();
+    const [completed, setCompleted] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -20,14 +21,14 @@ function Login({ setError, nodeRef, setShow }) {
             });
             setShow(false);
             setUser(response);
-            // setCompleted(true);
+            setCompleted(true);
             // setModal(false);
         } catch (error) {
             setError(error.response.data.error);
         }
     };
 
-    if (user) {
+    if (completed) {
         return <Redirect to="/" />;
     }
 

@@ -7,7 +7,7 @@ function RegisterForm({ setError, setModal }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    const [, setData] = useState();
+    // const [, setData] = useState();
     const [completed, setCompleted] = useState(false);
 
     const handleSubmit = async e => {
@@ -19,7 +19,7 @@ function RegisterForm({ setError, setModal }) {
                 password,
                 confirmPass,
             });
-            setData(response);
+            // setData(response);
             setCompleted(true);
             setModal(false);
         } catch (error) {
