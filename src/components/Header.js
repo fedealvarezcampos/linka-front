@@ -21,8 +21,9 @@ function Header({ error, setError }) {
                 <NavLink className="logo" to="/">
                     LOGO
                 </NavLink>
-                {show && <Login setShow={setShow} nodeRef={nodeRef} error={error} setError={setError} />}
-                <UserNavMenu user={user} show={show} nodeRef={nodeRef} />
+                {show && !user && (
+                    <Login setShow={setShow} nodeRef={nodeRef} error={error} setError={setError} />
+                )}
                 {user ? (
                     <NavProfile setShow={setShow} nodeRef={nodeRef} user={user} />
                 ) : (
@@ -35,6 +36,7 @@ function Header({ error, setError }) {
                         </button>
                     </div>
                 )}
+                <UserNavMenu show={show} nodeRef={nodeRef} />
             </header>
         </>
     );
