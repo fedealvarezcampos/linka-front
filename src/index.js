@@ -1,24 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
-import UserContextProvider from './context/UserContext';
 import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
 import './index.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <UserContextProvider>
-            <ModalContextProvider>
-                <Router>
-                    <ErrorBoundary>
+        <ModalContextProvider>
+            <Router>
+                <ErrorBoundary>
+                    <Provider store={store}>
                         <App />
-                    </ErrorBoundary>
-                </Router>
-            </ModalContextProvider>
-        </UserContextProvider>
+                    </Provider>
+                </ErrorBoundary>
+            </Router>
+        </ModalContextProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

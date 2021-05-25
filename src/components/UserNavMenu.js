@@ -1,8 +1,21 @@
-import { useUser } from '../context/UserContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import './UserNavMenu.css';
 
-function UserNavMenu({ show, nodeRef }) {
-    const user = useUser();
+function UserNavMenu({ show, setShow, nodeRef }) {
+    const user = useSelector(s => s.user);
+    const dispatch = useDispatch();
+
+    const handleLogout = e => {
+        e.stopPropagation();
+        setShow(false);
+        dispatch({ type: 'LOGOUT' });
+        <Redirect to="/" />;
+    };
+
+    if (!user) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <>
@@ -16,7 +29,7 @@ function UserNavMenu({ show, nodeRef }) {
                         <i className="bi bi-gear-fill"></i>
                         <span>Settings</span>
                     </div>
-                    <div className="userMenuLogOutLink">
+                    <div className="userMenuLogOutLink" onClick={handleLogout}>
                         <i className="bi bi-door-closed-fill"></i>
                         <span>Log out</span>
                     </div>

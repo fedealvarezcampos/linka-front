@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSetUser, useUser } from '../context/UserContext';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../api/users';
 import './Login.css';
 
@@ -8,9 +8,8 @@ function Login({ setError, nodeRef, setShow }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const user = useUser();
-    const setUser = useSetUser();
-    const [completed, setCompleted] = useState();
+    const isLoggedIn = useSelector(s => !!s.user);
+    const dispatch = useDispatch();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -20,15 +19,16 @@ function Login({ setError, nodeRef, setShow }) {
                 password,
             });
             setShow(false);
-            setUser(response);
-            setCompleted(true);
+            dispatch({ type: 'LOGIN', user: response });
+            // setUser(response);
+            // setCompleted(true);
             // setModal(false);
         } catch (error) {
             setError(error.response.data.error);
         }
     };
 
-    if (completed) {
+    if (isLoggedIn) {
         return <Redirect to="/" />;
     }
 

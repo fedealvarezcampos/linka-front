@@ -1,16 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-// import userReducer from './userReducer';
-
-const userReducer = (state = null, action) => {
-    switch (action.type) {
-        case 'LOGIN':
-            return action.user;
-        case 'LOGOUT':
-            return null;
-        default:
-            return state;
-    }
-};
+import userReducer from './userReducer';
 
 const localStorageMiddleware = store => next => action => {
     let result = next(action);
