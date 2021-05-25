@@ -1,6 +1,4 @@
-import { useModal, useSetModal } from '../context/ModalContext';
 import { useGetPosts } from '../api/posts';
-import Header from './Header';
 import Post from './Post';
 
 function Home() {

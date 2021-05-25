@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSetUser, useUser } from '../context/UserContext';
 import { login } from '../api/users';
-import './anims.css';
 import './Login.css';
 
-function Login({ setError, nodeRef }) {
+function Login({ setError, nodeRef, setShow }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,6 +18,7 @@ function Login({ setError, nodeRef }) {
                 email,
                 password,
             });
+            setShow(false);
             setUser(response);
             // setCompleted(true);
             // setModal(false);

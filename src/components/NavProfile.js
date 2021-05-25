@@ -1,12 +1,17 @@
-function NavProfile({ user }) {
+import { useClosingKey } from '../hooks/useClosingKey';
+
+function NavProfile({ user, show, setShow }) {
+    useClosingKey('Escape', show, setShow);
+
     return (
-        <div className="navProfile">
+        <div onClick={() => setShow(true)} className="navProfile">
+            <i className="bi bi-caret-down-fill"></i>
             <div
                 className="avatar"
                 style={{ backgroundImage: `url(http://localhost:3001/images/avatars/${user.avatar})` }}
             />
             <div>
-                <p>{user.username}</p>
+                <p className="profileName">{user.username}</p>
                 <p className="love">
                     {user.love}
                     <i className="ci-heart_fill"></i>

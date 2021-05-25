@@ -1,7 +1,10 @@
 import './ErrorMessage.css';
 import ShapeDivider from './ShapeDivider';
+import { NavLink } from 'react-router-dom';
 
 const ErrorMessage = () => {
+    const reload = () => window.location.reload();
+
     return (
         <>
             <div className="errorContainer">
@@ -20,7 +23,16 @@ const ErrorMessage = () => {
                         was not found
                     </h2>
                     <p>maybe try again?</p>
-                    <button className="error button">RELOAD</button>
+                    <div className="errorButtonsContainer">
+                        <button className="reload button" onClick={reload}>
+                            RELOAD
+                        </button>
+                        <NavLink to="/">
+                            <button className="home button" onClick={reload}>
+                                HOME
+                            </button>
+                        </NavLink>
+                    </div>
                 </div>
                 <ShapeDivider />
             </div>

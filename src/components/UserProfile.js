@@ -1,13 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { useGetProfile } from '../api/users';
-import './UserProfile.css';
 import Post from '../components/Post';
-import Header from '../components/Header';
 import ProfileCard from '../components/ProfileCard';
+import './UserProfile.css';
 
 const UserProfile = () => {
-    const [modal, setModal] = useState(false);
     const { username } = useParams();
     const profileData = useGetProfile(username);
 

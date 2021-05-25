@@ -19,4 +19,4 @@ const useHoverAnimation = hover =>
         reset: true,
     });
 
-export { useFadeAnimation, useSlideAnimation };
+export { useFadeAnimation, useSlideAnimation, useHoverAnimation };

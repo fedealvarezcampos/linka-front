@@ -1,0 +1,29 @@
+.userMenu.dropMenu {
+    display: grid;
+    /* grid: auto auto auto / auto; */
+    position: fixed;
+    right: 0.5rem;
+    top: 7.05rem;
+    min-width: 12rem;
+    height: 10rem;
+    z-index: 80;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 10px 26px 5px 26px;
+    border-radius: 0 0 0 30px;
+    border: 6px solid var(--base-light-color);
+    border-top: none;
+    color: var(--base-light-color);
+    background-color: var(--highlight-color);
+}
+
+.userMenu .userMenuLogOutLink {
+    padding-top: 0.8rem;
+    border-top: 2px solid var(--base-light-color);
+}
+
+.userMenu span {
+    padding-left: 0.4rem;
+}
