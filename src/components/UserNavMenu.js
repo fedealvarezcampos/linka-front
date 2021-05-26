@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './UserNavMenu.css';
 
 function UserNavMenu({ show, setShow, nodeRef }) {
@@ -23,7 +23,9 @@ function UserNavMenu({ show, setShow, nodeRef }) {
                 <div ref={nodeRef} className="userMenu dropMenu">
                     <div className="userMenuProfileLink">
                         <i className="bi bi-file-person-fill"></i>
-                        <span>Profile</span>
+                        <Link to={`/users/${user.username}`}>
+                            <span>Profile</span>
+                        </Link>
                     </div>
                     <div className="userMenuSettingsLink">
                         <i className="bi bi-gear-fill"></i>

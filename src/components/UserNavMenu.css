@@ -8,10 +8,10 @@
     height: 10rem;
     z-index: 80;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    padding: 10px 26px 5px 26px;
+    padding: 10px 26px 2px 26px;
     border-radius: 0 0 0 30px;
     border: 6px solid var(--base-light-color);
     border-top: none;

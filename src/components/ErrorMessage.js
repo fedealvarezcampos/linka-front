@@ -3,7 +3,10 @@ import ShapeDivider from './ShapeDivider';
 import { NavLink } from 'react-router-dom';
 
 const ErrorMessage = () => {
-    const reload = () => window.location.reload();
+    const reload = e => {
+        e.stopPropagation();
+        window.location.reload();
+    };
 
     return (
         <>

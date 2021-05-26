@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetProfile } from '../api/users';
-import Post from '../components/Post';
-import ProfileCard from '../components/ProfileCard';
+import Post from './Post';
+import ProfileCard from './ProfileCard';
 import './UserProfile.css';
 
 const UserProfile = () => {

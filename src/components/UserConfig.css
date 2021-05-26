@@ -1,0 +1,51 @@
+.userConfigContainer {
+    display: grid;
+    margin: auto;
+    width: clamp(30rem, 50vw, 35rem);
+    place-items: center;
+    justify-self: center;
+    font-family: 'Fira Sans', sans-serif;
+    margin-top: 3.8rem;
+    padding: 1.9rem 0.3rem 1.8rem 0.3rem;
+    border-radius: 16px 16px 16px 0px;
+    background-color: var(--posts-color);
+}
+
+.userConfigContainer form {
+    display: grid;
+    grid: auto / auto 7.5rem;
+    height: 98%;
+    width: 99%;
+    align-content: center;
+    gap: 1rem;
+    box-sizing: border-box;
+    /* justify-items: center; */
+    padding: 2.8rem 2.2rem 3rem 2.2rem;
+    background-color: var(--profile-bg-color);
+}
+
+.dataContainer {
+    display: grid;
+}
+
+.userConfigContainer label {
+    width: 20rem;
+}
+
+.userConfigContainer input {
+    width: 15rem;
+}
+
+.userConfigContainer .avatarContainer {
+    padding-top: 1.5rem;
+    justify-self: end;
+}
+
+.userConfigContainer .avatar {
+    border-radius: 50%;
+    border: 4px solid var(--base-light-color);
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}

@@ -1,6 +1,10 @@
 import useAPIGet from '../hooks/useAPIGet';
 import axios from 'axios';
 
+// const authConfig = {
+//     headers: { Authorization: `Bearer ${token}` },
+// };
+
 const baseURL = 'http://localhost:3001/api';
 
 const useGetProfile = username => useAPIGet(`${baseURL}/users/${username}`);
@@ -15,4 +19,11 @@ const register = async credentials => {
     return data;
 };
 
-export { useGetProfile, login, register };
+const updateUser = async (username, formData, token) => {
+    const { data } = await axios.put(`${baseURL}/users/${username}`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
+export { useGetProfile, login, register, updateUser };

@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Home from './components/Home';
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
+import UserConfig from './components/UserConfig';
 import Modal from './components/Modal';
 import ShapeDivider from './components/ShapeDivider';
 import RegisterForm from './components/RegisterForm';
+import ErrorMessage from './components/ErrorMessage';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './App.css';
@@ -30,8 +32,11 @@ function App() {
                 <Route path="/users/:username" exact>
                     <UserProfile />
                 </Route>
+                <Route path="/users/:username/settings" exact>
+                    <UserConfig setError={setError} />
+                </Route>
                 <Route path="/">
-                    <div>TODOMAL</div>
+                    <ErrorMessage />
                 </Route>
             </Switch>
             <ShapeDivider />
