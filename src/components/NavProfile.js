@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import { useClosingKey } from '../hooks/useClosingKey';
 
-function NavProfile({ user, show, setShow }) {
+function NavProfile({ show, setShow }) {
+    const user = useSelector(s => s.user);
+
     useClosingKey('Escape', show, setShow);
 
     return (

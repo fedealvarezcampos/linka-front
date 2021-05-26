@@ -9,7 +9,6 @@ import ShapeDivider from './components/ShapeDivider';
 import RegisterForm from './components/RegisterForm';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
-import './components/anims.css';
 import './App.css';
 
 function App() {

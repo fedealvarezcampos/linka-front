@@ -6,16 +6,14 @@ import { useClosingKey } from '../hooks/useClosingKey';
 import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
-import './Header.css';
 
 function Header({ error, setError }) {
     const { show, setShow, nodeRef } = useDetectClickOut(false);
-    const setModal = useSetModal();
-
-    const user = useSelector(s => s.user);
-    const dispatch = useDispatch();
-
     useClosingKey('Escape', show, setShow);
+
+    const setModal = useSetModal();
+    const user = useSelector(s => s.user);
+
     console.log(user);
 
     return (
@@ -28,7 +26,7 @@ function Header({ error, setError }) {
                     <Login setShow={setShow} nodeRef={nodeRef} error={error} setError={setError} />
                 )}
                 {user ? (
-                    <NavProfile setShow={setShow} nodeRef={nodeRef} user={user} />
+                    <NavProfile setShow={setShow} nodeRef={nodeRef} />
                 ) : (
                     <div className="unloggedHead">
                         <button className="button" onClick={() => setShow(true)}>

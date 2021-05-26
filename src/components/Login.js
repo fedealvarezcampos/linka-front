@@ -5,11 +5,11 @@ import { login } from '../api/users';
 import './Login.css';
 
 function Login({ setError, nodeRef, setShow }) {
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const isLoggedIn = useSelector(s => !!s.user);
-    const dispatch = useDispatch();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -20,9 +20,6 @@ function Login({ setError, nodeRef, setShow }) {
             });
             setShow(false);
             dispatch({ type: 'LOGIN', user: response });
-            // setUser(response);
-            // setCompleted(true);
-            // setModal(false);
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -38,7 +35,7 @@ function Login({ setError, nodeRef, setShow }) {
                 <input placeholder="email@email.com" value={email} onChange={e => setEmail(e.target.value)} />
                 <br />
                 <input
-                    placeholder="pass"
+                    placeholder="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     type="password"
