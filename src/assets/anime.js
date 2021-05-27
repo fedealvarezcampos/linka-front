@@ -1,6 +1,13 @@
-import { useSpring } from 'react-spring';
+import { useSpring, useTransition } from 'react-spring';
 
 const useFadeAnimation = () => useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+
+// const useFadeAnimation = modal =>
+//     useTransition(modal, {
+//         from: { opacity: 0 },
+//         enter: { opacity: 1 },
+//         leave: { opacity: 0 },
+//     });
 
 const useSlideAnimation = () =>
     useSpring({

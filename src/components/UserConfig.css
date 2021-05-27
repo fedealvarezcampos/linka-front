@@ -1,7 +1,7 @@
 .userConfigPage {
     display: grid;
     align-content: center;
-    height: 80vh;
+    height: 86vh;
 }
 
 .userConfigContainer {
@@ -11,9 +11,21 @@
     place-items: center;
     font-family: 'Fira Sans', sans-serif;
     /* margin-top: 12vh; */
-    padding: 1.9rem 0.3rem 1.8rem 0.3rem;
+    padding: 1rem 0.3rem 1.8rem 0.3rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
+}
+
+.userConfigContainer span {
+    justify-self: start;
+    display: grid;
+    gap: 3px;
+    grid: auto / auto auto;
+    align-items: baseline;
+    margin-left: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .userConfigContainer form {
@@ -22,9 +34,9 @@
     height: 98%;
     width: 99%;
     align-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
     box-sizing: border-box;
-    padding: 2.8rem 2.2rem 3rem 2.2rem;
+    padding: 2.8rem 2.5rem 3rem 2.2rem;
     background-color: var(--profile-bg-color);
 }
 
@@ -41,29 +53,44 @@
 }
 
 .userConfigContainer textarea {
-    min-width: 18rem;
-    max-width: 20rem;
+    min-width: 20rem;
+    max-width: 22rem;
     min-height: 5rem;
     height: 8rem;
     max-height: 15rem;
 }
 
 .userConfigContainer .avatarContainer {
+    position: relative;
     padding-top: 1.5rem;
     justify-self: end;
+    will-change: transform;
+}
+
+.userConfigContainer .avatarContainer i {
+    position: absolute;
+    top: 6.2rem;
+    float: right;
+    padding: 0.3rem;
+    border-radius: 25%;
+    font-size: 1.2rem;
+    background-color: var(--posts-color);
+    border: 4px solid var(--base-light-color);
 }
 
 .userConfigContainer .avatar {
+    cursor: pointer;
     border-radius: 50%;
-    border: 6px solid var(--base-light-color);
     width: 100px;
     height: 100px;
     background-size: cover;
     background-position: center;
-    transition: border 150ms ease-in-out;
+    border: 6px solid var(--base-light-color);
+    transition: all 150ms ease-in-out;
 }
 
 .userConfigContainer .avatar:hover {
     border: 6px solid var(--alt-highlight-color);
-    transition: border 350ms ease-in-out;
+    transform: translatey(-1px);
+    transition: all 250ms ease-in-out;
 }

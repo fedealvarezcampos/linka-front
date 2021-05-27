@@ -1,6 +1,7 @@
-import { Switch, Route } from 'react-router-dom';
-import { useModal } from './context/ModalContext';
 import { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { useModal } from './context/ModalContext';
 import Home from './components/Home';
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
@@ -19,6 +20,9 @@ function App() {
 
     return (
         <>
+            <Helmet>
+                <title>Linkah</title>
+            </Helmet>
             {modal && (
                 <Modal error={error} setError={setError}>
                     <RegisterForm setError={setError} />
@@ -32,7 +36,7 @@ function App() {
                 <Route path="/users/:username" exact>
                     <UserProfile />
                 </Route>
-                <Route path="/users/:username/settings" exact>
+                <Route path="/settings" exact>
                     <UserConfig setError={setError} />
                 </Route>
                 <Route path="/">

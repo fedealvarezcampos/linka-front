@@ -36,11 +36,22 @@
     font-weight: 800;
     font-style: italic;
     color: var(--base-light-color);
-    transition: color 500ms;
+    transition: all 500ms;
 }
 
 .header .navProfile:hover {
     cursor: pointer;
+}
+
+.header .navProfile:hover .bi-caret-down-fill {
+    color: var(--alt-highlight-color);
+    transition: color 250ms ease-in-out;
+}
+
+.header .navProfile:hover .avatar {
+    border: 4px solid var(--alt-highlight-color);
+    transform: translatey(-1px);
+    transition: all 500ms ease-in-out;
 }
 
 .header .navProfile i {
@@ -83,10 +94,10 @@
     border-radius: 50%;
     transition: border 500ms;
 }
-.header .navProfile .avatar:hover {
+/* .header .navProfile .avatar:hover {
     border: 4px solid var(--alt-highlight-color);
     transition: border 500ms;
-}
+} */
 
 .header .navProfile p {
     margin: 0;

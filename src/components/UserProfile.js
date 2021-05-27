@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useGetProfile } from '../api/users';
 import Post from './Post';
 import ProfileCard from './ProfileCard';
@@ -14,6 +15,9 @@ const UserProfile = () => {
 
     return (
         <>
+            <Helmet>
+                <title>{`${username} - Linkah`}</title>
+            </Helmet>
             <div className="userPageContainer">
                 <ul className="postListContainer">
                     {profileData &&

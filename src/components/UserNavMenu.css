@@ -27,3 +27,21 @@
 .userMenu span {
     padding-left: 0.4rem;
 }
+
+.userMenuProfileLink a {
+    color: var(--base-light-color);
+    text-decoration: none;
+}
+
+.userMenuSettingsLink a {
+    color: var(--base-light-color);
+    text-decoration: none;
+}
+
+.userMenuProfileLink .active {
+    color: var(--alt-highlight-color);
+}
+
+.userMenuSettingsLink .active {
+    color: var(--alt-highlight-color);
+}

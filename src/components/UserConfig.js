@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateUser } from '../api/users';
@@ -46,8 +47,14 @@ function UserConfig({ setError }) {
 
     return (
         <>
+            <Helmet>
+                <title>{`Settings | Linkah`}</title>
+            </Helmet>
             <div className="userConfigPage">
                 <div className="userConfigContainer">
+                    <span>
+                        profile | settings<i className="bi bi-file-person-fill"></i>
+                    </span>
                     <form onSubmit={handleSubmit}>
                         <div className="dataContainer">
                             <label>
@@ -126,6 +133,7 @@ function UserConfig({ setError }) {
                                 />
                                 <input onChange={handleFile} type="file" />
                             </label>
+                            <i class="bi bi-camera2"></i>
                         </div>
                         <button className="button">SEND</button>
                     </form>
