@@ -1,11 +1,16 @@
+.userConfigPage {
+    display: grid;
+    align-content: center;
+    height: 80vh;
+}
+
 .userConfigContainer {
     display: grid;
     margin: auto;
-    width: clamp(30rem, 50vw, 35rem);
+    width: clamp(28rem, 60vw, 35rem);
     place-items: center;
-    justify-self: center;
     font-family: 'Fira Sans', sans-serif;
-    margin-top: 3.8rem;
+    /* margin-top: 12vh; */
     padding: 1.9rem 0.3rem 1.8rem 0.3rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
@@ -13,13 +18,12 @@
 
 .userConfigContainer form {
     display: grid;
-    grid: auto / auto 7.5rem;
+    grid: auto / auto auto;
     height: 98%;
     width: 99%;
     align-content: center;
     gap: 1rem;
     box-sizing: border-box;
-    /* justify-items: center; */
     padding: 2.8rem 2.2rem 3rem 2.2rem;
     background-color: var(--profile-bg-color);
 }
@@ -29,11 +33,19 @@
 }
 
 .userConfigContainer label {
-    width: 20rem;
+    width: 14rem;
 }
 
 .userConfigContainer input {
-    width: 15rem;
+    width: 14rem;
+}
+
+.userConfigContainer textarea {
+    min-width: 18rem;
+    max-width: 20rem;
+    min-height: 5rem;
+    height: 8rem;
+    max-height: 15rem;
 }
 
 .userConfigContainer .avatarContainer {
@@ -43,9 +55,15 @@
 
 .userConfigContainer .avatar {
     border-radius: 50%;
-    border: 4px solid var(--base-light-color);
+    border: 6px solid var(--base-light-color);
     width: 100px;
     height: 100px;
     background-size: cover;
     background-position: center;
+    transition: border 150ms ease-in-out;
+}
+
+.userConfigContainer .avatar:hover {
+    border: 6px solid var(--alt-highlight-color);
+    transition: border 350ms ease-in-out;
 }

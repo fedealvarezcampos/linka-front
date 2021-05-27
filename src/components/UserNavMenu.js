@@ -23,13 +23,15 @@ function UserNavMenu({ show, setShow, nodeRef }) {
                 <div ref={nodeRef} className="userMenu dropMenu">
                     <div className="userMenuProfileLink">
                         <i className="bi bi-file-person-fill"></i>
-                        <Link to={`/users/${user.username}`}>
+                        <Link to={`/users/${user.username}`} onClick={() => setShow(false)}>
                             <span>Profile</span>
                         </Link>
                     </div>
                     <div className="userMenuSettingsLink">
                         <i className="bi bi-gear-fill"></i>
-                        <span>Settings</span>
+                        <Link to={`/users/${user.username}/settings`} onClick={() => setShow(false)}>
+                            <span>Settings</span>
+                        </Link>
                     </div>
                     <div className="userMenuLogOutLink" onClick={handleLogout}>
                         <i className="bi bi-door-closed-fill"></i>

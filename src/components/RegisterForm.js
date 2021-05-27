@@ -13,12 +13,7 @@ function RegisterForm({ setError, setModal }) {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await register({
-                username,
-                email,
-                password,
-                confirmPass,
-            });
+            await register({ username, email, password, confirmPass });
             // setData(response);
             setCompleted(true);
             setModal(false);

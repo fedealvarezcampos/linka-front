@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateUser } from '../api/users';
 import './UserConfig.css';
 
 function UserConfig({ setError }) {
-    const isLoggedIn = useSelector(s => !!s.user);
-    const token = useSelector(s => s.user?.token);
-    const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
     const { username } = useParams();
-    console.log(username);
+    const token = useSelector(s => s.user?.token);
+    const preloadedImage = useSelector(s => s.user.avatar);
+    const userImage = `http://localhost:3001/images/avatars/${preloadedImage}`;
+    // const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
@@ -32,97 +32,106 @@ function UserConfig({ setError }) {
             fd.append('userIG', userIG);
             fd.append('avatar', avatar);
 
-            const response = await updateUser(username, fd, token);
-            console.log(response);
-            // setShow(false);
+            await updateUser(username, fd, token);
         } catch (error) {
-            setError('caca');
+            setError(error.response.data.error);
         }
     };
 
     const handleFile = e => {
         const f = e.target.files[0];
         setAvatar(f);
-        setPreview(f ? URL.createObjectURL(f) : defaultImg);
+        setPreview(URL.createObjectURL(f));
     };
 
     return (
-        <div className="userConfigContainer">
-            <form onSubmit={handleSubmit}>
-                <div className="dataContainer">
-                    <label>
-                        Password
-                        <br />
-                        <input
-                            placeholder="password"
-                            autoFocus
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            type="password"
-                        />
-                    </label>
-                    <label>
-                        Confirm password
-                        <br />
-                        <input
-                            placeholder="confirm pass"
-                            value={confirmPass}
-                            onChange={e => setConfirmPass(e.target.value)}
-                            type="password"
-                        />
-                    </label>
-                    <label>
-                        Bio
-                        <br />
-                        <textarea
-                            cols="35"
-                            rows="6"
-                            placeholder="bio"
-                            value={bio}
-                            onChange={e => setBio(e.target.value)}
-                            type="text"
-                        />
-                    </label>
-                    <label>
-                        Site
-                        <br />
-                        <input
-                            placeholder="your site url..."
-                            type="url"
-                            value={userSite}
-                            onChange={e => setUserSite(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Twitter
-                        <br />
-                        <input
-                            placeholder="your Twitter profile..."
-                            type="url"
-                            value={userTW}
-                            onChange={e => setUserTW(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Instagram
-                        <br />
-                        <input
-                            placeholder="your Instagram profile..."
-                            type="url"
-                            value={userIG}
-                            onChange={e => setUserIG(e.target.value)}
-                        />
-                    </label>
+        <>
+            <div className="userConfigPage">
+                <div className="userConfigContainer">
+                    <form onSubmit={handleSubmit}>
+                        <div className="dataContainer">
+                            <label>
+                                Password
+                                <br />
+                                <input
+                                    placeholder="password"
+                                    autoFocus
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    type="password"
+                                />
+                            </label>
+                            <label>
+                                Confirm password
+                                <br />
+                                <input
+                                    placeholder="confirm pass"
+                                    value={confirmPass}
+                                    onChange={e => setConfirmPass(e.target.value)}
+                                    type="password"
+                                />
+                            </label>
+                            <label>
+                                Bio
+                                <br />
+                                <textarea
+                                    cols="35"
+                                    rows="6"
+                                    placeholder="bio"
+                                    value={bio}
+                                    onChange={e => setBio(e.target.value)}
+                                    type="text"
+                                />
+                            </label>
+                            <label>
+                                Site
+                                <br />
+                                <input
+                                    placeholder="your site url..."
+                                    type="url"
+                                    value={userSite}
+                                    onChange={e => setUserSite(e.target.value)}
+                                />
+                            </label>
+                            <label>
+                                Twitter
+                                <br />
+                                <input
+                                    placeholder="your Twitter profile..."
+                                    type="url"
+                                    value={userTW}
+                                    onChange={e => setUserTW(e.target.value)}
+                                />
+                            </label>
+                            <label>
+                                Instagram
+                                <br />
+                                <input
+                                    placeholder="your Instagram profile..."
+                                    type="url"
+                                    value={userIG}
+                                    onChange={e => setUserIG(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                        <div className="avatarContainer">
+                            <label className="avatarConfig">
+                                <div
+                                    className="avatar"
+                                    style={
+                                        (preview && { backgroundImage: `url(${preview})` }) || {
+                                            backgroundImage: `url(${userImage})`,
+                                        }
+                                    }
+                                />
+                                <input onChange={handleFile} type="file" />
+                            </label>
+                        </div>
+                        <button className="button">SEND</button>
+                    </form>
                 </div>
-                <div className="avatarContainer">
-                    <label className="avatarConfig">
-                        <div className="avatar" style={preview && { backgroundImage: `url(${preview})` }} />
-                        <input onChange={handleFile} type="file" />
-                    </label>
-                </div>
-                <button className="button">SEND</button>
-            </form>
-        </div>
+            </div>
+        </>
     );
 }
 

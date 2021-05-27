@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useSetModal } from '../context/ModalContext';
 import { useDetectClickOut } from '../hooks/useDetectClickOut';
 import { useClosingKey } from '../hooks/useClosingKey';
@@ -13,8 +13,6 @@ function Header({ error, setError }) {
 
     const setModal = useSetModal();
     const user = useSelector(s => s.user);
-
-    console.log(user);
 
     return (
         <>
