@@ -2,7 +2,7 @@ import { useClosingKey } from '../hooks/useClosingKey';
 import { useModal, useSetModal } from '../context/ModalContext';
 import { animated } from 'react-spring';
 import { useFadeAnimation, useSlideAnimation } from '../assets/anime';
-import './Modal.css';
+import '../styles/Modal.css';
 
 function Modal({ children, error, setError }) {
     const modal = useModal();
@@ -11,7 +11,7 @@ function Modal({ children, error, setError }) {
     const slideAnime = useSlideAnimation();
 
     const handleModalReset = () => {
-        setModal(false);
+        setModal(!modal);
         setError();
     };
 

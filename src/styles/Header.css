@@ -36,16 +36,20 @@
     font-weight: 800;
     font-style: italic;
     color: var(--base-light-color);
-    transition: all 500ms;
+    /* transition: all 500ms; */
 }
 
 .header .navProfile:hover {
     cursor: pointer;
 }
 
+.header .navProfile .bi-caret-down-fill {
+    transition: color 500ms ease-in-out;
+}
+
 .header .navProfile:hover .bi-caret-down-fill {
     color: var(--alt-highlight-color);
-    transition: color 250ms ease-in-out;
+    transition: color 500ms ease-in-out;
 }
 
 .header .navProfile:hover .avatar {
@@ -92,7 +96,7 @@
     background-position: center center;
     border: 4px solid var(--base-light-color);
     border-radius: 50%;
-    transition: border 500ms;
+    transition: border-color 500ms ease-in-out;
 }
 /* .header .navProfile .avatar:hover {
     border: 4px solid var(--alt-highlight-color);

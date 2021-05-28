@@ -7,7 +7,7 @@ function NavProfile({ show, setShow }) {
     useClosingKey('Escape', show, setShow);
 
     return (
-        <div onClick={() => setShow(true)} className="navProfile">
+        <div onClick={() => setShow(!show)} className="navProfile">
             <i className="bi bi-caret-down-fill"></i>
             <div
                 className="avatar"

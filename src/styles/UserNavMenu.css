@@ -45,3 +45,21 @@
 .userMenuSettingsLink .active {
     color: var(--alt-highlight-color);
 }
+
+.transitioned-enter {
+    opacity: 0;
+}
+
+.transitioned-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms;
+}
+
+.transitioned-exit {
+    opacity: 1;
+}
+
+.transitioned-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms;
+}

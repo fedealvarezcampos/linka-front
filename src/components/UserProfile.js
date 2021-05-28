@@ -3,11 +3,12 @@ import { Helmet } from 'react-helmet';
 import { useGetProfile } from '../api/users';
 import Post from './Post';
 import ProfileCard from './ProfileCard';
-import './UserProfile.css';
+import '../styles/UserProfile.css';
 
 const UserProfile = () => {
     const { username } = useParams();
     const profileData = useGetProfile(username);
+    console.log(profileData);
 
     if (!profileData) {
         return <div>Loading...</div>;

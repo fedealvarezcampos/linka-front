@@ -7,7 +7,7 @@ import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
-import './index.css';
+import './styles/index.css';
 
 ReactDOM.render(
     <React.StrictMode>

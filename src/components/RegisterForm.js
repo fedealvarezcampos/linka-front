@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { register } from '../api/users';
 
-function RegisterForm({ setError, setModal }) {
+function RegisterForm({ setError, modal, setModal }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ function RegisterForm({ setError, setModal }) {
             await register({ username, email, password, confirmPass });
             // setData(response);
             setCompleted(true);
-            setModal(false);
+            setModal(!modal);
         } catch (error) {
             setError(error.response.data.error);
         }

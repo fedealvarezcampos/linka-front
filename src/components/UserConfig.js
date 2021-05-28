@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateUser } from '../api/users';
-import './UserConfig.css';
+import '../styles/UserConfig.css';
 
 function UserConfig({ setError }) {
     const { username } = useParams();
@@ -42,7 +42,7 @@ function UserConfig({ setError }) {
     const handleFile = e => {
         const f = e.target.files[0];
         setAvatar(f);
-        setPreview(URL.createObjectURL(f));
+        setPreview(f && URL.createObjectURL(f));
     };
 
     return (

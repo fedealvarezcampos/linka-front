@@ -1,4 +1,4 @@
-import './ShapeDivider.css';
+import '../styles/ShapeDivider.css';
 
 function ShapeDivider() {
     return (

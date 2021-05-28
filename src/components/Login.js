@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../api/users';
-import './Login.css';
+import '../styles/Login.css';
 
-function Login({ setError, nodeRef, setShow }) {
+function Login({ setError, nodeRef, show, setShow }) {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ function Login({ setError, nodeRef, setShow }) {
                 email,
                 password,
             });
-            setShow(false);
+            setShow(!show);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
             setError(error.response.data.error);

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useSetModal } from '../context/ModalContext';
+import { CSSTransition } from 'react-transition-group';
+import { useModal, useSetModal } from '../context/ModalContext';
 import { useDetectClickOut } from '../hooks/useDetectClickOut';
 import { useClosingKey } from '../hooks/useClosingKey';
 import NavProfile from './NavProfile';
@@ -11,6 +12,7 @@ function Header({ error, setError }) {
     const { show, setShow, nodeRef } = useDetectClickOut(false);
     useClosingKey('Escape', show, setShow);
 
+    const modal = useModal();
     const setModal = useSetModal();
     const user = useSelector(s => s.user);
 
@@ -21,7 +23,13 @@ function Header({ error, setError }) {
                     LOGO
                 </NavLink>
                 {show && !user && (
-                    <Login setShow={setShow} nodeRef={nodeRef} error={error} setError={setError} />
+                    <Login
+                        show={show}
+                        setShow={setShow}
+                        nodeRef={nodeRef}
+                        error={error}
+                        setError={setError}
+                    />
                 )}
                 {user ? (
                     <NavProfile setShow={setShow} nodeRef={nodeRef} />
@@ -30,7 +38,7 @@ function Header({ error, setError }) {
                         <button className="button" onClick={() => setShow(true)}>
                             <p>LOG IN</p>
                         </button>
-                        <button className="button register" onClick={() => setModal(true)}>
+                        <button className="button register" onClick={() => setModal(!modal)}>
                             <p>REGISTER</p>
                         </button>
                     </div>

@@ -1,5 +1,7 @@
 .userCardContainer {
     display: grid;
+    position: sticky;
+    top: 10rem;
     place-items: center;
     font-family: 'Fira Sans', sans-serif;
     margin-top: 3.8rem;

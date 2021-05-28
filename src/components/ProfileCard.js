@@ -1,4 +1,4 @@
-import './ProfileCard.css';
+import '../styles/ProfileCard.css';
 
 const ProfileCard = ({ user }) => {
     if (!user) {

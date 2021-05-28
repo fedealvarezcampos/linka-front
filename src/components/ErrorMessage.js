@@ -1,4 +1,4 @@
-import './ErrorMessage.css';
+import '../styles/ErrorMessage.css';
 import ShapeDivider from './ShapeDivider';
 import { NavLink } from 'react-router-dom';
 

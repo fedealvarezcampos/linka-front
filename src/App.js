@@ -12,7 +12,7 @@ import RegisterForm from './components/RegisterForm';
 import ErrorMessage from './components/ErrorMessage';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
-import './App.css';
+import './styles/App.css';
 
 function App() {
     const modal = useModal();

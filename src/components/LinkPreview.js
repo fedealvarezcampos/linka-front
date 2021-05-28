@@ -1,4 +1,4 @@
-import './LinkPreview.css';
+import '../styles/LinkPreview.css';
 
 function LinkPreview({ post }) {
     return (
