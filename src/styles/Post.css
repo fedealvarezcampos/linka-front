@@ -18,9 +18,18 @@
     margin-bottom: 0.08rem;
 }
 
-.postInfo .postInfoText span {
+.postInfo .postInfoText span a {
     font-style: italic;
+    text-decoration: none;
     color: var(--posts-color);
+    transition: color 100ms ease-in-out;
+}
+
+.postInfo .postInfoText span a:hover {
+    font-style: italic;
+    text-decoration: none;
+    color: var(--main-bg-color);
+    transition: color 150ms ease-in-out;
 }
 
 .postListContainer {

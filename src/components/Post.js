@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import LinkPreview from './LinkPreview';
 import '../styles/Post.css';
 
@@ -11,9 +12,7 @@ function Post({ post, user }) {
                 <span className="postInfoText">
                     shared by{' '}
                     <span>
-                        <a href={`http://localhost:3000/users/${post.username || user}`}>
-                            {post.username || user}
-                        </a>
+                        <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
                     </span>{' '}
                     on {postDate}
                 </span>

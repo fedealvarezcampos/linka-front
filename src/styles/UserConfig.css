@@ -1,7 +1,14 @@
 .userConfigPage {
     display: grid;
-    align-content: center;
-    height: 86vh;
+    place-content: center;
+    align-items: start;
+    margin-top: 3.8rem;
+    gap: 2rem;
+    grid: auto / auto 18rem;
+}
+
+.userConfigPage .userCardContainer {
+    margin-top: 0;
 }
 
 .userConfigContainer {

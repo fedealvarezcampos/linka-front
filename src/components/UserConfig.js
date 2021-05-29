@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../api/users';
+import ProfileCard from './ProfileCard';
 import '../styles/UserConfig.css';
 
 function UserConfig({ setError }) {
-    const { username } = useParams();
+    const dispatch = useDispatch();
+
+    const user = useSelector(s => s.user);
+    const username = useSelector(s => s.user.username);
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user.avatar);
     const userImage = `http://localhost:3001/images/avatars/${preloadedImage}`;
@@ -33,7 +36,8 @@ function UserConfig({ setError }) {
             fd.append('userIG', userIG);
             fd.append('avatar', avatar);
 
-            await updateUser(username, fd, token);
+            const response = await updateUser(username, fd, token);
+            dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -138,6 +142,7 @@ function UserConfig({ setError }) {
                         <button className="button">SEND</button>
                     </form>
                 </div>
+                <ProfileCard user={user} />
             </div>
         </>
     );
