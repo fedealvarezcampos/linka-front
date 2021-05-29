@@ -40,8 +40,10 @@ function UserNavMenu({ show, setShow, nodeRef }) {
                             </NavLink>
                         </div>
                         <div className="userMenuLogOutLink" onClick={handleLogout}>
-                            <i className="bi bi-door-closed-fill"></i>
-                            <span>Log out</span>
+                            <div>
+                                <i className="bi bi-door-closed-fill"></i>
+                                <span>Log out</span>
+                            </div>
                         </div>
                     </div>
                 </CSSTransition>

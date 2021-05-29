@@ -9,6 +9,7 @@ import UserConfig from './components/UserConfig';
 import Modal from './components/Modal';
 import ShapeDivider from './components/ShapeDivider';
 import RegisterForm from './components/RegisterForm';
+import NewPostForm from './components/NewPostForm';
 import ErrorMessage from './components/ErrorMessage';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
@@ -38,6 +39,9 @@ function App() {
                 </Route>
                 <Route path="/settings" exact>
                     <UserConfig setError={setError} />
+                </Route>
+                <Route path="/new-link" exact>
+                    <NewPostForm setError={setError} />
                 </Route>
                 <Route path="/">
                     <ErrorMessage />

@@ -12,7 +12,7 @@ function UserConfig({ setError }) {
     const username = useSelector(s => s.user.username);
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user.avatar);
-    const userImage = `http://localhost:3001/images/avatars/${preloadedImage}`;
+    const userImage = `http://localhost:8080/images/avatars/${preloadedImage}`;
     // const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
 
     const [password, setPassword] = useState('');

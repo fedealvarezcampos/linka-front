@@ -1,4 +1,12 @@
+import axios from 'axios';
 import useAPIGet from '../hooks/useAPIGet';
-const baseURL = 'http://localhost:3001/api';
+const baseURL = 'http://localhost:8080/api';
 
-export const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
+const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
+
+const publishLink = async token => {
+    const { data } = await axios.post(`/posts`, token);
+    return data;
+};
+
+export { useGetPosts, publishLink };

@@ -33,7 +33,12 @@
     transition: color 100ms ease-in-out;
 }
 
-.userMenu *:hover {
+.userMenu :last-child {
+    width: 7rem;
+}
+
+.userMenu a:hover,
+.userMenu :last-child:hover {
     cursor: pointer;
     margin: 0;
     color: var(--alt-highlight-color);

@@ -5,7 +5,7 @@ import axios from 'axios';
 //     headers: { Authorization: `Bearer ${token}` },
 // };
 
-const baseURL = 'http://localhost:3001/api';
+const baseURL = 'http://localhost:8080/api';
 
 const useGetProfile = username => useAPIGet(`${baseURL}/users/${username}`);
 
