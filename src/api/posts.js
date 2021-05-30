@@ -4,8 +4,10 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
 
-const publishLink = async token => {
-    const { data } = await axios.post(`/posts`, token);
+const publishLink = async (form, token) => {
+    const { data } = await axios.post(`${baseURL}/posts`, form, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
     return data;
 };
 

@@ -45,7 +45,7 @@ function Login({ setError, nodeRef, show, setShow }) {
                     />
                     <i
                         onClick={() => setPassVisibility(!passVisibility)}
-                        class={passVisibility ? 'eyePass bi-eye-slash-fill' : 'eyePass bi-eye-fill'}
+                        className={passVisibility ? 'eyePass bi-eye-slash-fill' : 'eyePass bi-eye-fill'}
                     ></i>
                 </div>
                 <button className="button">LOG IN</button>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { HelmetProvider } from 'react-helmet-async';
 import store from './store';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -11,15 +12,17 @@ import './styles/index.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <ModalContextProvider>
-            <Router>
-                <ErrorBoundary>
-                    <Provider store={store}>
-                        <App />
-                    </Provider>
-                </ErrorBoundary>
-            </Router>
-        </ModalContextProvider>
+        <HelmetProvider>
+            <ModalContextProvider>
+                <Router>
+                    <ErrorBoundary>
+                        <Provider store={store}>
+                            <App />
+                        </Provider>
+                    </ErrorBoundary>
+                </Router>
+            </ModalContextProvider>
+        </HelmetProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

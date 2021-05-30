@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../api/users';
 import ProfileCard from './ProfileCard';
@@ -74,7 +74,7 @@ function UserConfig({ setError }) {
                                     />
                                     <i
                                         onClick={() => setPassVisibility(!passVisibility)}
-                                        class={
+                                        className={
                                             passVisibility
                                                 ? 'eyePass bi-eye-slash-fill'
                                                 : 'eyePass bi-eye-fill'
@@ -93,7 +93,7 @@ function UserConfig({ setError }) {
                                     />
                                     <i
                                         onClick={() => setPassVisibility(!passVisibility)}
-                                        class={
+                                        className={
                                             passVisibility
                                                 ? 'eyePass bi-eye-slash-fill'
                                                 : 'eyePass bi-eye-fill'
@@ -156,7 +156,7 @@ function UserConfig({ setError }) {
                                 />
                                 <input onChange={handleFile} type="file" />
                             </label>
-                            <i class="bi bi-camera2"></i>
+                            <i className="bi bi-camera2"></i>
                         </div>
                         <button className="button">SEND</button>
                     </form>

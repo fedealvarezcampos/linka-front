@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
 import { publishLink } from '../api/posts';
 import '../styles/NewLink.css';
 
 function NewLink({ setError }) {
-    const user = useSelector(s => s.user);
     const token = useSelector(s => s.user?.token);
 
     const [link, setLink] = useState('');
@@ -15,11 +14,7 @@ function NewLink({ setError }) {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await publishLink(token, {
-                link,
-                title,
-                description,
-            });
+            await publishLink({ link, title, description }, token);
         } catch (error) {
             setError(error.response.data.error);
         }

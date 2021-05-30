@@ -11,8 +11,8 @@ const ErrorMessage = () => {
     return (
         <>
             <div className="errorContainer">
-                <div class="notfound">
-                    <div class="notfound-404">
+                <div className="notfound">
+                    <div className="notfound-404">
                         <h3>Ouch! Something happened</h3>
                         <h1>
                             <span>4</span>

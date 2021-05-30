@@ -1,4 +1,4 @@
-import { useSpring, useTransition } from 'react-spring';
+import { useSpring } from 'react-spring';
 
 const useFadeAnimation = () => useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useModal } from './context/ModalContext';
 import Home from './components/Home';
 import Header from './components/Header';
