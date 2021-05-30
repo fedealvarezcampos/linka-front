@@ -1,0 +1,38 @@
+.newLinkPage {
+    display: grid;
+    place-content: center;
+    align-items: start;
+    margin-top: 3.8rem;
+    gap: 2rem;
+}
+
+.newLinkContainer {
+    display: grid;
+    margin: auto;
+    width: clamp(28rem, 60vw, 35rem);
+    place-items: center;
+    font-family: 'Fira Sans', sans-serif;
+    /* margin-top: 12vh; */
+    padding: 1rem 0.3rem 1.8rem 0.3rem;
+    border-radius: 16px 16px 16px 0px;
+    background-color: var(--posts-color);
+}
+
+.newLinkContainer form {
+    display: grid;
+    height: 98%;
+    width: 99%;
+    align-content: center;
+    gap: 0.8rem;
+    box-sizing: border-box;
+    padding: 2.8rem 2.5rem 3rem 2.2rem;
+    background-color: var(--profile-bg-color);
+}
+
+.newLinkContainer label {
+    width: 14rem;
+}
+
+.newLinkContainer input {
+    width: 18rem;
+}

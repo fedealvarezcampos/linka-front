@@ -17,12 +17,13 @@ function UserConfig({ setError }) {
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    const [bio, setBio] = useState('');
-    const [userSite, setUserSite] = useState('');
-    const [userTW, setUserTW] = useState('');
-    const [userIG, setUserIG] = useState('');
+    const [bio, setBio] = useState(user.bio || '');
+    const [userSite, setUserSite] = useState(user.userSite || '');
+    const [userTW, setUserTW] = useState(user.userTW || '');
+    const [userIG, setUserIG] = useState(user.userIG || '');
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState();
+    const [passVisibility, setPassVisibility] = useState();
 
     const handleSubmit = async e => {
         try {
@@ -36,6 +37,7 @@ function UserConfig({ setError }) {
             fd.append('userIG', userIG);
             fd.append('avatar', avatar);
 
+            passVisibility && setPassVisibility(false);
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
@@ -62,28 +64,45 @@ function UserConfig({ setError }) {
                     <form onSubmit={handleSubmit}>
                         <div className="dataContainer">
                             <label>
-                                Password
-                                <br />
-                                <input
-                                    placeholder="password"
-                                    autoFocus
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                    type="password"
-                                />
+                                <span>Change password</span>
+                                <div className="passwordInput">
+                                    <input
+                                        placeholder="password"
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
+                                        type={passVisibility ? 'text' : 'password'}
+                                    />
+                                    <i
+                                        onClick={() => setPassVisibility(!passVisibility)}
+                                        class={
+                                            passVisibility
+                                                ? 'eyePass bi-eye-slash-fill'
+                                                : 'eyePass bi-eye-fill'
+                                        }
+                                    ></i>
+                                </div>
                             </label>
                             <label>
-                                Confirm password
-                                <br />
-                                <input
-                                    placeholder="confirm pass"
-                                    value={confirmPass}
-                                    onChange={e => setConfirmPass(e.target.value)}
-                                    type="password"
-                                />
+                                <span>Confirm new password</span>
+                                <div className="passwordInput">
+                                    <input
+                                        placeholder="confirm password"
+                                        value={confirmPass}
+                                        onChange={e => setConfirmPass(e.target.value)}
+                                        type={passVisibility ? 'text' : 'password'}
+                                    />
+                                    <i
+                                        onClick={() => setPassVisibility(!passVisibility)}
+                                        class={
+                                            passVisibility
+                                                ? 'eyePass bi-eye-slash-fill'
+                                                : 'eyePass bi-eye-fill'
+                                        }
+                                    ></i>
+                                </div>
                             </label>
                             <label>
-                                Bio
+                                <span>Bio</span>
                                 <br />
                                 <textarea
                                     cols="35"
@@ -95,7 +114,7 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                Site
+                                <span>Site</span>
                                 <br />
                                 <input
                                     placeholder="your site url..."
@@ -105,7 +124,7 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                Twitter
+                                <span>Twitter</span>
                                 <br />
                                 <input
                                     placeholder="your Twitter profile..."
@@ -115,7 +134,7 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                Instagram
+                                <span>Instagram</span>
                                 <br />
                                 <input
                                     placeholder="your Instagram profile..."

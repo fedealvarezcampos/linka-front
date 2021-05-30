@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { publishLink } from '../api/posts';
-import ProfileCard from './ProfileCard';
-import '../styles/NewPostForm.css';
+import '../styles/NewLink.css';
 
-function UserConfig({ setError }) {
+function NewLink({ setError }) {
     const user = useSelector(s => s.user);
     const token = useSelector(s => s.user?.token);
 
@@ -31,15 +30,15 @@ function UserConfig({ setError }) {
             <Helmet>
                 <title>{`New link | Linkah`}</title>
             </Helmet>
-            <div className="userConfigPage">
-                <div className="userConfigContainer">
+            <div className="newLinkPage">
+                <div className="newLinkContainer">
                     <span>
                         profile | settings<i className="bi bi-file-person-fill"></i>
                     </span>
                     <form onSubmit={handleSubmit}>
                         <div className="dataContainer">
                             <label>
-                                Link
+                                <span>Link</span>
                                 <br />
                                 <input
                                     placeholder="share your link here..."
@@ -49,7 +48,7 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                Title
+                                <span>Title</span>
                                 <br />
                                 <input
                                     placeholder="share your link here..."
@@ -59,7 +58,7 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                Bio
+                                <span>Description</span>
                                 <br />
                                 <textarea
                                     cols="35"
@@ -80,4 +79,4 @@ function UserConfig({ setError }) {
     );
 }
 
-export default UserConfig;
+export default NewLink;

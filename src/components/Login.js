@@ -9,6 +9,7 @@ function Login({ setError, nodeRef, show, setShow }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passVisibility, setPassVisibility] = useState('');
     const isLoggedIn = useSelector(s => !!s.user);
 
     const handleSubmit = async e => {
@@ -19,6 +20,7 @@ function Login({ setError, nodeRef, show, setShow }) {
                 password,
             });
             setShow(!show);
+            passVisibility && setPassVisibility(false);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
             setError(error.response.data.error);
@@ -34,12 +36,18 @@ function Login({ setError, nodeRef, show, setShow }) {
             <form onSubmit={handleSubmit}>
                 <input placeholder="email@email.com" value={email} onChange={e => setEmail(e.target.value)} />
                 <br />
-                <input
-                    placeholder="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    type="password"
-                />
+                <div className="passwordInput">
+                    <input
+                        placeholder="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        type={passVisibility ? 'text' : 'password'}
+                    />
+                    <i
+                        onClick={() => setPassVisibility(!passVisibility)}
+                        class={passVisibility ? 'eyePass bi-eye-slash-fill' : 'eyePass bi-eye-fill'}
+                    ></i>
+                </div>
                 <button className="button">LOG IN</button>
             </form>
         </div>

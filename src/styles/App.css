@@ -70,7 +70,7 @@
 input,
 textarea {
     padding: 0.52rem;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
     margin-bottom: 0.9rem;
     box-sizing: border-box;
     width: 100%;
@@ -79,6 +79,13 @@ textarea {
     border: 4px solid var(--base-light-color);
     color: var(--base-light-color);
     background-color: var(--posts-color);
+}
+
+textarea {
+    min-width: 21rem;
+    max-width: 22rem;
+    min-height: 8rem;
+    max-height: 10rem;
 }
 
 input:focus,
@@ -95,4 +102,29 @@ textarea::placeholder {
 
 input[type='file'] {
     display: none;
+}
+
+label > span {
+    padding-left: 4px;
+}
+
+/* Password eye thing, avoid edge default */
+
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+.passwordInput {
+    position: relative;
+}
+
+.eyePass {
+    position: absolute;
+    top: 1rem;
+    right: 15px;
+}
+
+.eyePass:hover {
+    cursor: pointer;
 }

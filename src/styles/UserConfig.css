@@ -23,7 +23,7 @@
     background-color: var(--posts-color);
 }
 
-.userConfigContainer span {
+.userConfigContainer > span {
     justify-self: start;
     display: grid;
     gap: 3px;
@@ -57,14 +57,6 @@
 
 .userConfigContainer input {
     width: 14rem;
-}
-
-.userConfigContainer textarea {
-    min-width: 20rem;
-    max-width: 22rem;
-    min-height: 5rem;
-    height: 8rem;
-    max-height: 15rem;
 }
 
 .userConfigContainer .avatarContainer .bi-camera2 {
