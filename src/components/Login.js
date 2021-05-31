@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../api/users';
 import '../styles/Login.css';
 
-function Login({ setError, nodeRef, show, setShow }) {
+function Login({ error, setError, show, setShow, nodeRef }) {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
@@ -48,6 +48,7 @@ function Login({ setError, nodeRef, show, setShow }) {
                         className={passVisibility ? 'eyePass bi-eye-slash-fill' : 'eyePass bi-eye-fill'}
                     ></i>
                 </div>
+                {error && <p className="loginError">{error}</p>}
                 <button className="button">LOG IN</button>
             </form>
         </div>

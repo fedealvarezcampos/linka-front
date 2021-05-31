@@ -2,6 +2,9 @@
 
 .vscode
 
+#trash
+/src/components/trash
+
 # dependencies
 /node_modules
 /.pnp

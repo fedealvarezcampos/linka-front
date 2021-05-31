@@ -9,7 +9,7 @@ import Login from './Login';
 import UserNavMenu from './UserNavMenu';
 
 function Header({ error, setError }) {
-    const { show, setShow, nodeRef } = useDetectClickOut(false);
+    const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
     useClosingKey('Escape', show, setShow);
 
     const modal = useModal();

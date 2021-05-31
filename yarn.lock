@@ -9518,6 +9518,7 @@ fsevents@^1.2.7:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet-async: ^1.0.9
+    react-hook-form: ^7.7.1
     react-leaflet: ^3.1.0
     react-redux: ^7.2.4
     react-router-dom: ^5.2.0
@@ -12484,6 +12485,15 @@ fsevents@^1.2.7:
     react: ^16.6.0 || ^17.0.0
     react-dom: ^16.6.0 || ^17.0.0
   checksum: 69d082670e7b09f2df1784d1d58f8361d7bd3f57f37f2f4155aaf4f6cace1c213bb25a4cea9e1bd4bfaeb56b1dc83f614f5f6e4713f9d2465cf3d716c0ec897b
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.7.1":
+  version: 7.7.1
+  resolution: "react-hook-form@npm:7.7.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 91d1160dbb9c1609e086fd97d6f2af68024a42eff3609cbc0df564bfcc01ee3cdd2fb8a391bfd5298010b2c1b3b8e34603683e3f96cfc3c3cbe0391c19e7dd96
   languageName: node
   linkType: hard
 
