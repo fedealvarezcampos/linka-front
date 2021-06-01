@@ -5,7 +5,7 @@ import Comment from './SingleComment';
 
 const CommentList = ({ id }) => {
     // const [comments, setComments] = useState();
-    const commentsData = useGetComments(id);
+    // const commentsData = useGetComments(id);
 
     return (
         <>

@@ -1,0 +1,39 @@
+.singleCommentContainer {
+    display: grid;
+    grid: auto / 3.8rem auto;
+    margin: 0.5rem 0 1rem 0;
+    list-style: none;
+}
+
+.singleCommentContent {
+    align-self: center;
+}
+
+.singleCommentUser {
+    color: var(--alt-highlight-color);
+    font-style: italic;
+    margin-right: 0.3rem;
+}
+
+.singleCommentDate {
+    color: var(--main-bg-color);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 0.6rem;
+}
+
+.singleCommentText {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    margin-top: 0.2rem;
+}
+
+.singleCommentAvatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--base-light-color);
+    background-size: cover;
+    background-position: center center;
+}

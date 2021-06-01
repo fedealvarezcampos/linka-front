@@ -6,7 +6,7 @@
 
 .singlePostContainer .postContent {
     height: 100%;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .singlePostContainer .postInfo {
@@ -34,5 +34,5 @@
 }
 
 .commentListContainer {
-    padding-top: 0.8rem;
+    padding: 1rem;
 }

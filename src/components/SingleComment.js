@@ -1,14 +1,22 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import '../styles/SingleComment.css';
 
 const SingleComment = ({ comment }) => {
     return (
-        <li key={comment.id} id={comment.id}>
-            <div>
-                <span>
-                    Comment by <strong>{comment.username}</strong> on <strong>{comment.created_date}</strong>
+        <li className="singleCommentContainer" key={comment.id} id={comment.id}>
+            <div
+                className="singleCommentAvatar"
+                style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${comment.avatar})` }}
+            />
+            <div className="singleCommentContent">
+                <span className="singleCommentInfo">
+                    <span className="singleCommentUser">{comment.username}</span>{' '}
+                    <span className="singleCommentDate">
+                        {new Date(comment.created_date).toLocaleString()}
+                    </span>
                 </span>
+                <p className="singleCommentText">{comment.text.trim()}</p>
             </div>
-            <p>{comment.text.trim()}</p>
         </li>
     );
 };

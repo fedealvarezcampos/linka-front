@@ -4,7 +4,6 @@ import '../styles/Post.css';
 
 function Post({ post, user }) {
     const postDate = new Date(post.created_date).toLocaleString();
-
     return (
         <li className="postContainer">
             <div className="postInfo">
@@ -18,9 +17,11 @@ function Post({ post, user }) {
                 </span>
             </div>
             <div className="postContent">
-                <h1>{post.title}</h1>
-                <p>{post.description}</p>
-                <LinkPreview post={post} />
+                <Link className="postContentLink" to={`/posts/${post.postId}`}>
+                    <h1>{post.title}</h1>
+                    <p>{post.description}</p>
+                    <LinkPreview post={post} />
+                </Link>
             </div>
             <div className="postFooter">
                 <div className="postFooterComments">

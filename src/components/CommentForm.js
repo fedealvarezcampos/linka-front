@@ -7,6 +7,7 @@ const CommentForm = ({ id, setError }) => {
     const token = useSelector(s => s.user?.token);
 
     const [isSending, setIsSending] = useState(false);
+
     const [text, setText] = useState('');
 
     const handleSubmit = async e => {
