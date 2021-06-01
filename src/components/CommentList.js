@@ -1,18 +1,18 @@
-// import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useGetComments } from '../api/comments';
 import Comment from './SingleComment';
 
-const CommentList = ({ id }) => {
-    // const [comments, setComments] = useState();
-    // const commentsData = useGetComments(id);
-
+const CommentList = ({ commentList, commentsData }) => {
+    // console.log(commentsData);
+    // console.log(commentList);
     return (
         <>
             <div className="commentList">
                 <ul className="commentListContainer">
+                    {commentList &&
+                        commentList.map(comment => <Comment key={comment.commentId} comment={comment} />)}
                     {commentsData &&
-                        commentsData.map(comment => <Comment key={comment.id} comment={comment} />)}
+                        commentsData.map(comment => (
+                            <Comment key={comment.commentId} comment={comment} commentsData={commentsData} />
+                        ))}
                 </ul>
             </div>
         </>

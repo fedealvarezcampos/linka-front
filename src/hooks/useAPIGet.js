@@ -16,7 +16,7 @@ function useAPIGet(url, token) {
                 const { data } = res;
                 setResult(data);
             });
-    }, [url]);
+    }, [url, token]);
 
     return result;
 }

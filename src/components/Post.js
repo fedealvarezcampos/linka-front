@@ -3,6 +3,8 @@ import LinkPreview from './LinkPreview';
 import '../styles/Post.css';
 
 function Post({ post, user }) {
+    // console.log(post);
+
     const postDate = new Date(post.created_date).toLocaleString();
     return (
         <li className="postContainer">
@@ -17,7 +19,7 @@ function Post({ post, user }) {
                 </span>
             </div>
             <div className="postContent">
-                <Link className="postContentLink" to={`/posts/${post.postId}`}>
+                <Link className="postContentLink" to={`/posts/${post.postId || post.id}`}>
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
                     <LinkPreview post={post} />

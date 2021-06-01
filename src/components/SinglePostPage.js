@@ -1,18 +1,23 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useGetSinglePost } from '../api/posts';
+import { useGetComments } from '../api/comments';
 import LinkPreview from './LinkPreview';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
-import { useGetSinglePost } from '../api/posts';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
 
 function SinglePostPage({ user, setError }) {
-    const token = useSelector(s => s.user?.token);
-    const username = useSelector(s => s.username);
     const { postId } = useParams();
+
+    const token = useSelector(s => s.user?.token);
+
+    const commentsData = useGetComments(postId);
     const post = useGetSinglePost(postId, token);
-    console.log(post);
+
+    const [commentList, setCommentList] = useState([]);
 
     return (
         post && (
@@ -44,9 +49,14 @@ function SinglePostPage({ user, setError }) {
                             <i className="bi bi-heart-fill"></i>
                         </div>
                     </div>
-                    <CommentForm id={postId} setError={setError} />
+                    <CommentForm
+                        commentList={commentList}
+                        setCommentList={setCommentList}
+                        id={postId}
+                        setError={setError}
+                    />
                     <hr />
-                    <CommentList id={postId} />
+                    <CommentList commentsData={commentsData} commentList={commentList} id={postId} />
                 </div>
             </div>
         )
