@@ -1,45 +1,34 @@
-import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import '../styles/CommentForm.css';
 
 const CommentForm = () => {
     const [isSending, setIsSending] = useState(false);
-    const { register, errors, handleSubmit, reset } = useForm();
+    const [comment, setComment] = useState();
 
-    const onSubmit = data => {
-        setIsSending(true);
-
-        const handleSubmit = async e => {
-            e.preventDefault();
-            try {
-                const response = await login({
-                    email,
-                    password,
-                });
-                setShow(!show);
-                passVisibility && setPassVisibility(false);
-                dispatch({ type: 'LOGIN', user: response });
-            } catch (error) {
-                setError(error.response.data.error);
-            }
-        };
-
-        return (
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <span>Comment:</span>
-                    <br />
-                    <textarea
-                        cols="35"
-                        rows="6"
-                        placeholder="bio"
-                        value={bio}
-                        onChange={e => setBio(e.target.value)}
-                        type="text"
-                    />
-                </label>
-            </form>
-        );
+    const handleSubmit = async e => {
+        e.preventDefault();
+        // try {
+        //     const response = await login(comment);
+        // } catch (error) {
+        //     setError(error.response.data.error);
+        // }
     };
+
+    return (
+        <form className="commentForm" onSubmit={handleSubmit}>
+            <label>
+                <span>Comment:</span>
+                <textarea
+                    cols="35"
+                    rows="6"
+                    placeholder="Leave a comment..."
+                    value={comment}
+                    onChange={e => setComment(e.target.value)}
+                    type="text"
+                />
+            </label>
+        </form>
+    );
 };
 
 export default CommentForm;

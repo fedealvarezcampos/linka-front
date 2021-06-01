@@ -81,12 +81,12 @@ textarea {
     background-color: var(--posts-color);
 }
 
-textarea {
+/* textarea {
     min-width: 21rem;
     max-width: 22rem;
     min-height: 8rem;
     max-height: 10rem;
-}
+} */
 
 input:focus,
 textarea:focus {

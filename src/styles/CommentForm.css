@@ -1,0 +1,21 @@
+.commentForm {
+    margin-top: 2rem;
+    display: grid;
+    grid: auto/ 98%;
+    place-content: center;
+}
+
+.commentForm label {
+    width: 100%;
+    place-self: center;
+}
+
+.commentForm span {
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.commentForm textarea {
+    margin: auto;
+    resize: none;
+}

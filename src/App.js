@@ -11,6 +11,7 @@ import ShapeDivider from './components/ShapeDivider';
 import RegisterForm from './components/RegisterForm';
 import NewLink from './components/NewLink';
 import ErrorMessage from './components/ErrorMessage';
+import SinglePostPage from './components/SinglePostPage';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './styles/App.css';
@@ -36,6 +37,9 @@ function App() {
                 </Route>
                 <Route path="/users/:username" exact>
                     <UserProfile />
+                </Route>
+                <Route path="/posts/:postId" exact>
+                    <SinglePostPage />
                 </Route>
                 <Route path="/settings" exact>
                     <UserConfig setError={setError} />
