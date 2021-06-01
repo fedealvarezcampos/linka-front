@@ -1,17 +1,21 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { postComment } from '../api/comments';
 import '../styles/CommentForm.css';
 
-const CommentForm = () => {
+const CommentForm = ({ id, setError }) => {
+    const token = useSelector(s => s.user?.token);
+
     const [isSending, setIsSending] = useState(false);
-    const [comment, setComment] = useState();
+    const [text, setText] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
-        // try {
-        //     const response = await login(comment);
-        // } catch (error) {
-        //     setError(error.response.data.error);
-        // }
+        try {
+            await postComment({ text }, id, token);
+        } catch (error) {
+            setError(error.response.data.error);
+        }
     };
 
     return (
@@ -22,11 +26,12 @@ const CommentForm = () => {
                     cols="35"
                     rows="6"
                     placeholder="Leave a comment..."
-                    value={comment}
-                    onChange={e => setComment(e.target.value)}
+                    value={text}
+                    onChange={e => setText(e.target.value)}
                     type="text"
                 />
             </label>
+            <button className="button">SEND</button>
         </form>
     );
 };

@@ -2,12 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LinkPreview from './LinkPreview';
 import CommentForm from './CommentForm';
-import Post from './Post';
+import CommentList from './CommentList';
 import { useGetSinglePost } from '../api/posts';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
 
-function SinglePostPage({ user }) {
+function SinglePostPage({ user, setError }) {
     const token = useSelector(s => s.user?.token);
     const username = useSelector(s => s.username);
     const { postId } = useParams();
@@ -31,17 +31,22 @@ function SinglePostPage({ user }) {
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
                     <LinkPreview post={post} />
+                    <hr />
                     <div className="postFooter">
                         <div className="postFooterComments">
                             <i className="bi bi-chat-fill"></i>
-                            <span>{post.commented || '0'} comments</span>
+                            <span>
+                                {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                            </span>
                         </div>
                         <div className="postFooterLikes">
                             <span>{post.likes || '0'}</span>
                             <i className="bi bi-heart-fill"></i>
                         </div>
                     </div>
-                    <CommentForm />
+                    <CommentForm id={postId} setError={setError} />
+                    <hr />
+                    <CommentList id={postId} />
                 </div>
             </div>
         )

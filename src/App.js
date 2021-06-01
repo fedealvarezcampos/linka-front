@@ -39,7 +39,7 @@ function App() {
                     <UserProfile />
                 </Route>
                 <Route path="/posts/:postId" exact>
-                    <SinglePostPage />
+                    <SinglePostPage setError={setError} />
                 </Route>
                 <Route path="/settings" exact>
                     <UserConfig setError={setError} />

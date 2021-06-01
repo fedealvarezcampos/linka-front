@@ -25,7 +25,9 @@ function Post({ post, user }) {
             <div className="postFooter">
                 <div className="postFooterComments">
                     <i className="bi bi-chat-fill"></i>
-                    <span>{post.commented || '0'} comments</span>
+                    <span>
+                        {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                    </span>
                 </div>
                 <div className="postFooterLikes">
                     <span>{post.likes || '0'}</span>
