@@ -22,11 +22,11 @@
 
 .miniPostContainer .miniPostContent {
     display: grid;
-    padding: 0.8rem 0.9rem 0.8rem 0.9rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     margin: 0;
     align-items: center;
-    width: auto;
-    grid: auto / auto 11rem;
+    width: 15.2rem;
+    grid: auto / auto auto;
     background-color: var(--posts-color);
 }
 
@@ -48,8 +48,10 @@
 }
 
 .miniPostContainer .linkPrevImg {
-    width: 4rem;
-    height: 2.5rem;
+    width: 4.5rem;
+    height: 2.8rem;
+    border: 3px solid var(--base-light-color);
+    border-radius: 8px 8px 8px 0px;
 }
 
 .miniPostContainer .miniPostFooter {

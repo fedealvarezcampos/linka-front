@@ -4,14 +4,16 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
 
+const useGetMostLiked = () => useAPIGet(`${baseURL}/posts?sort=mostliked`);
+
 const useGetSinglePost = (postId, token) => useAPIGet(`${baseURL}/posts/${postId}`, token);
 
-// const useGetSinglePost = async (postId, token) => {
-//     const { data } = await axios.get(`${baseURL}/posts/${postId}`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//     });
-//     return data;
-// };
+const likePost = async (postId, body, token) => {
+    const { data } = await axios.post(`${baseURL}/posts/${postId}`, body, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
 
 const publishLink = async (form, token) => {
     const { data } = await axios.post(`${baseURL}/posts`, form, {
@@ -20,4 +22,4 @@ const publishLink = async (form, token) => {
     return data;
 };
 
-export { useGetPosts, useGetSinglePost, publishLink };
+export { useGetPosts, useGetMostLiked, useGetSinglePost, publishLink, likePost };

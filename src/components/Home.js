@@ -3,7 +3,7 @@ import Post from './Post';
 import TopRated from './TopRated';
 import '../styles/Home.css';
 
-function Home() {
+function Home({ setError }) {
     const postsData = useGetPosts();
 
     return (
@@ -11,7 +11,8 @@ function Home() {
             <div className="App">
                 <div className="homeContainer">
                     <ul className="postListContainer">
-                        {postsData && postsData.map(post => <Post key={post.postId} post={post} />)}
+                        {postsData &&
+                            postsData.map(post => <Post key={post.postId} post={post} setError={setError} />)}
                     </ul>
                     <TopRated />
                 </div>

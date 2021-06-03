@@ -1,9 +1,9 @@
-import { useGetPosts } from '../api/posts';
+import { useGetMostLiked } from '../api/posts';
 import PostMini from './PostMini';
 import '../styles/ProfileCard.css';
 
 const TopRated = () => {
-    const postsData = useGetPosts();
+    const postsData = useGetMostLiked();
 
     return (
         <ul className="miniPostListContainer">

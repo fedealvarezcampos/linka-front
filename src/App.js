@@ -33,7 +33,7 @@ function App() {
             <Header error={error} setError={setError} />
             <Switch>
                 <Route path="/" exact>
-                    <Home />
+                    <Home setError={setError} />
                 </Route>
                 <Route path="/users/:username" exact>
                     <UserProfile />

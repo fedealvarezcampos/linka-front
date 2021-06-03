@@ -1,9 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import '../styles/Post.css';
 
-function Post({ post, user }) {
+function Post({ post, user, setError }) {
     // console.log(post);
+
+    const token = useSelector(s => s.user && s.user.token);
+    const postId = post.postId || post.id;
+    let body;
+
+    const handleLikeClick = async e => {
+        e.preventDefault();
+        try {
+            const response = await likePost(postId, body, token);
+        } catch (error) {
+            setError(error.response.data.error);
+        }
+    };
 
     const postDate = new Date(post.created_date).toLocaleString();
     return (
@@ -19,7 +34,7 @@ function Post({ post, user }) {
                 </span>
             </div>
             <div className="postContent">
-                <Link className="postContentLink" to={`/posts/${post.postId || post.id}`}>
+                <Link className="postContentLink" to={`/posts/${postId}`}>
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
                     <LinkPreview post={post} />
@@ -32,7 +47,7 @@ function Post({ post, user }) {
                         {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
                     </span>
                 </div>
-                <div className="postFooterLikes">
+                <div className="postFooterLikes" onClick={handleLikeClick}>
                     <span>{post.likes || '0'}</span>
                     <i className="bi bi-heart-fill"></i>
                 </div>
