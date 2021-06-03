@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../api/users';
@@ -9,6 +10,7 @@ function UserConfig({ setError }) {
     const dispatch = useDispatch();
 
     const user = useSelector(s => s.user);
+    const isLoggedIn = useSelector(s => !!s.user);
     const username = useSelector(s => s.user.username);
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user.avatar);
@@ -24,6 +26,10 @@ function UserConfig({ setError }) {
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState();
     const [passVisibility, setPassVisibility] = useState();
+
+    if (!isLoggedIn) {
+        return <Redirect to="/" />;
+    }
 
     const handleSubmit = async e => {
         try {

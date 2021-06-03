@@ -1,5 +1,7 @@
 import { useGetPosts } from '../api/posts';
 import Post from './Post';
+import TopRated from './TopRated';
+import '../styles/Home.css';
 
 function Home() {
     const postsData = useGetPosts();
@@ -7,9 +9,12 @@ function Home() {
     return (
         <>
             <div className="App">
-                <ul className="postListContainer">
-                    {postsData && postsData.map(post => <Post key={post.postId} post={post} />)}
-                </ul>
+                <div className="homeContainer">
+                    <ul className="postListContainer">
+                        {postsData && postsData.map(post => <Post key={post.postId} post={post} />)}
+                    </ul>
+                    <TopRated />
+                </div>
             </div>
         </>
     );

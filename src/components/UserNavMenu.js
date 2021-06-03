@@ -11,7 +11,7 @@ function UserNavMenu({ show, setShow, nodeRef }) {
         e.stopPropagation();
         setShow(!show);
         dispatch({ type: 'LOGOUT' });
-        <Redirect to="/" />;
+        return <Redirect to="/" />;
     };
 
     if (!user) {

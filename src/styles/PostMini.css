@@ -1,0 +1,63 @@
+.miniPostListContainer {
+    display: grid;
+    z-index: 2;
+    position: sticky;
+    margin: auto;
+    top: 10rem;
+    margin-top: 3.8rem;
+    /* width: clamp(20rem, 60vw, 50rem); */
+    padding: 2.3rem 0.35rem 2.3rem 0.35rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.26;
+    border-radius: 16px 16px 16px 0px;
+    background-color: var(--base-light-color);
+}
+
+.miniPostContainer {
+    display: grid;
+    /* width: 400px; */
+}
+
+.miniPostContainer .miniPostContent {
+    display: grid;
+    padding: 0.8rem 0.9rem 0.8rem 0.9rem;
+    margin: 0;
+    align-items: center;
+    width: auto;
+    grid: auto / auto 11rem;
+    background-color: var(--posts-color);
+}
+
+.miniPostContainer .miniPostContent h1 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.miniPostContainer .miniPostData {
+    display: grid;
+    justify-items: end;
+}
+
+.miniPostContainer .miniPostUsername a {
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--alt-highlight-color);
+}
+
+.miniPostContainer .linkPrevImg {
+    width: 4rem;
+    height: 2.5rem;
+}
+
+.miniPostContainer .miniPostFooter {
+    color: var(--highlight-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.miniPostContainer .miniPostFooter span {
+    padding: 0 0.2rem 0 0.2rem;
+}

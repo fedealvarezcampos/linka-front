@@ -121,7 +121,7 @@ input::-ms-clear {
 
 .eyePass {
     position: absolute;
-    top: 1rem;
+    padding-top: 1rem;
     right: 15px;
 }
 

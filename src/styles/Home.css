@@ -1,0 +1,6 @@
+.homeContainer {
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+    grid: auto / auto 18rem;
+}
