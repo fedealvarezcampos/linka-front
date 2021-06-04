@@ -6,7 +6,7 @@
     top: 10rem;
     margin-top: 3.8rem;
     /* width: clamp(20rem, 60vw, 50rem); */
-    padding: 2.3rem 0.35rem 2.3rem 0.35rem;
+    padding: 2.4rem 0.35rem 2.4rem 0.35rem;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -15,15 +15,21 @@
     background-color: var(--base-light-color);
 }
 
+.miniPostInnerContainer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--posts-color);
+}
+
 .miniPostContainer {
     display: grid;
+    background-color: var(--posts-color);
     /* width: 400px; */
 }
 
 .miniPostContainer .miniPostContent {
     display: grid;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    margin: 0;
+    padding: 0 1rem 0 1rem;
     align-items: center;
     width: 15.2rem;
     grid: auto / auto auto;

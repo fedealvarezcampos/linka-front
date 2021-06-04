@@ -11,18 +11,18 @@ function UserConfig({ setError }) {
 
     const user = useSelector(s => s.user);
     const isLoggedIn = useSelector(s => !!s.user);
-    const username = useSelector(s => s.user.username);
+    const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
-    const preloadedImage = useSelector(s => s.user.avatar);
+    const preloadedImage = useSelector(s => s.user?.avatar);
     const userImage = `http://localhost:8080/images/avatars/${preloadedImage}`;
     // const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    const [bio, setBio] = useState(user.bio || '');
-    const [userSite, setUserSite] = useState(user.userSite || '');
-    const [userTW, setUserTW] = useState(user.userTW || '');
-    const [userIG, setUserIG] = useState(user.userIG || '');
+    const [bio, setBio] = useState(user?.bio || '');
+    const [userSite, setUserSite] = useState(user?.userSite || '');
+    const [userTW, setUserTW] = useState(user?.userTW || '');
+    const [userIG, setUserIG] = useState(user?.userIG || '');
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState();
     const [passVisibility, setPassVisibility] = useState();

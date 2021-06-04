@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useGetPosts } from '../api/posts';
 import Post from './Post';
 import TopRated from './TopRated';
