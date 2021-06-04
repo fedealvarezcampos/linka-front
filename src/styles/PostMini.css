@@ -16,8 +16,7 @@
 }
 
 .miniPostInnerContainer {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0 1rem 0;
     background-color: var(--posts-color);
 }
 
@@ -55,7 +54,7 @@
 
 .miniPostContainer .linkPrevImg {
     width: 4.5rem;
-    height: 2.8rem;
+    height: 3rem;
     border: 3px solid var(--base-light-color);
     border-radius: 8px 8px 8px 0px;
 }

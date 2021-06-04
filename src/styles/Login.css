@@ -72,3 +72,7 @@
     margin: 0;
     padding: 0.1rem 0.5rem 0.6rem 0.5rem;
 }
+
+.login .eyePass {
+    padding-top: 0.9rem;
+}

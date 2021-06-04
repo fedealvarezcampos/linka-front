@@ -9,6 +9,10 @@ import ErrorBoundary from './components/ErrorBoundary';
 import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
 import './styles/index.css';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en';
+
+TimeAgo.addDefaultLocale(en);
 
 ReactDOM.render(
     <React.StrictMode>

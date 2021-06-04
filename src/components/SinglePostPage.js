@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ReactTimeAgo from 'react-time-ago';
 import { useGetSinglePost } from '../api/posts';
 import { useGetComments } from '../api/comments';
 import LinkPreview from './LinkPreview';
@@ -19,6 +20,9 @@ function SinglePostPage({ user, setError }) {
 
     const [commentList, setCommentList] = useState([]);
 
+    console.log(commentList);
+    console.log(commentsData);
+
     return (
         post && (
             <div className="postContainer singlePostContainer">
@@ -29,7 +33,7 @@ function SinglePostPage({ user, setError }) {
                         <span>
                             <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
                         </span>{' '}
-                        on {new Date(post.created_date).toLocaleString()}
+                        <ReactTimeAgo date={new Date(post.created_date)} locale="en-US" />
                     </span>
                 </div>
                 <div className="postContent">
@@ -56,7 +60,11 @@ function SinglePostPage({ user, setError }) {
                         setError={setError}
                     />
                     <hr />
-                    <CommentList commentsData={commentsData} commentList={commentList} id={postId} />
+                    {commentList?.length !== 0 || commentsData?.length !== 0 ? (
+                        <CommentList commentsData={commentsData} commentList={commentList} id={postId} />
+                    ) : (
+                        <div className="noCommentsHere">No hay comentarios</div>
+                    )}
                 </div>
             </div>
         )

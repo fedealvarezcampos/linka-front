@@ -6,6 +6,7 @@
 }
 
 .singleCommentContent {
+    display: grid;
     align-self: center;
 }
 
@@ -17,9 +18,10 @@
 
 .singleCommentDate {
     color: var(--main-bg-color);
+    align-self: center;
     font-weight: 600;
     font-style: italic;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
 }
 
 .singleCommentText {
@@ -33,7 +35,17 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    border: 2px solid var(--base-light-color);
+    border: 3px solid var(--base-light-color);
     background-size: cover;
     background-position: center center;
+}
+
+.noCommentsHere {
+    display: flex;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--main-bg-color);
+    justify-content: center;
+    padding-top: 0.4rem;
+    margin-bottom: 0.8rem;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ReactTimeAgo from 'react-time-ago';
 import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import '../styles/Post.css';
@@ -26,7 +27,7 @@ function Post({ post, user, setError }) {
         }
     };
 
-    const postDate = new Date(post.created_date).toLocaleString();
+    const postDate = new Date(post.created_date);
     return (
         <li className="postContainer">
             <div className="postInfo">
@@ -36,7 +37,7 @@ function Post({ post, user, setError }) {
                     <span>
                         <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
                     </span>{' '}
-                    on {postDate}
+                    <ReactTimeAgo date={postDate} locale="en-US" />
                 </span>
             </div>
             <div className="postContent">
