@@ -13,6 +13,7 @@ function Post({ post, user, setError }) {
 
     const token = useSelector(s => s.user?.token);
     const postId = post.postId || post.id;
+    const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
 
     let body;
 
@@ -28,6 +29,7 @@ function Post({ post, user, setError }) {
     };
 
     const postDate = new Date(post.created_date);
+
     return (
         <li className="postContainer">
             <div className="postInfo">
@@ -41,11 +43,11 @@ function Post({ post, user, setError }) {
                 </span>
             </div>
             <div className="postContent">
-                <Link className="postContentLink" to={`/posts/${postId}`}>
+                <Link className="postContentLink" to={`/posts/${postId}/${postTitleURL}`}>
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
-                    <LinkPreview post={post} />
                 </Link>
+                <LinkPreview post={post} />
             </div>
             <div className="postFooter">
                 <div className="postFooterComments">

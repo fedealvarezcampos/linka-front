@@ -1,11 +1,15 @@
-import { useState } from 'react';
 import { useGetPosts } from '../api/posts';
 import Post from './Post';
 import TopRated from './TopRated';
+import Spinner from '../assets/Spinner';
 import '../styles/Home.css';
 
 function Home({ setError }) {
     const postsData = useGetPosts();
+
+    if (!postsData) {
+        return <Spinner />;
+    }
 
     return (
         <>

@@ -128,3 +128,11 @@ input::-ms-clear {
 .eyePass:hover {
     cursor: pointer;
 }
+
+/* loading... */
+
+.spinnerLoad {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}

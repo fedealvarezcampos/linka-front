@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { publishLink } from '../api/posts';
 import '../styles/NewLink.css';
 
@@ -10,15 +11,26 @@ function NewLink({ setError }) {
     const [link, setLink] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [post, setPost] = useState();
+    const [posted, setPosted] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await publishLink({ link, title, description }, token);
+            const response = await publishLink({ link, title, description }, token);
+            setPost(response);
+            setPosted(true);
         } catch (error) {
             setError(error.response.data.error);
         }
     };
+
+    const postTitleURL = post && post.title.replaceAll(' ', '-').toLowerCase();
+
+    console.log(post);
+    if (posted) {
+        return <Redirect to={`/posts/${post.id}/${postTitleURL}`} />;
+    }
 
     return (
         <>

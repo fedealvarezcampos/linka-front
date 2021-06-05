@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { useGetSinglePost } from '../api/posts';
 import { useGetComments } from '../api/comments';
+import Spinner from '../assets/Spinner';
 import LinkPreview from './LinkPreview';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
@@ -20,8 +21,12 @@ function SinglePostPage({ user, setError }) {
 
     const [commentList, setCommentList] = useState([]);
 
-    console.log(commentList);
-    console.log(commentsData);
+    // console.log(commentList);
+    // console.log(commentsData);
+
+    if (!post) {
+        return <Spinner />;
+    }
 
     return (
         post && (

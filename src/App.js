@@ -38,7 +38,7 @@ function App() {
                 <Route path="/users/:username" exact>
                     <UserProfile />
                 </Route>
-                <Route path="/posts/:postId" exact>
+                <Route path="/posts/:postId/:postTitle" exact>
                     <SinglePostPage setError={setError} />
                 </Route>
                 <Route path="/settings" exact>
