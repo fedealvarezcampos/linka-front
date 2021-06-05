@@ -57,8 +57,10 @@ function Post({ post, user, setError }) {
                     </span>
                 </div>
                 <div className="postFooterLikes" onClick={handleLikeClick}>
-                    <span>{likes}</span>
-                    <i className="bi bi-heart-fill"></i>
+                    <div className="postLikesContainer">
+                        <span>{likes}</span>
+                        <i className="bi bi-heart-fill"></i>
+                    </div>
                 </div>
             </div>
         </li>

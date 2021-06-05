@@ -59,6 +59,10 @@
     width: 14rem;
 }
 
+.userConfigContainer textarea {
+    width: 20rem;
+}
+
 .userConfigContainer .avatarContainer .bi-camera2 {
     position: absolute;
     top: 6.2rem;

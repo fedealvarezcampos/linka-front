@@ -4,3 +4,9 @@
     gap: 2rem;
     grid: auto / auto 18rem;
 }
+
+@media (max-width: 1000px) {
+    .homeContainer {
+        grid: auto / auto;
+    }
+}

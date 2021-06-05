@@ -16,6 +16,12 @@
     background-color: var(--posts-color);
 }
 
+@media (max-width: 1000px) {
+    .miniPostListOuterContainer {
+        display: none;
+    }
+}
+
 .miniPostListContainer {
     display: flex;
     flex-direction: column;
