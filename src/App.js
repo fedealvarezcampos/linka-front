@@ -12,6 +12,7 @@ import RegisterForm from './components/RegisterForm';
 import NewLink from './components/NewLink';
 import ErrorMessage from './components/ErrorMessage';
 import SinglePostPage from './components/SinglePostPage';
+import SearchResults from './components/SearchResults';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './styles/App.css';
@@ -46,6 +47,9 @@ function App() {
                 </Route>
                 <Route path="/new-link" exact>
                     <NewLink setError={setError} />
+                </Route>
+                <Route path="/search" exact>
+                    <SearchResults />
                 </Route>
                 <Route path="/">
                     <ErrorMessage />

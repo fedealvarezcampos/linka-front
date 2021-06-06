@@ -1,11 +1,10 @@
 .miniPostListOuterContainer {
     display: grid;
     align-content: center;
-    position: sticky;
     z-index: 2;
-    top: 10rem;
+    position: sticky;
+    top: 15.8rem;
     margin: auto;
-    margin-top: 3.8rem;
     height: 24.5rem;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;

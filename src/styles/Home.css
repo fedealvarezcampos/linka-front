@@ -10,3 +10,10 @@
         grid: auto / auto;
     }
 }
+
+.homeSidebarContainer {
+    /* display: grid; */
+    position: sticky;
+    align-content: start;
+    /* margin-top: 3.8rem; */
+}

@@ -3,6 +3,7 @@ import Post from './Post';
 import TopRated from './TopRated';
 import Spinner from '../assets/Spinner';
 import '../styles/Home.css';
+import Search from './Search';
 
 function Home({ setError }) {
     const postsData = useGetPosts();
@@ -19,7 +20,10 @@ function Home({ setError }) {
                         {postsData &&
                             postsData.map(post => <Post key={post.postId} post={post} setError={setError} />)}
                     </ul>
-                    <TopRated />
+                    <div className="homeSidebarContainer">
+                        <Search />
+                        <TopRated />
+                    </div>
                 </div>
             </div>
         </>
