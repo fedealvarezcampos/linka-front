@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useClosingKey } from '../hooks/useClosingKey';
 
-function NavProfile({ show, setShow }) {
+function NavProfile({ show, setShow, love }) {
     const user = useSelector(s => s.user);
 
     useClosingKey('Escape', show, setShow);
@@ -16,7 +16,7 @@ function NavProfile({ show, setShow }) {
             <div>
                 <p className="profileName">{user.username}</p>
                 <p className="love">
-                    {user.love}
+                    {love}
                     <i className="ci-heart_fill"></i>
                 </p>
             </div>

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Spinner from '../assets/Spinner';
 import '../styles/PostMini.css';
 
 function PostMini({ post, user }) {

@@ -7,6 +7,7 @@ import { useClosingKey } from '../hooks/useClosingKey';
 import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
+import { useGetProfile } from '../api/users';
 
 function Header({ error, setError }) {
     const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
@@ -15,6 +16,7 @@ function Header({ error, setError }) {
     const modal = useModal();
     const setModal = useSetModal();
     const user = useSelector(s => s.user);
+    const profileData = useGetProfile(useSelector(s => s.user?.username));
 
     return (
         <>
@@ -32,7 +34,7 @@ function Header({ error, setError }) {
                     />
                 )}
                 {user ? (
-                    <NavProfile setShow={setShow} nodeRef={nodeRef} />
+                    <NavProfile love={profileData?.love} setShow={setShow} nodeRef={nodeRef} />
                 ) : (
                     <div className="unloggedHead">
                         <button className="button" onClick={() => setShow(true)}>

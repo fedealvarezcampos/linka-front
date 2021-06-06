@@ -6,7 +6,7 @@ import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import '../styles/Post.css';
 
-function Post({ post, user, setError }) {
+function Post({ post, username, setError }) {
     // console.log(post);
 
     const [likes, setLikes] = useState(post.likes || 0);
@@ -23,6 +23,7 @@ function Post({ post, user, setError }) {
             const response = await likePost(postId, body, token);
             console.log(response.likeId);
             response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
+            console.log(response);
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -37,7 +38,7 @@ function Post({ post, user, setError }) {
                 <span className="postInfoText">
                     shared by{' '}
                     <span>
-                        <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
+                        <Link to={`/users/${post.username || username}`}>{post.username || username}</Link>
                     </span>{' '}
                     <ReactTimeAgo date={postDate} locale="en-US" />
                 </span>
