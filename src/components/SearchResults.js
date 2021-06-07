@@ -26,10 +26,27 @@ function SearchResults({ setError }) {
         <>
             <div className="App">
                 <div className="homeContainer">
-                    <ul className="postListContainer">
-                        {postsData &&
-                            postsData.map(post => <Post key={post.id} post={post} setError={setError} />)}
-                    </ul>
+                    {postsData.length === 0 ? (
+                        <ul className="postListContainer noResults">
+                            <li className="postContainer noResults">
+                                <div className="postInfo">
+                                    <span className="postInfoText">no results</span>
+                                </div>
+                                <div className="postContent">
+                                    <div>No results</div>
+                                </div>
+                            </li>
+                        </ul>
+                    ) : (
+                        <>
+                            <ul className="postListContainer">
+                                {postsData &&
+                                    postsData.map(post => (
+                                        <Post key={post.id} post={post} setError={setError} />
+                                    ))}
+                            </ul>
+                        </>
+                    )}
                     <div className="homeSidebarContainer">
                         <Search />
                         <TopRated />

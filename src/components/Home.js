@@ -1,12 +1,14 @@
+import { useSelector } from 'react-redux';
 import { useGetPosts } from '../api/posts';
-import Post from './Post';
-import TopRated from './TopRated';
 import Spinner from '../assets/Spinner';
-import '../styles/Home.css';
+import TopRated from './TopRated';
 import Search from './Search';
+import Post from './Post';
+import '../styles/Home.css';
 
 function Home({ setError }) {
     const postsData = useGetPosts();
+    const user = useSelector(s => s.user);
 
     if (!postsData) {
         return <Spinner />;
@@ -20,9 +22,11 @@ function Home({ setError }) {
                         {postsData &&
                             postsData.map(post => <Post key={post.postId} post={post} setError={setError} />)}
                     </ul>
-                    <div className="homeSidebarContainer">
-                        <Search />
-                        <TopRated />
+                    <div className="homeOuterContainer">
+                        <div className="homeSidebarContainer">
+                            {user && <Search />}
+                            <TopRated />
+                        </div>
                     </div>
                 </div>
             </div>

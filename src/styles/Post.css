@@ -47,7 +47,7 @@
     margin: auto;
     display: grid;
     grid: 2rem 1fr 2rem / 1fr;
-    margin-top: 3.8rem;
+    margin-bottom: 3.8rem;
     width: clamp(20rem, 60vw, 50rem);
     height: auto;
     font-family: 'Fira Sans', sans-serif;
@@ -90,15 +90,17 @@
 }
 
 .postFooterComments {
-    display: grid;
-    grid: 1fr / 1.15rem auto;
     color: var(--highlight-color);
+}
+
+.postFooterComments i {
+    margin-right: 3px;
 }
 
 .postFooterLikes {
     display: grid;
     justify-items: end;
-    grid: 1fr / auto;
+    grid: auto / auto;
     color: var(--highlight-color);
 }
 
@@ -106,7 +108,7 @@
     display: grid;
     gap: 2px;
     grid: auto / auto auto;
-    align-items: center;
+    align-items: start;
     cursor: pointer;
 }
 
@@ -139,4 +141,13 @@
 .postContentLink {
     color: var(--base-light-color);
     text-decoration: none;
+}
+
+.noResults {
+    /* margin: 0; */
+    height: 15rem;
+}
+
+.noResults .postContent {
+    height: 10.5rem;
 }

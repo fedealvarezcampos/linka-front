@@ -1,6 +1,7 @@
 .singlePostContainer {
     grid: auto auto auto / auto;
     padding-bottom: 2.5rem;
+    margin-top: 3.8rem;
     margin-bottom: 6rem;
 }
 

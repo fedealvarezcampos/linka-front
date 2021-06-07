@@ -2,9 +2,10 @@
     display: grid;
     align-content: center;
     z-index: 2;
-    position: sticky;
+    /* position: sticky; */
     top: 15.8rem;
     margin: auto;
+    /* margin-top: 1.4rem; */
     height: 24.5rem;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;

@@ -54,8 +54,10 @@ function SinglePostPage({ user, setError }) {
                             </span>
                         </div>
                         <div className="postFooterLikes">
-                            <span>{post.likes || '0'}</span>
-                            <i className="bi bi-heart-fill"></i>
+                            <div className="postLikesContainer">
+                                <span>{post.likes || '0'}</span>
+                                <i className="bi bi-heart-fill"></i>
+                            </div>
                         </div>
                     </div>
                     <CommentForm
