@@ -9531,12 +9531,14 @@ fsevents@^1.2.7:
     eslint-config-react-app: ^6.0.0
     javascript-time-ago: ^2.3.6
     leaflet: ^1.7.1
+    lodash: ^4.17.21
     normalize.css: ^8.0.1
     query-string: ^7.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet-async: ^1.0.9
     react-hook-form: ^7.7.1
+    react-infinite-scroll-component: ^6.1.0
     react-leaflet: ^3.1.0
     react-redux: ^7.2.4
     react-router-dom: ^5.2.0
@@ -12528,6 +12530,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-infinite-scroll-component@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "react-infinite-scroll-component@npm:6.1.0"
+  dependencies:
+    throttle-debounce: ^2.1.0
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: e584abd04f20de5e00ee4b3ab8f9a4af6367d393e1ffa6c6bfb078914936610afa9e624fbee1e48c8b6fa00f41694b11d0b2c3d74b7b3fa7882804fa73e04ab4
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -14675,6 +14688,13 @@ resolve@^2.0.0-next.3:
   version: 5.0.0
   resolution: "throat@npm:5.0.0"
   checksum: 2fa41c09ccd97982cd6601eca704913f5d8ef5cc4070fcd71c67e7240da7c0df86f65f5cb23f5c3132ab5567154740114cc92379663aa098b6076a39481b0f5f
+  languageName: node
+  linkType: hard
+
+"throttle-debounce@npm:^2.1.0":
+  version: 2.3.0
+  resolution: "throttle-debounce@npm:2.3.0"
+  checksum: 1181acfa57488c87cc02d42e9249f0a304ad389d4a521af630fefc639b055a88a49debd62d86f41053c18fc743783c8020dd44a41b0a35d9d661b14237023255
   languageName: node
   linkType: hard
 

@@ -31,4 +31,12 @@ const publishLink = async (form, token) => {
     return data;
 };
 
-export { useGetPosts, useGetMostLiked, useGetSinglePost, useGetResults, getSearchResults, publishLink, likePost };
+export {
+    useGetPosts,
+    useGetMostLiked,
+    useGetSinglePost,
+    useGetResults,
+    getSearchResults,
+    publishLink,
+    likePost,
+};
