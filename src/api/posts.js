@@ -4,6 +4,8 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
 
+const useGetSomePosts = page => useAPIGet(`${baseURL}/posts?page=${page}&limit=2`);
+
 const useGetMostLiked = () => useAPIGet(`${baseURL}/posts?sort=mostliked`);
 
 const useGetSinglePost = (postId, token) => useAPIGet(`${baseURL}/posts/${postId}`, token);
@@ -33,6 +35,7 @@ const publishLink = async (form, token) => {
 
 export {
     useGetPosts,
+    useGetSomePosts,
     useGetMostLiked,
     useGetSinglePost,
     useGetResults,

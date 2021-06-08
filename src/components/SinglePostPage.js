@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
-import { useGetSinglePost } from '../api/posts';
+import { useGetSinglePost, likePost } from '../api/posts';
 import { useGetComments } from '../api/comments';
 import Spinner from '../assets/Spinner';
 import LinkPreview from './LinkPreview';
@@ -18,8 +18,15 @@ function SinglePostPage({ user, setError }) {
 
     const commentsData = useGetComments(postId);
     const post = useGetSinglePost(postId, token);
+    // console.log(post);
+    const postLikes = post?.likes;
+    console.log(postLikes);
 
+    const [likes, setLikes] = useState(postLikes);
+    // console.log(likes);
     const [commentList, setCommentList] = useState([]);
+
+    // console.log(likes);
 
     // console.log(commentList);
     // console.log(commentsData);
@@ -27,6 +34,18 @@ function SinglePostPage({ user, setError }) {
     if (!post) {
         return <Spinner />;
     }
+
+    let body;
+
+    const handleLikeClick = async e => {
+        e.preventDefault();
+        try {
+            const response = await likePost(postId, body, token);
+            response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
+        } catch (error) {
+            setError(error.response.data.error);
+        }
+    };
 
     return (
         post && (
@@ -53,9 +72,9 @@ function SinglePostPage({ user, setError }) {
                                 {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
                             </span>
                         </div>
-                        <div className="postFooterLikes">
+                        <div className="postFooterLikes" onClick={handleLikeClick}>
                             <div className="postLikesContainer">
-                                <span>{post.likes || '0'}</span>
+                                <span>{likes}</span>
                                 <i className="bi bi-heart-fill"></i>
                             </div>
                         </div>

@@ -10,13 +10,14 @@ import UserNavMenu from './UserNavMenu';
 import { useGetProfile } from '../api/users';
 
 function Header({ error, setError }) {
+    const user = useSelector(s => s?.user);
+
     const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
     useClosingKey('Escape', show, setShow);
 
     const modal = useModal();
     const setModal = useSetModal();
-    const user = useSelector(s => s.user);
-    const profileData = useGetProfile(useSelector(s => s.user?.username));
+    const profileData = useGetProfile(user?.username);
 
     return (
         <>

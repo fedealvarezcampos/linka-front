@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
+import { ToastContainer, toast } from 'react-toastify';
 import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Post.css';
 
-function Post({ post, username, setError }) {
+function Post({ post, username, setError, setLogNote }) {
     // console.log(post);
 
-    const [likes, setLikes] = useState(post.likes || 0);
+    const [likes, setLikes] = useState(post?.likes || 0);
 
     const token = useSelector(s => s.user?.token);
     const postId = post.postId || post.id;
@@ -21,50 +23,64 @@ function Post({ post, username, setError }) {
         e.preventDefault();
         try {
             const response = await likePost(postId, body, token);
-            console.log(response.likeId);
             response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
-            console.log(response);
         } catch (error) {
             setError(error.response.data.error);
         }
     };
 
+    const notify = () => {
+        setLogNote(true);
+        toast.error('Log in to see that! 🍕', {
+            position: 'bottom-right',
+            limit: '3',
+        });
+    };
+
     const postDate = new Date(post.created_date);
 
     return (
-        <li className="postContainer">
-            <div className="postInfo">
-                <i className="ci-link_02"></i>
-                <span className="postInfoText">
-                    shared by{' '}
-                    <span>
-                        <Link to={`/users/${post.username || username}`}>{post.username || username}</Link>
-                    </span>{' '}
-                    <ReactTimeAgo date={postDate} locale="en-US" />
-                </span>
-            </div>
-            <div className="postContent">
-                <Link className="postContentLink" to={`/posts/${postId}/${postTitleURL}`}>
-                    <h1>{post.title}</h1>
-                    <p>{post.description}</p>
-                </Link>
-                <LinkPreview post={post} />
-            </div>
-            <div className="postFooter">
-                <div className="postFooterComments">
-                    <i className="bi bi-chat-fill"></i>
-                    <span>
-                        {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+        <>
+            <li className="postContainer">
+                <div className="postInfo">
+                    <i className="ci-link_02"></i>
+                    <span className="postInfoText">
+                        shared by{' '}
+                        <span>
+                            <Link to={`/users/${post.username || username}`}>
+                                {post.username || username}
+                            </Link>
+                        </span>{' '}
+                        <ReactTimeAgo date={postDate} locale="en-US" />
                     </span>
                 </div>
-                <div className="postFooterLikes" onClick={handleLikeClick}>
-                    <div className="postLikesContainer">
-                        <span>{likes}</span>
-                        <i className="bi bi-heart-fill"></i>
+                <div className="postContent">
+                    <Link
+                        className="postContentLink"
+                        to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
+                        onClick={!token && notify}
+                    >
+                        <h1>{post.title}</h1>
+                        <p>{post.description}</p>
+                    </Link>
+                    <LinkPreview post={post} />
+                </div>
+                <div className="postFooter">
+                    <div className="postFooterComments">
+                        <i className="bi bi-chat-fill"></i>
+                        <span>
+                            {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                        </span>
+                    </div>
+                    <div className="postFooterLikes" onClick={handleLikeClick}>
+                        <div className="postLikesContainer">
+                            <span>{likes}</span>
+                            <i className="bi bi-heart-fill"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        </>
     );
 }
 
