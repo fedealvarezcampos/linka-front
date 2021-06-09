@@ -2,20 +2,31 @@
     display: grid;
     place-content: center;
     align-items: start;
-    margin-top: 3.8rem;
+    margin-top: 4rem;
     gap: 2rem;
 }
 
 .newLinkContainer {
     display: grid;
+    grid: 1.5rem auto / auto;
     margin: auto;
     width: clamp(28rem, 60vw, 35rem);
     place-items: center;
     font-family: 'Fira Sans', sans-serif;
     /* margin-top: 12vh; */
-    padding: 1rem 0.3rem 1.8rem 0.3rem;
+    padding: 0.9rem 0.3rem 1.8rem 0.3rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
+}
+
+.newLinkTitle {
+    padding-left: 0.5rem;
+    justify-self: start;
+    align-self: start;
+}
+
+.newLinkTitle i {
+    vertical-align: bottom;
 }
 
 .newLinkContainer form {
@@ -25,7 +36,7 @@
     align-content: center;
     gap: 0.8rem;
     box-sizing: border-box;
-    padding: 2.8rem 2.5rem 3rem 2.2rem;
+    padding: 3.5rem 2.5rem 4rem 2.2rem;
     background-color: var(--profile-bg-color);
 }
 
@@ -35,4 +46,12 @@
 
 .newLinkContainer input {
     width: 18rem;
+}
+
+.newLinkContainer textarea {
+    width: 22rem;
+    margin: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+    resize: none;
 }

@@ -1,0 +1,37 @@
+.sortMenuContainer {
+    position: fixed;
+    display: grid;
+    width: 100%;
+}
+
+.sortMenu {
+    place-self: center;
+    width: 9rem;
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--base-light-color);
+    margin-right: clamp(15rem, 50%, 50rem);
+    border: 5px solid var(--base-light-color);
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    background-color: var(--profile-bg-color);
+}
+
+.sortMenu a {
+    color: var(--base-light-color);
+    vertical-align: bottom;
+    text-decoration: none;
+    transition: color 100ms ease-in-out;
+}
+
+.sortMenu i {
+    padding-right: 6px;
+}
+
+.sortMenuLink {
+    text-decoration: none;
+}
+
+.sortMenuLink:nth-child(n + 2) {
+    padding-top: 10px;
+}

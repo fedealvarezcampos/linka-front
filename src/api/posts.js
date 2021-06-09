@@ -2,7 +2,7 @@ import axios from 'axios';
 import useAPIGet from '../hooks/useAPIGet';
 const baseURL = 'http://localhost:8080/api';
 
-const useGetPosts = () => useAPIGet(`${baseURL}/posts`);
+const useGetPosts = sort => useAPIGet((sort && `${baseURL}/posts?sort=${sort}`) || `${baseURL}/posts`);
 
 const useGetSomePosts = page => useAPIGet(`${baseURL}/posts?page=${page}&limit=2`);
 

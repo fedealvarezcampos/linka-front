@@ -8,7 +8,7 @@ import LinkPreview from './LinkPreview';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Post.css';
 
-function Post({ post, username, setError, setLogNote }) {
+function Post({ post, sort, username, setError, setLogNote }) {
     // console.log(post);
 
     const user = useSelector(s => s?.user);
@@ -64,7 +64,7 @@ function Post({ post, username, setError, setLogNote }) {
                     <Link
                         className="postContentLink"
                         to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                        onClick={!token && notify}
+                        onClick={!token ? () => notify() : null}
                     >
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>

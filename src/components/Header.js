@@ -8,8 +8,9 @@ import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
 import { useGetProfile } from '../api/users';
+import NavSort from './NavSort';
 
-function Header({ error, setError }) {
+function Header({ error, setError, setSort }) {
     const user = useSelector(s => s?.user);
 
     const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
@@ -35,10 +36,10 @@ function Header({ error, setError }) {
                     />
                 )}
                 <button className="button navButton">
-                    <i class="bi bi-lightning-charge-fill"></i>
+                    <i className="bi bi-lightning-charge-fill"></i>
                 </button>
                 <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
-                    <i class="bi bi-plus-circle-fill"></i>
+                    <i className="bi bi-plus-circle-fill"></i>
                 </NavLink>
                 {user ? (
                     <NavProfile love={profileData?.love} setShow={setShow} nodeRef={nodeRef} />
@@ -54,6 +55,7 @@ function Header({ error, setError }) {
                 )}
                 <UserNavMenu show={show} setShow={setShow} nodeRef={nodeRef} />
             </header>
+            <NavSort setSort={setSort} />
         </>
     );
 }

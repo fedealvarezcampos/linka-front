@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import { publishLink } from '../api/posts';
 import '../styles/NewLink.css';
 
-function NewLink({ setError }) {
+function NewLink({ setError, setLogNote }) {
     const token = useSelector(s => s.user?.token);
 
     const [link, setLink] = useState('');
@@ -13,6 +14,14 @@ function NewLink({ setError }) {
     const [description, setDescription] = useState('');
     const [post, setPost] = useState();
     const [posted, setPosted] = useState(false);
+
+    const notify = errorMessage => {
+        setLogNote(true);
+        toast.warn(errorMessage, {
+            position: 'bottom-right',
+            limit: '3',
+        });
+    };
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -22,6 +31,7 @@ function NewLink({ setError }) {
             setPosted(true);
         } catch (error) {
             setError(error.response.data.error);
+            notify(error.response.data.error);
         }
     };
 
@@ -39,8 +49,8 @@ function NewLink({ setError }) {
             </Helmet>
             <div className="newLinkPage">
                 <div className="newLinkContainer">
-                    <span>
-                        profile | settings<i className="bi bi-file-person-fill"></i>
+                    <span className="newLinkTitle">
+                        <i className="ci-link_02"></i> new link
                     </span>
                     <form onSubmit={handleSubmit}>
                         <div className="dataContainer">
@@ -58,7 +68,7 @@ function NewLink({ setError }) {
                                 <span>Title</span>
                                 <br />
                                 <input
-                                    placeholder="share your link here..."
+                                    placeholder="enter a title for the link..."
                                     type="text"
                                     value={title}
                                     onChange={e => setTitle(e.target.value)}
@@ -69,8 +79,8 @@ function NewLink({ setError }) {
                                 <br />
                                 <textarea
                                     cols="35"
-                                    rows="6"
-                                    placeholder="bio"
+                                    rows="10"
+                                    placeholder="what's it about..."
                                     value={description}
                                     onChange={e => setDescription(e.target.value)}
                                     type="text"

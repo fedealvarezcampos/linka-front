@@ -1,3 +1,7 @@
+.Toastify__progress-bar {
+    background-color: var(--alt-highlight-color);
+}
+
 .Toastify__toast--error {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
@@ -5,6 +9,7 @@
     font-weight: 800;
     color: var(--alt-highlight-color);
     background-color: var(--posts-color);
+    border-radius: 15px 0 15px 0;
 }
 
 .Toastify__toast--warning {
@@ -14,4 +19,9 @@
     font-weight: 800;
     color: var(--base-light-color);
     background-color: var(--highlight-color);
+    border-radius: 15px 0 15px 0;
+}
+
+.Toastify__toast--warning .Toastify__progress-bar {
+    background-color: var(--base-light-color);
 }

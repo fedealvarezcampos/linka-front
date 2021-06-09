@@ -10,7 +10,7 @@ import Search from './Search';
 import Post from './Post';
 import '../styles/Home.css';
 
-function Home({ setError, setLogNote }) {
+function Home({ sort, setError, setLogNote }) {
     // console.log(postsData);
     // const postsChunkedData = _.chunk(postsData, 2);
     // console.log(postsChunkedData);
@@ -19,7 +19,7 @@ function Home({ setError, setLogNote }) {
     // let [page, setPage] = useState(1);
     // const [posts, setPosts] = useState([]);
 
-    const postsData = useGetPosts();
+    const postsData = useGetPosts(sort);
     // const postsData = useGetSomePosts(page);
 
     // console.log(postsData);
@@ -55,6 +55,7 @@ function Home({ setError, setLogNote }) {
                         {postsData &&
                             postsData.map(post => (
                                 <Post
+                                    sort={sort}
                                     key={post.postId}
                                     post={post}
                                     setError={setError}
