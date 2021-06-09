@@ -76,6 +76,11 @@ function SinglePostPage({ setError, setLogNote }) {
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
                     <LinkPreview post={post} />
+                    {token && (
+                        <div className="deletePostLink">
+                            <i class="bi bi-trash-fill"></i> Delete this link
+                        </div>
+                    )}
                     <hr />
                     <div className="postFooter">
                         <div className="postFooterComments">

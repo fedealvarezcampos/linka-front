@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { CSSTransition } from 'react-transition-group';
 import { useModal, useSetModal } from '../context/ModalContext';
@@ -34,6 +34,12 @@ function Header({ error, setError }) {
                         setError={setError}
                     />
                 )}
+                <button className="button navButton">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </button>
+                <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
+                    <i class="bi bi-plus-circle-fill"></i>
+                </NavLink>
                 {user ? (
                     <NavProfile love={profileData?.love} setShow={setShow} nodeRef={nodeRef} />
                 ) : (
