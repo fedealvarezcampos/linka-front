@@ -10,12 +10,11 @@ import Search from './Search';
 import Post from './Post';
 import '../styles/Home.css';
 
-function Home({ setError }) {
+function Home({ setError, setLogNote }) {
     // console.log(postsData);
     // const postsChunkedData = _.chunk(postsData, 2);
     // console.log(postsChunkedData);
     const user = useSelector(s => s?.user);
-    const [logNote, setLogNote] = useState(false);
 
     // let [page, setPage] = useState(1);
     // const [posts, setPosts] = useState([]);
@@ -70,7 +69,6 @@ function Home({ setError }) {
                             <TopRated />
                         </div>
                     </div>
-                    {logNote && <ToastContainer limit="3" />}
                 </div>
             </div>
         </>

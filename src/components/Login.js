@@ -20,6 +20,7 @@ function Login({ error, setError, show, setShow, nodeRef }) {
                 password,
             });
             setShow(!show);
+            setError('');
             passVisibility && setPassVisibility(false);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {

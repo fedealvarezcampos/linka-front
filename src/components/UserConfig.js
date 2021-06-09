@@ -3,10 +3,11 @@ import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../api/users';
+import { toast } from 'react-toastify';
 import ProfileCard from './ProfileCard';
 import '../styles/UserConfig.css';
 
-function UserConfig({ setError }) {
+function UserConfig({ setError, setLogNote }) {
     const dispatch = useDispatch();
 
     const user = useSelector(s => s.user);
@@ -26,10 +27,19 @@ function UserConfig({ setError }) {
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState();
     const [passVisibility, setPassVisibility] = useState();
+    const [completed, setCompleted] = useState(false);
 
     if (!isLoggedIn) {
         return <Redirect to="/" />;
     }
+
+    const notify = errorMessage => {
+        setLogNote(true);
+        toast.warn(errorMessage, {
+            position: 'bottom-right',
+            limit: '3',
+        });
+    };
 
     const handleSubmit = async e => {
         try {
@@ -46,8 +56,10 @@ function UserConfig({ setError }) {
             passVisibility && setPassVisibility(false);
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
+            setCompleted(true);
         } catch (error) {
             setError(error.response.data.error);
+            notify(error.response.data.error);
         }
     };
 
@@ -56,6 +68,10 @@ function UserConfig({ setError }) {
         setAvatar(f);
         setPreview(f && URL.createObjectURL(f));
     };
+
+    if (completed) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
 import { useModal } from './context/ModalContext';
 import Home from './components/Home';
 import Header from './components/Header';
@@ -16,9 +17,11 @@ import SearchResults from './components/SearchResults';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './styles/App.css';
+import { useSelector } from 'react-redux';
 
 function App() {
     const modal = useModal();
+    const [logNote, setLogNote] = useState(false);
     const [error, setError] = useState();
 
     return (
@@ -34,16 +37,16 @@ function App() {
             <Header error={error} setError={setError} />
             <Switch>
                 <Route path="/" exact>
-                    <Home setError={setError} />
+                    <Home logNote={logNote} setLogNote={setLogNote} setError={setError} />
                 </Route>
                 <Route path="/users/:username" exact>
                     <UserProfile />
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
-                    <SinglePostPage setError={setError} />
+                    <SinglePostPage setLogNote={setLogNote} setError={setError} />
                 </Route>
                 <Route path="/settings" exact>
-                    <UserConfig setError={setError} />
+                    <UserConfig setLogNote={setLogNote} setError={setError} />
                 </Route>
                 <Route path="/new-link" exact>
                     <NewLink setError={setError} />
@@ -56,6 +59,7 @@ function App() {
                 </Route>
             </Switch>
             <ShapeDivider />
+            {logNote && <ToastContainer limit="3" />}
         </>
     );
 }

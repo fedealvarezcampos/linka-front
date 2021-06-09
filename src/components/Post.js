@@ -11,6 +11,9 @@ import '../styles/Post.css';
 function Post({ post, username, setError, setLogNote }) {
     // console.log(post);
 
+    const user = useSelector(s => s?.user);
+    const itsMyPost = user?.id === (post.userId || post.userId);
+
     const [likes, setLikes] = useState(post?.likes || 0);
 
     const token = useSelector(s => s.user?.token);
@@ -31,10 +34,13 @@ function Post({ post, username, setError, setLogNote }) {
 
     const notify = () => {
         setLogNote(true);
-        toast.error('Log in to see that! 🍕', {
-            position: 'bottom-right',
-            limit: '3',
-        });
+        toast.error(
+            (!token && 'Log in to do that! 🍕') || (itsMyPost && 'Liking your posts is not cool 🦂'),
+            {
+                position: 'bottom-right',
+                limit: '3',
+            }
+        );
     };
 
     const postDate = new Date(post.created_date);
@@ -62,8 +68,8 @@ function Post({ post, username, setError, setLogNote }) {
                     >
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
+                        <LinkPreview post={post} />
                     </Link>
-                    <LinkPreview post={post} />
                 </div>
                 <div className="postFooter">
                     <div className="postFooterComments">
@@ -72,7 +78,10 @@ function Post({ post, username, setError, setLogNote }) {
                             {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
                         </span>
                     </div>
-                    <div className="postFooterLikes" onClick={handleLikeClick}>
+                    <div
+                        className="postFooterLikes"
+                        onClick={(token && !itsMyPost && handleLikeClick) || notify || (itsMyPost && notify)}
+                    >
                         <div className="postLikesContainer">
                             <span>{likes}</span>
                             <i className="bi bi-heart-fill"></i>

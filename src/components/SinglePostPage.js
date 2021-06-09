@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
+import { toast } from 'react-toastify';
 import { useGetSinglePost, likePost } from '../api/posts';
 import { useGetComments } from '../api/comments';
 import Spinner from '../assets/Spinner';
@@ -11,14 +12,17 @@ import CommentList from './CommentList';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
 
-function SinglePostPage({ user, setError }) {
+function SinglePostPage({ setError, setLogNote }) {
     const { postId } = useParams();
 
+    const user = useSelector(s => s?.user);
     const token = useSelector(s => s.user?.token);
 
     const commentsData = useGetComments(postId);
     const post = useGetSinglePost(postId, token);
-    // console.log(post);
+    const itsMyPost = user?.id === post?.userId;
+    console.log(itsMyPost);
+
     const postLikes = post?.likes;
     console.log(postLikes);
 
@@ -47,6 +51,14 @@ function SinglePostPage({ user, setError }) {
         }
     };
 
+    const notify = () => {
+        setLogNote(true);
+        toast.error('Liking your posts is not cool 🦂', {
+            position: 'bottom-right',
+            limit: '3',
+        });
+    };
+
     return (
         post && (
             <div className="postContainer singlePostContainer">
@@ -55,7 +67,7 @@ function SinglePostPage({ user, setError }) {
                     <span className="postInfoText">
                         shared by{' '}
                         <span>
-                            <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
+                            <Link to={`/users/${post.username}`}>{post.username}</Link>
                         </span>{' '}
                         <ReactTimeAgo date={new Date(post.created_date)} locale="en-US" />
                     </span>
@@ -72,7 +84,10 @@ function SinglePostPage({ user, setError }) {
                                 {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
                             </span>
                         </div>
-                        <div className="postFooterLikes" onClick={handleLikeClick}>
+                        <div
+                            className="postFooterLikes"
+                            onClick={(token && !itsMyPost && handleLikeClick) || (itsMyPost && notify)}
+                        >
                             <div className="postLikesContainer">
                                 <span>{likes}</span>
                                 <i className="bi bi-heart-fill"></i>
