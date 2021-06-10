@@ -39,7 +39,7 @@
     margin-inline-start: 0;
     margin-inline-end: 0;
     padding-inline-start: 0;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
 }
 
 .postContainer {
@@ -47,7 +47,7 @@
     margin: auto;
     display: grid;
     grid: 2rem 1fr 2rem / 1fr;
-    margin-bottom: 3.8rem;
+    margin-bottom: 3.6rem;
     width: clamp(20rem, 60vw, 50rem);
     height: auto;
     font-family: 'Fira Sans', sans-serif;

@@ -2,12 +2,33 @@
     position: fixed;
     display: grid;
     width: 100%;
+    z-index: 25;
 }
 
-.sortMenu {
+.sortMenu.dropMenu {
     place-self: center;
     width: 9rem;
-    padding: 1rem;
+    padding: 0.8rem;
+    font-weight: 600;
+    color: var(--base-light-color);
+    margin-right: clamp(15rem, 50%, 50rem);
+    border: 5px solid var(--base-light-color);
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    background-color: var(--profile-bg-color);
+}
+
+.sortMenuReleaseContainer {
+    position: fixed;
+    display: grid;
+    width: 100%;
+    z-index: 26;
+}
+
+.sortMenuRelease {
+    place-self: center;
+    width: 9rem;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
     font-weight: 600;
     color: var(--base-light-color);
     margin-right: clamp(15rem, 50%, 50rem);
@@ -30,6 +51,11 @@
 
 .sortMenuLink {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.sortMenuLink:hover {
+    color: var(--alt-highlight-color);
 }
 
 .sortMenuLink:nth-child(n + 2) {

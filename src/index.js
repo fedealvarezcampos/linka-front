@@ -11,6 +11,7 @@ import reportWebVitals from './test/reportWebVitals';
 import './styles/index.css';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+import ScrollToTop from './helpers/ScrollToTop';
 
 TimeAgo.addDefaultLocale(en);
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <HelmetProvider>
             <ModalContextProvider>
                 <Router>
+                    <ScrollToTop />
                     <ErrorBoundary>
                         <Provider store={store}>
                             <App />
