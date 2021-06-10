@@ -28,6 +28,18 @@ body {
     background-color: var(--main-bg-color);
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--posts-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--alt-item-color);
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

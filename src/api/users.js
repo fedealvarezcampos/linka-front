@@ -9,6 +9,8 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetProfile = username => useAPIGet(`${baseURL}/users/${username}`);
 
+const useGetActivity = (user, token) => useAPIGet(`${baseURL}/users/${user}/activity`, token);
+
 const login = async credentials => {
     const { data } = await axios.post(`${baseURL}/users/login`, credentials);
     return data;
@@ -26,4 +28,4 @@ const updateUser = async (username, formData, token) => {
     return data;
 };
 
-export { useGetProfile, login, register, updateUser };
+export { useGetProfile, useGetActivity, login, register, updateUser };

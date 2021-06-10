@@ -1,0 +1,70 @@
+.activityListContainer {
+    display: grid;
+    gap: 20px;
+    width: 20rem;
+    position: fixed;
+    z-index: 65;
+    margin: 0;
+    right: 0;
+    overflow-y: scroll;
+    height: 9.3rem;
+    margin-right: clamp(5rem, 18vw, 16rem);
+    padding: 1.2rem 1.6rem 0.4rem 1rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    border: 6px solid var(--base-light-color);
+    border-radius: 0 0 0 20px;
+    border-top: none;
+    scrollbar-color: red;
+    background-color: var(--highlight-color);
+}
+
+.activityListContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.activityListContainer::-webkit-scrollbar-track {
+    background: var(--base-light-color);
+}
+
+.activityListContainer::-webkit-scrollbar-thumb {
+    background-color: var(--alt-highlight-color);
+}
+
+.activityContainer:last-child {
+    padding-bottom: 1.2rem;
+}
+
+.activityContainer {
+    display: grid;
+    grid: auto / 1fr 3.6fr;
+}
+
+.activityContainer p {
+    margin: 0;
+}
+
+.activityTextContainer {
+    display: grid;
+    gap: 4px;
+}
+
+.activityDate {
+    color: var(--posts-color);
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.activityUser {
+    font-style: italic;
+    color: var(--alt-highlight-color);
+}
+
+.activityUserAvatar {
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--base-light-color);
+    border-radius: 50%;
+}
