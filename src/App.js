@@ -24,8 +24,6 @@ function App() {
     const [logNote, setLogNote] = useState(false);
     const [error, setError] = useState();
 
-    console.log(sort);
-
     return (
         <>
             <Helmet>
@@ -39,7 +37,13 @@ function App() {
             <Header error={error} setError={setError} />
             <Switch>
                 <Route path="/" exact>
-                    <Home sort={sort} setSort={setSort} logNote={logNote} setLogNote={setLogNote} setError={setError} />
+                    <Home
+                        sort={sort}
+                        setSort={setSort}
+                        logNote={logNote}
+                        setLogNote={setLogNote}
+                        setError={setError}
+                    />
                 </Route>
                 <Route path="/users/:username" exact>
                     <UserProfile />

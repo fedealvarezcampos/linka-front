@@ -12,6 +12,7 @@
     background-color: var(--item-bg-color);
     will-change: transform;
     transition: all 400ms cubic-bezier(0.2, 0.5, 0.9, 1.5);
+    cursor: pointer;
 }
 
 .linkPrevContainer:hover {

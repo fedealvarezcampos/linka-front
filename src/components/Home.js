@@ -1,8 +1,6 @@
 // import InfiniteScroll from 'react-infinite-scroll-component';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 // import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { useGetPosts } from '../api/posts';
 import Spinner from '../assets/Spinner';
 import TopRated from './TopRated';
@@ -12,9 +10,6 @@ import '../styles/Home.css';
 import NavSort from './NavSort';
 
 function Home({ sort, setSort, setError, setLogNote }) {
-    // console.log(postsData);
-    // const postsChunkedData = _.chunk(postsData, 2);
-    // console.log(postsChunkedData);
     const user = useSelector(s => s?.user);
 
     // let [page, setPage] = useState(1);

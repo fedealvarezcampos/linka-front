@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ReactTimeAgo from 'react-time-ago';
 import '../styles/RecentActivity.css';
 

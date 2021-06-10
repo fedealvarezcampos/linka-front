@@ -5,17 +5,18 @@ function useAPIGet(url, token) {
     const [result, setResult] = useState(null);
 
     useEffect(() => {
-        axios
-            .get(
-                url,
-                token && {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
-            .then(res => {
-                const { data } = res;
-                setResult(data);
-            });
+        url &&
+            axios
+                .get(
+                    url,
+                    token && {
+                        headers: { Authorization: `Bearer ${token}` },
+                    }
+                )
+                .then(res => {
+                    const { data } = res;
+                    setResult(data);
+                });
     }, [url, token]);
 
     return result;

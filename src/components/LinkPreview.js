@@ -1,8 +1,15 @@
+import { useSelector } from 'react-redux';
 import '../styles/LinkPreview.css';
 
-function LinkPreview({ post }) {
+function LinkPreview({ post, notify }) {
+    const token = useSelector(s => s.user?.token);
     return (
-        <a className="linkPrevContainer" target="_blank" rel="noreferrer" href={post.link}>
+        <div
+            className="linkPrevContainer"
+            target="_blank"
+            rel="noreferrer"
+            onClick={!token ? () => notify() : () => window.open(post.link, '_blank')}
+        >
             <div
                 className="linkPrevImg"
                 style={{ backgroundImage: `url(${post.linkImg})` }}
@@ -10,9 +17,9 @@ function LinkPreview({ post }) {
             />
             <div className="linkInfoContainer">
                 <p className="linkPrevTitle">{post.linkTitle}</p>
-                <p className="linkPrevDesc">{post.linkDesc}</p>
+                <p className="linkPrevDesc">{post.linkDesc.slice(0, 110) + '...'}</p>
             </div>
-        </a>
+        </div>
     );
 }
 

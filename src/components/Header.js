@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { CSSTransition } from 'react-transition-group';
 import { useModal, useSetModal } from '../context/ModalContext';
@@ -9,7 +8,6 @@ import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
 import { useGetActivity, useGetProfile } from '../api/users';
-import NavSort from './NavSort';
 import RecentActivity from './RecentActivity';
 
 function Header({ error, setError }) {
@@ -29,7 +27,7 @@ function Header({ error, setError }) {
 
     return (
         <>
-            <header className="header">
+            <header className={`header ${!user ? 'noUser' : ''}`}>
                 <NavLink className="logo" to="/">
                     LOGO
                 </NavLink>
@@ -42,15 +40,20 @@ function Header({ error, setError }) {
                         setError={setError}
                     />
                 )}
-                <button
-                    className={`button navButton ${activityMenu ? 'active' : ''}`}
-                    onClick={() => setActivityMenu(!activityMenu)}
-                >
-                    <i className="bi bi-lightning-charge-fill"></i>
-                </button>
-                <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
-                    <i className="bi bi-plus-circle-fill"></i>
-                </NavLink>
+                {user && (
+                    <>
+                        <button
+                            alt="activity"
+                            className={`button navButton ${activityMenu ? 'active' : ''}`}
+                            onClick={() => setActivityMenu(!activityMenu)}
+                        >
+                            <i className="bi bi-lightning-charge-fill"></i>
+                        </button>
+                        <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
+                            <i className="bi bi-plus-circle-fill"></i>
+                        </NavLink>
+                    </>
+                )}
                 {user ? (
                     <NavProfile love={profileData?.love} setShow={setShow} nodeRef={nodeRef} />
                 ) : (

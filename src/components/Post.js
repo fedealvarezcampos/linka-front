@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import 'react-toastify/dist/ReactToastify.css';
@@ -68,8 +68,8 @@ function Post({ post, sort, username, setError, setLogNote }) {
                     >
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
-                        <LinkPreview post={post} />
                     </Link>
+                    <LinkPreview notify={notify} post={post} />
                 </div>
                 <div className="postFooter">
                     <div className="postFooterComments">

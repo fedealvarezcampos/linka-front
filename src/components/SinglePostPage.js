@@ -21,19 +21,11 @@ function SinglePostPage({ setError, setLogNote }) {
     const commentsData = useGetComments(postId);
     const post = useGetSinglePost(postId, token);
     const itsMyPost = user?.id === post?.userId;
-    console.log(itsMyPost);
 
     const postLikes = post?.likes;
-    console.log(postLikes);
 
     const [likes, setLikes] = useState(postLikes);
-    // console.log(likes);
     const [commentList, setCommentList] = useState([]);
-
-    // console.log(likes);
-
-    // console.log(commentList);
-    // console.log(commentsData);
 
     if (!post) {
         return <Spinner />;
@@ -78,7 +70,7 @@ function SinglePostPage({ setError, setLogNote }) {
                     <LinkPreview post={post} />
                     {token && (
                         <div className="deletePostLink">
-                            <i class="bi bi-trash-fill"></i> Delete this link
+                            <i className="bi bi-trash-fill"></i> Delete this link
                         </div>
                     )}
                     <hr />

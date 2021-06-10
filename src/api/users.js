@@ -7,9 +7,9 @@ import axios from 'axios';
 
 const baseURL = 'http://localhost:8080/api';
 
-const useGetProfile = username => useAPIGet(`${baseURL}/users/${username}`);
+const useGetProfile = username => useAPIGet(username && `${baseURL}/users/${username}`);
 
-const useGetActivity = (user, token) => useAPIGet(`${baseURL}/users/${user}/activity`, token);
+const useGetActivity = (user, token) => useAPIGet(user && `${baseURL}/users/${user}/activity`, token);
 
 const login = async credentials => {
     const { data } = await axios.post(`${baseURL}/users/login`, credentials);

@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, Redirect } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { useSelector } from 'react-redux';
 import '../styles/NavSort.css';
 
 function NavSort({ setSort }) {
     const user = useSelector(s => s.user);
 
     const [sortMenu, setSortMenu] = useState(false);
+
+    const handleSorting = sorting => {
+        setSortMenu(false);
+        setSort(sorting);
+    };
 
     return (
         <>
@@ -26,19 +29,25 @@ function NavSort({ setSort }) {
                         onMouseOver={() => setSortMenu(true)}
                         onMouseLeave={() => setSortMenu(false)}
                     >
+                        <div className="sortMenuLinkTitle">
+                            <div>
+                                <i className="bi bi-filter-square-fill" />
+                                <span>Sorting by:</span>
+                            </div>
+                        </div>
                         <div className="sortMenuLink">
-                            <div onClick={() => setSort('')}>
+                            <div onClick={() => handleSorting('')}>
                                 <i className="bi bi-alarm-fill" />
                                 <span>Most recent</span>
                             </div>
                         </div>
                         <div className="sortMenuLink">
-                            <div onClick={() => setSort('mostliked')}>
+                            <div onClick={() => handleSorting('mostliked')}>
                                 <i className="bi bi-trophy-fill" />
                                 <span>Best today</span>
                             </div>
                         </div>
-                        <div className="sortMenuLink" onClick={() => setSort('discussed')}>
+                        <div className="sortMenuLink" onClick={() => handleSorting('discussed')}>
                             <div>
                                 <i className="bi bi-chat-square-dots-fill" />
                                 <span>Most discussed</span>
