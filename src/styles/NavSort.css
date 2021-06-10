@@ -3,6 +3,7 @@
     display: grid;
     width: 100%;
     z-index: 25;
+    top: 8rem;
 }
 
 .sortMenu.dropMenu {
@@ -23,6 +24,7 @@
     display: grid;
     width: 100%;
     z-index: 26;
+    top: 8rem;
 }
 
 .sortMenuRelease {
@@ -36,6 +38,9 @@
     border-top: none;
     border-radius: 0 0 15px 15px;
     background-color: var(--profile-bg-color);
+}
+.sortMenuRelease span {
+    margin-left: 8px;
 }
 
 .sortMenu a {

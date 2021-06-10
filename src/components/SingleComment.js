@@ -7,7 +7,11 @@ const SingleComment = ({ comment }) => {
         <li className="singleCommentContainer" key={comment.id} id={comment.id}>
             <div
                 className="singleCommentAvatar"
-                style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${comment.avatar})` }}
+                style={{
+                    backgroundImage: `url(http://localhost:8080/images/avatars/${
+                        comment.avatar || 'default.jpg'
+                    })`,
+                }}
             />
             <div className="singleCommentContent">
                 <span className="singleCommentInfo">

@@ -9,8 +9,9 @@ import TopRated from './TopRated';
 import Search from './Search';
 import Post from './Post';
 import '../styles/Home.css';
+import NavSort from './NavSort';
 
-function Home({ sort, setError, setLogNote }) {
+function Home({ sort, setSort, setError, setLogNote }) {
     // console.log(postsData);
     // const postsChunkedData = _.chunk(postsData, 2);
     // console.log(postsChunkedData);
@@ -42,35 +43,38 @@ function Home({ sort, setError, setLogNote }) {
     // console.log(posts);
 
     return (
-        <div className="App">
-            <div className="homeContainer">
-                {/* <InfiniteScroll
+        <>
+            <div className="App">
+                <NavSort setSort={setSort} />
+                <div className="homeContainer">
+                    {/* <InfiniteScroll
                         dataLength={fullData.length}
                         next={fetchMore}
                         hasMore={true}
                         loader={<h4>Loading...</h4>}
                     > */}
-                <ul className="postListContainer">
-                    {postsData &&
-                        postsData.map(post => (
-                            <Post
-                                sort={sort}
-                                key={post.postId}
-                                post={post}
-                                setError={setError}
-                                setLogNote={setLogNote}
-                            />
-                        ))}
-                </ul>
-                {/* </InfiniteScroll> */}
-                <div className="homeOuterContainer">
-                    <div className="homeSidebarContainer">
-                        {user && <Search />}
-                        <TopRated />
+                    <ul className="postListContainer">
+                        {postsData &&
+                            postsData.map(post => (
+                                <Post
+                                    sort={sort}
+                                    key={post.postId}
+                                    post={post}
+                                    setError={setError}
+                                    setLogNote={setLogNote}
+                                />
+                            ))}
+                    </ul>
+                    {/* </InfiniteScroll> */}
+                    <div className="homeOuterContainer">
+                        <div className="homeSidebarContainer">
+                            {user && <Search />}
+                            <TopRated />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

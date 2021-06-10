@@ -14,7 +14,11 @@ function RecentActivity({ note, setError, setLogNote }) {
             <li className="activityContainer">
                 <div
                     className="activityUserAvatar"
-                    style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${note.avatar})` }}
+                    style={{
+                        backgroundImage: `url(http://localhost:8080/images/avatars/${
+                            note.avatar || 'default.jpg'
+                        })`,
+                    }}
                 />
                 <div className="activityTextContainer">
                     <div className="activityUser">{note.username}</div>

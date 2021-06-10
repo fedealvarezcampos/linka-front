@@ -14,7 +14,8 @@ function NavSort({ setSort }) {
             {user && !sortMenu && (
                 <div className="sortMenuReleaseContainer">
                     <div className="sortMenuRelease" onMouseOver={() => setSortMenu(true)}>
-                        El boton
+                        <i className="bi bi-filter-square-fill" />
+                        <span>Sort links</span>
                     </div>
                 </div>
             )}
@@ -27,19 +28,19 @@ function NavSort({ setSort }) {
                     >
                         <div className="sortMenuLink">
                             <div onClick={() => setSort('')}>
-                                <i className="bi bi-file-person-fill"></i>
+                                <i className="bi bi-alarm-fill" />
                                 <span>Most recent</span>
                             </div>
                         </div>
                         <div className="sortMenuLink">
                             <div onClick={() => setSort('mostliked')}>
-                                <i className="bi bi-gear-fill"></i>
+                                <i className="bi bi-trophy-fill" />
                                 <span>Best today</span>
                             </div>
                         </div>
                         <div className="sortMenuLink" onClick={() => setSort('discussed')}>
                             <div>
-                                <i className="bi bi-door-closed-fill"></i>
+                                <i className="bi bi-chat-square-dots-fill" />
                                 <span>Most discussed</span>
                             </div>
                         </div>

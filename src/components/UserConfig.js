@@ -15,7 +15,7 @@ function UserConfig({ setError, setLogNote }) {
     const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user?.avatar);
-    // const defaultImg = 'https://i.imgur.com/CevZ3gf.jpg';
+    const defaultAvatar = 'http://localhost:8080/images/avatars/default.jpg';
     const userImage = `http://localhost:8080/images/avatars/${preloadedImage}`;
 
     const [password, setPassword] = useState('');
@@ -66,7 +66,7 @@ function UserConfig({ setError, setLogNote }) {
     const handleFile = e => {
         const f = e.target.files[0];
         setAvatar(f);
-        setPreview(f && URL.createObjectURL(f));
+        setPreview((f && URL.createObjectURL(f)) || defaultAvatar);
     };
 
     if (completed) {

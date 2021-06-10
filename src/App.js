@@ -36,10 +36,10 @@ function App() {
                     <RegisterForm setError={setError} />
                 </Modal>
             )}
-            <Header error={error} setSort={setSort} setError={setError} />
+            <Header error={error} setError={setError} />
             <Switch>
                 <Route path="/" exact>
-                    <Home sort={sort} logNote={logNote} setLogNote={setLogNote} setError={setError} />
+                    <Home sort={sort} setSort={setSort} logNote={logNote} setLogNote={setLogNote} setError={setError} />
                 </Route>
                 <Route path="/users/:username" exact>
                     <UserProfile />

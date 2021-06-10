@@ -12,7 +12,7 @@ import { useGetActivity, useGetProfile } from '../api/users';
 import NavSort from './NavSort';
 import RecentActivity from './RecentActivity';
 
-function Header({ error, setError, setSort }) {
+function Header({ error, setError }) {
     const user = useSelector(s => s.user);
     const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
@@ -42,7 +42,10 @@ function Header({ error, setError, setSort }) {
                         setError={setError}
                     />
                 )}
-                <button className="button navButton" onClick={() => setActivityMenu(!activityMenu)}>
+                <button
+                    className={`button navButton ${activityMenu ? 'active' : ''}`}
+                    onClick={() => setActivityMenu(!activityMenu)}
+                >
                     <i className="bi bi-lightning-charge-fill"></i>
                 </button>
                 <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
@@ -70,7 +73,6 @@ function Header({ error, setError, setSort }) {
                         ))}
                 </ul>
             )}
-            <NavSort setSort={setSort} />
         </>
     );
 }
