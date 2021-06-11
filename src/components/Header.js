@@ -20,7 +20,7 @@ function Header({ error, setError }) {
 
     const modal = useModal();
     const setModal = useSetModal();
-    const { show, setShow, nodeRef } = useDetectClickOut(false);
+    const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
     const { activityMenu, setActivityMenu, nodeRefAct } = useDetectClickOutActivity(false);
 
     useClosingKey('Escape', show, setShow);

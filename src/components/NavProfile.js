@@ -11,7 +11,11 @@ function NavProfile({ show, setShow, love }) {
             <i className="bi bi-caret-down-fill"></i>
             <div
                 className="avatar"
-                style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${user.avatar})` }}
+                style={{
+                    backgroundImage: `url(http://localhost:8080/images/avatars/${
+                        user.avatar || 'default.jpg'
+                    })`,
+                }}
             />
             <div>
                 <p className="profileName">{user.username}</p>

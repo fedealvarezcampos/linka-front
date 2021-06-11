@@ -13,7 +13,11 @@ const ProfileCard = ({ user }) => {
             <div className="userCardContent">
                 <div
                     className="userCardAvatar"
-                    style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${user.avatar})` }}
+                    style={{
+                        backgroundImage: `url(http://localhost:8080/images/avatars/${
+                            user.avatar || 'default.jpg'
+                        })`,
+                    }}
                     alt="user avatar"
                 ></div>
                 {(user?.userSite || user?.userTW || user?.userIG) && (
@@ -42,7 +46,7 @@ const ProfileCard = ({ user }) => {
                         <i className="ci-heart_fill"></i>
                     </p>
                 </div>
-                <p className="userCardBio">{user.bio}</p>
+                {user?.bio && <p className="userCardBio">{user.bio}</p>}
             </div>
         </div>
     );

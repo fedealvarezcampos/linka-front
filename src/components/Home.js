@@ -15,7 +15,7 @@ function Home({ sort, setSort, setError, setLogNote }) {
 
     let [page, setPage] = useState(2);
     const [posts, setPosts] = useState([]);
-    const [newPosts, setNewPosts] = useState([]);
+    // const [newPosts, setNewPosts] = useState([]);
 
     const postsData = useGetSomePosts(sort, 1);
     const morePostsData = useGetSomePosts(sort, page);
@@ -31,10 +31,11 @@ function Home({ sort, setSort, setError, setLogNote }) {
     }
 
     const fetchMore = () => {
-        setPage(page + 1);
-        setNewPosts(morePostsData);
+        setPage(page => page + 1);
         setPosts([...posts, ...morePostsData]);
     };
+
+    console.log(page);
 
     return (
         <>

@@ -25,7 +25,7 @@ function UserConfig({ setError, setLogNote }) {
     const [userTW, setUserTW] = useState(user?.userTW || '');
     const [userIG, setUserIG] = useState(user?.userIG || '');
     const [avatar, setAvatar] = useState();
-    const [preview, setPreview] = useState();
+    const [preview, setPreview] = useState(defaultAvatar);
     const [passVisibility, setPassVisibility] = useState();
     const [completed, setCompleted] = useState(false);
 

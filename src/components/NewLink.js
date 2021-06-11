@@ -30,7 +30,7 @@ function NewLink({ setError, setLogNote }) {
             setPost(response);
             setPosted(true);
         } catch (error) {
-            setError(error.response.data.error);
+            // setError(error.response.data.error);
             notify(error.response.data.error);
         }
     };

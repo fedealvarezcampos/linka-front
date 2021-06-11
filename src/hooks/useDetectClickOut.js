@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-function useDetectClickOut(initState) {
+function useDetectClickOut(initState, setError) {
     const nodeRef = useRef(null);
 
     const [show, setShow] = useState(initState);
 
     const handleClickOutside = e => {
         if (nodeRef.current && !nodeRef.current.contains(e.target)) {
+            setError('');
             return setShow(!show);
         }
     };
