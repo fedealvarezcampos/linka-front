@@ -1,7 +1,8 @@
 // import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector } from 'react-redux';
-// import { useEffect, useState } from 'react';
-import { useGetPosts } from '../api/posts';
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useGetPosts, useGetSomePosts } from '../api/posts';
 import Spinner from '../assets/Spinner';
 import TopRated from './TopRated';
 import Search from './Search';
@@ -12,27 +13,30 @@ import NavSort from './NavSort';
 function Home({ sort, setSort, setError, setLogNote }) {
     const user = useSelector(s => s?.user);
 
-    // let [page, setPage] = useState(1);
-    // const [posts, setPosts] = useState([]);
+    let [page, setPage] = useState(2);
+    const [posts, setPosts] = useState([]);
+    const [newPosts, setNewPosts] = useState([]);
 
-    const postsData = useGetPosts(sort);
-    // const postsData = useGetSomePosts(page);
+    const postsData = useGetSomePosts(1);
+    const morePostsData = useGetSomePosts(page);
 
-    // console.log(postsData);
+    useEffect(() => {
+        setPosts(postsData);
+    }, [postsData]);
 
-    // useEffect(() => {
-    //     postsData && setPosts(postsData);
-    // }, [postsData]);
+    console.log(posts);
 
     if (!postsData) {
         return <Spinner />;
     }
 
-    // const fetchMore = () => {
-    //     setPage(page => page + 1);
-    //     let [...newPosts] = postsData;
-    //     setPosts([...posts, ...newPosts]);
-    // };
+    const fetchMore = () => {
+        setPage(page + 1);
+        setNewPosts(morePostsData);
+        setPosts([...posts, ...morePostsData]);
+    };
+
+    console.log(posts?.length);
 
     // console.log(page);
     // console.log(posts);
@@ -42,25 +46,28 @@ function Home({ sort, setSort, setError, setLogNote }) {
             <div className="App">
                 <NavSort setSort={setSort} />
                 <div className="homeContainer">
-                    {/* <InfiniteScroll
-                        dataLength={fullData.length}
+                    <InfiniteScroll
+                        dataLength={posts && posts?.length}
                         next={fetchMore}
                         hasMore={true}
+                        scrollableTarget={'App'}
+                        scrollThreshold={'20px'}
                         loader={<h4>Loading...</h4>}
-                    > */}
-                    <ul className="postListContainer">
-                        {postsData &&
-                            postsData.map(post => (
-                                <Post
-                                    sort={sort}
-                                    key={post.postId}
-                                    post={post}
-                                    setError={setError}
-                                    setLogNote={setLogNote}
-                                />
-                            ))}
-                    </ul>
-                    {/* </InfiniteScroll> */}
+                    >
+                        <ul className="postListContainer">
+                            {posts &&
+                                posts.map(post => (
+                                    <Post
+                                        sort={sort}
+                                        key={post.postId}
+                                        post={post}
+                                        setError={setError}
+                                        setLogNote={setLogNote}
+                                    />
+                                ))}
+                        </ul>
+                    </InfiniteScroll>
+
                     <div className="homeOuterContainer">
                         <div className="homeSidebarContainer">
                             {user && <Search />}
