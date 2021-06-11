@@ -26,7 +26,7 @@ function RecentActivity({ note, setError, setLogNote }) {
                             replied to your link <ReactTimeAgo date={noteDate} locale="en-US" />
                         </p>
                     </span>
-                    <div classname="activityComment">{note.comment}</div>
+                    <div className="activityComment">{note.comment}</div>
                 </div>
             </li>
         </>

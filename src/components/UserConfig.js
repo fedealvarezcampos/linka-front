@@ -33,12 +33,17 @@ function UserConfig({ setError, setLogNote }) {
         return <Redirect to="/" />;
     }
 
-    const notify = errorMessage => {
+    const notify = message => {
         setLogNote(true);
-        toast.warn(errorMessage, {
+        toast.warn(message, {
             position: 'bottom-right',
             limit: '3',
         });
+        completed &&
+            toast.success('Data saved! 🍕', {
+                position: 'bottom-right',
+                limit: '3',
+            });
     };
 
     const handleSubmit = async e => {
@@ -57,6 +62,7 @@ function UserConfig({ setError, setLogNote }) {
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
             setCompleted(true);
+            notify();
         } catch (error) {
             setError(error.response.data.error);
             notify(error.response.data.error);
@@ -69,9 +75,9 @@ function UserConfig({ setError, setLogNote }) {
         setPreview((f && URL.createObjectURL(f)) || defaultAvatar);
     };
 
-    if (completed) {
-        return <Redirect to="/" />;
-    }
+    // if (completed) {
+    //     return <Redirect to="/" />;
+    // }
 
     return (
         <>

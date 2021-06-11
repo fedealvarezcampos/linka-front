@@ -37,7 +37,6 @@ function NewLink({ setError, setLogNote }) {
 
     const postTitleURL = post && post.title.replaceAll(' ', '-').toLowerCase();
 
-    console.log(post);
     if (posted) {
         return <Redirect to={`/posts/${post.id}/${postTitleURL}`} />;
     }

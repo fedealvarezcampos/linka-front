@@ -2,6 +2,16 @@
     background-color: var(--alt-highlight-color);
 }
 
+.Toastify__toast--success {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 800;
+    color: var(--base-light-color);
+    background-color: var(--alt-item-color);
+    border-radius: 15px 0 15px 0;
+}
+
 .Toastify__toast--error {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;

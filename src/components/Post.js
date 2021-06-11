@@ -35,7 +35,7 @@ function Post({ post, sort, username, setError, setLogNote }) {
     const notify = () => {
         setLogNote(true);
         toast.error(
-            (!token && 'Log in to do that! 🍕') || (itsMyPost && 'Liking your posts is not cool 🦂'),
+            (!token && 'Log in to do that! 🍕') || (itsMyPost && 'Liking your own links is not cool 🦂'),
             {
                 position: 'bottom-right',
                 limit: '3',
