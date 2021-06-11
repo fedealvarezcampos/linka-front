@@ -39,12 +39,17 @@ function UserConfig({ setError, setLogNote }) {
             position: 'bottom-right',
             limit: '3',
         });
-        completed &&
-            toast.success('Data saved! 🍕', {
-                position: 'bottom-right',
-                limit: '3',
-            });
     };
+
+    const notifySuccess = () => {
+        setLogNote(true);
+        toast.success('Data saved! 🍕', {
+            position: 'bottom-right',
+            limit: '3',
+        });
+    };
+
+    console.log(completed);
 
     const handleSubmit = async e => {
         try {
@@ -57,12 +62,11 @@ function UserConfig({ setError, setLogNote }) {
             fd.append('userTW', userTW);
             fd.append('userIG', userIG);
             fd.append('avatar', avatar);
-
             passVisibility && setPassVisibility(false);
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
             setCompleted(true);
-            notify();
+            notifySuccess();
         } catch (error) {
             setError(error.response.data.error);
             notify(error.response.data.error);

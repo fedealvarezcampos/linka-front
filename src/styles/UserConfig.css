@@ -61,6 +61,7 @@
 
 .userConfigContainer textarea {
     width: 20rem;
+    resize: none;
 }
 
 .userConfigContainer .avatarContainer .bi-camera2 {

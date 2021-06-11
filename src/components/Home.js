@@ -17,8 +17,8 @@ function Home({ sort, setSort, setError, setLogNote }) {
     const [posts, setPosts] = useState([]);
     const [newPosts, setNewPosts] = useState([]);
 
-    const postsData = useGetSomePosts(1);
-    const morePostsData = useGetSomePosts(page);
+    const postsData = useGetSomePosts(sort, 1);
+    const morePostsData = useGetSomePosts(sort, page);
 
     useEffect(() => {
         setPosts(postsData);
@@ -36,21 +36,15 @@ function Home({ sort, setSort, setError, setLogNote }) {
         setPosts([...posts, ...morePostsData]);
     };
 
-    console.log(posts?.length);
-
-    // console.log(page);
-    // console.log(posts);
-
     return (
         <>
             <div className="App">
-                <NavSort setSort={setSort} />
+                <NavSort setPage={setPage} setSort={setSort} />
                 <div className="homeContainer">
                     <InfiniteScroll
                         dataLength={posts && posts?.length}
                         next={fetchMore}
                         hasMore={true}
-                        scrollableTarget={'App'}
                         scrollThreshold={'20px'}
                         loader={<h4>Loading...</h4>}
                     >

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../styles/NavSort.css';
 
-function NavSort({ setSort }) {
+function NavSort({ setSort, setPage }) {
     const user = useSelector(s => s.user);
 
     const [sortMenu, setSortMenu] = useState(false);
@@ -10,6 +10,8 @@ function NavSort({ setSort }) {
     const handleSorting = sorting => {
         setSortMenu(false);
         setSort(sorting);
+        setPage(2);
+        window.scrollTo(0, 0);
     };
 
     return (

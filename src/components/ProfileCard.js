@@ -16,7 +16,25 @@ const ProfileCard = ({ user }) => {
                     style={{ backgroundImage: `url(http://localhost:8080/images/avatars/${user.avatar})` }}
                     alt="user avatar"
                 ></div>
-                <div className="userCardSocial"></div>
+                {(user?.userSite || user?.userTW || user?.userIG) && (
+                    <div className="userCardSocial">
+                        {user?.userSite && (
+                            <a href={user.userSite}>
+                                <i className="bi bi-house-fill" />
+                            </a>
+                        )}
+                        {user?.userTW && (
+                            <a href={user.userTW}>
+                                <i className="bi bi-twitter" />
+                            </a>
+                        )}
+                        {user?.userIG && (
+                            <a href={user.userIG}>
+                                <i className="bi bi-instagram" />
+                            </a>
+                        )}
+                    </div>
+                )}
                 <div>
                     <p className="userCardUsername">{user.username}</p>
                     <p className="userCardLove">

@@ -4,7 +4,7 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetPosts = sort => useAPIGet((sort && `${baseURL}/posts?sort=${sort}`) || `${baseURL}/posts`);
 
-const useGetSomePosts = page => useAPIGet(`${baseURL}/posts?page=${page}&limit=4`);
+const useGetSomePosts = (sort, page) => useAPIGet(`${baseURL}/posts?sort=${sort}&page=${page}&limit=4`);
 
 const useGetMostLiked = () => useAPIGet(`${baseURL}/posts?sort=mostliked`);
 
