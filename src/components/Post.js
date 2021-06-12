@@ -65,10 +65,15 @@ function Post({ post, username, setError, setLogNote }) {
                 </div>
                 <div className="postFooter">
                     <div className="postFooterComments">
-                        <i className="bi bi-chat-fill"></i>
-                        <span>
-                            {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
-                        </span>
+                        <Link
+                            to={token && `/posts/${postId}/${postTitleURL}`}
+                            className="postFooterContentContainer"
+                        >
+                            <i className="bi bi-chat-fill"></i>
+                            <span>
+                                {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                            </span>
+                        </Link>
                     </div>
                     <div
                         className="postFooterLikes"

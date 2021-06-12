@@ -49,7 +49,7 @@ function App() {
                     />
                 </Route>
                 <Route path="/users/:username" exact>
-                    <UserProfile />
+                    <UserProfile setLogNote={setLogNote} />
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
                     <SinglePostPage setLogNote={setLogNote} setError={setError} />

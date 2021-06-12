@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
@@ -36,6 +36,7 @@ function SinglePostPage({ setError, setLogNote }) {
     if (!post) {
         return <Spinner />;
     }
+    console.log(postLikes);
 
     let body;
 
@@ -44,6 +45,7 @@ function SinglePostPage({ setError, setLogNote }) {
         try {
             const response = await likePost(postId, body, token);
             response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
+            console.log(response);
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -61,6 +63,8 @@ function SinglePostPage({ setError, setLogNote }) {
             setLogNote(true);
         }
     };
+
+    console.log(likes);
 
     if (linkIsDeleted) {
         return <Redirect to="/" />;

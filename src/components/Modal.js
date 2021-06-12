@@ -40,7 +40,7 @@ function Modal({ children, error, setError, postId, handleDeleteClick }) {
                     <div className="modal-fg deletePostModal bounceAnim">
                         <span>You really want to erase this?</span>
                         <button onClick={handleDeleteClick} className="button deletePostButton">
-                            I really do
+                            DELETE IT
                         </button>
                     </div>
 

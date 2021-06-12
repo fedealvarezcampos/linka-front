@@ -89,6 +89,17 @@
     font-size: 1rem;
 }
 
+.postFooterContentContainer {
+    text-decoration: none;
+    color: var(--highlight-color);
+    transition: color 150ms;
+}
+
+.postFooterContentContainer:hover {
+    color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
 .postFooterComments {
     color: var(--highlight-color);
 }
