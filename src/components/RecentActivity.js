@@ -19,15 +19,17 @@ function RecentActivity({ note, setError, setLogNote }) {
                         })`,
                     }}
                 />
-                <div className="activityTextContainer">
-                    <div className="activityUser">{note.username}</div>
-                    <span className="activityDate">
-                        <p>
-                            replied to your link <ReactTimeAgo date={noteDate} locale="en-US" />
-                        </p>
-                    </span>
-                    <div className="activityComment">{note.comment}</div>
-                </div>
+                {note && (
+                    <div className="activityTextContainer">
+                        <div className="activityUser">{note.username}</div>
+                        <span className="activityDate">
+                            <p>
+                                replied to your link <ReactTimeAgo date={noteDate} locale="en-US" />
+                            </p>
+                        </span>
+                        <div className="activityComment">{note.comment}</div>
+                    </div>
+                )}
             </li>
         </>
     );

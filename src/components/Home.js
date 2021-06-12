@@ -46,7 +46,7 @@ function Home({ sort, setSort, setError, setLogNote }) {
                         dataLength={posts && posts?.length}
                         next={fetchMore}
                         hasMore={true}
-                        scrollThreshold={'20px'}
+                        scrollThreshold={'50px'}
                         loader={<h4>Loading...</h4>}
                     >
                         <ul className="postListContainer">
@@ -62,7 +62,6 @@ function Home({ sort, setSort, setError, setLogNote }) {
                                 ))}
                         </ul>
                     </InfiniteScroll>
-
                     <div className="homeOuterContainer">
                         <div className="homeSidebarContainer">
                             {user && <Search />}

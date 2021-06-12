@@ -19,6 +19,13 @@
     background-color: var(--highlight-color);
 }
 
+.activityListContainer.noActivity {
+    padding-top: 1.5rem;
+    font-style: italic;
+    overflow-y: unset;
+    height: 2.5rem;
+}
+
 .activityListContainer::-webkit-scrollbar {
     width: 8px;
 }

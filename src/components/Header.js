@@ -15,14 +15,14 @@ function Header({ error, setError }) {
     const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
 
+    const modal = useModal();
+    const setModal = useSetModal();
+
     const activityData = useGetActivity(username, token);
     const profileData = useGetProfile(user?.username);
 
-    const modal = useModal();
-    const setModal = useSetModal();
     const { show, setShow, nodeRef } = useDetectClickOut(false, setError);
     const { activityMenu, setActivityMenu, nodeRefAct } = useDetectClickOutActivity(false);
-
     useClosingKey('Escape', show, setShow);
 
     return (
@@ -69,11 +69,21 @@ function Header({ error, setError }) {
                 <UserNavMenu show={show} setShow={setShow} nodeRef={nodeRef} />
             </header>
             {activityMenu && (
-                <ul ref={nodeRefAct} className="activityListContainer dropMenu">
+                <ul
+                    ref={nodeRefAct}
+                    className={`activityListContainer dropMenu ${activityData?.length === 0 && 'noActivity'}`}
+                >
                     {activityData &&
                         activityData.map((note, i) => (
                             <RecentActivity key={i} note={note} setError={setError} />
                         ))}
+                    {activityData?.length === 0 && (
+                        <div>
+                            No activity yet! <i className="bi bi-lightning-charge-fill"></i>
+                            <i className="bi bi-lightning-charge-fill"></i>
+                            <i className="bi bi-lightning-charge-fill"></i>
+                        </div>
+                    )}
                 </ul>
             )}
         </>

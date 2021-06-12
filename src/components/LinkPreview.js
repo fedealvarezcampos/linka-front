@@ -3,6 +3,9 @@ import '../styles/LinkPreview.css';
 
 function LinkPreview({ post, notify }) {
     const token = useSelector(s => s.user?.token);
+
+    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
+
     return (
         <div
             className="linkPrevContainer"
@@ -12,7 +15,7 @@ function LinkPreview({ post, notify }) {
         >
             <div
                 className="linkPrevImg"
-                style={{ backgroundImage: `url(${post.linkImg})` }}
+                style={{ backgroundImage: `url(${post.linkImg || altPreview})` }}
                 alt="link image"
             />
             <div className="linkInfoContainer">
