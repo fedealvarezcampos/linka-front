@@ -10,7 +10,7 @@ import UserNavMenu from './UserNavMenu';
 import { useGetActivity, useGetProfile } from '../api/users';
 import RecentActivity from './RecentActivity';
 
-function Header({ error, setError }) {
+function Header({ error, setLogNote, setError }) {
     const user = useSelector(s => s.user);
     const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
@@ -35,6 +35,7 @@ function Header({ error, setError }) {
                     <Login
                         show={show}
                         setShow={setShow}
+                        setLogNote={setLogNote}
                         nodeRef={nodeRef}
                         error={error}
                         setError={setError}

@@ -27,7 +27,6 @@ function UserConfig({ setError, setLogNote }) {
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState(defaultAvatar);
     const [passVisibility, setPassVisibility] = useState();
-    const [completed, setCompleted] = useState(false);
 
     if (!isLoggedIn) {
         return <Redirect to="/" />;
@@ -49,8 +48,6 @@ function UserConfig({ setError, setLogNote }) {
         });
     };
 
-    console.log(completed);
-
     const handleSubmit = async e => {
         try {
             e.preventDefault();
@@ -65,7 +62,6 @@ function UserConfig({ setError, setLogNote }) {
             passVisibility && setPassVisibility(false);
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
-            setCompleted(true);
             notifySuccess();
         } catch (error) {
             setError(error.response.data.error);
@@ -78,10 +74,6 @@ function UserConfig({ setError, setLogNote }) {
         setAvatar(f);
         setPreview((f && URL.createObjectURL(f)) || defaultAvatar);
     };
-
-    // if (completed) {
-    //     return <Redirect to="/" />;
-    // }
 
     return (
         <>

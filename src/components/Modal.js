@@ -1,10 +1,12 @@
+import { useSelector } from 'react-redux';
+import { animated } from 'react-spring';
 import { useClosingKey } from '../hooks/useClosingKey';
 import { useModal, useSetModal } from '../context/ModalContext';
-import { animated } from 'react-spring';
 import { useFadeAnimation, useSlideAnimation } from '../assets/anime';
 import '../styles/Modal.css';
 
-function Modal({ children, error, setError }) {
+function Modal({ children, error, setError, postId, handleDeleteClick }) {
+    const token = useSelector(s => s.user?.token);
     const modal = useModal();
     const setModal = useSetModal();
     const fadeAnime = useFadeAnimation();
@@ -20,7 +22,7 @@ function Modal({ children, error, setError }) {
 
     return (
         <div className="modal-container">
-            {modal && (
+            {modal && !token && (
                 <>
                     <animated.div style={fadeAnime} className="modal-fg">
                         {children}
@@ -33,7 +35,19 @@ function Modal({ children, error, setError }) {
                     {error}
                 </animated.div>
             )}
-            {!error && <div className="errorMsg hidden"></div>}
+            {modal && token && (
+                <>
+                    <div className="modal-fg deletePostModal bounceAnim">
+                        <span>You really want to erase this?</span>
+                        <button onClick={handleDeleteClick} className="button deletePostButton">
+                            I really do
+                        </button>
+                    </div>
+
+                    <div className="modal-bg" onClick={() => setModal(false)}></div>
+                </>
+            )}
+            {/* {!error && <div className="errorMsg hidden"></div>} */}
         </div>
     );
 }

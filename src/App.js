@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
-import { useModal } from './context/ModalContext';
+import { useModal, useSetModal } from './context/ModalContext';
 import Home from './components/Home';
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
@@ -17,9 +17,12 @@ import SearchResults from './components/SearchResults';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './styles/App.css';
+import { useSelector } from 'react-redux';
 
 function App() {
+    const token = useSelector(s => s.user?.token);
     const modal = useModal();
+    const setModal = useSetModal();
     const [sort, setSort] = useState('');
     const [logNote, setLogNote] = useState(false);
     const [error, setError] = useState();
@@ -29,12 +32,12 @@ function App() {
             <Helmet>
                 <title>Linkah</title>
             </Helmet>
-            {modal && (
+            {modal && !token && (
                 <Modal error={error} setError={setError}>
                     <RegisterForm setError={setError} />
                 </Modal>
             )}
-            <Header error={error} setError={setError} />
+            <Header error={error} setLogNote={setLogNote} setError={setError} />
             <Switch>
                 <Route path="/" exact>
                     <Home
@@ -65,7 +68,7 @@ function App() {
                 </Route>
             </Switch>
             <ShapeDivider />
-            {logNote && <ToastContainer limit="3" />}
+            {logNote && <ToastContainer autoClose={2500} limit="3" />}
         </>
     );
 }

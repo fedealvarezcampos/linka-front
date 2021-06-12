@@ -33,6 +33,13 @@ const publishLink = async (form, token) => {
     return data;
 };
 
+const deletePost = async (postId, token) => {
+    const { data } = await axios.delete(`${baseURL}/posts/delete/${postId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
 export {
     useGetPosts,
     useGetSomePosts,
@@ -42,4 +49,5 @@ export {
     getSearchResults,
     publishLink,
     likePost,
+    deletePost,
 };

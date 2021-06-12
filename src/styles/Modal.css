@@ -1,6 +1,5 @@
 .modal-container {
     display: grid;
-    grid: 70vh 3vh / 1fr;
     place-items: center;
     position: fixed;
     width: 100vw;
@@ -32,6 +31,21 @@
     border: 8px solid var(--base-light-color);
     color: var(--base-light-color);
     background-color: var(--highlight-color);
+}
+
+.modal-fg.deletePostModal {
+    width: 17rem;
+    height: 5rem;
+    align-self: center;
+    border-radius: 20px 20px 20px 0;
+    padding: 1.5rem;
+    margin-bottom: 16rem;
+    background-color: var(--alt-item-color);
+}
+
+.modal-fg.deletePostModal .button {
+    float: left;
+    margin-top: 0.8rem;
 }
 
 .modal-fg form {

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { notifyError } from '../helpers/toasts';
 import { getSearchResults } from '../api/posts';
 import '../styles/Search.css';
 
-function Search({ setError }) {
+function Search({ setError, setLogNote }) {
     const history = useHistory();
     const [search, setSearch] = useState('');
 
@@ -13,11 +14,13 @@ function Search({ setError }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        history.push('/search?q=' + search);
         try {
             await getSearchResults(search, token);
+            history.push('/search?q=' + search);
         } catch (error) {
             setError(error.response.data.error);
+            setLogNote(true);
+            notifyError(error.response.data.error);
         }
     };
 

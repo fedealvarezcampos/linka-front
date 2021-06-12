@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import '../styles/PostMini.css';
 
 function PostMini({ post, user }) {
-    // console.log(post);
-
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
 
     return (

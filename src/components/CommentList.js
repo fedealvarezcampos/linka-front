@@ -1,8 +1,6 @@
 import Comment from './SingleComment';
 
 const CommentList = ({ commentList, commentsData }) => {
-    // console.log(commentsData);
-    // console.log(commentList);
     return (
         <>
             <div className="commentList">

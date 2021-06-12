@@ -63,6 +63,11 @@
     letter-spacing: 2.4px;
 }
 
+.button.deletePostButton {
+    padding: 10px 2px 10px 2px;
+    width: 9rem;
+}
+
 .hidden {
     visibility: hidden;
 }

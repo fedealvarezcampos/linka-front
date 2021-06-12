@@ -5,7 +5,6 @@
 .Toastify__toast--success {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
-    font-style: italic;
     font-weight: 800;
     color: var(--base-light-color);
     background-color: var(--alt-item-color);
@@ -15,7 +14,6 @@
 .Toastify__toast--error {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
-    font-style: italic;
     font-weight: 800;
     color: var(--alt-highlight-color);
     background-color: var(--posts-color);
@@ -25,7 +23,6 @@
 .Toastify__toast--warning {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
-    font-style: italic;
     font-weight: 800;
     color: var(--base-light-color);
     background-color: var(--highlight-color);

@@ -2,10 +2,6 @@ import ReactTimeAgo from 'react-time-ago';
 import '../styles/RecentActivity.css';
 
 function RecentActivity({ note, setError, setLogNote }) {
-    // console.log(post);
-
-    // const [likes, setLikes] = useState(post?.likes || 0);
-
     const noteDate = new Date(note.commentDate);
 
     return (

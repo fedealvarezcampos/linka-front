@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useGetPosts, useGetSomePosts } from '../api/posts';
+import { useGetSomePosts } from '../api/posts';
 import Spinner from '../assets/Spinner';
 import TopRated from './TopRated';
 import Search from './Search';
@@ -15,7 +15,6 @@ function Home({ sort, setSort, setError, setLogNote }) {
 
     let [page, setPage] = useState(2);
     const [posts, setPosts] = useState([]);
-    // const [newPosts, setNewPosts] = useState([]);
 
     const postsData = useGetSomePosts(sort, 1);
     const morePostsData = useGetSomePosts(sort, page);
@@ -23,8 +22,6 @@ function Home({ sort, setSort, setError, setLogNote }) {
     useEffect(() => {
         setPosts(postsData);
     }, [postsData]);
-
-    console.log(posts);
 
     if (!postsData) {
         return <Spinner />;
@@ -34,8 +31,6 @@ function Home({ sort, setSort, setError, setLogNote }) {
         setPage(page => page + 1);
         setPosts([...posts, ...morePostsData]);
     };
-
-    console.log(page);
 
     return (
         <>
@@ -64,7 +59,7 @@ function Home({ sort, setSort, setError, setLogNote }) {
                     </InfiniteScroll>
                     <div className="homeOuterContainer">
                         <div className="homeSidebarContainer">
-                            {user && <Search />}
+                            {user && <Search setLogNote={setLogNote} setError={setError} />}
                             <TopRated />
                         </div>
                     </div>

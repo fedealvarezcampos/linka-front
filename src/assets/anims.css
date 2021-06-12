@@ -41,10 +41,10 @@
     }
 }
 
-.bounceIn {
+/* .bounceIn {
     animation-duration: calc(var(--animate-duration) * 0.75);
     animation-name: bounceIn;
-}
+} */
 
 @keyframes rotateMenu {
     0% {

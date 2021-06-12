@@ -15,8 +15,6 @@ function SearchResults({ setError }) {
     const { q } = queryString.parse(search);
 
     const postsData = useGetResults(q, token);
-    console.log(postsData);
-    console.log(q);
 
     if (!postsData) {
         return <Spinner />;

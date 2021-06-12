@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { notifyError } from '../helpers/toasts';
 import { login } from '../api/users';
 import '../styles/Login.css';
 
-function Login({ error, setError, show, setShow, nodeRef }) {
+function Login({ error, setLogNote, setError, show, setShow, nodeRef }) {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
@@ -24,7 +26,9 @@ function Login({ error, setError, show, setShow, nodeRef }) {
             passVisibility && setPassVisibility(false);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
-            setError(error.response.data.error);
+            // setError(error.response.data.error);
+            setLogNote(true);
+            notifyError(error.response.data.error);
         }
     };
 
@@ -49,7 +53,7 @@ function Login({ error, setError, show, setShow, nodeRef }) {
                         className={passVisibility ? 'eyePass bi-eye-slash-fill' : 'eyePass bi-eye-fill'}
                     ></i>
                 </div>
-                {error && <p className="loginError">{error}</p>}
+                {/* {error && <p className="loginError">{error}</p>} */}
                 <button className="button">LOG IN</button>
             </form>
         </div>

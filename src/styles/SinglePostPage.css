@@ -46,3 +46,13 @@
     font-style: italic;
     color: var(--highlight-color);
 }
+
+.deletePostLink span {
+    cursor: pointer;
+    transition: color 150ms;
+}
+
+.deletePostLink span:hover {
+    transition: color 200ms;
+    color: var(--alt-highlight-color);
+}

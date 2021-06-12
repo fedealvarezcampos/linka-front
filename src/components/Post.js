@@ -2,15 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
-import { toast } from 'react-toastify';
+import { notifyAuth } from '../helpers/toasts';
 import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Post.css';
 
-function Post({ post, sort, username, setError, setLogNote }) {
-    // console.log(post);
-
+function Post({ post, username, setError, setLogNote }) {
     const user = useSelector(s => s?.user);
     const itsMyPost = user?.id === (post.userId || post.userId);
 
@@ -32,15 +30,9 @@ function Post({ post, sort, username, setError, setLogNote }) {
         }
     };
 
-    const notify = () => {
+    const handleNote = (token, itsMyPost) => {
         setLogNote(true);
-        toast.error(
-            (!token && 'Log in to do that! 🍕') || (itsMyPost && 'Liking your own links is not cool 🦂'),
-            {
-                position: 'bottom-right',
-                limit: '3',
-            }
-        );
+        notifyAuth(token, itsMyPost);
     };
 
     const postDate = new Date(post.created_date);
@@ -64,12 +56,12 @@ function Post({ post, sort, username, setError, setLogNote }) {
                     <Link
                         className="postContentLink"
                         to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                        onClick={!token ? () => notify() : null}
+                        onClick={!token ? () => handleNote(token, itsMyPost) : null}
                     >
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
                     </Link>
-                    <LinkPreview notify={notify} post={post} />
+                    <LinkPreview notify={handleNote} post={post} />
                 </div>
                 <div className="postFooter">
                     <div className="postFooterComments">
@@ -80,7 +72,11 @@ function Post({ post, sort, username, setError, setLogNote }) {
                     </div>
                     <div
                         className="postFooterLikes"
-                        onClick={(token && !itsMyPost && handleLikeClick) || notify || (itsMyPost && notify)}
+                        onClick={
+                            (token && !itsMyPost && handleLikeClick) ||
+                            (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
+                            (!token ? () => handleNote(token, itsMyPost) : null)
+                        }
                     >
                         <div className="postLikesContainer">
                             <span>{likes}</span>
