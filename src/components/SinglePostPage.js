@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
@@ -54,7 +54,7 @@ function SinglePostPage({ setError, setLogNote }) {
     const handleDeleteClick = async e => {
         e.preventDefault();
         try {
-            const response = await deletePost(postId, token);
+            await deletePost(postId, token);
             setModal(!modal);
             setError('');
             setLinkIsDeleted(true);

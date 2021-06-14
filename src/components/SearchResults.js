@@ -6,15 +6,16 @@ import Spinner from '../assets/Spinner';
 import Post from './Post';
 import TopRated from './TopRated';
 import Search from './Search';
+import NavSort from './NavSort';
 import '../styles/Home.css';
 
-function SearchResults({ setError }) {
+function SearchResults({ sort, setSort, setError }) {
     const token = useSelector(s => s.user?.token);
 
     const { search } = useLocation();
     const { q } = queryString.parse(search);
 
-    const postsData = useGetResults(q, token);
+    const postsData = useGetResults(q, sort, token);
 
     if (!postsData) {
         return <Spinner />;
@@ -24,13 +25,14 @@ function SearchResults({ setError }) {
         <>
             <div className="App">
                 <div className="homeContainer">
+                    <NavSort sort={sort} setSort={setSort} />
                     {postsData.length === 0 ? (
                         <ul className="postListContainer noResults">
                             <li className="postContainer noResults">
-                                <div className="postInfo">
-                                    <span className="postInfoText">no results</span>
+                                <div className="postInfo noResults">
+                                    <span className="postInfoText noResults">no results</span>
                                 </div>
-                                <div className="postContent">
+                                <div className="postContent noResults">
                                     <div>No results</div>
                                 </div>
                             </li>

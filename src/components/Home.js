@@ -35,7 +35,7 @@ function Home({ sort, setSort, setError, setLogNote }) {
     return (
         <>
             <div className="App">
-                <NavSort setPage={setPage} setSort={setSort} />
+                <NavSort setPage={setPage} sort={sort} setSort={setSort} />
                 <div className="homeContainer">
                     <InfiniteScroll
                         dataLength={posts && posts?.length}

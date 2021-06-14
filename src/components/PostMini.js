@@ -4,32 +4,30 @@ import '../styles/PostMini.css';
 function PostMini({ post, user }) {
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
 
+    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
+
     return (
         <li className="miniPostContainer">
-            <div className="miniPostContent">
-                <div>
-                    <Link className="postContentLink" to={`/posts/${post.postId || post.id}/${postTitleURL}`}>
+            <Link className="postContentLink" to={`/posts/${post.postId || post.id}/${postTitleURL}`}>
+                <div className="miniPostContent">
+                    <div>
                         <div
                             className="linkPrevImg"
-                            style={{ backgroundImage: `url(${post.linkImg})` }}
+                            style={{ backgroundImage: `url(${post.linkImg || altPreview})` }}
                             alt="link image"
                         />
-                    </Link>
-                </div>
-                <div className="miniPostData">
-                    <span className="miniPostUsername">
-                        <Link to={`/users/${post.username || user}`}>{post.username || user}</Link>
-                    </span>{' '}
-                    <Link className="postContentLink" to={`/posts/${post.postId || post.id}/${postTitleURL}`}>
+                    </div>
+                    <div className="miniPostData">
+                        <span className="miniPostUsername">{post.username || user}</span>{' '}
                         <h1>{post.title.length > 19 ? post.title.slice(0, 19) + '...' : post.title}</h1>
-                    </Link>
-                    <div className="miniPostFooter">
-                        <span>{post.commented || '0'}</span>
-                        <i className="bi bi-chat-fill"></i> <span>{post.likes || '0'}</span>
-                        <i className="bi bi-heart-fill"></i>
+                        <div className="miniPostFooter">
+                            <span>{post.commented || '0'}</span>
+                            <i className="bi bi-chat-fill"></i> <span>{post.likes || '0'}</span>
+                            <i className="bi bi-heart-fill"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </li>
     );
 }

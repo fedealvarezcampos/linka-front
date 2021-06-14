@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifyError } from '../helpers/toasts';

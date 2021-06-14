@@ -153,12 +153,3 @@
     color: var(--base-light-color);
     text-decoration: none;
 }
-
-.noResults {
-    /* margin: 0; */
-    height: 15rem;
-}
-
-.noResults .postContent {
-    height: 10.5rem;
-}

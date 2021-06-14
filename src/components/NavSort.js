@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../styles/NavSort.css';
 
-function NavSort({ setSort, setPage }) {
+function NavSort({ sort, setSort, page, setPage }) {
     const user = useSelector(s => s.user);
 
     const [sortMenu, setSortMenu] = useState(false);
@@ -10,17 +10,39 @@ function NavSort({ setSort, setPage }) {
     const handleSorting = sorting => {
         setSortMenu(false);
         setSort(sorting);
-        setPage(2);
+        page && setPage(2);
         window.scrollTo(0, 0);
     };
+
+    const mostRecent = (
+        <>
+            <i className="bi bi-alarm-fill" />
+            <span>Most recent</span>
+        </>
+    );
+
+    const bestToday = (
+        <>
+            <i className="bi bi-trophy-fill" />
+            <span>Best today</span>
+        </>
+    );
+
+    const mostDiscussed = (
+        <>
+            <i className="bi bi-chat-square-dots-fill" />
+            <span>Most discussed</span>
+        </>
+    );
 
     return (
         <>
             {user && !sortMenu && (
                 <div className="sortMenuReleaseContainer">
                     <div className="sortMenuRelease" onMouseOver={() => setSortMenu(true)}>
-                        <i className="bi bi-filter-square-fill" />
-                        <span>Sort links</span>
+                        {(sort === '' && mostRecent) ||
+                            (sort === 'mostliked' && bestToday) ||
+                            (sort === 'discussed' && mostDiscussed)}
                     </div>
                 </div>
             )}
@@ -32,28 +54,17 @@ function NavSort({ setSort, setPage }) {
                         onMouseLeave={() => setSortMenu(false)}
                     >
                         <div className="sortMenuLinkTitle">
-                            <div>
-                                <i className="bi bi-filter-square-fill" />
-                                <span>Sorting by:</span>
-                            </div>
+                            <i className="bi bi-filter-square-fill" />
+                            <span>Sorting by:</span>
                         </div>
                         <div className="sortMenuLink">
-                            <div onClick={() => handleSorting('')}>
-                                <i className="bi bi-alarm-fill" />
-                                <span>Most recent</span>
-                            </div>
+                            <div onClick={() => handleSorting('')}>{mostRecent}</div>
                         </div>
                         <div className="sortMenuLink">
-                            <div onClick={() => handleSorting('mostliked')}>
-                                <i className="bi bi-trophy-fill" />
-                                <span>Best today</span>
-                            </div>
+                            <div onClick={() => handleSorting('mostliked')}>{bestToday}</div>
                         </div>
                         <div className="sortMenuLink" onClick={() => handleSorting('discussed')}>
-                            <div>
-                                <i className="bi bi-chat-square-dots-fill" />
-                                <span>Most discussed</span>
-                            </div>
+                            {mostDiscussed}
                         </div>
                     </div>
                 </div>

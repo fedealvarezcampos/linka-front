@@ -8,7 +8,7 @@ function NavProfile({ show, setShow, love }) {
 
     return (
         <div onClick={() => setShow(!show)} className="navProfile">
-            <i className="bi bi-caret-down-fill"></i>
+            <i className="bi bi-caret-down-fill" />
             <div
                 className="avatar"
                 style={{

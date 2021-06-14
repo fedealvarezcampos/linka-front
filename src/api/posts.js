@@ -6,14 +6,12 @@ const useGetPosts = sort => useAPIGet((sort && `${baseURL}/posts?sort=${sort}`) 
 
 const useGetSomePosts = (sort, page) => useAPIGet(`${baseURL}/posts?sort=${sort}&page=${page}&limit=4`);
 
-const useGetMostLiked = () => useAPIGet(`${baseURL}/posts?sort=mostliked`);
-
 const useGetSinglePost = (postId, token) => useAPIGet(`${baseURL}/posts/${postId}`, token);
 
-const useGetResults = (value, token) => useAPIGet(`${baseURL}/search?q=${value}`, token);
+const useGetResults = (value, sort, token) => useAPIGet(`${baseURL}/search?q=${value}&sort=${sort}`, token);
 
 const getSearchResults = async (value, token) => {
-    const { data } = await axios.get(`${baseURL}/search?q=${value}`, {
+    const { data } = await axios.get(`${baseURL}/search?q=${value}&limit=4`, {
         headers: { Authorization: `Bearer ${token}` },
     });
     return data;
@@ -43,7 +41,6 @@ const deletePost = async (postId, token) => {
 export {
     useGetPosts,
     useGetSomePosts,
-    useGetMostLiked,
     useGetSinglePost,
     useGetResults,
     getSearchResults,

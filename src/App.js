@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
-import { useModal, useSetModal } from './context/ModalContext';
+import { useModal } from './context/ModalContext';
 import Home from './components/Home';
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
@@ -22,7 +22,6 @@ import { useSelector } from 'react-redux';
 function App() {
     const token = useSelector(s => s.user?.token);
     const modal = useModal();
-    const setModal = useSetModal();
     const [sort, setSort] = useState('');
     const [logNote, setLogNote] = useState(false);
     const [error, setError] = useState();
@@ -61,7 +60,7 @@ function App() {
                     <NewLink setLogNote={setLogNote} setError={setError} />
                 </Route>
                 <Route path="/search" exact>
-                    <SearchResults />
+                    <SearchResults sort={sort} setSort={setSort} />
                 </Route>
                 <Route path="/">
                     <ErrorMessage />

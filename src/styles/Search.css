@@ -10,3 +10,14 @@
     margin: 0;
     height: 2.5rem;
 }
+
+.postContent.noResults {
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    height: 18.5rem;
+}
+
+.postInfo.noResults {
+    display: grid;
+    grid: auto / auto;
+}

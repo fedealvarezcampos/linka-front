@@ -66,8 +66,9 @@ function Post({ post, username, setError, setLogNote }) {
                 <div className="postFooter">
                     <div className="postFooterComments">
                         <Link
-                            to={token && `/posts/${postId}/${postTitleURL}`}
+                            to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
                             className="postFooterContentContainer"
+                            onClick={!token ? () => handleNote(token, itsMyPost) : null}
                         >
                             <i className="bi bi-chat-fill"></i>
                             <span>

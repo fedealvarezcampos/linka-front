@@ -52,12 +52,23 @@
     font-size: 1rem;
 }
 
+.miniPostContainer .miniPostContent:hover .linkPrevImg {
+    transform: translateX(1px);
+    border: 3px solid var(--alt-highlight-color);
+    transition: all 250ms;
+}
+
+.miniPostContainer .miniPostContent:hover h1 {
+    transform: translateX(-3px);
+    transition: transform 250ms;
+}
+
 .miniPostContainer .miniPostData {
     display: grid;
     justify-items: end;
 }
 
-.miniPostContainer .miniPostUsername a {
+.miniPostContainer .miniPostUsername {
     text-decoration: none;
     font-style: italic;
     font-weight: 600;
