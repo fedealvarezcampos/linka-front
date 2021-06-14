@@ -55,7 +55,7 @@
 
 .activityTextContainer {
     display: grid;
-    grid: 1rem 1rem auto / auto;
+    grid: 1rem 0.9rem auto / auto;
     gap: 4px;
 }
 

@@ -14,14 +14,13 @@ function RegisterForm({ setLogNote, modal, setModal }) {
         e.preventDefault();
         try {
             await register({ username, email, password, confirmPass });
-            setModal(!modal);
             setLogNote(true);
             notifyMessage('Check your email to verify your account!');
             setCompleted(true);
+            setModal(!modal);
         } catch (error) {
             // setError(error.response.data.error);
             setLogNote(true);
-            console.log(error.response);
             error.response && notifyError(error.response.data.error);
         }
     };

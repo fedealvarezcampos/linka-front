@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { notifyMessage } from '../helpers/toasts';
+import { notifyError, notifyMessage } from '../helpers/toasts';
 import Spinner from '../assets/Spinner';
 import { useGetSomePosts } from '../api/posts';
 import { userValidation } from '../api/users';
@@ -14,13 +14,24 @@ import '../styles/Home.css';
 
 function Home({ sort, setSort, setError, setLogNote }) {
     const { uuid } = useParams();
-
-    if (uuid) {
-        userValidation(uuid);
-        notifyMessage('User validated! You can log in now.');
-    }
-
     const user = useSelector(s => s?.user);
+
+    const handleValidation = async () => {
+        try {
+            await userValidation(uuid);
+            setLogNote(true);
+            notifyMessage('User validated! Log in now.');
+            // dispatch({ type: 'LOGIN', user: response });
+        } catch (error) {
+            // setError(error.response.data.error);
+            setLogNote(true);
+            notifyError(error.response.data.error);
+        }
+    };
+
+    useEffect(() => {
+        uuid && handleValidation();
+    });
 
     let [page, setPage] = useState(2);
     const [posts, setPosts] = useState([]);
