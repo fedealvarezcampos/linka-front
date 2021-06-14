@@ -10,11 +10,11 @@ import '../styles/Post.css';
 
 function Post({ post, username, setError, setLogNote }) {
     const user = useSelector(s => s?.user);
-    const itsMyPost = user?.id === (post.userId || post.userId);
+    const token = useSelector(s => s.user?.token);
+    const itsMyPost = user?.id === post.userId;
 
     const [likes, setLikes] = useState(post?.likes || 0);
 
-    const token = useSelector(s => s.user?.token);
     const postId = post.postId || post.id;
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
 
@@ -45,7 +45,7 @@ function Post({ post, username, setError, setLogNote }) {
                     <span className="postInfoText">
                         shared by{' '}
                         <span>
-                            <Link to={`/users/${post.username || username}`}>
+                            <Link to={`/users/${post?.username || username}`}>
                                 {post.username || username}
                             </Link>
                         </span>{' '}

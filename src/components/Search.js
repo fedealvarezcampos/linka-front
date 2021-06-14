@@ -5,7 +5,7 @@ import { notifyError } from '../helpers/toasts';
 import { getSearchResults } from '../api/posts';
 import '../styles/Search.css';
 
-function Search({ setError, setLogNote }) {
+function Search({ setError, setSort, setLogNote }) {
     const history = useHistory();
     const [search, setSearch] = useState('');
 
@@ -16,10 +16,11 @@ function Search({ setError, setLogNote }) {
         e.preventDefault();
         try {
             await getSearchResults(search, token);
+            setSearch('');
             history.push('/search?q=' + search);
         } catch (error) {
-            setError(error.response.data.error);
             setLogNote(true);
+            setError(error.response.data.error);
             notifyError(error.response.data.error);
         }
     };

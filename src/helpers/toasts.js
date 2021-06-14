@@ -7,6 +7,13 @@ const notifyError = message => {
     });
 };
 
+const notifyMessage = message => {
+    toast.success(`${message} 🍕`, {
+        position: 'bottom-right',
+        limit: '3',
+    });
+};
+
 const notifyAuth = (token, itsMyPost) => {
     toast.error(
         (!token && 'Log in to do that! 🍕') || (itsMyPost && 'Liking your own links is not cool 🦂'),
@@ -17,4 +24,4 @@ const notifyAuth = (token, itsMyPost) => {
     );
 };
 
-export { notifyError, notifyAuth };
+export { notifyError, notifyAuth, notifyMessage };

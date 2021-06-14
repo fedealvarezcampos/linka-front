@@ -6,17 +6,19 @@
     z-index: 65;
     margin: 0;
     right: 0;
-    overflow-y: scroll;
-    height: 9.3rem;
+    overflow-y: auto;
+    height: auto;
+    max-height: 9.3rem;
     margin-right: clamp(5rem, 18vw, 16rem);
     padding: 1.2rem 1.6rem 0.4rem 1rem;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 600;
     border: 6px solid var(--base-light-color);
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 25px;
     border-top: none;
     scrollbar-color: red;
     background-color: var(--highlight-color);
+    will-change: transform;
 }
 
 .activityListContainer.noActivity {
@@ -44,7 +46,7 @@
 
 .activityContainer {
     display: grid;
-    grid: auto / 1fr 3.6fr;
+    grid: auto / 1fr 3.8fr;
 }
 
 .activityContainer p {
@@ -53,6 +55,7 @@
 
 .activityTextContainer {
     display: grid;
+    grid: 1rem 1rem auto / auto;
     gap: 4px;
 }
 

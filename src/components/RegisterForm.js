@@ -1,24 +1,28 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { register } from '../api/users';
+import { notifyError, notifyMessage } from '../helpers/toasts';
 
-function RegisterForm({ setError, modal, setModal }) {
+function RegisterForm({ setLogNote, modal, setModal }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-    // const [, setData] = useState();
     const [completed, setCompleted] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
             await register({ username, email, password, confirmPass });
-            // setData(response);
-            setCompleted(true);
             setModal(!modal);
+            setLogNote(true);
+            notifyMessage('Check your email to verify your account!');
+            setCompleted(true);
         } catch (error) {
-            setError(error.response.data.error);
+            // setError(error.response.data.error);
+            setLogNote(true);
+            console.log(error.response);
+            error.response && notifyError(error.response.data.error);
         }
     };
 

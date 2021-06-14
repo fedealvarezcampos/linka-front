@@ -8,12 +8,18 @@ import TopRated from './TopRated';
 import Search from './Search';
 import NavSort from './NavSort';
 import '../styles/Home.css';
+import { useEffect } from 'react';
 
-function SearchResults({ sort, setSort, setError }) {
+function SearchResults({ sort, setSort, setLogNote, setError }) {
+    const user = useSelector(s => s.user);
     const token = useSelector(s => s.user?.token);
 
     const { search } = useLocation();
     const { q } = queryString.parse(search);
+
+    useEffect(() => {
+        setSort('');
+    }, [setSort]);
 
     const postsData = useGetResults(q, sort, token);
 
@@ -48,7 +54,7 @@ function SearchResults({ sort, setSort, setError }) {
                         </>
                     )}
                     <div className="homeSidebarContainer">
-                        <Search />
+                        {user && <Search setLogNote={setLogNote} setSort={setSort} setError={setError} />}
                         <TopRated />
                     </div>
                 </div>

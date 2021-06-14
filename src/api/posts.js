@@ -11,7 +11,7 @@ const useGetSinglePost = (postId, token) => useAPIGet(`${baseURL}/posts/${postId
 const useGetResults = (value, sort, token) => useAPIGet(`${baseURL}/search?q=${value}&sort=${sort}`, token);
 
 const getSearchResults = async (value, token) => {
-    const { data } = await axios.get(`${baseURL}/search?q=${value}&limit=4`, {
+    const { data } = await axios.get(`${baseURL}/search?q=${value}`, {
         headers: { Authorization: `Bearer ${token}` },
     });
     return data;

@@ -3,7 +3,7 @@ import PostMini from './PostMini';
 import Spinner from '../assets/Spinner';
 import '../styles/ProfileCard.css';
 
-const TopRated = ({ likes, setLikes }) => {
+const TopRated = ({ likes, setLikes, setLogNote }) => {
     const postsData = useGetPosts('mostliked');
 
     if (!postsData) {
@@ -17,7 +17,13 @@ const TopRated = ({ likes, setLikes }) => {
                     postsData
                         .slice(0, 4)
                         .map(post => (
-                            <PostMini likes={likes} setLikes={setLikes} key={post.postId} post={post} />
+                            <PostMini
+                                likes={likes}
+                                setLogNote={setLogNote}
+                                setLikes={setLikes}
+                                key={post.postId}
+                                post={post}
+                            />
                         ))}
             </ul>
         </div>

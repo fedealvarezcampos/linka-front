@@ -28,7 +28,7 @@
     box-sizing: border-box;
     align-content: center;
     justify-items: center;
-    padding: 1.8rem 2.2rem 1.8rem 2.2rem;
+    padding: 1.6rem 2.2rem 1.5rem 2.2rem;
     background-color: var(--profile-bg-color);
 }
 
@@ -71,6 +71,7 @@
     grid: 1fr / 1fr auto;
     align-items: center;
     margin: 0;
+    margin-bottom: 0.2rem;
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--alt-highlight-color);
@@ -83,7 +84,9 @@
     align-self: center;
     text-align: center;
     margin: 0;
-    padding: 0.4rem 1rem 0.4rem 1rem;
-    border-left: 5px solid var(--base-light-color);
-    border-right: 5px solid var(--base-light-color);
+    padding: 0 1rem 0.4rem 1rem;
+}
+
+.quote {
+    font-size: 1.8rem;
 }

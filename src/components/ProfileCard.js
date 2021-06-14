@@ -46,6 +46,7 @@ const ProfileCard = ({ user }) => {
                         <i className="ci-heart_fill"></i>
                     </p>
                 </div>
+                {user?.bio && <i className="bi bi-chat-square-quote-fill quote" />}
                 {user?.bio && <p className="userCardBio">{user.bio}</p>}
             </div>
         </div>

@@ -2,22 +2,20 @@ import { useSelector } from 'react-redux';
 import { animated } from 'react-spring';
 import { useClosingKey } from '../hooks/useClosingKey';
 import { useModal, useSetModal } from '../context/ModalContext';
-import { useFadeAnimation, useSlideAnimation } from '../assets/anime';
+import { useFadeAnimation } from '../assets/anime';
 import '../styles/Modal.css';
 
-function Modal({ children, error, setError, postId, handleDeleteClick }) {
+function Modal({ children, setError, handleDeleteClick }) {
     const token = useSelector(s => s.user?.token);
     const modal = useModal();
     const setModal = useSetModal();
     const fadeAnime = useFadeAnimation();
-    const slideAnime = useSlideAnimation();
 
     const handleModalReset = () => {
         setModal(!modal);
         setError();
     };
 
-    // useClosingKey('Escape');
     useClosingKey('Escape', modal, setModal);
 
     return (
@@ -29,11 +27,6 @@ function Modal({ children, error, setError, postId, handleDeleteClick }) {
                     </animated.div>
                     <div className="modal-bg" onClick={handleModalReset}></div>
                 </>
-            )}
-            {error && (
-                <animated.div style={slideAnime} className="errorMsg">
-                    {error}
-                </animated.div>
             )}
             {modal && token && (
                 <>
@@ -47,7 +40,6 @@ function Modal({ children, error, setError, postId, handleDeleteClick }) {
                     <div className="modal-bg" onClick={() => setModal(false)}></div>
                 </>
             )}
-            {/* {!error && <div className="errorMsg hidden"></div>} */}
         </div>
     );
 }

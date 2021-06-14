@@ -11,6 +11,11 @@ const useGetProfile = username => useAPIGet(username && `${baseURL}/users/${user
 
 const useGetActivity = (user, token) => useAPIGet(user && `${baseURL}/users/${user}/activity`, token);
 
+const userValidation = async (uuid) => {
+    const { data } = await axios.get(`${baseURL}/users/validate/${uuid}`);
+    return data;
+};
+
 const login = async credentials => {
     const { data } = await axios.post(`${baseURL}/users/login`, credentials);
     return data;
@@ -28,4 +33,4 @@ const updateUser = async (username, formData, token) => {
     return data;
 };
 
-export { useGetProfile, useGetActivity, login, register, updateUser };
+export { useGetProfile, useGetActivity, userValidation, login, register, updateUser };
