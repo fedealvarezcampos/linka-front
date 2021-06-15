@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
@@ -29,14 +29,17 @@ function SinglePostPage({ setError, setLogNote }) {
 
     const postLikes = post?.likes;
 
-    const [likes, setLikes] = useState(postLikes);
+    const [likes, setLikes] = useState();
     const [commentList, setCommentList] = useState([]);
     const [linkIsDeleted, setLinkIsDeleted] = useState(false);
+
+    useEffect(() => {
+        setLikes(postLikes);
+    }, [postLikes]);
 
     if (!post) {
         return <Spinner />;
     }
-    console.log(postLikes);
 
     let body;
 
@@ -63,8 +66,6 @@ function SinglePostPage({ setError, setLogNote }) {
             setLogNote(true);
         }
     };
-
-    console.log(likes);
 
     if (linkIsDeleted) {
         return <Redirect to="/" />;
@@ -119,7 +120,7 @@ function SinglePostPage({ setError, setLogNote }) {
                                 onClick={(token && !itsMyPost && handleLikeClick) || (itsMyPost && notify)}
                             >
                                 <div className="postLikesContainer">
-                                    <span>{likes}</span>
+                                    <span>{likes || 0}</span>
                                     <i className="bi bi-heart-fill"></i>
                                 </div>
                             </div>

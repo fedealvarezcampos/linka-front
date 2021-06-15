@@ -14,6 +14,7 @@ import '../styles/Home.css';
 
 function Home({ sort, setSort, setError, setLogNote }) {
     const { uuid } = useParams();
+
     const user = useSelector(s => s?.user);
 
     const handleValidation = async () => {
@@ -59,7 +60,7 @@ function Home({ sort, setSort, setError, setLogNote }) {
     return (
         <>
             <div className="App">
-                <NavSort setPage={setPage} sort={sort} setSort={setSort} />
+                <NavSort page={page} setPage={setPage} sort={sort} setSort={setSort} />
                 <div className="homeContainer">
                     <InfiniteScroll
                         dataLength={posts && posts?.length}

@@ -45,6 +45,7 @@
     width: 15.2rem;
     grid: auto / auto auto;
     background-color: var(--profile-bg-color);
+    will-change: transform;
 }
 
 .miniPostContainer .miniPostContent h1 {
