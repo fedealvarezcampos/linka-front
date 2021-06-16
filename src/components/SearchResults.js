@@ -48,7 +48,12 @@ function SearchResults({ sort, setSort, setLogNote, setError }) {
                             <ul className="postListContainer">
                                 {postsData &&
                                     postsData.map(post => (
-                                        <Post key={post.id} post={post} setError={setError} />
+                                        <Post
+                                            key={post.id}
+                                            post={post}
+                                            setError={setError}
+                                            setLogNote={setLogNote}
+                                        />
                                     ))}
                             </ul>
                         </>

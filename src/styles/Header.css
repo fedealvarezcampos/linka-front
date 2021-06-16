@@ -79,7 +79,7 @@
 .headerButtons {
     display: grid;
     grid: auto / auto auto;
-    gap: 12px;
+    gap: 15px;
     justify-self: center;
 }
 
