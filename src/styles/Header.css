@@ -4,7 +4,7 @@
     z-index: 50;
     top: 0;
     gap: 20px;
-    grid: 1fr / 1fr auto auto auto;
+    grid: 1fr / 1fr auto auto;
     width: 100%;
     height: 8rem;
     padding: 1rem 2.2rem 1rem 2.2rem;
@@ -37,7 +37,7 @@
     justify-self: end;
     float: right;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
     font-style: italic;
     color: var(--base-light-color);
@@ -76,12 +76,11 @@
     justify-items: end;
 }
 
-@media (max-width: 600px) {
-    .header .unloggedHead {
-        width: 6.2rem;
-        grid: auto auto / 1fr;
-        justify-items: start;
-    }
+.headerButtons {
+    display: grid;
+    grid: auto / auto auto;
+    gap: 12px;
+    justify-self: center;
 }
 
 .header .navProfile .love {
@@ -148,4 +147,41 @@
 
 .header .button.navButton i {
     font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .header {
+        gap: 10px;
+    }
+
+    .header .button.navButton {
+        width: 1rem;
+        height: 1rem;
+        padding: 15px 13px 14px 15px;
+        border-radius: 12px;
+        border: 3px solid var(--base-light-color);
+    }
+
+    .header .button.navButton:hover {
+        border: 3px solid var(--alt-highlight-color);
+        transition: all 200ms ease-in-out;
+    }
+
+    .header .button.navButton.active {
+        border: 3px solid var(--alt-highlight-color);
+    }
+
+    .header .button.navButton i {
+        font-size: 0.8rem;
+    }
+
+    .headerButtons {
+        gap: 10px;
+    }
+
+    .header .unloggedHead {
+        width: 6.2rem;
+        grid: auto auto / 1fr;
+        justify-items: start;
+    }
 }

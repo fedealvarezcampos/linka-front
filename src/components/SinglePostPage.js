@@ -23,7 +23,9 @@ function SinglePostPage({ setError, setLogNote }) {
     const user = useSelector(s => s?.user);
     const token = useSelector(s => s.user?.token);
 
-    const commentsData = useGetComments(postId);
+    const commentsFullData = useGetComments(postId);
+    const commentsData = commentsFullData && commentsFullData.filter(comment => comment.parentId === null);
+
     const post = useGetSinglePost(postId, token);
     const itsMyPost = user?.id === post?.userId;
 

@@ -3,7 +3,7 @@
     grid: 9rem / 12rem auto;
     z-index: 5;
     gap: 0.7rem;
-    width: clamp(23rem, 68%, 70%);
+    width: clamp(25rem, 68%, 70%);
     margin-top: 1.6rem;
     padding: 0.9rem 1rem 0.9rem 0.8rem;
     border: 4px solid var(--alt-item-color);
@@ -65,7 +65,7 @@
 @media (max-width: 1000px) {
     .linkPrevContainer {
         grid: 9rem / 14rem auto;
-        width: clamp(26rem, 68%, 72%);
+        width: clamp(26rem, 62%, 72%);
         padding: 0.9rem 1rem 0.9rem 0.8rem;
     }
 }

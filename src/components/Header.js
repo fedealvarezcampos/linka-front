@@ -43,16 +43,18 @@ function Header({ error, setLogNote, setError }) {
                 )}
                 {user && (
                     <>
-                        <button
-                            alt="activity"
-                            className={`button navButton ${activityMenu ? 'active' : ''}`}
-                            onClick={() => setActivityMenu(!activityMenu)}
-                        >
-                            <i className="bi bi-lightning-charge-fill"></i>
-                        </button>
-                        <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
-                            <i className="bi bi-plus-circle-fill"></i>
-                        </NavLink>
+                        <div className="headerButtons">
+                            <button
+                                alt="activity"
+                                className={`button navButton ${activityMenu ? 'active' : ''}`}
+                                onClick={() => setActivityMenu(!activityMenu)}
+                            >
+                                <i className="bi bi-lightning-charge-fill"></i>
+                            </button>
+                            <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
+                                <i className="bi bi-plus-circle-fill"></i>
+                            </NavLink>
+                        </div>
                     </>
                 )}
                 {user ? (

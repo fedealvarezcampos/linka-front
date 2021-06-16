@@ -20,7 +20,8 @@ function RecentActivity({ note, setError, setLogNote }) {
                         <div className="activityUser">{note.username}</div>
                         <span className="activityDate">
                             <p>
-                                replied to your link <ReactTimeAgo date={noteDate} locale="en-US" />
+                                in <span className="activityPostTitle">{note.postTitle}</span>{' '}
+                                <ReactTimeAgo date={noteDate} timeStyle="twitter" locale="en-US" />
                             </p>
                         </span>
                         <div className="activityComment">{note.comment}</div>

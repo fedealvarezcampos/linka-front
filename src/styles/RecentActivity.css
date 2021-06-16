@@ -1,7 +1,7 @@
 .activityListContainer {
     display: grid;
     gap: 20px;
-    width: 20rem;
+    width: 18rem;
     position: fixed;
     z-index: 65;
     margin: 0;
@@ -9,16 +9,15 @@
     overflow-y: auto;
     height: auto;
     max-height: 9.3rem;
-    margin-right: clamp(5rem, 18vw, 16rem);
-    padding: 1.2rem 1.6rem 0.4rem 1rem;
+    margin-right: 5rem;
+    padding: 1.2rem 0.8rem 0.3rem 1.3rem;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 600;
     border: 6px solid var(--base-light-color);
-    border-radius: 0 0 0 25px;
+    border-radius: 0 0 0 30px;
     border-top: none;
-    scrollbar-color: red;
-    background-color: var(--highlight-color);
     will-change: transform;
+    background-color: var(--profile-bg-color);
 }
 
 .activityListContainer.noActivity {
@@ -46,7 +45,7 @@
 
 .activityContainer {
     display: grid;
-    grid: auto / 1fr 3.8fr;
+    grid: auto / 1.1fr 3.8fr;
 }
 
 .activityContainer p {
@@ -60,11 +59,15 @@
 }
 
 .activityDate {
-    color: var(--posts-color);
+    color: var(--base-light-color);
     font-family: Roboto;
     font-style: italic;
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+.activityPostTitle {
+    color: var(--alt-highlight-color);
 }
 
 .activityUser {
