@@ -1,8 +1,11 @@
 import ReactTimeAgo from 'react-time-ago';
+import { Link } from 'react-router-dom';
 import '../styles/RecentActivity.css';
 
-function RecentActivity({ note, setError, setLogNote }) {
+function RecentActivity({ note, setActivityMenu }) {
     const noteDate = new Date(note.commentDate);
+
+    const postTitleURL = note.postTitle.replaceAll(' ', '-').toLowerCase();
 
     return (
         <>
@@ -17,10 +20,23 @@ function RecentActivity({ note, setError, setLogNote }) {
                 />
                 {note && (
                     <div className="activityTextContainer">
-                        <div className="activityUser">{note.username}</div>
+                        <Link
+                            to={`/users/${note.username}`}
+                            onClick={() => setActivityMenu(false)}
+                            className="activityUser"
+                        >
+                            {note.username}
+                        </Link>
                         <span className="activityDate">
                             <p>
-                                in <span className="activityPostTitle">{note.postTitle}</span>{' '}
+                                in{' '}
+                                <Link
+                                    to={`/posts/${note.postId}/${postTitleURL}`}
+                                    onClick={() => setActivityMenu(false)}
+                                    className="activityPostTitle"
+                                >
+                                    {note.postTitle}
+                                </Link>{' '}
                                 <ReactTimeAgo date={noteDate} timeStyle="twitter" locale="en-US" />
                             </p>
                         </span>

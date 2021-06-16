@@ -72,3 +72,13 @@
 .sortMenuLink:nth-child(n + 2) {
     padding-top: 10px;
 }
+
+@media (max-width: 600px) {
+    .sortMenuRelease {
+        margin-left: 1rem;
+    }
+
+    .sortMenu.dropMenu {
+        margin-left: 1rem;
+    }
+}

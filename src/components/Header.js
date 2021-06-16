@@ -74,11 +74,18 @@ function Header({ error, setLogNote, setError }) {
             {activityMenu && (
                 <ul
                     ref={nodeRefAct}
-                    className={`activityListContainer dropMenu ${activityData?.length === 0 && 'noActivity'}`}
+                    className={`activityListContainer dropMenu ${
+                        activityData?.length === 0 ? 'noActivity' : ''
+                    }`}
                 >
                     {activityData &&
                         activityData.map((note, i) => (
-                            <RecentActivity key={i} note={note} setError={setError} />
+                            <RecentActivity
+                                key={i}
+                                note={note}
+                                setError={setError}
+                                setActivityMenu={setActivityMenu}
+                            />
                         ))}
                     {activityData?.length === 0 && (
                         <div>

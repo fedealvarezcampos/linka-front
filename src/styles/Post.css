@@ -47,7 +47,7 @@
     margin: auto;
     display: grid;
     grid: 2rem 1fr 2rem / 1fr;
-    margin-bottom: 3.6rem;
+    margin-bottom: 2.8rem;
     width: clamp(20rem, 60vw, 50rem);
     height: auto;
     font-family: 'Fira Sans', sans-serif;
@@ -138,8 +138,8 @@
 
 @media (max-width: 1000px) {
     .postContainer {
-        margin-top: 3.8rem;
         width: 88vw;
+        margin-bottom: 2rem;
     }
 
     .postContent {
