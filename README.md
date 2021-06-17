@@ -1,3 +1,3 @@
-# linka-front
+# Linkah - Frontend
 
-HAB final project, front
+"Hack a Boss" FullStack DEV bootcamp final project.

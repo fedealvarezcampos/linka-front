@@ -78,7 +78,8 @@
 
 .deletedComment {
     font-style: italic;
-    color: var(--main-bg-color);
+    font-weight: 600;
+    color: var(--highlight-color);
 }
 
 .nestedComment {

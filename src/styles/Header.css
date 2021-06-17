@@ -148,23 +148,24 @@
 @media (max-width: 600px) {
     .header {
         gap: 10px;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem 0.6rem 1rem 0.6rem;
     }
 
     .header .logo {
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 1.4rem, 2rem);
         font-weight: 800;
     }
 
     .header .navProfile {
         grid: auto / auto auto auto;
         gap: 10px;
-        font-size: 1.2rem;
+        font-size: clamp(0.8rem, 0.8rem, 1.2rem);
     }
 
     .header .navProfile .avatar {
-        width: 3.2rem;
-        height: 3.2rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        border: 3px solid var(--base-light-color);
         justify-self: end;
     }
 

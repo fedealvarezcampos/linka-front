@@ -1,13 +1,14 @@
 // import { useState } from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { deleteComment } from '../api/comments';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
 import { useParams } from 'react-router-dom';
+import { notifyError } from '../helpers/toasts';
 
-const SingleComment = ({ comment }) => {
+const SingleComment = ({ comment, setLogNote, commentNumber, setCommentNumber }) => {
     const { postId } = useParams();
 
     const loggedUser = useSelector(s => s.user?.username);
@@ -15,23 +16,28 @@ const SingleComment = ({ comment }) => {
     const itsMyComment = loggedUser === comment.username;
 
     const nestedComments = (comment.children || []).map(comment => {
-        return <SingleComment comment={comment} key={comment.commentId} />;
+        return (
+            <SingleComment
+                commentNumber={commentNumber}
+                setCommentNumber={setCommentNumber}
+                setLogNote={setLogNote}
+                comment={comment}
+                key={comment.commentId}
+            />
+        );
     });
 
     const [deletedComment, setDeletedComment] = useState();
     const [commentForm, setCommentForm] = useState();
     const [nestedList, setNestedList] = useState([]);
 
-    // useEffect(() => {
-    //     setDeletedComment();
-    // }, [deletedComment]);
-
     const handleCommentDeletion = async () => {
         try {
             deleteComment(postId, comment.commentId, token);
             setDeletedComment('Comment deleted.');
         } catch (error) {
-            console.log(error);
+            error?.response && notifyError(error.response.data.error);
+            setLogNote(true);
         }
     };
 
@@ -78,6 +84,9 @@ const SingleComment = ({ comment }) => {
                     )}
                     {commentForm && (
                         <CommentForm
+                            setLogNote={setLogNote}
+                            commentNumber={commentNumber}
+                            setCommentNumber={setCommentNumber}
                             setCommentForm={setCommentForm}
                             nestedList={nestedList}
                             setNestedList={setNestedList}
@@ -88,7 +97,15 @@ const SingleComment = ({ comment }) => {
             </div>
             <div className="nestedComment">
                 {nestedList &&
-                    nestedList.map(comment => <SingleComment key={comment.commentId} comment={comment} />)}
+                    nestedList.map(comment => (
+                        <SingleComment
+                            commentNumber={commentNumber}
+                            setCommentNumber={setCommentNumber}
+                            setLogNote={setLogNote}
+                            key={comment.commentId}
+                            comment={comment}
+                        />
+                    ))}
                 {nestedComments}
             </div>
         </>

@@ -30,9 +30,11 @@ function SinglePostPage({ setError, setLogNote }) {
     const itsMyPost = user?.id === post?.userId;
 
     const postLikes = post?.likes;
+    const comments = post?.commented;
 
     const [likes, setLikes] = useState();
     const [commentList, setCommentList] = useState([]);
+    const [commentNumber, setCommentNumber] = useState(comments);
     const [nestedComments, setNestedComments] = useState();
     const [linkIsDeleted, setLinkIsDeleted] = useState(false);
 
@@ -43,6 +45,10 @@ function SinglePostPage({ setError, setLogNote }) {
     useEffect(() => {
         setLikes(postLikes);
     }, [postLikes]);
+
+    useEffect(() => {
+        setCommentNumber(comments);
+    }, [comments]);
 
     if (!post) {
         return <Spinner />;
@@ -86,6 +92,8 @@ function SinglePostPage({ setError, setLogNote }) {
         });
     };
 
+    post && console.log(commentNumber);
+
     return (
         <>
             {modal && postId && token && (
@@ -119,7 +127,8 @@ function SinglePostPage({ setError, setLogNote }) {
                             <div className="postFooterComments">
                                 <i className="bi bi-chat-fill"></i>
                                 <span>
-                                    {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                                    {(post && commentNumber) || '0'}{' '}
+                                    {post.commented === 1 ? 'comment' : 'comments'}
                                 </span>
                             </div>
                             <div
@@ -133,6 +142,8 @@ function SinglePostPage({ setError, setLogNote }) {
                             </div>
                         </div>
                         <CommentForm
+                            commentNumber={commentNumber}
+                            setCommentNumber={setCommentNumber}
                             setLogNote={setLogNote}
                             commentList={commentList}
                             setCommentList={setCommentList}
@@ -141,6 +152,9 @@ function SinglePostPage({ setError, setLogNote }) {
                         <hr />
                         {commentList?.length !== 0 || nestedComments?.length !== 0 ? (
                             <CommentList
+                                commentNumber={commentNumber}
+                                setCommentNumber={setCommentNumber}
+                                setLogNote={setLogNote}
                                 commentsData={nestedComments}
                                 commentList={commentList}
                                 postId={postId}

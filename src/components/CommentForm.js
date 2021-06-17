@@ -6,12 +6,14 @@ import { notifyError } from '../helpers/toasts';
 import '../styles/CommentForm.css';
 
 const CommentForm = ({
-    setLogNote,
+    commentNumber,
+    setCommentNumber,
     setCommentForm,
     nestedList,
     setNestedList,
     commentList,
     setCommentList,
+    setLogNote,
     parentId,
 }) => {
     const token = useSelector(s => s.user?.token);
@@ -28,16 +30,18 @@ const CommentForm = ({
             if (parentId) {
                 const response = await postReply({ text }, postId, parentId, token);
                 setNestedList([response, ...nestedList]);
-                setCommentForm(false);
+                setCommentNumber(commentNumber + 1);
                 setText('');
+                setCommentForm(false);
             } else {
                 const response = await postComment({ text }, postId, token);
                 setCommentList([response, ...commentList]);
+                setCommentNumber(commentNumber + 1);
                 setText('');
             }
         } catch (error) {
+            error?.response && notifyError(error.response.data.error);
             setLogNote(true);
-            notifyError(error.response.data.error);
         }
     };
 
