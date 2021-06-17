@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { toast } from 'react-toastify';
 import { useModal, useSetModal } from '../context/ModalContext';
+import nestComments from '../helpers/nestComments';
 import { useGetSinglePost, likePost, deletePost } from '../api/posts';
 import { useGetComments } from '../api/comments';
 import Spinner from '../assets/Spinner';
@@ -20,11 +21,21 @@ function SinglePostPage({ setError, setLogNote }) {
     const modal = useModal();
     const setModal = useSetModal();
 
+    const [nestedComments, setNestedComments] = useState();
+
     const user = useSelector(s => s?.user);
     const token = useSelector(s => s.user?.token);
 
     const commentsFullData = useGetComments(postId);
     const commentsData = commentsFullData && commentsFullData.filter(comment => comment.parentId === null);
+
+    // console.log(commentsFullData);
+
+    useEffect(() => {
+        setNestedComments(nestComments(commentsFullData));
+    }, [commentsFullData]);
+
+    console.log(nestedComments);
 
     const post = useGetSinglePost(postId, token);
     const itsMyPost = user?.id === post?.userId;
@@ -135,7 +146,11 @@ function SinglePostPage({ setError, setLogNote }) {
                         />
                         <hr />
                         {commentList?.length !== 0 || commentsData?.length !== 0 ? (
-                            <CommentList commentsData={commentsData} commentList={commentList} id={postId} />
+                            <CommentList
+                                commentsData={nestedComments}
+                                commentList={commentList}
+                                id={postId}
+                            />
                         ) : (
                             <div className="noCommentsHere">No hay comentarios</div>
                         )}

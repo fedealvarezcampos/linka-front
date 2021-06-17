@@ -40,6 +40,24 @@
     background-position: center center;
 }
 
+.replyLink {
+    margin: 2px;
+    color: var(--main-bg-color);
+    font-style: italic;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+.replyLink:hover {
+    color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
+.nestedComment {
+    margin-left: 2rem;
+}
+
 .noCommentsHere {
     display: flex;
     font-style: italic;

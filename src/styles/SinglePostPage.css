@@ -39,6 +39,10 @@
     margin-bottom: 0.4rem;
 }
 
+.commentListContainer li {
+    list-style: none;
+}
+
 .deletePostLink {
     padding-top: 0.4rem;
     padding-left: 0.3rem;
