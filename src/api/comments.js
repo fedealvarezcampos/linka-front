@@ -18,4 +18,11 @@ const postReply = async (text, id, parentId, token) => {
     return data;
 };
 
-export { postComment, postReply, useGetComments };
+const deleteComment = async (id, commentId, token) => {
+    const { data } = await axios.delete(`${baseURL}/posts/${id}/comments/${commentId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
+export { postComment, postReply, deleteComment, useGetComments };

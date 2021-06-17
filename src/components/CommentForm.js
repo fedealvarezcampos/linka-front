@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { postComment, postReply } from '../api/comments';
+import { notifyError } from '../helpers/toasts';
 import '../styles/CommentForm.css';
 
 const CommentForm = ({
-    setError,
+    setLogNote,
     setCommentForm,
     nestedList,
     setNestedList,
@@ -35,7 +36,8 @@ const CommentForm = ({
                 setText('');
             }
         } catch (error) {
-            // setError(error.response.data.error);
+            setLogNote(true);
+            notifyError(error.response.data.error);
         }
     };
 

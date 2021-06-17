@@ -133,6 +133,7 @@ function SinglePostPage({ setError, setLogNote }) {
                             </div>
                         </div>
                         <CommentForm
+                            setLogNote={setLogNote}
                             commentList={commentList}
                             setCommentList={setCommentList}
                             setError={setError}
