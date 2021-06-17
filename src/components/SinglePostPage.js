@@ -110,7 +110,7 @@ function SinglePostPage({ setError, setLogNote }) {
                         {token && itsMyPost && (
                             <div className="deletePostLink">
                                 <span onClick={() => setModal(true)}>
-                                    <i className="bi bi-trash-fill"></i> Delete this link
+                                    <i className="bi bi-trash-fill" /> Delete this link
                                 </span>
                             </div>
                         )}

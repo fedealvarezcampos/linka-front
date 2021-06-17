@@ -7,6 +7,7 @@
 
 .singleCommentContent {
     display: grid;
+    grid: auto auto 1.2rem / auto;
     align-self: center;
 }
 
@@ -40,21 +41,44 @@
     background-position: center center;
 }
 
-.replyLink {
-    margin: 2px;
-    color: var(--main-bg-color);
+.commentLinks {
+    display: grid;
+    grid: auto / 1fr 1fr;
+    align-items: end;
+    width: 6.5rem;
+    margin: 0;
+    margin-left: 5px;
 }
 
-.replyLink span {
+.replyLink {
     font-style: italic;
     font-size: 0.75rem;
+    color: var(--main-bg-color);
     transition: color 200ms;
     cursor: pointer;
 }
 
-.replyLink :hover {
+.replyLink:hover {
     color: var(--alt-highlight-color);
     transition: color 200ms;
+}
+
+.deleteCommentLink {
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--highlight-color);
+    transition: color 200ms;
+    cursor: pointer;
+}
+
+.deleteCommentLink:hover {
+    color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
+.deletedComment {
+    font-style: italic;
+    color: var(--main-bg-color);
 }
 
 .nestedComment {
