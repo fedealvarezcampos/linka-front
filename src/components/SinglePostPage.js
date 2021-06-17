@@ -16,26 +16,15 @@ import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
 
 function SinglePostPage({ setError, setLogNote }) {
-    const { postId } = useParams();
-
     const modal = useModal();
     const setModal = useSetModal();
 
-    const [nestedComments, setNestedComments] = useState();
+    const { postId } = useParams();
 
     const user = useSelector(s => s?.user);
     const token = useSelector(s => s.user?.token);
 
     const commentsFullData = useGetComments(postId);
-    const commentsData = commentsFullData && commentsFullData.filter(comment => comment.parentId === null);
-
-    // console.log(commentsFullData);
-
-    useEffect(() => {
-        setNestedComments(nestComments(commentsFullData));
-    }, [commentsFullData]);
-
-    console.log(nestedComments);
 
     const post = useGetSinglePost(postId, token);
     const itsMyPost = user?.id === post?.userId;
@@ -44,7 +33,12 @@ function SinglePostPage({ setError, setLogNote }) {
 
     const [likes, setLikes] = useState();
     const [commentList, setCommentList] = useState([]);
+    const [nestedComments, setNestedComments] = useState();
     const [linkIsDeleted, setLinkIsDeleted] = useState(false);
+
+    useEffect(() => {
+        setNestedComments(nestComments(commentsFullData));
+    }, [commentsFullData]);
 
     useEffect(() => {
         setLikes(postLikes);
@@ -75,7 +69,7 @@ function SinglePostPage({ setError, setLogNote }) {
             setError('');
             setLinkIsDeleted(true);
         } catch (error) {
-            // setError(error.response.data.error);
+            setError(error.response.data.error);
             setLogNote(true);
         }
     };
@@ -141,15 +135,14 @@ function SinglePostPage({ setError, setLogNote }) {
                         <CommentForm
                             commentList={commentList}
                             setCommentList={setCommentList}
-                            id={postId}
                             setError={setError}
                         />
                         <hr />
-                        {commentList?.length !== 0 || commentsData?.length !== 0 ? (
+                        {commentList?.length !== 0 || nestedComments?.length !== 0 ? (
                             <CommentList
                                 commentsData={nestedComments}
                                 commentList={commentList}
-                                id={postId}
+                                postId={postId}
                             />
                         ) : (
                             <div className="noCommentsHere">No hay comentarios</div>

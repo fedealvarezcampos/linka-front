@@ -1,6 +1,6 @@
 import Comment from './SingleComment';
 
-const CommentList = ({ commentList, commentsData }) => {
+const CommentList = ({ commentList, commentsData, postId }) => {
     return (
         <>
             <div className="commentList">
@@ -10,7 +10,7 @@ const CommentList = ({ commentList, commentsData }) => {
                             commentList.map(comment => <Comment key={comment.commentId} comment={comment} />)}
                         {commentsData &&
                             commentsData.map(comment => (
-                                <Comment key={comment.commentId} comment={comment} />
+                                <Comment key={comment.commentId} comment={comment} postId={postId} />
                             ))}
                     </li>
                 </ul>

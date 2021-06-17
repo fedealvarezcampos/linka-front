@@ -11,4 +11,11 @@ const postComment = async (text, id, token) => {
     return data;
 };
 
-export { postComment, useGetComments };
+const postReply = async (text, id, parentId, token) => {
+    const { data } = await axios.post(`${baseURL}/posts/${id}/comments/${parentId}`, text, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
+export { postComment, postReply, useGetComments };

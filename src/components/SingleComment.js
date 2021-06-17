@@ -4,7 +4,7 @@ import ReactTimeAgo from 'react-time-ago';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
 
-const SingleComment = ({ comment }) => {
+const SingleComment = ({ comment, postId }) => {
     const nestedComments = (comment.children || []).map(comment => {
         return <SingleComment comment={comment} key={comment.commentId} />;
     });
@@ -37,7 +37,7 @@ const SingleComment = ({ comment }) => {
                     <p onClick={() => setCommentForm(!commentForm)} className="replyLink">
                         <i className="bi bi-reply-all-fill"></i> Reply
                     </p>
-                    {commentForm && <CommentForm />}
+                    {commentForm && <CommentForm parentId={comment.commentId} />}
                 </div>
             </div>
             <div className="nestedComment">{nestedComments}</div>

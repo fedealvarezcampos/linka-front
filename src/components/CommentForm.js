@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { postComment } from '../api/comments';
+import { useParams } from 'react-router-dom';
+import { postComment, postReply } from '../api/comments';
 import '../styles/CommentForm.css';
 
-const CommentForm = ({ id, setError, commentList, setCommentList }) => {
+const CommentForm = ({ setError, commentList, setCommentList, parentId }) => {
     const token = useSelector(s => s.user?.token);
+
+    const { postId } = useParams();
 
     // const [isSending, setIsSending] = useState(false);
 
@@ -13,11 +16,15 @@ const CommentForm = ({ id, setError, commentList, setCommentList }) => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await postComment({ text }, id, token);
-            setCommentList([response, ...commentList]);
+            if (parentId) {
+                await postReply({ text }, postId, parentId, token);
+            } else {
+                const response = await postComment({ text }, postId, token);
+                setCommentList([response, ...commentList]);
+            }
             setText('');
         } catch (error) {
-            setError(error.response.data.error);
+            // setError(error.response.data.error);
         }
     };
 
