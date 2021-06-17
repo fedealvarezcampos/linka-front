@@ -4,12 +4,13 @@ import ReactTimeAgo from 'react-time-ago';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
 
-const SingleComment = ({ comment, postId }) => {
+const SingleComment = ({ comment }) => {
     const nestedComments = (comment.children || []).map(comment => {
         return <SingleComment comment={comment} key={comment.commentId} />;
     });
 
     const [commentForm, setCommentForm] = useState();
+    const [nestedList, setNestedList] = useState([]);
 
     return (
         <>
@@ -34,13 +35,26 @@ const SingleComment = ({ comment, postId }) => {
                         </span>
                     </span>
                     <p className="singleCommentText">{comment.text.trim()}</p>
-                    <p onClick={() => setCommentForm(!commentForm)} className="replyLink">
-                        <i className="bi bi-reply-all-fill"></i> Reply
+                    <p className="replyLink">
+                        <span onClick={() => setCommentForm(!commentForm)}>
+                            <i className="bi bi-reply-all-fill" /> Reply
+                        </span>
                     </p>
-                    {commentForm && <CommentForm parentId={comment.commentId} />}
+                    {commentForm && (
+                        <CommentForm
+                            setCommentForm={setCommentForm}
+                            nestedList={nestedList}
+                            setNestedList={setNestedList}
+                            parentId={comment.commentId}
+                        />
+                    )}
                 </div>
             </div>
-            <div className="nestedComment">{nestedComments}</div>
+            <div className="nestedComment">
+                {nestedList &&
+                    nestedList.map(comment => <SingleComment key={comment.commentId} comment={comment} />)}
+                {nestedComments}
+            </div>
         </>
     );
 };

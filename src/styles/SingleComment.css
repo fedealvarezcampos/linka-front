@@ -43,19 +43,24 @@
 .replyLink {
     margin: 2px;
     color: var(--main-bg-color);
-    font-style: italic;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: color 200ms;
 }
 
-.replyLink:hover {
+.replyLink span {
+    font-style: italic;
+    font-size: 0.75rem;
+    transition: color 200ms;
+    cursor: pointer;
+}
+
+.replyLink :hover {
     color: var(--alt-highlight-color);
     transition: color 200ms;
 }
 
 .nestedComment {
-    margin-left: 2rem;
+    border-left: 2px dotted var(--alt-item-color);
+    padding-left: 1.1rem;
+    margin-left: 1rem;
 }
 
 .noCommentsHere {

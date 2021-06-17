@@ -4,7 +4,15 @@ import { useParams } from 'react-router-dom';
 import { postComment, postReply } from '../api/comments';
 import '../styles/CommentForm.css';
 
-const CommentForm = ({ setError, commentList, setCommentList, parentId }) => {
+const CommentForm = ({
+    setError,
+    setCommentForm,
+    nestedList,
+    setNestedList,
+    commentList,
+    setCommentList,
+    parentId,
+}) => {
     const token = useSelector(s => s.user?.token);
 
     const { postId } = useParams();
@@ -17,12 +25,15 @@ const CommentForm = ({ setError, commentList, setCommentList, parentId }) => {
         e.preventDefault();
         try {
             if (parentId) {
-                await postReply({ text }, postId, parentId, token);
+                const response = await postReply({ text }, postId, parentId, token);
+                setNestedList([response, ...nestedList]);
+                setCommentForm(false);
+                setText('');
             } else {
                 const response = await postComment({ text }, postId, token);
                 setCommentList([response, ...commentList]);
+                setText('');
             }
-            setText('');
         } catch (error) {
             // setError(error.response.data.error);
         }
