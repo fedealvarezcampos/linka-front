@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSetLogNote } from '../context/LogNoteContext';
@@ -14,6 +14,7 @@ import Post from './Post';
 import '../styles/Home.css';
 
 function Home({ sort, setSort, setError }) {
+    const dispatch = useDispatch();
     const setLogNote = useSetLogNote();
 
     const { uuid } = useParams();
@@ -22,14 +23,13 @@ function Home({ sort, setSort, setError }) {
 
     const handleValidation = async () => {
         try {
-            await userValidation(uuid);
+            const response = await userValidation(uuid);
             setLogNote(true);
-            notifyMessage('User validated! Log in now.');
-            // dispatch({ type: 'LOGIN', user: response });
+            dispatch({ type: 'LOGIN', user: response });
+            notifyMessage('User validated! Have fun!');
         } catch (error) {
-            // setError(error.response.data.error);
-            setLogNote(true);
             notifyError(error.response.data.error);
+            setLogNote(true);
         }
     };
 

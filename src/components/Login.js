@@ -7,8 +7,8 @@ import { login } from '../api/users';
 import '../styles/Login.css';
 
 function Login({ setError, show, setShow, nodeRef }) {
-    const setLogNote = useSetLogNote();
     const dispatch = useDispatch();
+    const setLogNote = useSetLogNote();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

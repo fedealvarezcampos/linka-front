@@ -35,6 +35,24 @@
     margin-top: 0.8rem;
 }
 
+.postFooter .postCommentsContainerSingle {
+    display: grid;
+    grid: auto / 1.3rem auto;
+}
+
+.postFooter .postLikesContainerSingle {
+    display: grid;
+    grid: auto / auto auto;
+    gap: 3.5px;
+    transition: color 200ms;
+}
+
+.postFooter .postLikesContainerSingle:hover {
+    cursor: pointer;
+    color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
 .commentListContainer {
     padding: 1rem;
     margin-bottom: 0.4rem;

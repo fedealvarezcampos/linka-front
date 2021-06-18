@@ -63,7 +63,6 @@ function SinglePostPage({ setError }) {
         try {
             const response = await likePost(postId, body, token);
             response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
-            console.log(response);
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -93,8 +92,6 @@ function SinglePostPage({ setError }) {
             limit: '3',
         });
     };
-
-    post && console.log(commentNumber);
 
     return (
         <>
@@ -127,17 +124,19 @@ function SinglePostPage({ setError }) {
                         <hr />
                         <div className="postFooter">
                             <div className="postFooterComments">
-                                <i className="bi bi-chat-fill"></i>
-                                <span>
-                                    {(post && commentNumber) || '0'}{' '}
-                                    {post.commented === 1 ? 'comment' : 'comments'}
-                                </span>
+                                <div className="postCommentsContainerSingle">
+                                    <i className="bi bi-chat-fill"></i>
+                                    <span>
+                                        {(post && commentNumber) || '0'}{' '}
+                                        {post.commented === 1 ? 'comment' : 'comments'}
+                                    </span>
+                                </div>
                             </div>
                             <div
                                 className="postFooterLikes"
                                 onClick={(token && !itsMyPost && handleLikeClick) || (itsMyPost && notify)}
                             >
-                                <div className="postLikesContainer">
+                                <div className="postLikesContainerSingle">
                                     <span>{likes || 0}</span>
                                     <i className="bi bi-heart-fill"></i>
                                 </div>

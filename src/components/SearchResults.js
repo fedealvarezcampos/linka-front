@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-import { useSetLogNote } from '../context/LogNoteContext';
 import { useGetResults } from '../api/posts';
 import Spinner from '../assets/Spinner';
 import Post from './Post';
@@ -12,7 +11,6 @@ import NavSort from './NavSort';
 import '../styles/Home.css';
 
 function SearchResults({ sort, setSort, setError }) {
-    const setLogNote = useSetLogNote();
     const user = useSelector(s => s.user);
     const token = useSelector(s => s.user?.token);
 

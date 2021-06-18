@@ -24,7 +24,7 @@ function NavSort({ sort, setSort, page, setPage }) {
     const bestToday = (
         <>
             <i className="bi bi-trophy-fill" />
-            <span>Best today</span>
+            <span>Top rated</span>
         </>
     );
 
