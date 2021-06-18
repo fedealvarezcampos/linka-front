@@ -6,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import store from './store';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
+import LogNoteContextProvider from './context/LogNoteContext';
 import ModalContextProvider from './context/ModalContext';
 import reportWebVitals from './test/reportWebVitals';
 import './styles/index.css';
@@ -18,16 +19,18 @@ TimeAgo.addDefaultLocale(en);
 ReactDOM.render(
     <React.StrictMode>
         <HelmetProvider>
-            <ModalContextProvider>
-                <Router>
-                    <ScrollToTop />
-                    <ErrorBoundary>
-                        <Provider store={store}>
-                            <App />
-                        </Provider>
-                    </ErrorBoundary>
-                </Router>
-            </ModalContextProvider>
+            <LogNoteContextProvider>
+                <ModalContextProvider>
+                    <Router>
+                        <ScrollToTop />
+                        <ErrorBoundary>
+                            <Provider store={store}>
+                                <App />
+                            </Provider>
+                        </ErrorBoundary>
+                    </Router>
+                </ModalContextProvider>
+            </LogNoteContextProvider>
         </HelmetProvider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyAuth } from '../helpers/toasts';
 import '../styles/PostMini.css';
 
-function PostMini({ post, user, setLogNote }) {
+function PostMini({ post, user }) {
+    const setLogNote = useSetLogNote();
     const token = useSelector(s => s.user?.token);
 
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();

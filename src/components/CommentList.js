@@ -1,6 +1,6 @@
 import Comment from './SingleComment';
 
-const CommentList = ({ commentList, commentsData, commentNumber, setCommentNumber, postId, setLogNote }) => {
+const CommentList = ({ commentList, commentsData, commentNumber, setCommentNumber, postId }) => {
     return (
         <>
             <div className="commentList">
@@ -11,7 +11,6 @@ const CommentList = ({ commentList, commentsData, commentNumber, setCommentNumbe
                                 <Comment
                                     commentNumber={commentNumber}
                                     setCommentNumber={setCommentNumber}
-                                    setLogNote={setLogNote}
                                     key={comment.commentId}
                                     comment={comment}
                                 />
@@ -21,7 +20,6 @@ const CommentList = ({ commentList, commentsData, commentNumber, setCommentNumbe
                                 <Comment
                                     commentNumber={commentNumber}
                                     setCommentNumber={setCommentNumber}
-                                    setLogNote={setLogNote}
                                     key={comment.commentId}
                                     comment={comment}
                                     postId={postId}

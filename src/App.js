@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import { useModal, useSetModal } from './context/ModalContext';
+import { useLogNote } from './context/LogNoteContext';
 import Home from './components/Home';
 import Header from './components/Header';
 import UserProfile from './components/UserProfile';
@@ -24,8 +25,8 @@ function App() {
 
     const modal = useModal();
     const setModal = useSetModal();
+    const logNote = useLogNote();
     const [sort, setSort] = useState('');
-    const [logNote, setLogNote] = useState(false);
     const [error, setError] = useState();
 
     return (
@@ -35,42 +36,31 @@ function App() {
             </Helmet>
             {modal && !token && (
                 <Modal error={error} setError={setError}>
-                    <RegisterForm
-                        modal={modal}
-                        setModal={setModal}
-                        setLogNote={setLogNote}
-                        setError={setError}
-                    />
+                    <RegisterForm modal={modal} setModal={setModal} setError={setError} />
                 </Modal>
             )}
-            <Header error={error} setLogNote={setLogNote} setError={setError} />
+            <Header error={error} setError={setError} />
             <Switch>
                 <Route path={['/', '/users/validate/:uuid']} exact>
-                    <Home
-                        sort={sort}
-                        setSort={setSort}
-                        logNote={logNote}
-                        setLogNote={setLogNote}
-                        setError={setError}
-                    />
+                    <Home sort={sort} setSort={setSort} setError={setError} />
                 </Route>
                 <Route path="/users/:username" exact>
-                    <UserProfile setLogNote={setLogNote} />
+                    <UserProfile />
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
-                    <SinglePostPage setLogNote={setLogNote} setError={setError} />
+                    <SinglePostPage setError={setError} />
                 </Route>
                 <Route path="/settings" exact>
-                    <UserConfig setLogNote={setLogNote} setError={setError} />
+                    <UserConfig setError={setError} />
                 </Route>
                 <Route path="/new-link" exact>
-                    <NewLink setLogNote={setLogNote} setError={setError} />
+                    <NewLink setError={setError} />
                 </Route>
                 <Route path="/search" exact>
-                    <SearchResults sort={sort} setLogNote={setLogNote} setSort={setSort} />
+                    <SearchResults sort={sort} setSort={setSort} />
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
-                    <SinglePostPage setLogNote={setLogNote} setError={setError} />
+                    <SinglePostPage setError={setError} />
                 </Route>
                 <Route path="/">
                     <ErrorMessage />

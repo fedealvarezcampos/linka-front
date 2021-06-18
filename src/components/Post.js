@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyAuth } from '../helpers/toasts';
 import { likePost } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Post.css';
 
-function Post({ post, username, setError, setLogNote }) {
+function Post({ post, username, setError }) {
+    const setLogNote = useSetLogNote();
     const user = useSelector(s => s?.user);
     const token = useSelector(s => s.user?.token);
     const itsMyPost = user?.id === post.userId;

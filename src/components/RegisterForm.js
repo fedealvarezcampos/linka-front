@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { register } from '../api/users';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError, notifyMessage } from '../helpers/toasts';
 
-function RegisterForm({ setLogNote, modal, setModal }) {
+function RegisterForm({ modal, setModal }) {
+    const setLogNote = useSetLogNote();
+
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

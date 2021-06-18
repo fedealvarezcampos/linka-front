@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { useGetResults } from '../api/posts';
 import Spinner from '../assets/Spinner';
 import Post from './Post';
@@ -8,9 +10,9 @@ import TopRated from './TopRated';
 import Search from './Search';
 import NavSort from './NavSort';
 import '../styles/Home.css';
-import { useEffect } from 'react';
 
-function SearchResults({ sort, setSort, setLogNote, setError }) {
+function SearchResults({ sort, setSort, setError }) {
+    const setLogNote = useSetLogNote();
     const user = useSelector(s => s.user);
     const token = useSelector(s => s.user?.token);
 
@@ -48,18 +50,13 @@ function SearchResults({ sort, setSort, setLogNote, setError }) {
                             <ul className="postListContainer">
                                 {postsData &&
                                     postsData.map(post => (
-                                        <Post
-                                            key={post.id}
-                                            post={post}
-                                            setError={setError}
-                                            setLogNote={setLogNote}
-                                        />
+                                        <Post key={post.id} post={post} setError={setError} />
                                     ))}
                             </ul>
                         </>
                     )}
                     <div className="homeSidebarContainer">
-                        {user && <Search setLogNote={setLogNote} setSort={setSort} setError={setError} />}
+                        {user && <Search setSort={setSort} setError={setError} />}
                         <TopRated />
                     </div>
                 </div>

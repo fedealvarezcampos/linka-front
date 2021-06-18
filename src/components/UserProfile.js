@@ -6,7 +6,7 @@ import ProfileCard from './ProfileCard';
 import Spinner from '../assets/Spinner';
 import '../styles/UserProfile.css';
 
-const UserProfile = ({ setLogNote }) => {
+const UserProfile = () => {
     const { username } = useParams();
     const profileData = useGetProfile(username);
 
@@ -23,12 +23,7 @@ const UserProfile = ({ setLogNote }) => {
                 <ul className="postListContainer">
                     {profileData &&
                         profileData.userPosts.map(post => (
-                            <Post
-                                key={post.id}
-                                post={post}
-                                username={profileData.username}
-                                setLogNote={setLogNote}
-                            />
+                            <Post key={post.id} post={post} username={profileData.username} />
                         ))}
                 </ul>
                 <ProfileCard user={profileData} />

@@ -3,6 +3,7 @@ import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { toast } from 'react-toastify';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { useModal, useSetModal } from '../context/ModalContext';
 import nestComments from '../helpers/nestComments';
 import { useGetSinglePost, likePost, deletePost } from '../api/posts';
@@ -15,7 +16,8 @@ import CommentList from './CommentList';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
 
-function SinglePostPage({ setError, setLogNote }) {
+function SinglePostPage({ setError }) {
+    const setLogNote = useSetLogNote();
     const modal = useModal();
     const setModal = useSetModal();
 
@@ -144,7 +146,6 @@ function SinglePostPage({ setError, setLogNote }) {
                         <CommentForm
                             commentNumber={commentNumber}
                             setCommentNumber={setCommentNumber}
-                            setLogNote={setLogNote}
                             commentList={commentList}
                             setCommentList={setCommentList}
                             setError={setError}
@@ -154,7 +155,6 @@ function SinglePostPage({ setError, setLogNote }) {
                             <CommentList
                                 commentNumber={commentNumber}
                                 setCommentNumber={setCommentNumber}
-                                setLogNote={setLogNote}
                                 commentsData={nestedComments}
                                 commentList={commentList}
                                 postId={postId}

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { updateUser } from '../api/users';
 import { toast } from 'react-toastify';
 import ProfileCard from './ProfileCard';
 import '../styles/UserConfig.css';
 
-function UserConfig({ setError, setLogNote }) {
+function UserConfig({ setError }) {
+    const setLogNote = useSetLogNote();
     const dispatch = useDispatch();
 
     const user = useSelector(s => s.user);

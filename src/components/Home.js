@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError, notifyMessage } from '../helpers/toasts';
 import Spinner from '../assets/Spinner';
 import { useGetSomePosts } from '../api/posts';
@@ -12,7 +13,9 @@ import Search from './Search';
 import Post from './Post';
 import '../styles/Home.css';
 
-function Home({ sort, setSort, setError, setLogNote }) {
+function Home({ sort, setSort, setError }) {
+    const setLogNote = useSetLogNote();
+
     const { uuid } = useParams();
 
     const user = useSelector(s => s?.user);
@@ -72,20 +75,14 @@ function Home({ sort, setSort, setError, setLogNote }) {
                         <ul className="postListContainer">
                             {posts &&
                                 posts.map(post => (
-                                    <Post
-                                        sort={sort}
-                                        key={post.postId}
-                                        post={post}
-                                        setError={setError}
-                                        setLogNote={setLogNote}
-                                    />
+                                    <Post sort={sort} key={post.postId} post={post} setError={setError} />
                                 ))}
                         </ul>
                     </InfiniteScroll>
                     <div className="homeOuterContainer">
                         <div className="homeSidebarContainer">
-                            {user && <Search setLogNote={setLogNote} setSort={setSort} setError={setError} />}
-                            <TopRated setLogNote={setLogNote} />
+                            {user && <Search setSort={setSort} setError={setError} />}
+                            <TopRated />
                         </div>
                     </div>
                 </div>

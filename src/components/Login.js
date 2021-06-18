@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError } from '../helpers/toasts';
 import { login } from '../api/users';
 import '../styles/Login.css';
 
-function Login({ error, setLogNote, setError, show, setShow, nodeRef }) {
+function Login({ setError, show, setShow, nodeRef }) {
+    const setLogNote = useSetLogNote();
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');

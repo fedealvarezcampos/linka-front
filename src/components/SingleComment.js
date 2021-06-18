@@ -2,13 +2,15 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { deleteComment } from '../api/comments';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
 import { useParams } from 'react-router-dom';
 import { notifyError } from '../helpers/toasts';
 
-const SingleComment = ({ comment, setLogNote, commentNumber, setCommentNumber }) => {
+const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
+    const setLogNote = useSetLogNote();
     const { postId } = useParams();
 
     const loggedUser = useSelector(s => s.user?.username);
@@ -20,7 +22,6 @@ const SingleComment = ({ comment, setLogNote, commentNumber, setCommentNumber })
             <SingleComment
                 commentNumber={commentNumber}
                 setCommentNumber={setCommentNumber}
-                setLogNote={setLogNote}
                 comment={comment}
                 key={comment.commentId}
             />
@@ -84,7 +85,6 @@ const SingleComment = ({ comment, setLogNote, commentNumber, setCommentNumber })
                     )}
                     {commentForm && (
                         <CommentForm
-                            setLogNote={setLogNote}
                             commentNumber={commentNumber}
                             setCommentNumber={setCommentNumber}
                             setCommentForm={setCommentForm}
@@ -101,7 +101,6 @@ const SingleComment = ({ comment, setLogNote, commentNumber, setCommentNumber })
                         <SingleComment
                             commentNumber={commentNumber}
                             setCommentNumber={setCommentNumber}
-                            setLogNote={setLogNote}
                             key={comment.commentId}
                             comment={comment}
                         />

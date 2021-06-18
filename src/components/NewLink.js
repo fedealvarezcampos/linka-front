@@ -3,10 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { publishLink } from '../api/posts';
 import '../styles/NewLink.css';
 
-function NewLink({ setError, setLogNote }) {
+function NewLink() {
+    const setLogNote = useSetLogNote();
     const token = useSelector(s => s.user?.token);
 
     const [link, setLink] = useState('');

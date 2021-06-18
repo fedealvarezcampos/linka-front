@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError } from '../helpers/toasts';
 import { getSearchResults } from '../api/posts';
 import '../styles/Search.css';
 
-function Search({ setError, setSort, setLogNote }) {
+function Search({ setError, setSort }) {
+    const setLogNote = useSetLogNote();
     const history = useHistory();
     const [search, setSearch] = useState('');
 

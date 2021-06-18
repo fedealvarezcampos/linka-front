@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { postComment, postReply } from '../api/comments';
+import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError } from '../helpers/toasts';
 import '../styles/CommentForm.css';
 
@@ -13,9 +14,10 @@ const CommentForm = ({
     setNestedList,
     commentList,
     setCommentList,
-    setLogNote,
     parentId,
 }) => {
+    const setLogNote = useSetLogNote();
+
     const token = useSelector(s => s.user?.token);
 
     const { postId } = useParams();
