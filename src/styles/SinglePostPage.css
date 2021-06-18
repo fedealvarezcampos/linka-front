@@ -3,6 +3,7 @@
     padding-bottom: 2.5rem;
     margin-top: 3.8rem;
     margin-bottom: 6rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .singlePostContainer .postContent {

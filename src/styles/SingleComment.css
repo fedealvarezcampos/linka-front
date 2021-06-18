@@ -26,7 +26,7 @@
 }
 
 .singleCommentText {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     font-weight: 400;
     margin: 0;
     margin-top: 0.2rem;
