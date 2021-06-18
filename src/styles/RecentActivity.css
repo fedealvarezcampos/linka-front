@@ -84,6 +84,11 @@
     color: var(--alt-highlight-color);
 }
 
+.activityUser span {
+    font-size: 0.8rem;
+    color: var(--main-bg-color);
+}
+
 .activityUserAvatar {
     width: 45px;
     height: 45px;

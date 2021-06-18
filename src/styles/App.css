@@ -86,12 +86,12 @@ textarea {
     background-color: var(--posts-color);
 }
 
-/* textarea {
-    min-width: 21rem;
-    max-width: 22rem;
-    min-height: 8rem;
-    max-height: 10rem;
-} */
+:-webkit-autofill {
+    -webkit-text-size-adjust: inherit;
+    -webkit-text-fill-color: var(--base-light-color);
+    -webkit-box-shadow: 0 0 0px 1000px var(--posts-color) inset;
+    box-shadow: 0 0 0px 1000px var(--posts-color) inset;
+}
 
 input:focus,
 textarea:focus {

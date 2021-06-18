@@ -25,7 +25,8 @@ function RecentActivity({ note, setActivityMenu }) {
                             onClick={() => setActivityMenu(false)}
                             className="activityUser"
                         >
-                            {note.username}
+                            {note.username}{' '}
+                            <span>{` ${note.parentId === null ? 'commented' : 'responded to you'}`}</span>
                         </Link>
                         <span className="activityDate">
                             <p>
