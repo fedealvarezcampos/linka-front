@@ -1,11 +1,17 @@
 import ReactTimeAgo from 'react-time-ago';
 import { Link } from 'react-router-dom';
 import '../styles/RecentActivity.css';
+import { useSelector } from 'react-redux';
 
 function RecentActivity({ note, setActivityMenu }) {
-    const noteDate = new Date(note.commentDate);
+    const userId = useSelector(s => s.user?.id);
 
+    console.log(userId);
+
+    const noteDate = new Date(note.commentDate);
     const postTitleURL = note.postTitle.replaceAll(' ', '-').toLowerCase();
+
+    console.log(note);
 
     return (
         <>
@@ -26,7 +32,11 @@ function RecentActivity({ note, setActivityMenu }) {
                             className="activityUser"
                         >
                             {note.username}{' '}
-                            <span>{` ${note.parentId === null ? 'commented' : 'responded to you'}`}</span>
+                            <span>{` ${
+                                note.parentId === null || note?.parentUserId !== userId
+                                    ? 'commented'
+                                    : 'responded to you'
+                            }`}</span>
                         </Link>
                         <span className="activityDate">
                             <p>
@@ -38,8 +48,10 @@ function RecentActivity({ note, setActivityMenu }) {
                                 >
                                     {note.postTitle}
                                 </Link>{' '}
-                                <ReactTimeAgo date={noteDate} timeStyle="twitter" locale="en-US" />
                             </p>
+                        </span>
+                        <span className="activityDate">
+                            <ReactTimeAgo date={noteDate} timeStyle="round" locale="en-US" />
                         </span>
                         <div className="activityComment">{note.comment}</div>
                     </div>
