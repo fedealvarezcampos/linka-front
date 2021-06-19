@@ -1,6 +1,6 @@
 import axios from 'axios';
 import useAPIGet from '../hooks/useAPIGet';
-const baseURL = 'https://linkah.herokuapp.com/api';
+const baseURL = 'http://localhost:8080/api';
 
 const useGetComments = id => useAPIGet(`${baseURL}/posts/${id}/comments`);
 

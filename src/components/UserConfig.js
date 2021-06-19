@@ -17,8 +17,8 @@ function UserConfig({ setError }) {
     const username = useSelector(s => s.user?.username);
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user?.avatar);
-    const defaultAvatar = 'https://linkah.vercel.app/images/avatars/default.jpg';
-    const userImage = `https://linkah.vercel.app/images/avatars/${preloadedImage}`;
+    const defaultAvatar = 'http://localhost:8080/images/avatars/default.jpg';
+    const userImage = `http://localhost:8080/images/avatars/${preloadedImage}`;
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');

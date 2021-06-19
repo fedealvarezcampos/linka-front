@@ -5,7 +5,7 @@ import axios from 'axios';
 //     headers: { Authorization: `Bearer ${token}` },
 // };
 
-const baseURL = 'https://linkah.herokuapp.com/api';
+const baseURL = 'http://localhost:8080/api';
 
 const useGetProfile = username => useAPIGet(username && `${baseURL}/users/${username}`);
 

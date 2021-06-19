@@ -12,6 +12,10 @@ const TopRated = ({ likes, setLikes }) => {
 
     return (
         <div className="miniPostListOuterContainer">
+            <span className="topRatedTitle">
+                <i className="bi bi-lightning-fill" />
+                Top this week
+            </span>
             <ul className="miniPostListContainer">
                 {postsData &&
                     postsData

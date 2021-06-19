@@ -1,6 +1,6 @@
 import axios from 'axios';
 import useAPIGet from '../hooks/useAPIGet';
-const baseURL = 'https://linkah.herokuapp.com/api';
+const baseURL = 'http://localhost:8080/api';
 
 const useGetPosts = sort => useAPIGet((sort && `${baseURL}/posts?sort=${sort}`) || `${baseURL}/posts`);
 

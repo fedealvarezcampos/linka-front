@@ -4,7 +4,7 @@ import '../styles/LinkPreview.css';
 function LinkPreview({ post, notify }) {
     const token = useSelector(s => s.user?.token);
 
-    const altPreview = `https://linkah.vercel.app/images/prevLink.jpg`;
+    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
 
     return (
         <div
