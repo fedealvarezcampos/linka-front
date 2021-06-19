@@ -24,8 +24,8 @@ function UserConfig({ setError }) {
     const [confirmPass, setConfirmPass] = useState('');
     const [bio, setBio] = useState(user?.bio || '');
     const [userSite, setUserSite] = useState(user?.userSite || '');
-    const [userTW, setUserTW] = useState(user?.userTW || '');
-    const [userIG, setUserIG] = useState(user?.userIG || '');
+    const [userTW, setUserTW] = useState(user?.userTW.slice(20) || '');
+    const [userIG, setUserIG] = useState(user?.userIG.slice(22) || '');
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState((preloadedImage && userImage) || defaultAvatar);
     const [passVisibility, setPassVisibility] = useState();
@@ -150,21 +150,19 @@ function UserConfig({ setError }) {
                                 />
                             </label>
                             <label>
-                                <span>Twitter</span>
+                                <span>Twitter username</span>
                                 <br />
                                 <input
-                                    placeholder="your Twitter profile..."
-                                    type="url"
+                                    placeholder="your Twitter username..."
                                     value={userTW}
                                     onChange={e => setUserTW(e.target.value)}
                                 />
                             </label>
                             <label>
-                                <span>Instagram</span>
+                                <span>Instagram username</span>
                                 <br />
                                 <input
-                                    placeholder="your Instagram profile..."
-                                    type="url"
+                                    placeholder="your Instagram username..."
                                     value={userIG}
                                     onChange={e => setUserIG(e.target.value)}
                                 />

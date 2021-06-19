@@ -127,7 +127,7 @@ function SinglePostPage({ setError }) {
                                 <div className="postCommentsContainerSingle">
                                     <i className="bi bi-chat-fill"></i>
                                     <span>
-                                        {(post && commentNumber) || '0'}{' '}
+                                        {(post && commentNumber) || 'No'}{' '}
                                         {post.commented === 1 ? 'comment' : 'comments'}
                                     </span>
                                 </div>

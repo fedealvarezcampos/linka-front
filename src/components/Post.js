@@ -74,7 +74,7 @@ function Post({ post, username, setError }) {
                         >
                             <i className="bi bi-chat-fill"></i>
                             <span>
-                                {post.commented || '0'} {post.commented === 1 ? 'comment' : 'comments'}
+                                {post.commented || 'No'} {post.commented === 1 ? 'comment' : 'comments'}
                             </span>
                         </Link>
                     </div>

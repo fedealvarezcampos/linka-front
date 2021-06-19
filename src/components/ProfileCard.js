@@ -20,19 +20,21 @@ const ProfileCard = ({ user }) => {
                     }}
                     alt="user avatar"
                 ></div>
-                {(user?.userSite || user?.userTW || user?.userIG) && (
+                {(user?.userSite ||
+                    user?.userTW !== 'https://twitter.com/' ||
+                    user?.userIG !== 'https://instagram.com/') && (
                     <div className="userCardSocial">
                         {user?.userSite && (
                             <a href={user.userSite}>
                                 <i className="bi bi-house-fill" />
                             </a>
                         )}
-                        {user?.userTW && (
+                        {user?.userTW !== 'https://twitter.com/' && (
                             <a href={user.userTW}>
                                 <i className="bi bi-twitter" />
                             </a>
                         )}
-                        {user?.userIG && (
+                        {user?.userIG !== 'https://instagram.com/' && (
                             <a href={user.userIG}>
                                 <i className="bi bi-instagram" />
                             </a>

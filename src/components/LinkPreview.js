@@ -6,6 +6,8 @@ function LinkPreview({ post, notify }) {
 
     const altPreview = `http://localhost:8080/images/prevLink.jpg`;
 
+    console.log(post.linkImg);
+
     return (
         <div
             className="linkPrevContainer"
@@ -15,7 +17,13 @@ function LinkPreview({ post, notify }) {
         >
             <div
                 className="linkPrevImg"
-                style={{ backgroundImage: `url(${post.linkImg || altPreview})` }}
+                style={{
+                    backgroundImage: `url(${
+                        (!post?.linkImg.includes('scontent') && post.linkImg) ||
+                        (post?.linkImg.includes('scontent') && altPreview) ||
+                        altPreview
+                    })`,
+                }}
                 alt="link image"
             />
             <div className="linkInfoContainer">

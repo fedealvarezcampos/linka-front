@@ -32,7 +32,7 @@ function RecentActivity({ note, setActivityMenu }) {
                             className="activityUser"
                         >
                             {note.username}{' '}
-                            <span>{` ${
+                            <span>{`${
                                 note.parentId === null || note?.parentUserId !== userId
                                     ? 'commented'
                                     : 'responded to you'
