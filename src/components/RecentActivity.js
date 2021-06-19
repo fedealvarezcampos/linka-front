@@ -13,7 +13,7 @@ function RecentActivity({ note, setActivityMenu }) {
                 <div
                     className="activityUserAvatar"
                     style={{
-                        backgroundImage: `url(http://localhost:8080/images/avatars/${
+                        backgroundImage: `url(https://linkah.vercel.app/images/avatars/${
                             note.avatar || 'default.jpg'
                         })`,
                     }}

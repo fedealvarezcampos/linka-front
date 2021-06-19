@@ -1,13 +1,12 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { CSSTransition } from 'react-transition-group';
-import { useModal, useSetModal } from '../context/ModalContext';
+import { NavLink } from 'react-router-dom';
 import { useDetectClickOut, useDetectClickOutActivity } from '../hooks/useDetectClickOut';
 import { useClosingKey } from '../hooks/useClosingKey';
+import { useModal, useSetModal } from '../context/ModalContext';
+import { useGetActivity, useGetProfile } from '../api/users';
 import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
-import { useGetActivity, useGetProfile } from '../api/users';
 import RecentActivity from './RecentActivity';
 
 function Header({ error, setError }) {

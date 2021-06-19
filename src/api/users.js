@@ -5,13 +5,13 @@ import axios from 'axios';
 //     headers: { Authorization: `Bearer ${token}` },
 // };
 
-const baseURL = 'http://localhost:8080/api';
+const baseURL = 'https://linkah.herokuapp.com/api';
 
 const useGetProfile = username => useAPIGet(username && `${baseURL}/users/${username}`);
 
 const useGetActivity = (user, token) => useAPIGet(user && `${baseURL}/users/${user}/activity`, token);
 
-const userValidation = async (uuid) => {
+const userValidation = async uuid => {
     const { data } = await axios.get(`${baseURL}/users/validate/${uuid}`);
     return data;
 };

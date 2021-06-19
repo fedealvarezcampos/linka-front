@@ -9,7 +9,7 @@ function PostMini({ post, user }) {
     const token = useSelector(s => s.user?.token);
 
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
-    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
+    const altPreview = `https://linkah.vercel.app/images/prevLink.jpg`;
 
     const handleNote = token => {
         setLogNote(true);

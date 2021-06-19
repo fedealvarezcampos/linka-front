@@ -27,6 +27,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: var(--base-light-color);
     background-color: var(--main-bg-color);
+    background-position-y: top;
 }
 
 ::-webkit-scrollbar {

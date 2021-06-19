@@ -79,7 +79,7 @@ function Home({ sort, setSort, setError }) {
                                 ))}
                         </ul>
                     </InfiniteScroll>
-                    <div className="homeOuterContainer">
+                    <div className="homeOuterSidebarContainer">
                         <div className="homeSidebarContainer">
                             {user && <Search setSort={setSort} setError={setError} />}
                             <TopRated />

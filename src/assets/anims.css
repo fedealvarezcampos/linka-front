@@ -41,11 +41,6 @@
     }
 }
 
-/* .bounceIn {
-    animation-duration: calc(var(--animate-duration) * 0.75);
-    animation-name: bounceIn;
-} */
-
 @keyframes rotateMenu {
     0% {
         transform: rotateX(-90deg);
@@ -106,4 +101,21 @@
     100% {
         transform: rotate(1turn);
     }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.growDown {
+    animation: growDown 500ms cubic-bezier(0.58, 0.1, 0.08, 0.79) forwards;
+    transform-origin: top center;
 }

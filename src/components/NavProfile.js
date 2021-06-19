@@ -12,7 +12,7 @@ function NavProfile({ show, setShow, love }) {
             <div
                 className="avatar"
                 style={{
-                    backgroundImage: `url(http://localhost:8080/images/avatars/${
+                    backgroundImage: `url(https://linkah.vercel.app/images/avatars/${
                         user.avatar || 'default.jpg'
                     })`,
                 }}

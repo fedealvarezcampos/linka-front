@@ -48,7 +48,7 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                 <div
                     className="singleCommentAvatar"
                     style={{
-                        backgroundImage: `url(http://localhost:8080/images/avatars/${
+                        backgroundImage: `url(https://linkah.vercel.app/images/avatars/${
                             comment.avatar || 'default.jpg'
                         })`,
                     }}
