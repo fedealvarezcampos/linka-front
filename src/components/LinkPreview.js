@@ -6,8 +6,6 @@ function LinkPreview({ post, notify }) {
 
     const altPreview = `http://localhost:8080/images/prevLink.jpg`;
 
-    console.log(post.linkImg);
-
     return (
         <div
             className="linkPrevContainer"

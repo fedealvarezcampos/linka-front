@@ -25,10 +25,11 @@
 }
 
 .activityListContainer.noActivity {
+    height: 2.4rem;
     padding-top: 1.5rem;
-    font-style: italic;
     overflow-y: unset;
-    height: 2.5rem;
+    font-style: italic;
+    color: var(--alt-highlight-color);
 }
 
 .activityListContainer::-webkit-scrollbar {

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useGetProfile } from '../api/users';
 import Post from './Post';
+import NoResultsPost from './NoResultsPost';
 import ProfileCard from './ProfileCard';
 import Spinner from '../assets/Spinner';
 import '../styles/UserProfile.css';
@@ -14,6 +15,8 @@ const UserProfile = () => {
         return <Spinner />;
     }
 
+    console.log(profileData);
+
     return (
         <>
             <Helmet>
@@ -21,10 +24,14 @@ const UserProfile = () => {
             </Helmet>
             <div className="userPageContainer">
                 <ul className="postListContainer">
-                    {profileData &&
+                    {profileData?.userPosts.length === 0 ? (
+                        <NoResultsPost />
+                    ) : (
+                        profileData &&
                         profileData.userPosts.map(post => (
                             <Post key={post.id} post={post} username={profileData.username} />
-                        ))}
+                        ))
+                    )}
                 </ul>
                 <ProfileCard user={profileData} />
             </div>

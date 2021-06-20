@@ -6,12 +6,8 @@ import { useSelector } from 'react-redux';
 function RecentActivity({ note, setActivityMenu }) {
     const userId = useSelector(s => s.user?.id);
 
-    console.log(userId);
-
     const noteDate = new Date(note.commentDate);
     const postTitleURL = note.postTitle.replaceAll(' ', '-').toLowerCase();
-
-    console.log(note);
 
     return (
         <>

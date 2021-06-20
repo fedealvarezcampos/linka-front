@@ -19,7 +19,7 @@ const ProfileCard = ({ user }) => {
                         })`,
                     }}
                     alt="user avatar"
-                ></div>
+                />
                 {(user?.userSite ||
                     user?.userTW !== 'https://twitter.com/' ||
                     user?.userIG !== 'https://instagram.com/') && (

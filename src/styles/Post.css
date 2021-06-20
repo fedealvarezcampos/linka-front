@@ -153,3 +153,35 @@
     color: var(--base-light-color);
     text-decoration: none;
 }
+
+/* No results post */
+
+.postContent.noResults {
+    display: grid;
+    font-size: 1.3rem;
+    font-style: italic;
+    gap: 20px;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    height: 25rem;
+}
+
+.postInfo.noResults span,
+.postInfo.noResults i {
+    font-size: 1rem;
+    padding-right: 0.2rem;
+}
+
+.postContent.noResults .button {
+    float: left;
+}
+
+.catGif {
+    width: 360px;
+    height: 220px;
+    border-radius: 16px 16px 16px 0;
+    border: 6px solid var(--base-light-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

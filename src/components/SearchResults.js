@@ -7,6 +7,7 @@ import Spinner from '../assets/Spinner';
 import Post from './Post';
 import TopRated from './TopRated';
 import Search from './Search';
+import NoResultsPost from './NoResultsPost';
 import NavSort from './NavSort';
 import '../styles/Home.css';
 
@@ -33,16 +34,7 @@ function SearchResults({ sort, setSort, setError }) {
                 <div className="homeContainer">
                     <NavSort sort={sort} setSort={setSort} />
                     {postsData.length === 0 ? (
-                        <ul className="postListContainer noResults">
-                            <li className="postContainer noResults">
-                                <div className="postInfo noResults">
-                                    <span className="postInfoText noResults">no results</span>
-                                </div>
-                                <div className="postContent noResults">
-                                    <div>No results</div>
-                                </div>
-                            </li>
-                        </ul>
+                        <NoResultsPost />
                     ) : (
                         <>
                             <ul className="postListContainer">
