@@ -33,4 +33,11 @@ const updateUser = async (username, formData, token) => {
     return data;
 };
 
-export { useGetProfile, useGetActivity, userValidation, login, register, updateUser };
+const deleteUser = async (username, token) => {
+    const { data } = await axios.delete(`${baseURL}/users/${username}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
+export { useGetProfile, useGetActivity, userValidation, login, register, updateUser, deleteUser };

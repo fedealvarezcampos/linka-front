@@ -5,6 +5,8 @@ const ProfileCard = ({ user }) => {
         return <div>Loading...</div>;
     }
 
+    console.log(user.userTW);
+
     return (
         <div className="userCardContainer">
             <span>
@@ -21,20 +23,20 @@ const ProfileCard = ({ user }) => {
                     alt="user avatar"
                 />
                 {(user?.userSite ||
-                    user?.userTW !== 'https://twitter.com/' ||
-                    user?.userIG !== 'https://instagram.com/') && (
+                    user?.userTW !== ('https://twitter.com/' || null) ||
+                    user?.userIG !== ('https://instagram.com/' || null)) && (
                     <div className="userCardSocial">
                         {user?.userSite && (
                             <a href={user.userSite}>
                                 <i className="bi bi-house-fill" />
                             </a>
                         )}
-                        {user?.userTW !== 'https://twitter.com/' && (
+                        {user?.userTW !== `https://twitter.com/` && user?.userTW !== null && (
                             <a href={user.userTW}>
                                 <i className="bi bi-twitter" />
                             </a>
                         )}
-                        {user?.userIG !== 'https://instagram.com/' && (
+                        {user?.userIG !== `https://instagram.com/` && user?.userIG !== null && (
                             <a href={user.userIG}>
                                 <i className="bi bi-instagram" />
                             </a>

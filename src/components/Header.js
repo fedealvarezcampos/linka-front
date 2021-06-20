@@ -27,8 +27,8 @@ function Header({ error, setError }) {
     return (
         <>
             <header className={`header ${!user ? 'noUser' : ''}`}>
-                <NavLink className="logo" to="/">
-                    LOGO
+                <NavLink className="logo" shadow="Linkah" to="/">
+                    Linkah
                 </NavLink>
                 {show && !user && (
                     <Login

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { useClosingKey } from '../hooks/useClosingKey';
 
 function NavProfile({ show, setShow, love }) {

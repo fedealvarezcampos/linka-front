@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
-import { useSetLogNote } from '../context/LogNoteContext';
-import { updateUser } from '../api/users';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
+import { useModal, useSetModal } from '../context/ModalContext';
+import { useSetLogNote } from '../context/LogNoteContext';
+import { deleteUser, updateUser } from '../api/users';
 import ProfileCard from './ProfileCard';
+import Modal from './Modal';
 import '../styles/UserConfig.css';
+import { notifyError, notifyMessage } from '../helpers/toasts';
 
 function UserConfig({ setError }) {
+    const modal = useModal();
+    const setModal = useSetModal();
     const setLogNote = useSetLogNote();
     const dispatch = useDispatch();
 
@@ -24,31 +29,16 @@ function UserConfig({ setError }) {
     const [confirmPass, setConfirmPass] = useState('');
     const [bio, setBio] = useState(user?.bio || '');
     const [userSite, setUserSite] = useState(user?.userSite || '');
-    const [userTW, setUserTW] = useState(user?.userTW.slice(20) || '');
-    const [userIG, setUserIG] = useState(user?.userIG.slice(22) || '');
+    const [userTW, setUserTW] = useState(user?.userTW?.slice(20) || '');
+    const [userIG, setUserIG] = useState(user?.userIG?.slice(22) || '');
     const [avatar, setAvatar] = useState();
     const [preview, setPreview] = useState((preloadedImage && userImage) || defaultAvatar);
     const [passVisibility, setPassVisibility] = useState();
+    const [userIsDeleted, setUserIsDeleted] = useState(false);
 
     if (!isLoggedIn) {
         return <Redirect to="/" />;
     }
-
-    const notify = message => {
-        setLogNote(true);
-        toast.warn(message, {
-            position: 'bottom-right',
-            limit: '3',
-        });
-    };
-
-    const notifySuccess = () => {
-        setLogNote(true);
-        toast.success('Data saved! 🍕', {
-            position: 'bottom-right',
-            limit: '3',
-        });
-    };
 
     const handleSubmit = async e => {
         try {
@@ -64,10 +54,12 @@ function UserConfig({ setError }) {
             passVisibility && setPassVisibility(false);
             const response = await updateUser(username, fd, token);
             dispatch({ type: 'LOGIN', user: response });
-            notifySuccess();
+            notifyMessage('Data saved!');
+            setLogNote(true);
         } catch (error) {
             setError(error.response.data.error);
-            notify(error.response.data.error);
+            notifyError(error.response.data.error);
+            setLogNote(true);
         }
     };
 
@@ -76,6 +68,27 @@ function UserConfig({ setError }) {
         setAvatar(f);
         setPreview((f && URL.createObjectURL(f)) || defaultAvatar);
     };
+
+    const handleDeleteUser = async e => {
+        e.preventDefault();
+        try {
+            await deleteUser(username, token);
+            setModal(!modal);
+            setError('');
+            setUserIsDeleted(true);
+            notifyMessage('See you around!');
+            setLogNote(true);
+            dispatch({ type: 'LOGOUT' });
+        } catch (error) {
+            setError(error.response.data.error);
+            notifyError(error.response.data.error);
+            setLogNote(true);
+        }
+    };
+
+    if (userIsDeleted) {
+        return <Redirect to="/" />;
+    }
 
     return (
         <>
@@ -182,10 +195,20 @@ function UserConfig({ setError }) {
                             </label>
                             <i className="bi bi-camera2"></i>
                         </div>
-                        <button className="button">SEND</button>
+                        <div className="buttonContainer">
+                            <button
+                                type="button"
+                                onClick={() => setModal(true)}
+                                className="button deleteUser"
+                            >
+                                CLOSE ACCOUNT
+                            </button>
+                            <button className="button">SEND</button>
+                        </div>
                     </form>
                 </div>
                 <ProfileCard user={user} />
+                {modal && <Modal username={username} deleteUser={handleDeleteUser} />}
             </div>
         </>
     );

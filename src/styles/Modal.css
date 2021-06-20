@@ -21,7 +21,7 @@
 .modal-fg {
     width: 300px;
     height: 400px;
-    z-index: 2500;
+    z-index: 9999;
     align-self: center;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1.2rem;
@@ -35,14 +35,18 @@
 
 .modal-fg.deletePostModal {
     width: 17rem;
-    height: 5rem;
-    padding: 1.4rem 1.6rem 1.5rem 1.6rem;
-    margin-bottom: 16rem;
+    height: auto;
+    padding: 1.4rem 1.6rem 1.4rem 1.6rem;
+    margin-bottom: 20rem;
     font-style: italic;
     align-self: center;
     border: 6px solid var(--base-light-color);
     border-radius: 25px 25px 25px 0;
     background-color: var(--profile-bg-color);
+}
+
+.modal-fg.deletePostModal span {
+    color: var(--alt-highlight-color);
 }
 
 .modal-fg.deletePostModal .button {
