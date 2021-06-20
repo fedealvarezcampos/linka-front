@@ -8,6 +8,7 @@ import NavProfile from './NavProfile';
 import Login from './Login';
 import UserNavMenu from './UserNavMenu';
 import RecentActivity from './RecentActivity';
+import '../assets/anims.css';
 
 function Header({ error, setError }) {
     const user = useSelector(s => s.user);
@@ -28,7 +29,12 @@ function Header({ error, setError }) {
         <>
             <header className={`header ${!user ? 'noUser' : ''}`}>
                 <NavLink className="logo" shadow="Linkah" to="/">
-                    Linkah
+                    <span className="logoTitle ">
+                        Linkah
+                        <span className="flicker">
+                            <i className="shake-constant shake-little shake-constant--hover bi bi-lightning-charge-fill" />
+                        </span>
+                    </span>
                 </NavLink>
                 {show && !user && (
                     <Login
