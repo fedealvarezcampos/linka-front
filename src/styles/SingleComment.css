@@ -7,14 +7,24 @@
 
 .singleCommentContent {
     display: grid;
-    grid: auto auto 1.2rem / auto;
     align-self: center;
 }
 
 .singleCommentUser {
-    color: var(--alt-highlight-color);
     font-style: italic;
     margin-right: 0.3rem;
+}
+
+.singleCommentUser a {
+    text-decoration: none;
+    color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
+.singleCommentUser a:hover {
+    text-decoration: none;
+    color: var(--base-light-color);
+    transition: color 250ms;
 }
 
 .singleCommentUser .suspendedUser {
@@ -40,14 +50,22 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    border: 3px solid var(--base-light-color);
     background-size: cover;
     background-position: center center;
+    border: 3px solid var(--base-light-color);
+    transition: border 200ms;
+    cursor: pointer;
+}
+
+.singleCommentAvatar:hover {
+    border: 3px solid var(--alt-highlight-color);
+    transition: border 250ms;
 }
 
 .singleCommentAvatar.suspendedAvatar {
     background-blend-mode: darken;
     background-color: var(--highlight-color);
+    border: 3px solid var(--highlight-color);
 }
 
 .commentLinks {
@@ -56,6 +74,7 @@
     align-items: end;
     width: 6.5rem;
     margin: 0;
+    margin-top: 5px;
     margin-left: 5px;
 }
 

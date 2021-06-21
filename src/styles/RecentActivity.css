@@ -60,10 +60,29 @@
     margin: 0;
 }
 
+.activityContainer .noUserAvatar {
+    background-blend-mode: darken;
+    background-color: var(--highlight-color);
+    border: 3px solid var(--highlight-color);
+}
+
 .activityTextContainer {
     display: grid;
     grid: 1rem auto auto auto / auto;
     gap: 2px;
+}
+
+.activityTextContainer .noUser {
+    font-style: italic;
+    color: var(--highlight-color);
+}
+
+.activityTextContainer .responseType {
+    color: var(--main-bg-color);
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .activityDate {
@@ -89,6 +108,12 @@
     text-decoration: none;
     font-style: italic;
     color: var(--alt-highlight-color);
+    transition: color 200ms;
+}
+
+.activityUser:hover {
+    color: var(--base-light-color);
+    transition: color 250ms;
 }
 
 .activityDate {

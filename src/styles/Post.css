@@ -75,6 +75,7 @@
 }
 
 .postContainer .accountSuspended {
+    font-style: italic;
     color: var(--posts-color);
 }
 

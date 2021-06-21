@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import { notifyError, notifyMessage } from '../helpers/toasts';
 import { useModal, useSetModal } from '../context/ModalContext';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { deleteUser, updateUser } from '../api/users';
 import ProfileCard from './ProfileCard';
 import Modal from './Modal';
 import '../styles/UserConfig.css';
-import { notifyError, notifyMessage } from '../helpers/toasts';
 
 function UserConfig({ setError }) {
     const modal = useModal();

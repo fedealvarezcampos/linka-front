@@ -6,7 +6,7 @@ import { useSetLogNote } from '../context/LogNoteContext';
 import { deleteComment } from '../api/comments';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { notifyError } from '../helpers/toasts';
 
 const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
@@ -45,7 +45,8 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
     return (
         <>
             <div className="singleCommentContainer" key={comment.id} id={comment.id}>
-                <div
+                <Link
+                    to={comment.username !== 'Account suspended' && `/users/${comment.username}`}
                     className={`singleCommentAvatar ${
                         comment.username === 'Account suspended' ? 'suspendedAvatar' : ''
                     }`}
@@ -59,13 +60,13 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                     <span className="singleCommentInfo">
                         <span className="singleCommentUser">
                             {comment.username !== 'Account suspended' ? (
-                                comment.username
+                                <Link to={`/users/${comment.username}`}>{comment.username}</Link>
                             ) : (
                                 <span className="suspendedUser">
                                     suspended account <i class="bi bi-x-octagon-fill" />
                                 </span>
                             )}
-                        </span>{' '}
+                        </span>
                         <span className="singleCommentDate">
                             <ReactTimeAgo
                                 date={new Date(comment.created_date)}
@@ -81,18 +82,23 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                     >
                         {deletedComment || comment.text.trim()}
                     </p>
-                    {comment.deleted !== 1 && deletedComment !== 'Comment deleted.' && (
-                        <p className="commentLinks">
-                            <span className="replyLink" onClick={() => setCommentForm(!commentForm)}>
-                                <i className="bi bi-reply-all-fill" /> Reply
-                            </span>
-                            {itsMyComment && token && (
-                                <span className="deleteCommentLink" onClick={() => handleCommentDeletion()}>
-                                    <i className="bi bi-trash-fill" /> Delete
+                    {comment.deleted !== 1 &&
+                        deletedComment !== 'Comment deleted.' &&
+                        comment.username !== 'Account suspended' && (
+                            <p className="commentLinks">
+                                <span className="replyLink" onClick={() => setCommentForm(!commentForm)}>
+                                    <i className="bi bi-reply-all-fill" /> Reply
                                 </span>
-                            )}
-                        </p>
-                    )}
+                                {itsMyComment && token && (
+                                    <span
+                                        className="deleteCommentLink"
+                                        onClick={() => handleCommentDeletion()}
+                                    >
+                                        <i className="bi bi-trash-fill" /> Delete
+                                    </span>
+                                )}
+                            </p>
+                        )}
                     {commentForm && (
                         <CommentForm
                             commentNumber={commentNumber}

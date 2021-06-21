@@ -13,7 +13,9 @@ function RecentActivity({ note, setActivityMenu }) {
         <>
             <li className="activityContainer">
                 <div
-                    className="activityUserAvatar"
+                    className={`activityUserAvatar ${
+                        note.username === 'Account suspended' ? 'noUserAvatar' : ''
+                    }`}
                     style={{
                         backgroundImage: `url(http://localhost:8080/images/avatars/${
                             note.avatar || 'default.jpg'
@@ -22,18 +24,24 @@ function RecentActivity({ note, setActivityMenu }) {
                 />
                 {note && (
                     <div className="activityTextContainer">
-                        <Link
-                            to={`/users/${note.username}`}
-                            onClick={() => setActivityMenu(false)}
-                            className="activityUser"
-                        >
-                            {note.username}{' '}
-                            <span>{`${
+                        <div>
+                            {note.username !== 'Account suspended' ? (
+                                <Link
+                                    to={`/users/${note.username}`}
+                                    onClick={() => setActivityMenu(false)}
+                                    className="activityUser"
+                                >
+                                    {note.username}{' '}
+                                </Link>
+                            ) : (
+                                <span className="noUser">deleted user </span>
+                            )}
+                            <span className="responseType">{`${
                                 note.parentId === null || note?.parentUserId !== userId
                                     ? 'commented'
                                     : 'responded to you'
                             }`}</span>
-                        </Link>
+                        </div>
                         <span className="activityDate">
                             <p>
                                 in{' '}
