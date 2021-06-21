@@ -32,6 +32,10 @@
     color: var(--alt-highlight-color);
 }
 
+.activityListContainer.noActivity div {
+    padding-left: 0.8rem;
+}
+
 .activityListContainer::-webkit-scrollbar {
     width: 8px;
 }

@@ -83,15 +83,15 @@ function Post({ post, username, setError }) {
                             </span>
                         </Link>
                     </div>
-                    <div
-                        className="postFooterLikes"
-                        onClick={
-                            (token && !itsMyPost && handleLikeClick) ||
-                            (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
-                            (!token ? () => handleNote(token, itsMyPost) : null)
-                        }
-                    >
-                        <div className="postLikesContainer">
+                    <div className="postFooterLikes">
+                        <div
+                            className="postLikesContainer"
+                            onClick={
+                                (token && !itsMyPost && handleLikeClick) ||
+                                (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
+                                (!token ? () => handleNote(token, itsMyPost) : null)
+                            }
+                        >
                             <span>{likes}</span>
                             <i className="bi bi-heart-fill"></i>
                         </div>

@@ -137,11 +137,14 @@ function SinglePostPage({ setError }) {
                                     </span>
                                 </div>
                             </div>
-                            <div
-                                className="postFooterLikes"
-                                onClick={(token && !itsMyPost && handleLikeClick) || (itsMyPost && notify)}
-                            >
-                                <div className="postLikesContainerSingle">
+                            <div className="postFooterLikes">
+                                <div
+                                    className="postLikesContainerSingle"
+                                    onClick={
+                                        (token && !itsMyPost ? handleLikeClick : undefined) ||
+                                        (itsMyPost ? notify : undefined)
+                                    }
+                                >
                                     <span>{likes || 0}</span>
                                     <i className="bi bi-heart-fill"></i>
                                 </div>

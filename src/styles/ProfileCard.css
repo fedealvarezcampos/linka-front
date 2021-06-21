@@ -37,7 +37,7 @@
     height: 8rem;
     background-size: cover;
     background-position: center center;
-    border: 5px solid var(--base-light-color);
+    border: 8px solid var(--base-light-color);
     border-radius: 50%;
 }
 

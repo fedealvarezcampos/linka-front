@@ -134,8 +134,8 @@
     transition: color 200ms cubic-bezier(0.2, 0.5, 0.9, 1.5);
 }
 
-.postFooterLikes:active span,
-.postFooterLikes:active i {
+.postLikesContainer:active span,
+.postLikesContainer:active i {
     color: var(--main-bg-color);
     transform: translateY(0.5px);
     transition: color 200ms cubic-bezier(0.2, 0.5, 0.9, 1.5);

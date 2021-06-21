@@ -6,11 +6,12 @@ import { useSetLogNote } from '../context/LogNoteContext';
 import { deleteComment } from '../api/comments';
 import CommentForm from './CommentForm';
 import '../styles/SingleComment.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { notifyError } from '../helpers/toasts';
 
 const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
     const setLogNote = useSetLogNote();
+    const { pathname: actualURL } = useLocation();
     const { postId } = useParams();
 
     const loggedUser = useSelector(s => s.user?.username);
@@ -46,7 +47,7 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
         <>
             <div className="singleCommentContainer" key={comment.id} id={comment.id}>
                 <Link
-                    to={comment.username !== 'Account suspended' && `/users/${comment.username}`}
+                    to={comment.username !== 'Account suspended' ? `/users/${comment.username}` : actualURL}
                     className={`singleCommentAvatar ${
                         comment.username === 'Account suspended' ? 'suspendedAvatar' : ''
                     }`}
@@ -63,7 +64,7 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                                 <Link to={`/users/${comment.username}`}>{comment.username}</Link>
                             ) : (
                                 <span className="suspendedUser">
-                                    suspended account <i class="bi bi-x-octagon-fill" />
+                                    suspended account <i className="bi bi-x-octagon-fill" />
                                 </span>
                             )}
                         </span>
