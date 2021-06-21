@@ -47,9 +47,14 @@ function Post({ post, username, setError }) {
                     <span className="postInfoText">
                         shared by{' '}
                         <span>
-                            <Link to={`/users/${post?.username || username}`}>
-                                {post.username || username}
-                            </Link>
+                            {(post.username || username) !== 'Account suspended' && (
+                                <Link to={`/users/${post?.username || username}`}>
+                                    {post.username || username}
+                                </Link>
+                            )}
+                            {(post.username || username) === 'Account suspended' && (
+                                <span className="accountSuspended">suspended account</span>
+                            )}
                         </span>{' '}
                         <ReactTimeAgo date={postDate} locale="en-US" />
                     </span>

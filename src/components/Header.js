@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useDetectClickOut, useDetectClickOutActivity } from '../hooks/useDetectClickOut';
@@ -17,6 +18,7 @@ function Header({ error, setError }) {
 
     const modal = useModal();
     const setModal = useSetModal();
+    const [hovered, setHovered] = useState(false);
 
     const activityData = useGetActivity(username, token);
     const profileData = useGetProfile(user?.username);
@@ -29,10 +31,18 @@ function Header({ error, setError }) {
         <>
             <header className={`header ${!user ? 'noUser' : ''}`}>
                 <NavLink className="logo" shadow="Linkah" to="/">
-                    <span className="logoTitle ">
+                    <span
+                        className="logoTitle"
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}
+                    >
                         Linkah
                         <span className="flicker">
-                            <i className="shake-constant shake-little shake-constant--hover bi bi-lightning-charge-fill" />
+                            <i
+                                className={`shake-constant shake-little bi bi-lightning-charge-fill ${
+                                    hovered ? 'shake-rotate hoveredIcon' : null
+                                }`}
+                            />
                         </span>
                     </span>
                 </NavLink>

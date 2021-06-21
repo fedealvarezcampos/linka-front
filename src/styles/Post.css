@@ -74,6 +74,10 @@
     margin: 0;
 }
 
+.postContainer .accountSuspended {
+    color: var(--posts-color);
+}
+
 .postFooter {
     display: grid;
     grid: 1fr / auto auto;

@@ -17,6 +17,10 @@
     margin-right: 0.3rem;
 }
 
+.singleCommentUser .suspendedUser {
+    color: var(--highlight-color);
+}
+
 .singleCommentDate {
     color: var(--main-bg-color);
     align-self: center;
@@ -39,6 +43,11 @@
     border: 3px solid var(--base-light-color);
     background-size: cover;
     background-position: center center;
+}
+
+.singleCommentAvatar.suspendedAvatar {
+    background-blend-mode: darken;
+    background-color: var(--highlight-color);
 }
 
 .commentLinks {

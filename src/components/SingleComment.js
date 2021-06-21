@@ -46,7 +46,9 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
         <>
             <div className="singleCommentContainer" key={comment.id} id={comment.id}>
                 <div
-                    className="singleCommentAvatar"
+                    className={`singleCommentAvatar ${
+                        comment.username === 'Account suspended' ? 'suspendedAvatar' : ''
+                    }`}
                     style={{
                         backgroundImage: `url(http://localhost:8080/images/avatars/${
                             comment.avatar || 'default.jpg'
@@ -55,7 +57,15 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                 />
                 <div className="singleCommentContent">
                     <span className="singleCommentInfo">
-                        <span className="singleCommentUser">{comment.username}</span>{' '}
+                        <span className="singleCommentUser">
+                            {comment.username !== 'Account suspended' ? (
+                                comment.username
+                            ) : (
+                                <span className="suspendedUser">
+                                    suspended account <i class="bi bi-x-octagon-fill" />
+                                </span>
+                            )}
+                        </span>{' '}
                         <span className="singleCommentDate">
                             <ReactTimeAgo
                                 date={new Date(comment.created_date)}

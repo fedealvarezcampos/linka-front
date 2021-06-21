@@ -105,7 +105,12 @@ function SinglePostPage({ setError }) {
                         <span className="postInfoText">
                             shared by{' '}
                             <span>
-                                <Link to={`/users/${post.username}`}>{post.username}</Link>
+                                {post?.username !== 'Account suspended' && (
+                                    <Link to={`/users/${post.username}`}>{post.username}</Link>
+                                )}
+                                {post.username === 'Account suspended' && (
+                                    <span className="accountSuspended">suspended account</span>
+                                )}
                             </span>{' '}
                             <ReactTimeAgo date={new Date(post.created_date)} locale="en-US" />
                         </span>
