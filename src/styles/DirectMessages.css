@@ -1,0 +1,33 @@
+.DMsContainer {
+    z-index: 100;
+    margin: auto;
+    display: grid;
+    /* grid: 2rem 1fr 2rem / 1fr; */
+    margin-top: 3.8rem;
+    margin-bottom: 2.8rem;
+    width: clamp(20rem, 60vw, 50rem);
+    height: 30rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.26;
+    border-radius: 16px 16px 16px 0px;
+    background-color: var(--base-light-color);
+}
+
+.DMsInnerContainer {
+    display: grid;
+    grid: auto / auto auto;
+    box-sizing: border-box;
+    align-self: center;
+    justify-self: center;
+    padding: 1.5rem 2rem 3rem 2rem;
+    width: 98%;
+    height: 85%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--posts-color);
+}
+
+.DMsUserList {
+    width: 10rem;
+}
