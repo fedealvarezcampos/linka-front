@@ -16,6 +16,7 @@ import NewLink from './components/NewLink';
 import ErrorMessage from './components/ErrorMessage';
 import SinglePostPage from './components/SinglePostPage';
 import SearchResults from './components/SearchResults';
+import DirectMessages from './components/DirectMessages';
 import 'normalize.css';
 import './assets/icons/coolicons.css';
 import './styles/App.css';
@@ -61,6 +62,9 @@ function App() {
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
                     <SinglePostPage setError={setError} />
+                </Route>
+                <Route path={'/dms'} exact>
+                    <DirectMessages setError={setError} />
                 </Route>
                 <Route path="/">
                     <ErrorMessage />
