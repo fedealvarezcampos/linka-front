@@ -4,10 +4,10 @@ const baseURL = 'http://localhost:8080/api';
 
 const useGetMyList = token => useAPIGet(`${baseURL}/dms`, token);
 
-const useGetMyDMs = (senderId, token) => useAPIGet(`${baseURL}/dms/${senderId}`, token);
+const useGetMyDMs = (senderId, token) => useAPIGet(senderId && `${baseURL}/dms/${senderId}`, token);
 
-const sendDM = async (userId, dmText, token) => {
-    const { data } = await axios.post(`${baseURL}/dms/${userId}`, dmText, {
+const sendDM = async (dmText, recipientId, token) => {
+    const { data } = await axios.post(`${baseURL}/dms/${recipientId}`, dmText, {
         headers: { Authorization: `Bearer ${token}` },
     });
     return data;

@@ -5,8 +5,6 @@ const ProfileCard = ({ user }) => {
         return <div>Loading...</div>;
     }
 
-    console.log(user.userTW);
-
     return (
         <div className="userCardContainer">
             <span>

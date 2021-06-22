@@ -1,24 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import 'react-toastify/dist/ReactToastify.css';
-import { useSetLogNote } from '../context/LogNoteContext';
-import DMList from './DMList';
-import '../styles/DirectMessages.css';
 import { useGetMyList } from '../api/dms';
-import { Link } from 'react-router-dom';
+import DMList from './DMList';
+import DMForm from './DMForm';
+import '../styles/DirectMessages.css';
 
 function DirectMessages() {
     const token = useSelector(s => s.user?.token);
     const myPals = useGetMyList(token);
 
     const [sender, setsender] = useState();
-    console.log(myPals);
+    const [directMessageList, setDirectMessageList] = useState([]);
+
+    const containerRef = useRef(null);
+
+    // useEffect(() => {
+    //     const element = containerRef.current;
+    //     element.scroll({
+    //         top: element.scrollHeight,
+    //         left: 0,
+    //         behavior: 'smooth',
+    //     });
+    // });
+
+    useEffect(() => {
+        if (containerRef && containerRef.current) {
+            const element = containerRef.current;
+            element.scroll({
+                top: element.scrollHeight,
+                left: 0,
+                behavior: 'smooth',
+            });
+        }
+    }, [containerRef, directMessageList]);
 
     return (
         <>
             <div className="DMsContainer">
-                <div className="DMsOuterContainer">
-                    <div className="DMsInnerContainer">
+                <div className="DMsInnerContainer" ref={containerRef}>
+                    <div>
                         <div className="DMuserList">
                             {myPals &&
                                 myPals.map(user => (
@@ -27,10 +47,17 @@ function DirectMessages() {
                                     </div>
                                 ))}
                         </div>
-                        <div className="DMConvoContainer">
-                            <DMList sender={sender} />
-                        </div>
                     </div>
+                    <div className="DMConvoContainer">
+                        <DMList dmList={directMessageList} setDmList={setDirectMessageList} sender={sender} />
+                    </div>
+                </div>
+                <div className="dmFormContainer">
+                    <DMForm
+                        dmList={directMessageList}
+                        setDmList={setDirectMessageList}
+                        recipientId={sender}
+                    />
                 </div>
             </div>
         </>
