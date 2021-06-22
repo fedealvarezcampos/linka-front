@@ -14,14 +14,15 @@ function DirectMessages() {
 
     const containerRef = useRef(null);
 
-    // useEffect(() => {
-    //     const element = containerRef.current;
-    //     element.scroll({
-    //         top: element.scrollHeight,
-    //         left: 0,
-    //         behavior: 'smooth',
-    //     });
-    // });
+    useEffect(() => {
+        const element = containerRef.current;
+        sender &&
+            element.scroll({
+                top: element.scrollHeight,
+                left: 0,
+                behavior: 'smooth',
+            });
+    }, [sender]);
 
     useEffect(() => {
         if (containerRef && containerRef.current) {
@@ -34,6 +35,11 @@ function DirectMessages() {
         }
     }, [containerRef, directMessageList]);
 
+    const handleSetDMS = userId => {
+        setsender(userId);
+        setDirectMessageList([]);
+    };
+
     return (
         <>
             <div className="DMsContainer">
@@ -43,7 +49,7 @@ function DirectMessages() {
                             {myPals &&
                                 myPals.map(user => (
                                     <div key={user.userId}>
-                                        <div onClick={() => setsender(user.userId)}>{user.username}</div>
+                                        <div onClick={() => handleSetDMS(user.userId)}>{user.username}</div>
                                     </div>
                                 ))}
                         </div>

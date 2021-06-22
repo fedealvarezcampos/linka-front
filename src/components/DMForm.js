@@ -26,12 +26,6 @@ const DMForm = ({ recipientId, dmList, setDmList }) => {
         }
     };
 
-    // const submitOnEnter = e => {
-    //     if (e.code === 'Enter') {
-    //         handleSubmit(e);
-    //     }
-    // };
-
     return (
         <form className="dmForm" onSubmit={handleSubmit}>
             <label>
@@ -39,7 +33,6 @@ const DMForm = ({ recipientId, dmList, setDmList }) => {
                 <input
                     placeholder="write a message..."
                     value={text}
-                    // onKeyDown={e => submitOnEnter(e)}
                     onChange={e => setText(e.target.value)}
                     type="text"
                 />
