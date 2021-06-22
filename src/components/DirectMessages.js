@@ -17,17 +17,19 @@ function DirectMessages() {
     return (
         <>
             <div className="DMsContainer">
-                <div className="DMsInnerContainer">
-                    <div className="DMuserList">
-                        {myPals &&
-                            myPals.map(user => (
-                                <div key={user.userId}>
-                                    <div onClick={() => setsender(user.userId)}>{user.username}</div>
-                                </div>
-                            ))}
-                    </div>
-                    <div className="DMConvoContainer">
-                        <DMList sender={sender} />
+                <div className="DMsOuterContainer">
+                    <div className="DMsInnerContainer">
+                        <div className="DMuserList">
+                            {myPals &&
+                                myPals.map(user => (
+                                    <div key={user.userId}>
+                                        <div onClick={() => setsender(user.userId)}>{user.username}</div>
+                                    </div>
+                                ))}
+                        </div>
+                        <div className="DMConvoContainer">
+                            <DMList sender={sender} />
+                        </div>
                     </div>
                 </div>
             </div>
