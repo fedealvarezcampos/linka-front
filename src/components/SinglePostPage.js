@@ -15,6 +15,7 @@ import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
+import { notifyMessage } from '../helpers/toasts';
 
 function SinglePostPage({ setError }) {
     const setLogNote = useSetLogNote();
@@ -75,6 +76,7 @@ function SinglePostPage({ setError }) {
             setModal(!modal);
             setError('');
             setLinkIsDeleted(true);
+            notifyMessage('All gone!');
         } catch (error) {
             setError(error.response.data.error);
             setLogNote(true);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useDetectClickOut, useDetectClickOutActivity } from '../hooks/useDetectClickOut';
@@ -19,6 +19,7 @@ function Header({ error, setError }) {
     const modal = useModal();
     const setModal = useSetModal();
     const [hovered, setHovered] = useState(false);
+    const [scrollPoint, setScrollPoint] = useState();
 
     const activityData = useGetActivity(username, token);
     const profileData = useGetProfile(user?.username);
@@ -27,9 +28,20 @@ function Header({ error, setError }) {
     const { activityMenu, setActivityMenu, nodeRefAct } = useDetectClickOutActivity(false);
     useClosingKey('Escape', show, setShow);
 
+    useEffect(() => {
+        document.addEventListener('scroll', () => {
+            const scrollCheck = window.scrollY < 800;
+            if (scrollCheck !== scrollPoint) {
+                setScrollPoint(scrollCheck);
+            }
+        });
+    });
+
+    console.log(scrollPoint);
+
     return (
         <>
-            <header className={`header ${!user ? 'noUser' : ''}`}>
+            <header className={`header ${!user ? 'noUser' : ''} ${scrollPoint ? 'shadowed' : ''}`}>
                 <NavLink className="logo" shadow="Linkah" to="/">
                     <span
                         className="logoTitle"
