@@ -8,10 +8,15 @@ function DMList({ sender, dmList, setDmList }) {
 
     const myDMs = useGetMyDMs(sender, token);
 
+    useEffect(() => {
+        myDMs && setDmList(myDMs);
+    }, [myDMs, setDmList]);
+
     return (
         <>
-            {myDMs && myDMs.map(dm => <DMSingle key={dm.DMId} dm={dm} />)}
             {dmList && dmList.map(dm => <DMSingle key={dm.DMId} dm={dm} />)}
+            {dmList?.length === 0 && !sender && <div className="noDMs">Choose a conversation or start a new one!</div>}
+            {dmList?.length === 0 && sender && <div className="noDMs">No messages. Send the first one!</div>}
         </>
     );
 }

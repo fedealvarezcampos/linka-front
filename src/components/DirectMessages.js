@@ -13,14 +13,11 @@ function DirectMessages() {
 
     const token = useSelector(s => s.user?.token);
     const myPals = useGetMyList(token);
-    console.log(myPals);
 
     const [sender, setsender] = useState();
     const [userSearch, setUserSearch] = useState('');
     const [userList, setuserList] = useState([]);
     const [directMessageList, setDirectMessageList] = useState([]);
-
-    console.log(userList);
 
     const containerRef = useRef(null);
 
@@ -54,6 +51,9 @@ function DirectMessages() {
         try {
             const response = await getUserId(userSearch, token);
             setsender(response?.id);
+            setuserList([...userList, response]);
+            console.log(response);
+            setUserSearch('');
         } catch (error) {
             error?.response && notifyError(error.response.data.error);
             setLogNote(true);
@@ -62,7 +62,6 @@ function DirectMessages() {
 
     const handleSetDMS = userId => {
         setsender(userId);
-        setDirectMessageList([]);
     };
 
     return (
@@ -73,8 +72,8 @@ function DirectMessages() {
                         <div className="DMuserList">
                             {userList &&
                                 userList?.map(user => (
-                                    <div key={user.recipientId}>
-                                        <div onClick={() => handleSetDMS(user.recipientId)}>
+                                    <div key={user.recipientId || user.id}>
+                                        <div onClick={() => handleSetDMS(user.recipientId || user.id)}>
                                             {user.username}
                                         </div>
                                     </div>

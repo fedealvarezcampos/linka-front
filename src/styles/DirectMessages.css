@@ -7,11 +7,11 @@
     margin: auto;
     display: grid;
     grid: auto 12rem / auto;
-    gap: 1.2rem;
+    gap: 0.8rem;
     margin-top: 3.8rem;
     margin-bottom: 2.8rem;
     width: clamp(25rem, 68vw, 70rem);
-    padding: 2.2rem 1.4rem 2.8rem 1.4rem;
+    padding: 1.2rem 1.8rem 1.8rem 1.8rem;
     height: 65vh;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
@@ -32,7 +32,7 @@
     width: 100%;
     height: 98%;
     padding: 0 3rem 0 1.5rem;
-    border-radius: 10px;
+    border-radius: 20px 0 0 20px;
     border: 6px solid var(--alt-item-color);
     background-color: var(--profile-bg-color);
     overflow-y: auto;
@@ -116,7 +116,7 @@
 .dmFormContainer {
     margin: auto;
     width: 70%;
-    border-radius: 20px;
+    border-radius: 16px 16px 16px 0;
     padding: 1.4rem 1.2rem 1.6rem 1.2rem;
     border: 4px solid var(--alt-item-color);
     background-color: var(--profile-bg-color);
@@ -124,7 +124,7 @@
 
 .DMUserColumn {
     display: grid;
-    border-right: 5px solid var(--alt-item-color);
+    border-right: 6px solid var(--alt-item-color);
 }
 
 .DMUserColumn label {
@@ -136,13 +136,19 @@
 }
 
 .DMUserColumn input {
-    height: 2.3rem;
+    height: 2.4rem;
 }
 
 .dmForm {
     margin: auto;
     width: 90%;
     align-items: center;
+}
+
+.noDMs {
+    padding-top: 0.4rem;
+    font-style: italic;
+    font-size: 1.5rem;
 }
 
 /* .dmForm input {
