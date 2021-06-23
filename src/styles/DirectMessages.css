@@ -47,29 +47,6 @@
     height: 0.2rem;
 }
 
-.DMuserList {
-    display: grid;
-    position: absolute;
-    gap: 6px;
-    font-style: italic;
-    padding-top: 1.8rem;
-    color: var(--alt-highlight-color);
-}
-
-.DMuserList div {
-    padding: 4px;
-    text-align: center;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: var(--posts-color);
-    transition: all 150ms;
-}
-
-.DMuserList div:hover {
-    color: var(--base-light-color);
-    transition: all 200ms;
-}
-
 .DMAvatar {
     width: 2.5rem;
     height: 2.5rem;
@@ -96,6 +73,18 @@
     font-size: 1.1rem;
     font-style: italic;
     color: var(--alt-highlight-color);
+}
+
+.DMContent span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.DMContent time {
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--main-bg-color);
 }
 
 .DMMessage .DMText {
@@ -136,7 +125,31 @@
 }
 
 .DMUserColumn input {
+    border: 3px solid var(--main-bg-color);
     height: 2.4rem;
+}
+
+.DMuserList {
+    display: grid;
+    position: absolute;
+    gap: 6px;
+    font-style: italic;
+    padding-top: 1.8rem;
+    color: var(--alt-highlight-color);
+}
+
+.DMuserList div {
+    padding: 4px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--posts-color);
+    transition: all 150ms;
+}
+
+.DMuserList div:hover {
+    color: var(--base-light-color);
+    transition: all 200ms;
 }
 
 .dmForm {

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import ReactTimeAgo from 'react-time-ago';
 
 function DMSingle({ dm }) {
     const myId = useSelector(s => s.user?.id);
@@ -18,8 +19,12 @@ function DMSingle({ dm }) {
                         })`,
                     }}
                 />
+
                 <div className="DMContent">
-                    <div className="DMUsername">{dm.username}</div>
+                    <span>
+                        <div className="DMUsername">{dm.username}</div>
+                        <ReactTimeAgo date={new Date(dm.created_date)} locale="en-US" timeStyle="Round" />
+                    </span>
                     <div className="DMText">{dm.text}</div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ function Header({ error, setError }) {
     const modal = useModal();
     const setModal = useSetModal();
     const [hovered, setHovered] = useState(false);
-    const [scrollPoint, setScrollPoint] = useState();
+    const [scrollPoint, setScrollPoint] = useState(false);
 
     const activityData = useGetActivity(username, token);
     const profileData = useGetProfile(user?.username);
@@ -30,12 +30,14 @@ function Header({ error, setError }) {
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
-            const scrollCheck = window.scrollY < 800;
+            const scrollCheck = window.scrollY > 60;
             if (scrollCheck !== scrollPoint) {
                 setScrollPoint(scrollCheck);
             }
         });
-    });
+    }, [scrollPoint]);
+
+    console.log(scrollPoint);
 
     return (
         <>
