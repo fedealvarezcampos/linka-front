@@ -7,38 +7,39 @@
     margin: auto;
     display: grid;
     grid: auto 12rem / auto;
-    gap: 0.6rem;
+    gap: 1.2rem;
     margin-top: 3.8rem;
     margin-bottom: 2.8rem;
     width: clamp(25rem, 68vw, 70rem);
-    padding: 2rem 1.4rem 2rem 1.4rem;
-    height: 45rem;
+    padding: 2.2rem 1.4rem 2.8rem 1.4rem;
+    height: 65vh;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.26;
     border-radius: 16px 16px 16px 0px;
+    border: 6px solid var(--base-light-color);
     background-color: var(--posts-color);
 }
 
 .DMsInnerContainer {
     display: grid;
-    grid: 1rem / 7rem auto;
+    grid: auto / 8rem auto;
     gap: 2rem;
     box-sizing: border-box;
     align-self: center;
     justify-self: center;
     width: 100%;
     height: 98%;
-    padding: 1.4rem 3rem 3rem 1.6rem;
+    padding: 0 3rem 0 1.5rem;
     border-radius: 10px;
+    border: 6px solid var(--alt-item-color);
     background-color: var(--profile-bg-color);
     overflow-y: auto;
 }
 
 .DMConvoContainer {
-    display: grid;
-    gap: 1.5rem;
+    padding-top: 1.4rem;
 }
 
 .DMConvoContainer::after {
@@ -47,11 +48,12 @@
 }
 
 .DMuserList {
-    position: absolute;
-    font-style: italic;
-    color: var(--alt-highlight-color);
     display: grid;
+    position: absolute;
     gap: 6px;
+    font-style: italic;
+    padding-top: 1.8rem;
+    color: var(--alt-highlight-color);
 }
 
 .DMuserList div {
@@ -84,6 +86,7 @@
     display: grid;
     grid: auto / 3.6rem auto;
     padding: 0.8rem 1rem 0.9rem 1rem;
+    margin-bottom: 1.4rem;
     border-radius: 10px;
     gap: 2px;
     background-color: var(--item-bg-color);
@@ -111,17 +114,34 @@
 }
 
 .dmFormContainer {
-    border-radius: 10px;
     margin: auto;
-    width: 35rem;
+    width: 70%;
+    border-radius: 20px;
     padding: 1.4rem 1.2rem 1.6rem 1.2rem;
+    border: 4px solid var(--alt-item-color);
     background-color: var(--profile-bg-color);
+}
+
+.DMUserColumn {
+    display: grid;
+    border-right: 5px solid var(--alt-item-color);
+}
+
+.DMUserColumn label {
+    font-style: italic;
+    position: absolute;
+    width: 6rem;
+    bottom: 36%;
+    align-self: end;
+}
+
+.DMUserColumn input {
+    height: 2.3rem;
 }
 
 .dmForm {
     margin: auto;
     width: 90%;
-    /* padding: 2rem; */
     align-items: center;
 }
 

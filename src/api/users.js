@@ -16,6 +16,13 @@ const userValidation = async uuid => {
     return data;
 };
 
+const getUserId = async (username, token) => {
+    const { data } = await axios.get(`${baseURL}/users/${username}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+};
+
 const login = async credentials => {
     const { data } = await axios.post(`${baseURL}/users/login`, credentials);
     return data;
@@ -40,4 +47,4 @@ const deleteUser = async (username, token) => {
     return data;
 };
 
-export { useGetProfile, useGetActivity, userValidation, login, register, updateUser, deleteUser };
+export { useGetProfile, getUserId, useGetActivity, userValidation, login, register, updateUser, deleteUser };
