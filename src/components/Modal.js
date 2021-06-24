@@ -1,15 +1,12 @@
 import { useSelector } from 'react-redux';
-import { animated } from 'react-spring';
 import { useClosingKey } from '../hooks/useClosingKey';
 import { useModal, useSetModal } from '../context/ModalContext';
-import { useFadeAnimation } from '../assets/anime';
 import '../styles/Modal.css';
 
 function Modal({ children, setError, username, deleteUser, handleDeleteClick }) {
     const token = useSelector(s => s.user?.token);
     const modal = useModal();
     const setModal = useSetModal();
-    const fadeAnime = useFadeAnimation();
 
     const handleModalReset = () => {
         setModal(!modal);
@@ -22,10 +19,8 @@ function Modal({ children, setError, username, deleteUser, handleDeleteClick }) 
         <div className="modal-container">
             {modal && !token && (
                 <>
-                    <animated.div style={fadeAnime} className="modal-fg">
-                        {children}
-                    </animated.div>
-                    <div className="modal-bg" onClick={handleModalReset}></div>
+                    <div className="modal-fg fadeInto">{children}</div>
+                    <div className="modal-bg fadeInto" onClick={handleModalReset}></div>
                 </>
             )}
             {modal && token && (

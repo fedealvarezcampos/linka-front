@@ -19,7 +19,7 @@ const DMForm = ({ recipientId, dmList, setDmList, focus, setFocus }) => {
     useEffect(() => {
         focus && dmInput.current.focus();
         setFocus(false);
-    }, [focus]);
+    }, [focus, setFocus]);
 
     const handleSubmit = async e => {
         e.preventDefault();

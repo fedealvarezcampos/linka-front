@@ -49,8 +49,8 @@
 }
 
 .newLinkContainer textarea {
-    width: clamp(20rem, 60%, 40rem);
-    margin: auto;
+    width: clamp(19rem, 26rem, 50vw);
+    /* margin: auto; */
     margin-top: 0.4rem;
     margin-bottom: 0.8rem;
     resize: none;
