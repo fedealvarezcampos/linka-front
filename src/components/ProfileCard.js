@@ -1,6 +1,8 @@
 import '../styles/ProfileCard.css';
 
 const ProfileCard = ({ user }) => {
+    const { REACT_APP_BASEURL: baseURL } = process.env;
+
     if (!user) {
         return <div>Loading...</div>;
     }
@@ -14,9 +16,7 @@ const ProfileCard = ({ user }) => {
                 <div
                     className="userCardAvatar"
                     style={{
-                        backgroundImage: `url(http://localhost:8080/images/avatars/${
-                            user.avatar || 'default.jpg'
-                        })`,
+                        backgroundImage: `url(${baseURL}images/avatars/${user.avatar || 'default.jpg'})`,
                     }}
                     alt="user avatar"
                 />

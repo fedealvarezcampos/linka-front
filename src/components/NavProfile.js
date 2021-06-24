@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { useClosingKey } from '../hooks/useClosingKey';
 
 function NavProfile({ show, setShow, love }) {
+    const { REACT_APP_BASEURL: baseURL } = process.env;
+
     const user = useSelector(s => s.user);
 
     useClosingKey('Escape', show, setShow);
@@ -12,9 +14,7 @@ function NavProfile({ show, setShow, love }) {
             <div
                 className="avatar"
                 style={{
-                    backgroundImage: `url(http://localhost:8080/images/avatars/${
-                        user.avatar || 'default.jpg'
-                    })`,
+                    backgroundImage: `url(${baseURL}images/avatars/${user.avatar || 'default.jpg'})`,
                 }}
             />
             <div>

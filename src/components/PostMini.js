@@ -5,11 +5,13 @@ import { notifyAuth } from '../helpers/toasts';
 import '../styles/PostMini.css';
 
 function PostMini({ post, user }) {
+    const { REACT_APP_BASEURL: baseURL } = process.env;
+
     const setLogNote = useSetLogNote();
     const token = useSelector(s => s.user?.token);
 
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
-    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
+    const altPreview = `${baseURL}images/prevLink.jpg`;
 
     const handleNote = token => {
         setLogNote(true);

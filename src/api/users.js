@@ -1,11 +1,7 @@
-import useAPIGet from '../hooks/useAPIGet';
 import axios from 'axios';
+import useAPIGet from '../hooks/useAPIGet';
 
-// const authConfig = {
-//     headers: { Authorization: `Bearer ${token}` },
-// };
-
-const baseURL = 'http://localhost:8080/api';
+const { REACT_APP_BASEAPI: baseURL } = process.env;
 
 const useGetProfile = username => useAPIGet(username && `${baseURL}/users/${username}`);
 

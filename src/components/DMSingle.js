@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 
 function DMSingle({ dm }) {
+    const { REACT_APP_BASEURL: baseURL } = process.env;
+
     const myId = useSelector(s => s.user?.id);
 
     return (
@@ -14,9 +16,7 @@ function DMSingle({ dm }) {
                 <div
                     className="DMAvatar"
                     style={{
-                        backgroundImage: `url(http://localhost:8080/images/avatars/${
-                            dm.avatar || 'default.jpg'
-                        })`,
+                        backgroundImage: `url(${baseURL}images/avatars/${dm.avatar || 'default.jpg'})`,
                     }}
                 />
 

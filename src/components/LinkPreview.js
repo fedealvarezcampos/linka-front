@@ -2,9 +2,11 @@ import { useSelector } from 'react-redux';
 import '../styles/LinkPreview.css';
 
 function LinkPreview({ post, notify }) {
+    const { REACT_APP_BASEURL: baseURL } = process.env;
+
     const token = useSelector(s => s.user?.token);
 
-    const altPreview = `http://localhost:8080/images/prevLink.jpg`;
+    const altPreview = `${baseURL}images/prevLink.jpg`;
 
     return (
         <div

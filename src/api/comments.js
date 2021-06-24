@@ -1,6 +1,7 @@
 import axios from 'axios';
 import useAPIGet from '../hooks/useAPIGet';
-const baseURL = 'http://localhost:8080/api';
+
+const { REACT_APP_BASEAPI: baseURL } = process.env;
 
 const useGetComments = id => useAPIGet(`${baseURL}/posts/${id}/comments`);
 
