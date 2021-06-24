@@ -37,8 +37,6 @@ function Header({ error, setError }) {
         });
     }, [scrollPoint]);
 
-    console.log(scrollPoint);
-
     return (
         <>
             <header className={`header ${!user ? 'noUser' : ''} ${scrollPoint ? 'shadowed' : ''}`}>

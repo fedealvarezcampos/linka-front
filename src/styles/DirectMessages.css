@@ -17,7 +17,7 @@
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.26;
-    border-radius: 16px 16px 16px 0px;
+    border-radius: 20px 20px 20px 0px;
     border: 6px solid var(--base-light-color);
     background-color: var(--posts-color);
 }
@@ -129,21 +129,32 @@
     height: 2.4rem;
 }
 
+.DMUserColumn input:focus {
+    border: 3px solid var(--alt-highlight-color);
+    height: 2.4rem;
+}
+
 .DMuserList {
     display: grid;
     position: absolute;
-    gap: 6px;
+    gap: 8px;
     font-style: italic;
     padding-top: 1.8rem;
     color: var(--alt-highlight-color);
 }
 
-.DMuserList div {
-    padding: 4px;
+.DMuserList .DMuserContent {
     text-align: center;
-    border-radius: 8px;
     cursor: pointer;
+    border-radius: 8px;
+    padding: 8px 10px 8px 10px;
     background-color: var(--posts-color);
+    transition: all 150ms;
+}
+
+.DMuserList .DMuserContent.active {
+    color: var(--base-light-color);
+    background-color: var(--alt-item-color);
     transition: all 150ms;
 }
 

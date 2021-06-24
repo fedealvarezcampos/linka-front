@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useGetMyList } from '../api/dms';
 import { getUserId } from '../api/users';
+import { useGetMyList } from '../api/dms';
+import { notifyError } from '../helpers/toasts';
+import { useSetLogNote } from '../context/LogNoteContext';
 import DMList from './DMList';
 import DMForm from './DMForm';
 import '../styles/DirectMessages.css';
-import { notifyError } from '../helpers/toasts';
-import { useSetLogNote } from '../context/LogNoteContext';
 
 function DirectMessages() {
     const setLogNote = useSetLogNote();
@@ -51,8 +51,9 @@ function DirectMessages() {
         try {
             const response = await getUserId(userSearch, token);
             setsender(response?.id);
-            setuserList([...userList, response]);
-            console.log(response);
+            if (userList && userList.filter(e => e.username === userSearch).length === 0) {
+                setuserList([...userList, response]);
+            }
             setUserSearch('');
         } catch (error) {
             error?.response && notifyError(error.response.data.error);
@@ -72,10 +73,14 @@ function DirectMessages() {
                         <div className="DMuserList">
                             {userList &&
                                 userList?.map(user => (
-                                    <div key={user.recipientId || user.id}>
-                                        <div onClick={() => handleSetDMS(user.recipientId || user.id)}>
-                                            {user.username}
-                                        </div>
+                                    <div
+                                        key={user.recipientId || user.id}
+                                        onClick={() => handleSetDMS(user.recipientId || user.id)}
+                                        className={`DMuserContent ${
+                                            sender === (user.recipientId || user.id) ? 'active' : ''
+                                        }`}
+                                    >
+                                        <div>{user.username}</div>
                                     </div>
                                 ))}
                         </div>
