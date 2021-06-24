@@ -49,7 +49,7 @@
 }
 
 .newLinkContainer textarea {
-    width: 22rem;
+    width: clamp(20rem, 60%, 40rem);
     margin: auto;
     margin-top: 0.4rem;
     margin-bottom: 0.8rem;

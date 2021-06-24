@@ -80,7 +80,7 @@ function NewLink() {
                                 <br />
                                 <textarea
                                     cols="35"
-                                    rows="10"
+                                    rows="16"
                                     placeholder="what's it about..."
                                     value={description}
                                     onChange={e => setDescription(e.target.value)}

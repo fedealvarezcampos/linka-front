@@ -4,6 +4,7 @@ import { getUserId } from '../api/users';
 import { useGetMyList } from '../api/dms';
 import { notifyError } from '../helpers/toasts';
 import { useSetLogNote } from '../context/LogNoteContext';
+import Spinner from '../assets/Spinner';
 import DMList from './DMList';
 import DMForm from './DMForm';
 import '../styles/DirectMessages.css';
@@ -18,6 +19,7 @@ function DirectMessages() {
     const [userSearch, setUserSearch] = useState('');
     const [userList, setuserList] = useState([]);
     const [directMessageList, setDirectMessageList] = useState([]);
+    const [focusDMInput, setfocusDMInput] = useState(false);
 
     const containerRef = useRef(null);
 
@@ -54,6 +56,7 @@ function DirectMessages() {
             if (userList && userList.filter(e => e.username === userSearch).length === 0) {
                 setuserList([...userList, response]);
             }
+            setfocusDMInput(true);
             setUserSearch('');
         } catch (error) {
             error?.response && notifyError(error.response.data.error);
@@ -64,6 +67,10 @@ function DirectMessages() {
     const handleSetDMS = userId => {
         setsender(userId);
     };
+
+    if (!myPals) {
+        return <Spinner />;
+    }
 
     return (
         <>
@@ -105,6 +112,8 @@ function DirectMessages() {
                         dmList={directMessageList}
                         setDmList={setDirectMessageList}
                         recipientId={sender}
+                        focus={focusDMInput}
+                        setFocus={setfocusDMInput}
                     />
                 </div>
             </div>

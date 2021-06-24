@@ -11,7 +11,7 @@
     margin-top: 3.8rem;
     margin-bottom: 2.8rem;
     width: clamp(25rem, 68vw, 70rem);
-    padding: 1.2rem 1.8rem 1.8rem 1.8rem;
+    padding: 1.8rem 1.8rem 2rem 1.8rem;
     height: 65vh;
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
@@ -102,15 +102,6 @@
     margin-left: 42%;
 }
 
-.dmFormContainer {
-    margin: auto;
-    width: 70%;
-    border-radius: 16px 16px 16px 0;
-    padding: 1.4rem 1.2rem 1.6rem 1.2rem;
-    border: 4px solid var(--alt-item-color);
-    background-color: var(--profile-bg-color);
-}
-
 .DMUserColumn {
     display: grid;
     border-right: 6px solid var(--alt-item-color);
@@ -127,6 +118,7 @@
 .DMUserColumn input {
     border: 3px solid var(--main-bg-color);
     height: 2.4rem;
+    margin-top: 1px;
 }
 
 .DMUserColumn input:focus {
@@ -163,25 +155,37 @@
     transition: all 200ms;
 }
 
-.dmForm {
+.dmFormContainer {
+    display: grid;
     margin: auto;
+    width: 70%;
+    border-radius: 16px 16px 16px 0;
+    padding: 1.4rem 0.6rem 1.6rem 0.6rem;
+    border: 6px solid var(--alt-item-color);
+    background-color: var(--profile-bg-color);
+}
+
+.dmForm {
     width: 90%;
-    align-items: center;
+    place-self: center;
+}
+
+.dmForm input {
+    height: 2.5rem;
+}
+
+.dmForm button {
+    width: 6.5rem;
+    padding: 8px 4px 8px 4px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    background-color: var(--profile-bg-color);
 }
 
 .noDMs {
-    padding-top: 0.4rem;
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    padding: 1rem 1.8rem 1rem 1.8rem;
+    border-radius: 20px;
+    background-color: var(--posts-color);
 }
-
-/* .dmForm input {
-    height: 2.5rem;
-    border: 4px solid var(--posts-color);
-    background-color: var(--profile-bg-color);
-} */
-
-/* .dmForm button {
-    border: 5px solid var(--posts-color);
-    background-color: var(--profile-bg-color);
-} */

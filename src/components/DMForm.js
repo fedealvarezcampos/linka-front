@@ -1,18 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { sendDM } from '../api/dms';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError } from '../helpers/toasts';
 import '../styles/CommentForm.css';
 
-const DMForm = ({ recipientId, dmList, setDmList }) => {
+const DMForm = ({ recipientId, dmList, setDmList, focus, setFocus }) => {
     const setLogNote = useSetLogNote();
 
     const token = useSelector(s => s.user?.token);
 
+    const dmInput = useRef(null);
+
     // const [isSending, setIsSending] = useState(false);
 
     const [text, setText] = useState('');
+
+    useEffect(() => {
+        focus && dmInput.current.focus();
+        setFocus(false);
+    }, [focus]);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -34,6 +41,7 @@ const DMForm = ({ recipientId, dmList, setDmList }) => {
                     placeholder="write a message..."
                     value={text}
                     onChange={e => setText(e.target.value)}
+                    ref={dmInput}
                     type="text"
                 />
             </label>

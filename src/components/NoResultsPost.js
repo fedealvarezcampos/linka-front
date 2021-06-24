@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAPIGet from '../hooks/useAPIGet';
 
 const NoResultsPost = () => {
-    const [catGIF, setCatGIF] = useState();
+    // const [catGIF, setCatGIF] = useState(null);
 
-    useEffect(() => {
-        setCatGIF('https://cataas.com/cat/gif');
-    }, [catGIF]);
+    // useEffect(() => {
+    //     setCatGIF('https://cataas.com/cat/gif');
+    // }, []);
+
+    const getCatGIF = useAPIGet('https://cataas.com/cat/gif?json=true');
+    const catGIF = getCatGIF && `https://cataas.com${getCatGIF?.url}`;
 
     return (
         <ul className="postListContainer noResults">
