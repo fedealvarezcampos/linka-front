@@ -37,10 +37,10 @@
 
 .miniPostContainer .miniPostContent {
     display: grid;
+    grid: auto / 1fr 1.6fr;
     padding: 0.4rem 1rem 0.4rem 1rem;
     align-items: center;
     width: 15.2rem;
-    grid: auto / auto auto;
     background-color: var(--profile-bg-color);
     will-change: transform;
 }
