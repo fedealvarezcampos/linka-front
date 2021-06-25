@@ -11,6 +11,7 @@ import { notifyError } from '../helpers/toasts';
 
 const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
     const { REACT_APP_BASEURL: baseURL } = process.env;
+    const { REACT_APP_STORAGE: s3URL } = process.env;
 
     const setLogNote = useSetLogNote();
     const { pathname: actualURL } = useLocation();
@@ -54,7 +55,9 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                         comment.username === 'Account suspended' ? 'suspendedAvatar' : ''
                     }`}
                     style={{
-                        backgroundImage: `url(${baseURL}images/avatars/${comment.avatar || 'default.jpg'})`,
+                        backgroundImage: `url(${baseURL || s3URL}images/avatars/${
+                            comment.avatar || 'default.jpg'
+                        })`,
                     }}
                 />
                 <div className="singleCommentContent">

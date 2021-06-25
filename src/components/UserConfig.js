@@ -12,6 +12,7 @@ import '../styles/UserConfig.css';
 
 function UserConfig({ setError }) {
     const { REACT_APP_BASEURL: baseURL } = process.env;
+    const { REACT_APP_STORAGE: s3URL } = process.env;
 
     const modal = useModal();
     const setModal = useSetModal();
@@ -24,7 +25,7 @@ function UserConfig({ setError }) {
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user?.avatar);
     const defaultAvatar = `${baseURL}images/avatars/default.jpg`;
-    const userImage = `${baseURL}images/avatars/${preloadedImage}`;
+    const userImage = `${baseURL || s3URL}images/avatars/${preloadedImage}`;
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
@@ -58,8 +59,8 @@ function UserConfig({ setError }) {
             notifyMessage('Data saved!');
             setLogNote(true);
         } catch (error) {
-            setError(error.response.data.error);
-            notifyError(error.response.data.error);
+            setError(error.response?.data.error);
+            error.response && notifyError(error.response.data.error);
             setLogNote(true);
         }
     };
