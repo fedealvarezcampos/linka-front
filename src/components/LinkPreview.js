@@ -19,8 +19,8 @@ function LinkPreview({ post, notify }) {
                 className="linkPrevImg"
                 style={{
                     backgroundImage: `url(${
-                        (!post?.linkImg.includes('scontent') && post.linkImg) ||
-                        (post?.linkImg.includes('scontent') && altPreview) ||
+                        (!post?.linkImg?.includes('scontent') && post.linkImg) ||
+                        (post?.linkImg?.includes('scontent') && altPreview) ||
                         altPreview
                     })`,
                 }}
