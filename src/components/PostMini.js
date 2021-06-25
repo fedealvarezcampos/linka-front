@@ -5,7 +5,7 @@ import { notifyAuth } from '../helpers/toasts';
 import '../styles/PostMini.css';
 
 function PostMini({ post, user }) {
-    const { REACT_APP_BASEURL: baseURL } = process.env;
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
 
     const setLogNote = useSetLogNote();
     const token = useSelector(s => s.user?.token);

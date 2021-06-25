@@ -4,8 +4,7 @@ import '../styles/RecentActivity.css';
 import { useSelector } from 'react-redux';
 
 function RecentActivity({ note, setActivityMenu }) {
-    const { REACT_APP_BASEURL: baseURL } = process.env;
-    const { REACT_APP_STORAGE: s3URL } = process.env;
+    const { REACT_APP_STATIC: staticURL } = process.env;
 
     const userId = useSelector(s => s.user?.id);
 
@@ -20,9 +19,7 @@ function RecentActivity({ note, setActivityMenu }) {
                         note.username === 'Account suspended' ? 'noUserAvatar' : ''
                     }`}
                     style={{
-                        backgroundImage: `url(${baseURL || s3URL}images/avatars/${
-                            note.avatar || 'default.jpg'
-                        })`,
+                        backgroundImage: `url(${staticURL}images/avatars/${note.avatar || 'default.jpg'})`,
                     }}
                 />
                 {note && (

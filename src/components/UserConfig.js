@@ -11,8 +11,8 @@ import Modal from './Modal';
 import '../styles/UserConfig.css';
 
 function UserConfig({ setError }) {
-    const { REACT_APP_BASEURL: baseURL } = process.env;
-    const { REACT_APP_STORAGE: s3URL } = process.env;
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_STATIC: staticURL } = process.env;
 
     const modal = useModal();
     const setModal = useSetModal();
@@ -25,7 +25,7 @@ function UserConfig({ setError }) {
     const token = useSelector(s => s.user?.token);
     const preloadedImage = useSelector(s => s.user?.avatar);
     const defaultAvatar = `${baseURL}images/avatars/default.jpg`;
-    const userImage = `${baseURL || s3URL}images/avatars/${preloadedImage}`;
+    const userImage = `${staticURL}images/avatars/${preloadedImage}`;
 
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
