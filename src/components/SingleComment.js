@@ -10,6 +10,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import { notifyError } from '../helpers/toasts';
 
 const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const setLogNote = useSetLogNote();
@@ -53,9 +54,11 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                     className={`singleCommentAvatar ${
                         comment.username === 'Account suspended' ? 'suspendedAvatar' : ''
                     }`}
-                    style={{
-                        backgroundImage: `url(${staticURL}images/avatars/${comment.avatar || 'default.jpg'})`,
-                    }}
+                    style={
+                        comment?.avatar
+                            ? { backgroundImage: `url(${staticURL}images/avatars/${comment.avatar})` }
+                            : { backgroundImage: `url(${baseURL}images/avatars/default.jpg)` }
+                    }
                 />
                 <div className="singleCommentContent">
                     <span className="singleCommentInfo">

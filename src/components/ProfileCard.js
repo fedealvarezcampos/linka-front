@@ -1,6 +1,7 @@
 import '../styles/ProfileCard.css';
 
 const ProfileCard = ({ user }) => {
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     if (!user) {
@@ -15,9 +16,11 @@ const ProfileCard = ({ user }) => {
             <div className="userCardContent">
                 <div
                     className="userCardAvatar"
-                    style={{
-                        backgroundImage: `url(${staticURL}images/avatars/${user.avatar || 'default.jpg'})`,
-                    }}
+                    style={
+                        user?.avatar
+                            ? { backgroundImage: `url(${staticURL}images/avatars/${user.avatar})` }
+                            : { backgroundImage: `url(${baseURL}images/avatars/default.jpg)` }
+                    }
                     alt="user avatar"
                 />
                 {(user?.userSite ||

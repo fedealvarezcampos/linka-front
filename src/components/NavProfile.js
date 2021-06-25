@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useClosingKey } from '../hooks/useClosingKey';
 
 function NavProfile({ show, setShow, love }) {
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const user = useSelector(s => s.user);
@@ -13,9 +14,11 @@ function NavProfile({ show, setShow, love }) {
             <i className="bi bi-caret-down-fill" />
             <div
                 className="avatar"
-                style={{
-                    backgroundImage: `url(${staticURL}images/avatars/${user.avatar || 'default.jpg'})`,
-                }}
+                style={
+                    user?.avatar
+                        ? { backgroundImage: `url(${staticURL}images/avatars/${user.avatar})` }
+                        : { backgroundImage: `url(${baseURL}images/avatars/default.jpg` }
+                }
             />
             <div>
                 <p className="profileName">{user.username}</p>

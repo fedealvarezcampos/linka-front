@@ -4,6 +4,7 @@ import '../styles/RecentActivity.css';
 import { useSelector } from 'react-redux';
 
 function RecentActivity({ note, setActivityMenu }) {
+    const { REACT_APP_PUBLIC: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const userId = useSelector(s => s.user?.id);
@@ -18,9 +19,11 @@ function RecentActivity({ note, setActivityMenu }) {
                     className={`activityUserAvatar ${
                         note.username === 'Account suspended' ? 'noUserAvatar' : ''
                     }`}
-                    style={{
-                        backgroundImage: `url(${staticURL}images/avatars/${note.avatar || 'default.jpg'})`,
-                    }}
+                    style={
+                        note?.avatar
+                            ? { backgroundImage: `url(${staticURL}images/avatars/${note.avatar})` }
+                            : { backgroundImage: `url(${baseURL}images/avatars/default.jpg)` }
+                    }
                 />
                 {note && (
                     <div className="activityTextContainer">
