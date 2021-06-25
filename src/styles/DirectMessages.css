@@ -136,8 +136,9 @@
 }
 
 .DMuserList .DMuserContent {
-    text-align: center;
     cursor: pointer;
+    width: 4.8rem;
+    text-align: center;
     border-radius: 8px;
     padding: 8px 10px 8px 10px;
     background-color: var(--posts-color);
