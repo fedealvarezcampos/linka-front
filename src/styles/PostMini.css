@@ -1,15 +1,15 @@
 .miniPostListOuterContainer {
     display: grid;
-    grid: 1.8rem auto / auto;
+    grid: 1.85rem auto / auto;
     align-content: center;
     z-index: 2;
     margin: auto;
-    height: 24.1rem;
+    /* height: 24.1rem; */
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.26;
-    padding: 0.05rem 0.35rem 1.4rem 0.35rem;
+    padding: 0.9rem 0.35rem 2.4rem 0.35rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
 }
@@ -25,8 +25,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 0;
-    padding: 0;
-    height: 20.5rem;
+    padding: 1rem 0 1rem 0;
     background-color: var(--profile-bg-color);
 }
 
