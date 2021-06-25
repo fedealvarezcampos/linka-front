@@ -27,7 +27,10 @@ function LinkPreview({ post, notify }) {
                 alt="link image"
             />
             <div className="linkInfoContainer">
-                <p className="linkPrevTitle">{post.linkTitle}</p>
+                <p className="linkPrevTitle">
+                    {(!post?.linkTitle?.includes('Login') && post.linkTitle) ||
+                        (post?.linkTitle?.includes('Login') && 'Check the link!')}
+                </p>
                 <p className="linkPrevDesc">{post.linkDesc.slice(0, 110) + '...'}</p>
             </div>
         </div>

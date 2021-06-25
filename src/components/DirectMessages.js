@@ -93,7 +93,7 @@ function DirectMessages() {
                         </div>
                         <form className="searchUserForm" onSubmit={handleSearchUser}>
                             <label>
-                                <span>Find user:</span>
+                                <span>Add user:</span>
                                 <input
                                     placeholder="user..."
                                     value={userSearch}
