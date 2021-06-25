@@ -1,6 +1,6 @@
 .miniPostListOuterContainer {
     display: grid;
-    grid: 1.85rem auto / auto;
+    grid: 1.88rem auto / auto;
     align-content: center;
     z-index: 2;
     margin: auto;
@@ -9,7 +9,7 @@
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.26;
-    padding: 0.9rem 0.35rem 2.4rem 0.35rem;
+    padding: 1rem 0.35rem 2.35rem 0.35rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
 }
@@ -36,8 +36,8 @@
 
 .miniPostContainer .miniPostContent {
     display: grid;
-    grid: auto / 1fr 1.6fr;
-    padding: 0.4rem 1rem 0.4rem 1rem;
+    grid: auto / 1fr 1.4fr;
+    padding: 0.3rem 1rem 0.3rem 1rem;
     align-items: center;
     width: 15.2rem;
     background-color: var(--profile-bg-color);
@@ -47,6 +47,7 @@
 .miniPostContainer .miniPostContent h1 {
     margin: 0;
     text-align: end;
+    font-style: italic;
     font-size: 1rem;
 }
 
