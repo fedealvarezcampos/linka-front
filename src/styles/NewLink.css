@@ -10,7 +10,7 @@
     display: grid;
     grid: 1.5rem auto / auto;
     margin: auto;
-    width: clamp(28rem, 60vw, 35rem);
+    width: clamp(28rem, 60vw, 40rem);
     place-items: center;
     font-family: 'Fira Sans', sans-serif;
     /* margin-top: 12vh; */

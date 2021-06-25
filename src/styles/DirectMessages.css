@@ -185,7 +185,7 @@
 
 .noDMs {
     font-style: italic;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     padding: 1rem 1.8rem 1rem 1.8rem;
     border-radius: 20px;
     background-color: var(--posts-color);

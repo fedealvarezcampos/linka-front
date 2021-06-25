@@ -22,7 +22,7 @@
 
 .miniPostListContainer {
     display: flex;
-    gap: 3px;
+    gap: 8px;
     flex-direction: column;
     justify-content: center;
     margin: 0;

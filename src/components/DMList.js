@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useGetMyDMs } from '../api/dms';
+import Spinner from '../assets/Spinner';
 import DMSingle from './DMSingle';
 
 function DMList({ sender, dmList, setDmList }) {
@@ -25,13 +26,20 @@ function DMList({ sender, dmList, setDmList }) {
                 </div>
             )}
             {dmList?.length === 0 && sender && (
-                <div className="noDMs">
-                    <span>
-                        No messages.
-                        <br />
-                        Send the first one! <i className="bi bi-lightning-charge-fill" />
-                    </span>
-                </div>
+                <>
+                    {!myDMs && <Spinner />}
+                    {myDMs && (
+                        <div className="noDMs">
+                            (
+                            <span>
+                                No messages.
+                                <br />
+                                Send the first one! <i className="bi bi-lightning-charge-fill" />
+                            </span>
+                            )
+                        </div>
+                    )}
+                </>
             )}
         </>
     );
