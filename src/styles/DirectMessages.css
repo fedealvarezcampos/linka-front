@@ -216,8 +216,7 @@
     .DMConvoContainer {
         padding-top: 0.5rem;
         margin: 0;
-        padding: 10px;
-        padding-bottom: 0;
+        padding: 0 10px 0 10px;
         border-left: none;
         max-height: 10rem;
         overflow-y: auto;
@@ -261,6 +260,7 @@
         display: grid;
         grid: 2.8rem 2.8rem / auto;
         font-size: 0.7rem;
+        overflow-y: hidden;
     }
 
     .DMUserColumn input {
@@ -345,7 +345,7 @@
         font-style: italic;
         font-size: 0.75rem;
         padding: 0.9rem 0.7rem 0.9rem 0.7rem;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.8rem;
         border-radius: 20px;
         background-color: var(--posts-color);
     }
