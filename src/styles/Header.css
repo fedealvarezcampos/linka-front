@@ -32,7 +32,7 @@
     justify-self: start;
     font-family: 'Exo', sans-serif;
     font-style: italic;
-    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-size: clamp(1rem, 6vw, 3.2rem);
     font-weight: 800;
     text-decoration: none;
     color: var(--alt-highlight-color);
@@ -191,29 +191,57 @@
         justify-self: end;
     }
 
-    .header .button.navButton {
-        width: 1rem;
-        height: 1rem;
-        padding: 15px 13px 14px 15px;
-        border-radius: 12px;
+    .header .navProfile:hover .avatar {
+        border: 3px solid var(--alt-highlight-color);
+    }
+
+    .header.noUser .unloggedHead .button {
+        width: 6rem;
+        padding: 8px 9px 8px 9px;
         border: 3px solid var(--base-light-color);
     }
 
-    .header .button.navButton:hover {
+    .header.noUser .unloggedHead .button:hover {
         border: 3px solid var(--alt-highlight-color);
+        transform: translatey(-0.6px);
+    }
+
+    .header.noUser .unloggedHead .button:active {
+        transform: translatey(0.6px);
+    }
+
+    .header .button.navButton {
+        width: 1rem;
+        height: 1rem;
+        padding: 11px 12px 11px 12px;
+        border-radius: 10px;
+        border: 2px solid var(--base-light-color);
+    }
+
+    .header .button.navButton {
+        width: 1rem;
+        height: 1rem;
+        padding: 11px 12px 11px 12px;
+        border-radius: 10px;
+        border: 2px solid var(--base-light-color);
+    }
+
+    .header .button.navButton:hover {
+        border: 2px solid var(--alt-highlight-color);
         transition: all 200ms ease-in-out;
     }
 
     .header .button.navButton.active {
-        border: 3px solid var(--alt-highlight-color);
+        border: 2px solid var(--alt-highlight-color);
     }
 
     .header .button.navButton i {
-        font-size: 0.8rem;
+        margin-left: 1px;
+        font-size: 0.6rem;
     }
 
     .headerButtons {
-        gap: 10px;
+        gap: 6px;
     }
 
     .header .unloggedHead {

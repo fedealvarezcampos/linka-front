@@ -76,3 +76,30 @@
 .login .eyePass {
     padding-top: 0.9rem;
 }
+
+@media (max-width: 600px) {
+    .login {
+        width: 10rem;
+        right: 15px;
+        font-size: 0.9rem;
+        padding: 14px 15px 16px 15px;
+        border-radius: 0 0 20px 0;
+        border: 6px solid var(--base-light-color);
+    }
+
+    .login button {
+        width: 5rem;
+        align-self: start;
+        justify-self: end;
+        margin-top: 0.2rem;
+        padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+        border-radius: 14px 14px 14px 0;
+        border: 3px solid var(--base-light-color);
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .login .button:hover {
+        border: 3px solid var(--alt-highlight-color);
+    }
+}

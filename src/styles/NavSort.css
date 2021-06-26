@@ -76,9 +76,11 @@
 @media (max-width: 600px) {
     .sortMenuRelease {
         margin-left: 1rem;
+        width: 9rem;
     }
 
     .sortMenu.dropMenu {
         margin-left: 1rem;
+        width: 9rem;
     }
 }
