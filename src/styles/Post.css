@@ -214,6 +214,7 @@
     }
 
     .postListContainer {
+        margin-top: 3.6rem;
         align-self: center;
     }
 
@@ -224,6 +225,7 @@
 
     .postContainer {
         grid: 1.9rem 1fr 2rem / 1fr;
+        margin-bottom: 1.4rem;
         width: 80vw;
     }
 }

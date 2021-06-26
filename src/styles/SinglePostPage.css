@@ -85,3 +85,13 @@
     transition: color 200ms;
     color: var(--alt-highlight-color);
 }
+
+@media (max-width: 600px) {
+    .singlePostContainer {
+        grid: auto auto auto / auto;
+        padding-bottom: 2.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+}
