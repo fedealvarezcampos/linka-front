@@ -236,8 +236,8 @@
     }
 
     .header .button.navButton i {
-        margin-left: 1px;
         font-size: 0.6rem;
+        margin-left: 1.85px;
     }
 
     .headerButtons {

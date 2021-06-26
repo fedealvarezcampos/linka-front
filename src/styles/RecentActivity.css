@@ -139,3 +139,30 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+@media (max-width: 600px) {
+    .activityListContainer.dropMenu {
+        display: grid;
+        gap: 20px;
+        width: 16.5rem;
+        right: 0.6rem;
+        max-height: 12rem;
+        padding: 1rem 0.8rem 0.5rem 0.8rem;
+        border: 5px solid var(--base-light-color);
+        border-top: none;
+        border-radius: 0 0 0 20px;
+    }
+
+    .activityContainer {
+        gap: 5px;
+        grid: auto / 1fr 3.8fr;
+        padding: 14px 12px 14px 12px;
+        font-size: 0.9rem;
+    }
+
+    .activityUserAvatar {
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 2px solid var(--base-light-color);
+    }
+}

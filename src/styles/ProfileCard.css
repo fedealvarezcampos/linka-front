@@ -90,3 +90,16 @@
 .quote {
     font-size: 1.8rem;
 }
+
+@media (max-width: 600px) {
+    .userPageContainer {
+        justify-content: center;
+    }
+
+    .userCardContainer {
+        width: 75vw;
+        position: unset;
+        place-self: center;
+        align-items: start;
+    }
+}

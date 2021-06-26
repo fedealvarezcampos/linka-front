@@ -124,3 +124,70 @@
     transform: translatey(-1px);
     transition: all 450ms ease-in-out;
 }
+
+@media (max-width: 600px) {
+    .userConfigPage {
+        display: grid;
+        grid: auto / auto;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .userConfigPage .userCardContainer {
+        display: none;
+    }
+
+    .userConfigPage .userConfigContainer {
+        width: 80vw;
+    }
+
+    .userConfigPage .userConfigContainer .avatarContainer {
+        padding: 0;
+        padding-bottom: 0.6rem;
+    }
+
+    .userConfigPage .userConfigContainer .avatarContainer .avatar {
+        width: 5rem;
+        height: 5rem;
+        border: 3px solid var(--base-light-color);
+    }
+
+    .userConfigPage .userConfigContainer .avatarContainer .bi-camera2 {
+        top: 3.8rem;
+    }
+
+    .userConfigPage .userConfigContainer .buttonContainer {
+        gap: 25px;
+    }
+
+    .userConfigPage .userConfigContainer form {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1.5rem;
+        padding-bottom: 1.8rem;
+        width: 80vw;
+    }
+
+    .userConfigPage .userConfigContainer input {
+        font-size: 0.9rem;
+        width: 11rem;
+    }
+
+    .userConfigPage .userConfigContainer textarea {
+        font-size: 0.9rem;
+        width: 11rem;
+    }
+
+    .userConfigPage .userConfigContainer button {
+        width: 4.5rem;
+        padding: 10px 6px 10px 6px;
+        border: 3px solid var(--base-light-color);
+    }
+
+    .userConfigPage .userConfigContainer .deleteUser {
+        width: 9rem;
+        font-size: 0.6rem;
+        padding: 8px 8px 8px 8px;
+        border: 3px solid var(--base-light-color);
+    }
+}
