@@ -91,19 +91,21 @@ function DirectMessages() {
                                     </div>
                                 ))}
                         </div>
-                        <form className="searchUserForm" onSubmit={handleSearchUser}>
-                            <label>
-                                <span>Add user:</span>
-                                <input
-                                    placeholder="user..."
-                                    value={userSearch}
-                                    onChange={e => setUserSearch(e.target.value)}
-                                    type="text"
-                                />
-                            </label>
-                        </form>
+                        <div className="searchUserForm">
+                            <form onSubmit={handleSearchUser}>
+                                <label>
+                                    <span>Add user:</span>
+                                    <input
+                                        placeholder="user..."
+                                        value={userSearch}
+                                        onChange={e => setUserSearch(e.target.value)}
+                                        type="text"
+                                    />
+                                </label>
+                            </form>
+                        </div>
                     </div>
-                    <div className="DMConvoContainer">
+                    <div className="DMConvoContainer" ref={containerRef}>
                         <DMList dmList={directMessageList} setDmList={setDirectMessageList} sender={sender} />
                     </div>
                 </div>

@@ -25,12 +25,8 @@
 .DMsInnerContainer {
     display: grid;
     grid: auto / 8rem auto;
-    gap: 2rem;
     box-sizing: border-box;
-    align-self: center;
-    justify-self: center;
     width: 100%;
-    height: 98%;
     padding: 0 3rem 0 1.5rem;
     border-radius: 20px 0 0 20px;
     border: 6px solid var(--alt-item-color);
@@ -40,6 +36,8 @@
 
 .DMConvoContainer {
     padding-top: 1.4rem;
+    padding-left: 1rem;
+    border-left: 6px solid var(--alt-item-color);
 }
 
 .DMConvoContainer::after {
@@ -102,23 +100,23 @@
     margin-left: 42%;
 }
 
-.DMUserColumn {
-    display: grid;
-    border-right: 6px solid var(--alt-item-color);
+.searchUserForm {
+    width: 6rem;
+    padding-top: 3rem;
+    font-style: italic;
 }
 
-.DMUserColumn label {
-    font-style: italic;
-    position: absolute;
-    width: 6rem;
-    bottom: 36%;
-    align-self: end;
+.DMUserColumn {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    overflow-y: auto;
 }
 
 .DMUserColumn input {
     border: 3px solid var(--main-bg-color);
     height: 2.4rem;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 .DMUserColumn input:focus {
@@ -128,17 +126,20 @@
 
 .DMuserList {
     display: grid;
-    position: absolute;
+    /* align-self: start; */
+    max-height: clamp(8rem, 24vh, 28vh);
     gap: 8px;
     font-style: italic;
     padding-top: 1.8rem;
     color: var(--alt-highlight-color);
+    overflow-y: auto;
 }
 
 .DMuserList .DMuserContent {
     cursor: pointer;
     width: 4.8rem;
     text-align: center;
+    align-self: center;
     border-radius: 8px;
     padding: 8px 10px 8px 10px;
     background-color: var(--posts-color);
@@ -189,4 +190,163 @@
     padding: 1rem 1.8rem 1rem 1.8rem;
     border-radius: 20px;
     background-color: var(--posts-color);
+}
+
+@media (max-width: 600px) {
+    .DMsContainer {
+        grid: auto auto / auto;
+        gap: 0.8rem;
+        margin-top: 1rem;
+        margin-bottom: 2.8rem;
+        width: clamp(14rem, 70vw, 75rem);
+        padding: 1.2rem 1rem 1.2rem 1rem;
+        height: auto;
+        font-size: 0.9rem;
+        border: 5px solid var(--base-light-color);
+    }
+
+    .DMsInnerContainer {
+        grid: auto auto / auto;
+        gap: 0.2rem;
+        width: 100%;
+        padding: 10px 0 0 0;
+        overflow-y: unset;
+    }
+
+    .DMConvoContainer {
+        padding-top: 0.5rem;
+        margin: 0;
+        padding: 10px;
+        padding-bottom: 0;
+        border-left: none;
+        max-height: 10rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .DMMessage {
+        display: grid;
+        grid: auto / 2.8rem auto;
+        padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+        border-radius: 10px;
+        gap: 4px;
+        background-color: var(--item-bg-color);
+    }
+
+    .DMMessage time {
+        font-size: 0.58rem;
+    }
+
+    .DMMessage .DMText {
+        font-size: 0.76rem;
+    }
+
+    .DMMessage .DMUsername {
+        font-size: 0.9rem;
+    }
+
+    .DMMessage.receivedMessage {
+        margin: 0;
+        max-width: unset;
+        margin-bottom: 0.5rem;
+        background-color: var(--posts-color);
+    }
+
+    .DMMessage.sentMessage {
+        margin: 0;
+        margin-bottom: 0.6rem;
+    }
+
+    .DMUserColumn {
+        display: grid;
+        grid: 2.8rem 2.8rem / auto;
+        font-size: 0.7rem;
+    }
+
+    .DMUserColumn input {
+        padding: 6px;
+        width: 4.2rem;
+        margin-bottom: 8px;
+        height: 1.6rem;
+        font-size: 0.8rem;
+    }
+
+    .DMUserColumn input:focus {
+        height: 1.6rem;
+        font-size: 0.8rem;
+    }
+
+    .DMuserList {
+        display: flex;
+        padding: 0px 10px 6px 10px;
+        gap: 10px;
+    }
+
+    .DMuserList::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .DMuserList .DMuserContent {
+        cursor: pointer;
+        width: 3.8rem;
+        border-radius: 8px;
+        padding: 4px 8px 4px 8px;
+    }
+
+    .DMAvatar {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+
+    .dmFormContainer {
+        padding: 10px 8px 12px 8px;
+        font-size: 0.8rem;
+        justify-self: center;
+        margin: 2px;
+        width: 80%;
+        height: auto;
+    }
+
+    .dmForm {
+        align-self: start;
+    }
+
+    .dmForm input {
+        height: 2rem;
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+    }
+
+    .dmForm button {
+        font-size: 0.6rem;
+        width: auto;
+        padding: 6px 15px 6px 15px;
+        border: 3px solid var(--base-light-color);
+    }
+
+    .dmForm button:hover {
+        border: 3px solid var(--alt-highlight-color);
+    }
+
+    .searchUserForm {
+        width: 10rem;
+        justify-self: center;
+        padding-top: 0.4rem;
+        font-style: italic;
+    }
+
+    .searchUserForm input {
+        height: 1.8rem;
+        margin-left: 12px;
+    }
+
+    .noDMs {
+        font-style: italic;
+        font-size: 0.75rem;
+        padding: 0.9rem 0.7rem 0.9rem 0.7rem;
+        margin-bottom: 0.6rem;
+        border-radius: 20px;
+        background-color: var(--posts-color);
+    }
 }
