@@ -22,6 +22,7 @@ function DirectMessages() {
     const [focusDMInput, setfocusDMInput] = useState(false);
 
     const containerRef = useRef(null);
+    const responsiveRef = useRef(null);
 
     useEffect(() => {
         const element = containerRef.current;
@@ -46,7 +47,15 @@ function DirectMessages() {
                 behavior: 'smooth',
             });
         }
-    }, [containerRef, directMessageList]);
+        if (responsiveRef && responsiveRef.current) {
+            const element = responsiveRef.current;
+            element.scroll({
+                top: element.scrollHeight,
+                left: 0,
+                behavior: 'smooth',
+            });
+        }
+    }, [containerRef, responsiveRef, directMessageList]);
 
     const handleSearchUser = async e => {
         e.preventDefault();
@@ -105,7 +114,7 @@ function DirectMessages() {
                             </form>
                         </div>
                     </div>
-                    <div className="DMConvoContainer" ref={containerRef}>
+                    <div className="DMConvoContainer" ref={responsiveRef}>
                         <DMList dmList={directMessageList} setDmList={setDirectMessageList} sender={sender} />
                     </div>
                 </div>

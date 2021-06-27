@@ -27,7 +27,7 @@
     grid: auto / 8rem auto;
     box-sizing: border-box;
     width: 100%;
-    padding: 0 3rem 0 1.5rem;
+    padding: 0 1rem 0 1.5rem;
     border-radius: 20px 0 0 20px;
     border: 6px solid var(--alt-item-color);
     background-color: var(--profile-bg-color);
@@ -35,8 +35,9 @@
 }
 
 .DMConvoContainer {
-    padding-top: 1.4rem;
-    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0.5rem 0.5rem 1.5rem;
     border-left: 6px solid var(--alt-item-color);
 }
 
@@ -91,25 +92,23 @@
 
 .receivedMessage {
     align-items: center;
-    max-width: 50%;
+    max-width: 13.5rem;
     background-color: var(--posts-color);
 }
 
 .sentMessage {
-    align-items: center;
-    margin-left: 42%;
-}
-
-.searchUserForm {
-    width: 6rem;
-    padding-top: 3rem;
-    font-style: italic;
+    align-self: flex-end;
+    width: 13.5rem;
 }
 
 .DMUserColumn {
-    position: sticky;
-    top: 0;
+    display: grid;
+    grid: 19rem auto / auto;
+    /* justify-content: space-between; */
     align-self: start;
+    position: sticky;
+    gap: 7rem;
+    top: 0;
     overflow-y: auto;
 }
 
@@ -126,11 +125,11 @@
 
 .DMuserList {
     display: grid;
-    /* align-self: start; */
+    align-self: start;
     max-height: clamp(8rem, 24vh, 28vh);
     gap: 8px;
     font-style: italic;
-    padding-top: 1.8rem;
+    padding-top: 1.2rem;
     color: var(--alt-highlight-color);
     overflow-y: auto;
 }
@@ -184,6 +183,11 @@
     background-color: var(--profile-bg-color);
 }
 
+.searchUserForm {
+    width: 6rem;
+    font-style: italic;
+}
+
 .noDMs {
     font-style: italic;
     font-size: 1.8rem;
@@ -192,9 +196,9 @@
     background-color: var(--posts-color);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .DMsContainer {
-        grid: auto auto / auto;
+        grid: 50vh auto / auto;
         gap: 0.8rem;
         margin-top: 1rem;
         margin-bottom: 2.8rem;
@@ -206,7 +210,7 @@
     }
 
     .DMsInnerContainer {
-        grid: auto auto / auto;
+        grid: 6rem auto / auto;
         gap: 0.2rem;
         width: 100%;
         padding: 10px 0 0 0;
@@ -218,7 +222,7 @@
         margin: 0;
         padding: 0 10px 0 10px;
         border-left: none;
-        max-height: 10rem;
+        /* max-height: 10rem; */
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -244,23 +248,28 @@
         font-size: 0.9rem;
     }
 
-    .DMMessage.receivedMessage {
+    .receivedMessage {
         margin: 0;
         max-width: unset;
         margin-bottom: 0.5rem;
         background-color: var(--posts-color);
     }
 
-    .DMMessage.sentMessage {
+    .sentMessage {
         margin: 0;
-        margin-bottom: 0.6rem;
+        width: fill;
+        align-self: flex-start;
+        margin-bottom: 0.5rem;
+        align-items: center;
     }
 
     .DMUserColumn {
         display: grid;
+        height: auto;
         grid: 2.8rem 2.8rem / auto;
         font-size: 0.7rem;
         overflow-y: hidden;
+        gap: 0;
     }
 
     .DMUserColumn input {

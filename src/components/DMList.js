@@ -30,13 +30,11 @@ function DMList({ sender, dmList, setDmList }) {
                     {!myDMs && <Spinner />}
                     {myDMs && (
                         <div className="noDMs">
-                            (
                             <span>
                                 No messages.
                                 <br />
                                 Send the first one! <i className="bi bi-lightning-charge-fill" />
                             </span>
-                            )
                         </div>
                     )}
                 </>
