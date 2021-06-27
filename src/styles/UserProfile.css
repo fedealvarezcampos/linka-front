@@ -7,7 +7,7 @@
     grid: auto / auto 18rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .userPageContainer {
         display: flex;
         flex-direction: column-reverse;

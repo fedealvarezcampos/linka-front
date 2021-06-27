@@ -140,5 +140,5 @@ input::-ms-clear {
 .spinnerLoad {
     display: flex;
     place-content: center;
-    margin-top: 30%;
+    margin-top: 20%;
 }
