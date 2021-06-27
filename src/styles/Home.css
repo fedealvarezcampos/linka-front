@@ -48,7 +48,7 @@
     .homeOuterSidebarContainer {
         display: flex;
         align-items: flex-end;
-        top: 90px;
+        top: 55px;
         position: fixed;
         padding-bottom: 0.2rem;
         height: 9.5rem;

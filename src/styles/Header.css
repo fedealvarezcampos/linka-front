@@ -32,7 +32,7 @@
     justify-self: start;
     font-family: 'Exo', sans-serif;
     font-style: italic;
-    font-size: clamp(1rem, 6vw, 3.2rem);
+    font-size: 5vw;
     font-weight: 800;
     text-decoration: none;
     color: var(--alt-highlight-color);
@@ -174,19 +174,24 @@
 
 @media (max-width: 600px) {
     .header {
-        gap: 10px;
+        height: 6rem;
+        gap: 3px;
         padding: 1rem 1rem 1rem 1rem;
+    }
+
+    .header .logo {
+        font-size: 5.5vw;
     }
 
     .header .navProfile {
         grid: auto / auto auto auto;
-        gap: 10px;
+        gap: 6px;
         font-size: clamp(0.8rem, 0.8rem, 1.2rem);
     }
 
     .header .navProfile .avatar {
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 2.2rem;
+        height: 2.2rem;
         border: 3px solid var(--base-light-color);
         justify-self: end;
     }
@@ -221,8 +226,8 @@
     .header .button.navButton {
         width: 1rem;
         height: 1rem;
-        padding: 11px 12px 11px 12px;
-        border-radius: 10px;
+        padding: 9px 9px 9px 9px;
+        border-radius: 8px;
         border: 2px solid var(--base-light-color);
     }
 
@@ -240,8 +245,12 @@
         margin-left: 1.85px;
     }
 
+    .header .navProfile .love {
+        font-size: 12px;
+    }
+
     .headerButtons {
-        gap: 6px;
+        gap: 4px;
     }
 
     .header .unloggedHead {

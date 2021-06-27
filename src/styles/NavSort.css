@@ -74,6 +74,14 @@
 }
 
 @media (max-width: 600px) {
+    .sortMenuContainer {
+        top: 6rem;
+    }
+
+    .sortMenuReleaseContainer {
+        top: 6rem;
+    }
+
     .sortMenuRelease {
         margin-left: 1rem;
         width: 9rem;
