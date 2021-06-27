@@ -257,7 +257,7 @@
 
     .sentMessage {
         margin: 0;
-        width: fill;
+        width: stretch;
         align-self: flex-start;
         margin-bottom: 0.5rem;
         align-items: center;
