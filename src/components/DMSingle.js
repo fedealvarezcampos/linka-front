@@ -26,7 +26,7 @@ function DMSingle({ dm }) {
                 <div className="DMContent">
                     <span>
                         <div className="DMUsername">{dm.username}</div>
-                        <ReactTimeAgo date={new Date(dm.created_date)} locale="en-US" timeStyle="Round" />
+                        <ReactTimeAgo date={new Date(dm.created_date)} locale="en-US" timeStyle="twitter" />
                     </span>
                     <div className="DMText">{dm.text}</div>
                 </div>

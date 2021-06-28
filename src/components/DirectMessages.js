@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 import { getUserId } from '../api/users';
 import { useGetMyList } from '../api/dms';
 import { notifyError } from '../helpers/toasts';
@@ -83,6 +84,9 @@ function DirectMessages() {
 
     return (
         <>
+            <Helmet>
+                <title>{`Linkah - My messages`}</title>
+            </Helmet>
             <div className="DMsContainer">
                 <div className="DMsInnerContainer" ref={containerRef}>
                     <div className="DMUserOuterColumn">

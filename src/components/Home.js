@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError, notifyMessage } from '../helpers/toasts';
@@ -62,6 +63,9 @@ function Home({ sort, setSort, setError }) {
 
     return (
         <>
+            <Helmet>
+                <title>{`Linkah - Home`}</title>
+            </Helmet>
             <div className="App">
                 <NavSort page={page} setPage={setPage} sort={sort} setSort={setSort} />
                 <div className="homeContainer">

@@ -46,7 +46,7 @@ function NewLink() {
     return (
         <>
             <Helmet>
-                <title>{`New link | Linkah`}</title>
+                <title>{`Linkah - New link`}</title>
             </Helmet>
             <div className="newLinkPage">
                 <div className="newLinkContainer">

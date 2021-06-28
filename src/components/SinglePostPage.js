@@ -3,6 +3,7 @@ import { Link, Redirect, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { useModal, useSetModal } from '../context/ModalContext';
 import nestComments from '../helpers/nestComments';
@@ -97,6 +98,9 @@ function SinglePostPage({ setError }) {
 
     return (
         <>
+            <Helmet>
+                <title>{`Linkah - ${post?.title}`}</title>
+            </Helmet>
             {modal && postId && token && (
                 <Modal handleDeleteClick={handleDeleteClick} setError={setError}></Modal>
             )}

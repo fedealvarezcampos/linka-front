@@ -95,7 +95,7 @@ function UserConfig({ setError }) {
     return (
         <>
             <Helmet>
-                <title>{`Settings | Linkah`}</title>
+                <title>{`Linkah - Settings`}</title>
             </Helmet>
             <div className="userConfigPage">
                 <div className="userConfigContainer">

@@ -18,7 +18,7 @@
     place-items: center;
     font-family: 'Fira Sans', sans-serif;
     /* margin-top: 12vh; */
-    padding: 1rem 0.3rem 1.8rem 0.3rem;
+    padding: 0.2rem 0.3rem 1.8rem 0.3rem;
     border-radius: 16px 16px 16px 0px;
     background-color: var(--posts-color);
 }
@@ -30,6 +30,8 @@
     grid: auto / auto auto;
     align-items: baseline;
     margin-left: 0.4rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.2rem;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.02em;

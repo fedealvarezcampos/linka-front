@@ -23,7 +23,7 @@ const UserProfile = () => {
     return (
         <>
             <Helmet>
-                <title>{`${username} - Linkah`}</title>
+                <title>{`Linkah - ${username}`}</title>
             </Helmet>
             <div className="userPageContainer">
                 <ul className="postListContainer">
