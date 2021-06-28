@@ -175,7 +175,7 @@
 @media (max-width: 600px) {
     .header {
         height: 6rem;
-        gap: 3px;
+        gap: 10px;
         padding: 1rem 1rem 1rem 1rem;
     }
 
@@ -200,9 +200,14 @@
         border: 3px solid var(--alt-highlight-color);
     }
 
+    .header.noUser {
+        grid: 1fr / auto auto;
+    }
+
     .header.noUser .unloggedHead .button {
-        width: 6rem;
-        padding: 8px 9px 8px 9px;
+        width: 5.4rem;
+        font-size: 0.6rem;
+        padding: 7px 6px 7px 6px;
         border: 3px solid var(--base-light-color);
     }
 
@@ -254,8 +259,8 @@
     }
 
     .header .unloggedHead {
-        width: 6.2rem;
-        grid: auto auto / 1fr;
-        justify-items: start;
+        width: auto;
+        grid: auto / auto 6rem;
+        justify-items: end;
     }
 }

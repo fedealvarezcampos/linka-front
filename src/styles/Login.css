@@ -87,6 +87,10 @@
         border: 6px solid var(--base-light-color);
     }
 
+    .login.dropMenu {
+        top: 90px;
+    }
+
     .login button {
         width: 5rem;
         align-self: start;

@@ -85,33 +85,35 @@ function DirectMessages() {
         <>
             <div className="DMsContainer">
                 <div className="DMsInnerContainer" ref={containerRef}>
-                    <div className="DMUserColumn">
-                        <div className="DMuserList">
-                            {userList &&
-                                userList?.map(user => (
-                                    <div
-                                        key={user.recipientId || user.id}
-                                        onClick={() => handleSetDMS(user.recipientId || user.id)}
-                                        className={`DMuserContent ${
-                                            sender === (user.recipientId || user.id) ? 'active' : ''
-                                        }`}
-                                    >
-                                        <div>{user.username}</div>
-                                    </div>
-                                ))}
-                        </div>
-                        <div className="searchUserForm">
-                            <form onSubmit={handleSearchUser}>
-                                <label>
-                                    <span>Add user:</span>
-                                    <input
-                                        placeholder="user..."
-                                        value={userSearch}
-                                        onChange={e => setUserSearch(e.target.value)}
-                                        type="text"
-                                    />
-                                </label>
-                            </form>
+                    <div className="DMUserOuterColumn">
+                        <div className="DMUserColumn">
+                            <div className="DMuserList">
+                                {userList &&
+                                    userList?.map(user => (
+                                        <div
+                                            key={user.recipientId || user.id}
+                                            onClick={() => handleSetDMS(user.recipientId || user.id)}
+                                            className={`DMuserContent ${
+                                                sender === (user.recipientId || user.id) ? 'active' : ''
+                                            }`}
+                                        >
+                                            <div>{user.username}</div>
+                                        </div>
+                                    ))}
+                            </div>
+                            <div className="searchUserForm">
+                                <form onSubmit={handleSearchUser}>
+                                    <label>
+                                        <span>Add user:</span>
+                                        <input
+                                            placeholder="user..."
+                                            value={userSearch}
+                                            onChange={e => setUserSearch(e.target.value)}
+                                            type="text"
+                                        />
+                                    </label>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <div className="DMConvoContainer" ref={responsiveRef}>
