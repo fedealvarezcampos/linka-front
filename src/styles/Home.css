@@ -26,9 +26,9 @@
         display: flex;
         align-items: flex-end;
         top: 85px;
-        position: fixed;
-        padding-bottom: 1rem;
-        height: 10rem;
+        /* position: fixed; */
+        /* padding-bottom: 1rem; */
+        /* height: 10rem; */
         overflow: unset;
         background-color: var(--main-bg-color);
     }
@@ -48,10 +48,10 @@
     .homeOuterSidebarContainer {
         display: flex;
         align-items: flex-end;
-        top: 55px;
-        position: fixed;
+        /* top: 55px; */
+        /* position: fixed; */
         padding-bottom: 0.2rem;
-        height: 9.5rem;
+        /* height: 9.5rem; */
         overflow: unset;
         background-color: var(--main-bg-color);
     }

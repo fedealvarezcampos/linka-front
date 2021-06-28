@@ -185,9 +185,9 @@
 }
 
 @media (max-width: 1000px) {
-    .postListContainer {
+    /* .postListContainer {
         margin-top: 4.8rem;
-    }
+    } */
 
     .userPageContainer .postListContainer {
         align-self: center;

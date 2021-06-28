@@ -32,3 +32,13 @@
 .Toastify__toast--warning .Toastify__progress-bar {
     background-color: var(--base-light-color);
 }
+
+@media (max-width: 600px) {
+    .Toastify__toast {
+        float: right;
+        font-size: 0.8em;
+        padding: 4px;
+        margin: 1rem;
+        width: 45vw;
+    }
+}

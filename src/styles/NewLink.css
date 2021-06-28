@@ -55,3 +55,53 @@
     margin-bottom: 0.8rem;
     resize: none;
 }
+
+@media (max-width: 600px) {
+    .newLinkPage {
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .newLinkContainer {
+        display: grid;
+        grid: 1.5rem auto / auto;
+        margin: auto;
+        width: clamp(8rem, 80vw, 25rem);
+        place-items: center;
+        font-family: 'Fira Sans', sans-serif;
+        /* margin-top: 12vh; */
+        padding: 0.9rem 0.3rem 1.8rem 0.3rem;
+        border-radius: 16px 16px 16px 0px;
+        background-color: var(--posts-color);
+    }
+
+    .newLinkContainer form {
+        gap: 0.4rem;
+        padding: 2rem 2.5rem 2rem 2.2rem;
+    }
+
+    .newLinkContainer label {
+        width: 10rem;
+    }
+
+    .newLinkContainer input {
+        font-size: 0.8rem;
+        width: 11rem;
+    }
+
+    .newLinkContainer textarea {
+        width: clamp(6rem, 18rem, 50vw);
+        height: 8rem;
+    }
+
+    .newLinkContainer button {
+        width: 4.5rem;
+        margin-left: 5px;
+        padding: 6px 3px 6px 3px;
+        border: 3px solid var(--base-light-color);
+    }
+
+    .newLinkContainer button:hover {
+        border: 3px solid var(--alt-highlight-color);
+    }
+}
