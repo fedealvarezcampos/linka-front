@@ -11,8 +11,8 @@
     .userPageContainer {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
         margin-top: 1.4rem;
-        align-items: flex-start;
         gap: 1.5rem;
     }
 }
