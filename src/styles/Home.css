@@ -36,6 +36,10 @@
     .homeSidebarContainer {
         align-content: center;
     }
+
+    .unloggedBody {
+        margin-top: 1.2vh;
+    }
 }
 
 @media (max-width: 600px) {

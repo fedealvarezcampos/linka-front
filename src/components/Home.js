@@ -68,7 +68,7 @@ function Home({ sort, setSort, setError }) {
             </Helmet>
             <div className="App">
                 <NavSort page={page} setPage={setPage} sort={sort} setSort={setSort} />
-                <div className="homeContainer">
+                <div className={`homeContainer ${!user ? 'unloggedBody' : ''}`}>
                     <main>
                         <InfiniteScroll
                             dataLength={posts && posts?.length}
