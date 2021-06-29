@@ -69,26 +69,28 @@ function Home({ sort, setSort, setError }) {
             <div className="App">
                 <NavSort page={page} setPage={setPage} sort={sort} setSort={setSort} />
                 <div className="homeContainer">
-                    <InfiniteScroll
-                        dataLength={posts && posts?.length}
-                        next={fetchMore}
-                        hasMore={true}
-                        scrollThreshold={'50px'}
-                        loader={<h4>Loading...</h4>}
-                    >
-                        <ul className="postListContainer">
-                            {posts &&
-                                posts.map(post => (
-                                    <Post sort={sort} key={post.postId} post={post} setError={setError} />
-                                ))}
-                        </ul>
-                    </InfiniteScroll>
-                    <div className="homeOuterSidebarContainer">
+                    <main>
+                        <InfiniteScroll
+                            dataLength={posts && posts?.length}
+                            next={fetchMore}
+                            hasMore={true}
+                            scrollThreshold={'50px'}
+                            loader={<h4>Loading...</h4>}
+                        >
+                            <ul className="postListContainer">
+                                {posts &&
+                                    posts.map(post => (
+                                        <Post sort={sort} key={post.postId} post={post} setError={setError} />
+                                    ))}
+                            </ul>
+                        </InfiniteScroll>
+                    </main>
+                    <aside className="homeOuterSidebarContainer">
                         <div className="homeSidebarContainer">
                             {user && <Search setSort={setSort} setError={setError} />}
                             <TopRated />
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </>

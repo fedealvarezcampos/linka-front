@@ -26,16 +26,18 @@ const UserProfile = () => {
                 <title>{`Linkah - ${username}`}</title>
             </Helmet>
             <div className="userPageContainer">
-                <ul className="postListContainer">
-                    {profileData?.userPosts.length === 0 ? (
-                        <NoResultsPost />
-                    ) : (
-                        profileData &&
-                        profileData.userPosts.map(post => (
-                            <Post key={post.id} post={post} username={profileData.username} />
-                        ))
-                    )}
-                </ul>
+                <main>
+                    <ul className="postListContainer">
+                        {profileData?.userPosts.length === 0 ? (
+                            <NoResultsPost />
+                        ) : (
+                            profileData &&
+                            profileData.userPosts.map(post => (
+                                <Post key={post.id} post={post} username={profileData.username} />
+                            ))
+                        )}
+                    </ul>
+                </main>
                 <ProfileCard user={profileData} />
             </div>
         </>

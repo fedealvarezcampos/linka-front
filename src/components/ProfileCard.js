@@ -9,7 +9,7 @@ const ProfileCard = ({ user }) => {
     }
 
     return (
-        <div className="userCardContainer">
+        <aside className="userCardContainer">
             <span>
                 profile<i className="bi bi-file-person-fill"></i>
             </span>
@@ -58,7 +58,7 @@ const ProfileCard = ({ user }) => {
                     </div>
                 )}
             </div>
-        </div>
+        </aside>
     );
 };
 

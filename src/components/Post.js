@@ -41,63 +41,65 @@ function Post({ post, username, setError }) {
 
     return (
         <>
-            <li className="postContainer">
-                <div className="postInfo">
-                    <i className="ci-link_02"></i>
-                    <span className="postInfoText">
-                        shared by{' '}
-                        <span>
-                            {(post.username || username) !== 'Account suspended' && (
-                                <Link to={`/users/${post?.username || username}`}>
-                                    {post.username || username}
-                                </Link>
-                            )}
-                            {(post.username || username) === 'Account suspended' && (
-                                <span className="accountSuspended">suspended account</span>
-                            )}
-                        </span>{' '}
-                        <ReactTimeAgo date={postDate} locale="en-US" />
-                    </span>
-                </div>
-                <div className="postContent">
-                    <Link
-                        className="postContentLink"
-                        to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                        onClick={!token ? () => handleNote(token, itsMyPost) : null}
-                    >
-                        <h1>{post.title}</h1>
-                        <p>{post.description}</p>
-                    </Link>
-                    <LinkPreview notify={handleNote} post={post} />
-                </div>
-                <div className="postFooter">
-                    <div className="postFooterComments">
+            <article>
+                <li className="postContainer">
+                    <div className="postInfo">
+                        <i className="ci-link_02"></i>
+                        <span className="postInfoText">
+                            shared by{' '}
+                            <span>
+                                {(post.username || username) !== 'Account suspended' && (
+                                    <Link to={`/users/${post?.username || username}`}>
+                                        {post.username || username}
+                                    </Link>
+                                )}
+                                {(post.username || username) === 'Account suspended' && (
+                                    <span className="accountSuspended">suspended account</span>
+                                )}
+                            </span>{' '}
+                            <ReactTimeAgo date={postDate} locale="en-US" />
+                        </span>
+                    </div>
+                    <div className="postContent">
                         <Link
+                            className="postContentLink"
                             to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                            className="postFooterContentContainer"
                             onClick={!token ? () => handleNote(token, itsMyPost) : null}
                         >
-                            <i className="bi bi-chat-fill"></i>
-                            <span>
-                                {post.commented || 'No'} {post.commented === 1 ? 'comment' : 'comments'}
-                            </span>
+                            <h1>{post.title}</h1>
+                            <p>{post.description}</p>
                         </Link>
+                        <LinkPreview notify={handleNote} post={post} />
                     </div>
-                    <div className="postFooterLikes">
-                        <div
-                            className="postLikesContainer"
-                            onClick={
-                                (token && !itsMyPost && handleLikeClick) ||
-                                (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
-                                (!token ? () => handleNote(token, itsMyPost) : null)
-                            }
-                        >
-                            <span>{likes}</span>
-                            <i className="bi bi-heart-fill"></i>
+                    <div className="postFooter">
+                        <div className="postFooterComments">
+                            <Link
+                                to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
+                                className="postFooterContentContainer"
+                                onClick={!token ? () => handleNote(token, itsMyPost) : null}
+                            >
+                                <i className="bi bi-chat-fill"></i>
+                                <span>
+                                    {post.commented || 'No'} {post.commented === 1 ? 'comment' : 'comments'}
+                                </span>
+                            </Link>
+                        </div>
+                        <div className="postFooterLikes">
+                            <div
+                                className="postLikesContainer"
+                                onClick={
+                                    (token && !itsMyPost && handleLikeClick) ||
+                                    (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
+                                    (!token ? () => handleNote(token, itsMyPost) : null)
+                                }
+                            >
+                                <span>{likes}</span>
+                                <i className="bi bi-heart-fill"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </article>
         </>
     );
 }

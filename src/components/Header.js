@@ -67,7 +67,7 @@ function Header({ error, setError }) {
                 )}
                 {user && (
                     <>
-                        <div className="headerButtons">
+                        <nav className="headerButtons">
                             <button
                                 alt="activity"
                                 className={`button navButton ${activityMenu ? 'active' : ''}`}
@@ -81,7 +81,7 @@ function Header({ error, setError }) {
                             <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
                                 <i className="bi bi-plus-circle-fill" />
                             </NavLink>
-                        </div>
+                        </nav>
                     </>
                 )}
                 {user ? (
