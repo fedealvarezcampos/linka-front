@@ -103,13 +103,10 @@
 
     .userPageContainer .userCardContainer {
         display: block;
-        width: auto;
-        min-width: 60%;
-        max-width: 78%;
+        width: 85%;
         /* margin-left: 9vw; */
         position: unset;
         place-self: center;
-        /* justify-content: center; */
     }
 
     .userPageContainer .userCardContainer span {
@@ -119,11 +116,13 @@
     .userPageContainer .userCardContent {
         display: grid;
         grid-auto-flow: column;
-        gap: 12px;
+        grid: auto / 0.5fr auto;
+        gap: 1vw;
         align-items: center;
-        /* justify-content: start; */
+        justify-content: start;
+        place-content: center;
         width: 100%;
-        padding: 1.2rem 1rem 1.2rem 1rem;
+        padding: 6vw 5vw 6vw 5vw;
     }
 
     .userPageContainer .userCardContent .quote {
@@ -135,7 +134,7 @@
     }
 
     .userPageContainer .userCardContent .userCardBio {
-        max-width: 8rem;
+        /* max-width: 8rem; */
         font-size: clamp(0.7rem, 2.4vw, 2.8vw);
         padding: 0;
     }
@@ -146,15 +145,16 @@
     }
 
     .userPageContainer .userCardAvatar {
-        justify-self: center;
-        width: clamp(9vw, 14vw, 6rem);
-        height: clamp(9vw, 14vw, 6rem);
+        grid-row-end: span 3;
+        margin-right: 5vw;
+        width: clamp(10vw, 24vw, 12rem);
+        height: clamp(10vw, 24vw, 12rem);
         border: 4px solid var(--base-light-color);
     }
 
     .userCardUsername {
         margin: 0;
-        font-size: 4vw;
+        font-size: 5vw;
     }
 
     .userCardLove {
@@ -171,8 +171,8 @@
 
     .userCardSocial {
         display: flex;
-        flex-direction: column;
-        font-size: 2.8vw;
+        flex-direction: row;
+        font-size: 3.2vw;
         align-self: center;
         padding: 0;
         gap: 8px;
