@@ -154,14 +154,21 @@
 
 /* No results post */
 
+/* .postContainer.noResults {
+    max-height: 50vh;
+} */
+
 .postContent.noResults {
     display: grid;
+    grid: auro auto auto / auto;
+    justify-items: start;
     font-size: 1.3rem;
     font-style: italic;
     gap: 20px;
+    padding: 4vh;
     margin-top: 0.45rem;
     margin-bottom: 0.45rem;
-    height: 30rem;
+    /* height: 80vw; */
 }
 
 .postInfo.noResults span,
@@ -175,8 +182,10 @@
 }
 
 .catGif {
-    width: 400px;
-    height: 290px;
+    width: 60vw;
+    height: 40vw;
+    max-width: 30rem;
+    max-height: 18rem;
     border-radius: 16px 16px 16px 0;
     border: 6px solid var(--base-light-color);
     background-size: cover;

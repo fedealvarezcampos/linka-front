@@ -44,9 +44,9 @@
 
 @media (max-width: 600px) {
     .searchContainer {
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+        /* display: flex; */
+        /* align-items: flex-end; */
+        /* justify-content: center; */
         width: 100vw;
         padding: 0;
         /* padding-bottom: 10px; */
