@@ -102,15 +102,13 @@
     }
 
     .userPageContainer .userCardContainer {
-        display: block;
-        width: 85%;
-        /* margin-left: 9vw; */
+        width: 80vw;
         position: unset;
         place-self: center;
     }
 
     .userPageContainer .userCardContainer span {
-        width: 4.2rem;
+        width: 4rem;
     }
 
     .userPageContainer .userCardContent {
@@ -122,7 +120,7 @@
         justify-content: start;
         place-content: center;
         width: 100%;
-        padding: 6vw 5vw 6vw 5vw;
+        padding: 5.2vw 6.8vw 5.2vw 6.8vw;
     }
 
     .userPageContainer .userCardContent .quote {
