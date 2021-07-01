@@ -13,6 +13,7 @@ import './styles/index.css';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import ScrollToTop from './helpers/ScrollToTop';
+import * as serviceWorker from './serviceWorkerRegistration';
 
 TimeAgo.addDefaultLocale(en);
 
@@ -40,3 +41,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+serviceWorker.register();
