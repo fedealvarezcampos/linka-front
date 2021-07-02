@@ -15,8 +15,8 @@ self.addEventListener('install', event => {
 // Cache and return requests
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        fetch(event.request).catch(function () {
-            return caches.match(event.request);
+        fetch(event.request).then(function (networkResponse) {
+            return networkResponse;
         })
     );
 });
