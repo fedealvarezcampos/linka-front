@@ -1,5 +1,5 @@
 const CACHE_NAME = 'pwa-linkah';
-const urlsToCache = ['/'];
+const urlsToCache = ['/', '/css', '/js/components/Home.js'];
 
 // Install a service worker
 self.addEventListener('install', event => {
@@ -13,14 +13,26 @@ self.addEventListener('install', event => {
 });
 
 // Cache and return requests
+
+//network-first
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        fetch(event.request).then(function (networkResponse) {
-            return networkResponse;
+        fetch(event.request).catch(function () {
+            return caches.match(event.request);
         })
     );
 });
 
+// network-only
+// self.addEventListener('fetch', function (event) {
+//     event.respondWith(
+//         fetch(event.request).then(function (networkResponse) {
+//             return networkResponse;
+//         })
+//     );
+// });
+
+// default
 // self.addEventListener('fetch', event => {
 //     event.respondWith(
 //         caches.match(event.request).then(function (response) {
