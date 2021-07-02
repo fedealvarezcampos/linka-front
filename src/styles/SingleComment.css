@@ -125,3 +125,21 @@
     padding-top: 0.4rem;
     margin-bottom: 0.8rem;
 }
+
+@media (max-width: 600px) {
+    .singleCommentContainer {
+        display: grid;
+        grid: auto / 3rem auto;
+    }
+
+    .singleCommentAvatar {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .nestedComment {
+        border-left: none;
+        padding-left: 0.05rem;
+        margin-left: 0.8rem;
+    }
+}
