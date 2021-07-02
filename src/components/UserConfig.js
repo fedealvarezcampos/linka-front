@@ -11,7 +11,7 @@ import Modal from './Modal';
 import '../styles/UserConfig.css';
 
 function UserConfig({ setError }) {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const modal = useModal();

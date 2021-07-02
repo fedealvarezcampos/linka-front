@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useClosingKey } from '../hooks/useClosingKey';
 
 function NavProfile({ show, setShow, love }) {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const user = useSelector(s => s.user);

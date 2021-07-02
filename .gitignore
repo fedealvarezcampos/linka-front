@@ -4,6 +4,7 @@
 
 #trash
 /src/components/trash
+/src/none.js
 
 # dependencies
 /node_modules

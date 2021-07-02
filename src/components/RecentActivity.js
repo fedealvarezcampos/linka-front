@@ -4,7 +4,7 @@ import '../styles/RecentActivity.css';
 import { useSelector } from 'react-redux';
 
 function RecentActivity({ note, setActivityMenu }) {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const userId = useSelector(s => s.user?.id);

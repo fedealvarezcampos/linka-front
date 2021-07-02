@@ -10,7 +10,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import { notifyError } from '../helpers/toasts';
 
 const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     const setLogNote = useSetLogNote();

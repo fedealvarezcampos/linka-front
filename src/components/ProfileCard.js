@@ -1,7 +1,7 @@
 import '../styles/ProfileCard.css';
 
 const ProfileCard = ({ user }) => {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
     const { REACT_APP_STATIC: staticURL } = process.env;
 
     if (!user) {

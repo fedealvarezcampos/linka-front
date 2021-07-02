@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import '../styles/LinkPreview.css';
 
 function LinkPreview({ post, notify }) {
-    const { REACT_APP_PUBLIC: baseURL } = process.env;
+    const { REACT_APP_SERVER: baseURL } = process.env;
 
     const token = useSelector(s => s.user?.token);
 
