@@ -45,10 +45,12 @@ function SearchResults({ sort, setSort, setError }) {
                             </ul>
                         </>
                     )}
-                    <div className="homeSidebarContainer">
-                        {user && <Search setSort={setSort} setError={setError} />}
-                        <TopRated />
-                    </div>
+                    <aside className="homeOuterSidebarContainer">
+                        <div className="homeSidebarContainer">
+                            {user && <Search setSort={setSort} setError={setError} />}
+                            <TopRated />
+                        </div>
+                    </aside>
                 </div>
             </div>
         </>
