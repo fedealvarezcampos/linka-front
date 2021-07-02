@@ -8,7 +8,7 @@ function LinkPreview({ post, notify }) {
 
     const altPreview = `${baseURL}images/prevLink.jpg`;
 
-    console.log(post?.linkImg);
+    // console.log(post?.linkImg);
 
     return (
         <div
