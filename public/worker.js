@@ -1,5 +1,5 @@
 const CACHE_NAME = 'pwa-linkah';
-const urlsToCache = ['/offline.html', '/css'];
+const urlsToCache = ['/', 'index.html', 'manifest.json', 'css/'];
 
 // Install a service worker
 self.addEventListener('install', event => {
@@ -12,7 +12,7 @@ self.addEventListener('install', event => {
     );
 });
 
-// Cache and return requests
+// Cache and return request
 
 //network-first
 self.addEventListener('fetch', function (event) {

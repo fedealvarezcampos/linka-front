@@ -19,3 +19,8 @@
     margin: auto;
     resize: none;
 }
+
+.commentForm .button {
+    padding: clamp(0.5rem, 0.6vw, 0.5rem);
+    width: clamp(3.2rem, 16vw, 7rem);
+}

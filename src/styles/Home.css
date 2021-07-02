@@ -19,7 +19,7 @@
     position: sticky;
     top: 160px;
     /* padding-bottom: 1rem; */
-    height: 30rem;
+    height: stretch;
     overflow: unset;
     background-color: var(--main-bg-color);
 }
