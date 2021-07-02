@@ -1,5 +1,5 @@
 const CACHE_NAME = 'pwa-linkah';
-const urlsToCache = ['/'];
+const urlsToCache = ['/', '/index.html'];
 
 // Install a service worker
 self.addEventListener('install', event => {
