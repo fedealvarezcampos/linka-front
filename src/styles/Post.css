@@ -97,6 +97,7 @@
 }
 
 .postFooter i {
+    align-self: center;
     font-size: 1rem;
 }
 
@@ -128,9 +129,9 @@
 
 .postLikesContainer {
     display: grid;
+    align-content: end;
     gap: 2px;
     grid: auto / auto auto;
-    align-items: start;
     cursor: pointer;
 }
 
