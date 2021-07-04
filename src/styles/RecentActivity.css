@@ -60,6 +60,10 @@
     background-color: var(--posts-color);
 }
 
+.activityDMContainer {
+    background-color: var(--item-bg-color);
+}
+
 .activityContainer p {
     margin: 0;
 }

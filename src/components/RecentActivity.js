@@ -10,11 +10,13 @@ function RecentActivity({ note, setActivityMenu }) {
     const userId = useSelector(s => s.user?.id);
 
     const noteDate = new Date(note.commentDate);
-    const postTitleURL = note.postTitle.replaceAll(' ', '-').toLowerCase();
+    const postTitleURL = note.postTitle && note.postTitle.replaceAll(' ', '-').toLowerCase();
+
+    console.log(note);
 
     return (
         <>
-            <li className="activityContainer">
+            <li className={`activityContainer ${note?.postTitle === 'DM' ? 'activityDMContainer' : ''}`}>
                 <div
                     className={`activityUserAvatar ${
                         note.username === 'Account suspended' ? 'noUserAvatar' : ''
@@ -39,23 +41,29 @@ function RecentActivity({ note, setActivityMenu }) {
                             ) : (
                                 <span className="noUser">deleted user </span>
                             )}
-                            <span className="responseType">{`${
-                                note.parentId === null || note?.parentUserId !== userId
-                                    ? 'commented'
-                                    : 'responded to you'
-                            }`}</span>
+                            <span className="responseType">
+                                {`${
+                                    note?.parentId === null || note?.parentUserId !== userId
+                                        ? note?.postTitle !== 'DM'
+                                            ? 'commented'
+                                            : 'messaged you'
+                                        : 'responded to you'
+                                }`}
+                            </span>
                         </div>
                         <span className="activityDate">
-                            <p>
-                                in{' '}
-                                <Link
-                                    to={`/posts/${note.postId}/${postTitleURL}`}
-                                    onClick={() => setActivityMenu(false)}
-                                    className="activityPostTitle"
-                                >
-                                    {note.postTitle}
-                                </Link>{' '}
-                            </p>
+                            {note?.postTitle !== 'DM' && (
+                                <p>
+                                    in{' '}
+                                    <Link
+                                        to={postTitleURL && `/posts/${note.postId}/${postTitleURL}`}
+                                        onClick={() => setActivityMenu(false)}
+                                        className="activityPostTitle"
+                                    >
+                                        {note.postTitle}
+                                    </Link>{' '}
+                                </p>
+                            )}
                         </span>
                         <span className="activityDate">
                             <ReactTimeAgo date={noteDate} timeStyle="round" locale="en-US" />
