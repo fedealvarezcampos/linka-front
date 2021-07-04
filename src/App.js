@@ -58,7 +58,7 @@ function App() {
                     <NewLink setError={setError} />
                 </Route>
                 <Route path="/search" exact>
-                    <SearchResults sort={sort} setSort={setSort} />
+                    <SearchResults sort={sort} setSort={setSort} setError={setError} />
                 </Route>
                 <Route path="/posts/:postId/:postTitle" exact>
                     <SinglePostPage setError={setError} />
