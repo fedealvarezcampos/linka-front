@@ -101,6 +101,11 @@
     font-size: 1rem;
 }
 
+.postFooter span {
+    align-self: center;
+    font-size: 1.05rem;
+}
+
 .postFooterContentContainer {
     text-decoration: none;
     color: var(--highlight-color);
@@ -130,7 +135,7 @@
 .postLikesContainer {
     display: grid;
     align-content: end;
-    gap: 2px;
+    gap: 2.5px;
     grid: auto / auto auto;
     cursor: pointer;
 }
