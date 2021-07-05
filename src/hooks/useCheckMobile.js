@@ -13,7 +13,7 @@ const useCheckMobile = () => {
         };
     }, []);
 
-    return width <= 768;
+    return width <= 1000;
 };
 
 export default useCheckMobile;
