@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import useCheckMobile from '../hooks/useCheckMobile';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyError, notifyMessage } from '../helpers/toasts';
 import Spinner from '../assets/Spinner';
@@ -16,6 +17,7 @@ import '../styles/Home.css';
 
 function Home({ sort, setSort, setError }) {
     const dispatch = useDispatch();
+    const mobile = useCheckMobile();
     const setLogNote = useSetLogNote();
 
     const { uuid } = useParams();
@@ -85,12 +87,14 @@ function Home({ sort, setSort, setError }) {
                             </ul>
                         </InfiniteScroll>
                     </main>
-                    <aside className="homeOuterSidebarContainer">
-                        <div className="homeSidebarContainer">
-                            {user && <Search setSort={setSort} setError={setError} />}
-                            <TopRated />
-                        </div>
-                    </aside>
+                    {!mobile && (
+                        <aside className="homeOuterSidebarContainer">
+                            <div className="homeSidebarContainer">
+                                {user && <Search setSort={setSort} setError={setError} />}
+                                <TopRated />
+                            </div>
+                        </aside>
+                    )}
                 </div>
             </div>
         </>
