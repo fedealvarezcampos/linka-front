@@ -135,6 +135,10 @@
     cursor: pointer;
 }
 
+.postLikesContainer.activeLike {
+    color: var(--alt-highlight-color);
+}
+
 .postLikesContainer:hover span,
 .postLikesContainer:hover i {
     color: var(--alt-highlight-color);

@@ -11,6 +11,8 @@ const useGetSinglePost = (postId, token) => useAPIGet(`${baseURL}/posts/${postId
 
 const useGetResults = (value, sort, token) => useAPIGet(`${baseURL}/search?q=${value}&sort=${sort}`, token);
 
+const useCheckLiked = (postId, token) => useAPIGet(`${baseURL}/posts/${postId}/likes`, token);
+
 const getSearchResults = async (value, token) => {
     const { data } = await axios.get(`${baseURL}/search?q=${value}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -47,5 +49,6 @@ export {
     getSearchResults,
     publishLink,
     likePost,
+    useCheckLiked,
     deletePost,
 };

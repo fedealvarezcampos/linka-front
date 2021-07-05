@@ -21,7 +21,6 @@
     /* padding-bottom: 1rem; */
     height: stretch;
     overflow: unset;
-    background-color: var(--main-bg-color);
 }
 
 @media (max-width: 1000px) {

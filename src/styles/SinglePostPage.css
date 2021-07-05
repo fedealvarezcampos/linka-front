@@ -25,6 +25,10 @@
     margin-top: 0.2rem;
 }
 
+.singlePostContainer .postFooter i {
+    align-self: start;
+}
+
 .singlePostContainer .postFooterComments,
 .singlePostContainer .postFooterLikes {
     color: var(--base-light-color);

@@ -12,8 +12,6 @@ function RecentActivity({ note, setActivityMenu }) {
     const noteDate = new Date(note.commentDate);
     const postTitleURL = note.postTitle && note.postTitle.replaceAll(' ', '-').toLowerCase();
 
-    console.log(note);
-
     return (
         <>
             <li className={`activityContainer ${note?.postTitle === 'DM' ? 'activityDMContainer' : ''}`}>

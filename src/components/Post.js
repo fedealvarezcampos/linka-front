@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ReactTimeAgo from 'react-time-ago';
 import { useSetLogNote } from '../context/LogNoteContext';
 import { notifyAuth } from '../helpers/toasts';
-import { likePost } from '../api/posts';
+import { likePost, useCheckLiked } from '../api/posts';
 import LinkPreview from './LinkPreview';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Post.css';
@@ -16,9 +16,12 @@ function Post({ post, username, setError }) {
     const itsMyPost = user?.id === post.userId;
 
     const [likes, setLikes] = useState(post?.likes || 0);
+    const [liked, setLiked] = useState();
 
-    const postId = post.postId || post.id;
+    const postId = post?.postId || post?.id;
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
+
+    const postIsLiked = useCheckLiked(postId, token);
 
     let body;
 
@@ -26,7 +29,13 @@ function Post({ post, username, setError }) {
         e.preventDefault();
         try {
             const response = await likePost(postId, body, token);
-            response.likeId !== null ? setLikes(likes - 1) : setLikes(likes + 1);
+            if (response.likeId !== null) {
+                setLikes(likes - 1);
+                setLiked(false);
+            } else {
+                setLikes(likes + 1);
+                setLiked(true);
+            }
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -85,7 +94,9 @@ function Post({ post, username, setError }) {
                     </div>
                     <div className="postFooterLikes">
                         <div
-                            className="postLikesContainer"
+                            className={`postLikesContainer ${
+                                (postIsLiked && liked !== false) || liked ? 'activeLike' : ''
+                            }`}
                             onClick={
                                 (token && !itsMyPost && handleLikeClick) ||
                                 (itsMyPost ? () => handleNote(token, itsMyPost) : null) ||
