@@ -185,7 +185,7 @@
 
     .header .navProfile {
         grid: auto / auto auto auto;
-        gap: 6px;
+        gap: 8px;
         font-size: clamp(0.8rem, 0.8rem, 1.2rem);
     }
 
@@ -224,16 +224,8 @@
     .header .button.navButton {
         width: 1rem;
         height: 1rem;
-        padding: 11px 12px 11px 12px;
-        border-radius: 10px;
-        border: 2px solid var(--base-light-color);
-    }
-
-    .header .button.navButton {
-        width: 1rem;
-        height: 1rem;
-        padding: 9px 9px 9px 9px;
-        border-radius: 8px;
+        padding: 10px;
+        border-radius: 9px;
         border: 2px solid var(--base-light-color);
     }
 
@@ -248,7 +240,7 @@
 
     .header .button.navButton i {
         font-size: 0.6rem;
-        margin-left: 1.85px;
+        margin-left: 1.65px;
     }
 
     .header .navProfile .love {
