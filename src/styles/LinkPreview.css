@@ -80,9 +80,9 @@
         grid: 7rem auto / auto;
         padding: 15px 13px 15px 13px;
         margin: auto;
-        margin-top: 1.6rem;
+        margin-top: 1.4rem;
         gap: 0.8rem;
-        width: clamp(8rem, 55vw, 18rem);
+        width: clamp(8rem, 60vw, 18rem);
     }
 
     .linkInfoContainer {
