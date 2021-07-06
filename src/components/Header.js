@@ -69,16 +69,26 @@ function Header({ error, setError }) {
                     <>
                         <nav className="headerButtons">
                             <button
-                                alt="activity"
+                                aria-label="activity"
                                 className={`button navButton ${activityMenu ? 'active' : ''}`}
                                 onClick={() => setActivityMenu(!activityMenu)}
                             >
                                 <i className="bi bi-lightning-charge-fill" />
                             </button>
-                            <NavLink to={'/dms'} activeClassName="active" className="button navButton">
+                            <NavLink
+                                to={'/dms'}
+                                activeClassName="active"
+                                className="button navButton"
+                                aria-label="private messages"
+                            >
                                 <i className="bi bi-envelope-fill" />
                             </NavLink>
-                            <NavLink to={'/new-link'} activeClassName="active" className="button navButton">
+                            <NavLink
+                                to={'/new-link'}
+                                activeClassName="active"
+                                className="button navButton"
+                                aria-label="new post"
+                            >
                                 <i className="bi bi-plus-circle-fill" />
                             </NavLink>
                         </nav>
