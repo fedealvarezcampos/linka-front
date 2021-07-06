@@ -144,4 +144,18 @@
         font-size: 0.6rem;
         border: 3px solid var(--alt-highlight-color);
     }
+
+    .modal-fg.deletePostModal {
+        padding: 20px;
+        font-size: 1rem;
+        width: 40vw;
+    }
+
+    .modal-fg.deletePostModal > span {
+        display: block;
+    }
+
+    .modal-fg.deletePostModal .button {
+        width: 7rem;
+    }
 }

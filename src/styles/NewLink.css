@@ -81,6 +81,7 @@
     }
 
     .newLinkContainer label {
+        font-size: 0.9rem;
         width: 10rem;
     }
 
@@ -92,6 +93,7 @@
     .newLinkContainer textarea {
         width: clamp(6rem, 18rem, 50vw);
         height: 8rem;
+        font-size: 0.8rem;
     }
 
     .newLinkContainer button {
