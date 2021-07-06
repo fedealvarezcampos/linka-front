@@ -16,7 +16,7 @@ import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
-import { notifyMessage } from '../helpers/toasts';
+import { notifyError, notifyMessage } from '../helpers/toasts';
 
 function SinglePostPage({ setError }) {
     const setLogNote = useSetLogNote();
@@ -45,6 +45,10 @@ function SinglePostPage({ setError }) {
     useEffect(() => {
         setNestedComments(nestComments(commentsFullData));
     }, [commentsFullData]);
+
+    useEffect(() => {
+        setModal(false);
+    }, [setModal]);
 
     useEffect(() => {
         setLikes(postLikes);
@@ -78,8 +82,10 @@ function SinglePostPage({ setError }) {
             setError('');
             setLinkIsDeleted(true);
             notifyMessage('All gone!');
+            setLogNote(true);
         } catch (error) {
             setError(error.response.data.error);
+            notifyError(error.response.data.error);
             setLogNote(true);
         }
     };

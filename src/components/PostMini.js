@@ -29,7 +29,13 @@ function PostMini({ post, user }) {
                     <div>
                         <div
                             className="linkPrevImg"
-                            style={{ backgroundImage: `url(${post.linkImg || altPreview})` }}
+                            style={{
+                                backgroundImage: `url(${
+                                    (!post?.linkImg?.includes('scontent') && post.linkImg) ||
+                                    (post?.linkImg?.includes('scontent') && altPreview) ||
+                                    altPreview
+                                })`,
+                            }}
                             alt="link image"
                         />
                     </div>
