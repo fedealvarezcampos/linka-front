@@ -95,7 +95,7 @@ function Post({ post, username, setError }) {
                     <div className="postFooterLikes">
                         <div
                             className={`postLikesContainer ${
-                                (postIsLiked && liked !== false) || liked ? 'activeLike' : ''
+                                (token && postIsLiked && liked !== false) || liked ? 'activeLike' : ''
                             }`}
                             onClick={
                                 (token && !itsMyPost && handleLikeClick) ||
