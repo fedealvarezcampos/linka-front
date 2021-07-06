@@ -169,10 +169,10 @@
     justify-items: start;
     font-size: 1.3rem;
     font-style: italic;
-    gap: 20px;
-    padding: 4vh;
-    margin-top: 0.45rem;
-    margin-bottom: 0.45rem;
+    gap: 18px;
+    padding: 2.2rem;
+    margin-top: 0.15rem;
+    margin-bottom: 2rem;
 }
 
 .postInfo.noResults span,
@@ -187,9 +187,10 @@
 
 .catGif {
     width: 60vw;
-    height: 40vw;
+    height: 50vw;
     max-width: 30rem;
-    max-height: 18rem;
+    max-height: 23rem;
+    margin-bottom: 1.5vw;
     border-radius: 16px 16px 16px 0;
     border: 6px solid var(--base-light-color);
     background-size: cover;
@@ -253,5 +254,10 @@
     .postLikesContainer:hover span,
     .postLikesContainer:hover i {
         color: unset;
+    }
+
+    .postContent.noResults {
+        font-size: 1rem;
+        padding: 2rem;
     }
 }
