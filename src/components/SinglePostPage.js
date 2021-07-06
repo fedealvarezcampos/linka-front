@@ -179,7 +179,7 @@ function SinglePostPage({ setError }) {
                                 postId={postId}
                             />
                         ) : (
-                            <div className="noCommentsHere">No hay comentarios</div>
+                            <div className="noCommentsHere">No comments yet!</div>
                         )}
                     </div>
                 </div>
