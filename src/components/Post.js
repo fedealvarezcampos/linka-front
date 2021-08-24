@@ -69,11 +69,7 @@ function Post({ post, username, setError }) {
                     </span>
                 </div>
                 <div className="postContent">
-                    <Link
-                        className="postContentLink"
-                        to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                        onClick={!token ? () => handleNote(token, itsMyPost) : null}
-                    >
+                    <Link className="postContentLink" to={`/posts/${postId}/${postTitleURL}`}>
                         <h1>{post.title}</h1>
                         <p>{post.description}</p>
                     </Link>
@@ -81,11 +77,7 @@ function Post({ post, username, setError }) {
                 </div>
                 <div className="postFooter">
                     <div className="postFooterComments">
-                        <Link
-                            to={token ? `/posts/${postId}/${postTitleURL}` : `/`}
-                            className="postFooterContentContainer"
-                            onClick={!token ? () => handleNote(token, itsMyPost) : null}
-                        >
+                        <Link to={`/posts/${postId}/${postTitleURL}`} className="postFooterContentContainer">
                             <i className="bi bi-chat-fill"></i>
                             <span>
                                 {post.commented || 'No'} {post.commented === 1 ? 'comment' : 'comments'}

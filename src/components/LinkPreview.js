@@ -1,21 +1,16 @@
-import { useSelector } from 'react-redux';
 import '../styles/LinkPreview.css';
 
 function LinkPreview({ post, notify }) {
     const { REACT_APP_SERVER: baseURL } = process.env;
 
-    const token = useSelector(s => s.user?.token);
-
     const altPreview = `${baseURL}images/prevLink.jpg`;
-
-    // console.log(post?.linkImg);
 
     return (
         <div
             className="linkPrevContainer"
             target="_blank"
             rel="noreferrer"
-            onClick={!token ? () => notify() : () => window.open(post.link, '_blank')}
+            onClick={() => window.open(post.link, '_blank')}
         >
             <div
                 className="linkPrevImg"

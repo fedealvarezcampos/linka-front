@@ -54,23 +54,29 @@ const CommentForm = ({
     };
 
     return (
-        <form className="commentForm" onSubmit={handleSubmit}>
-            <label>
-                <span>Comment:</span>
-                <textarea
-                    cols="35"
-                    rows="6"
-                    placeholder="Leave a comment..."
-                    value={text}
-                    onKeyDown={e => submitOnEnter(e)}
-                    onChange={e => setText(e.target.value)}
-                    type="text"
-                />
-            </label>
-            <button type="submit" className="button">
-                SEND
-            </button>
-        </form>
+        <>
+            {token ? (
+                <form className="commentForm" onSubmit={handleSubmit}>
+                    <label>
+                        <span>Comment:</span>
+                        <textarea
+                            cols="35"
+                            rows="6"
+                            placeholder="Leave a comment..."
+                            value={text}
+                            onKeyDown={e => submitOnEnter(e)}
+                            onChange={e => setText(e.target.value)}
+                            type="text"
+                        />
+                    </label>
+                    <button type="submit" className="button">
+                        SEND
+                    </button>
+                </form>
+            ) : (
+                <div className="noCommentsHere">Log in to leave a message!</div>
+            )}
+        </>
     );
 };
 

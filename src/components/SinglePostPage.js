@@ -8,6 +8,7 @@ import { useSetLogNote } from '../context/LogNoteContext';
 import { useModal, useSetModal } from '../context/ModalContext';
 import nestComments from '../helpers/nestComments';
 import { useGetSinglePost, likePost, deletePost } from '../api/posts';
+import { notifyError, notifyMessage, notifyAuth } from '../helpers/toasts';
 import { useGetComments } from '../api/comments';
 import Spinner from '../assets/Spinner';
 import Modal from '../components/Modal';
@@ -16,7 +17,6 @@ import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import '../styles/SinglePostPage.css';
 import '../styles/Post.css';
-import { notifyError, notifyMessage } from '../helpers/toasts';
 
 function SinglePostPage({ setError }) {
     const setLogNote = useSetLogNote();
@@ -30,7 +30,7 @@ function SinglePostPage({ setError }) {
 
     const commentsFullData = useGetComments(postId);
 
-    const post = useGetSinglePost(postId, token);
+    const post = useGetSinglePost(postId);
     const itsMyPost = user?.id === post?.userId;
 
     const postLikes = post?.likes;
@@ -102,6 +102,11 @@ function SinglePostPage({ setError }) {
         });
     };
 
+    const handleNote = (token, itsMyPost) => {
+        setLogNote(true);
+        notifyAuth(token, itsMyPost);
+    };
+
     return (
         <>
             <Helmet>
@@ -154,7 +159,8 @@ function SinglePostPage({ setError }) {
                                     className="postLikesContainerSingle"
                                     onClick={
                                         (token && !itsMyPost ? handleLikeClick : undefined) ||
-                                        (itsMyPost ? notify : undefined)
+                                        (itsMyPost ? notify : undefined) ||
+                                        (!token ? () => handleNote(token, itsMyPost) : null)
                                     }
                                 >
                                     <span>{likes || 0}</span>

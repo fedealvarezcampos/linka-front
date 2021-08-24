@@ -20,11 +20,7 @@ function PostMini({ post, user }) {
 
     return (
         <li className="miniPostContainer">
-            <Link
-                className="postContentLink"
-                to={(token && `/posts/${post.postId || post.id}/${postTitleURL}`) || (!token && '/')}
-                onClick={() => handleNote(token)}
-            >
+            <Link className="postContentLink" to={`/posts/${post.postId || post.id}/${postTitleURL}`}>
                 <div className="miniPostContent">
                     <div>
                         <div
