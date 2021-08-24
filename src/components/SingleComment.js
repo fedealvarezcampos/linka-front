@@ -90,9 +90,11 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
                         deletedComment !== 'Comment deleted.' &&
                         comment.username !== 'Account suspended' && (
                             <p className="commentLinks">
-                                <span className="replyLink" onClick={() => setCommentForm(!commentForm)}>
-                                    <i className="bi bi-reply-all-fill" /> Reply
-                                </span>
+                                {token && (
+                                    <span className="replyLink" onClick={() => setCommentForm(!commentForm)}>
+                                        <i className="bi bi-reply-all-fill" /> Reply
+                                    </span>
+                                )}
                                 {itsMyComment && token && (
                                     <span
                                         className="deleteCommentLink"

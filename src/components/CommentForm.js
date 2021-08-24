@@ -74,7 +74,7 @@ const CommentForm = ({
                     </button>
                 </form>
             )}
-            {!token && <div className="noCommentsHere">Log in to leave a message!</div>}
+            {!token && <div className="noCommentForm">Log in to leave a message!</div>}
         </>
     );
 };

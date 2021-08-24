@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
-// import { CSSTransition } from 'react-transition-group';
 import '../styles/UserNavMenu.css';
 
 function UserNavMenu({ show, setShow, nodeRef }) {

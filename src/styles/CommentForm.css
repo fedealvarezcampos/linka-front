@@ -24,3 +24,12 @@
     padding: clamp(0.5rem, 0.6vw, 0.5rem);
     width: clamp(3.2rem, 16vw, 7rem);
 }
+
+.noCommentForm {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--alt-highlight-color);
+    padding-top: 0.5rem;
+}
