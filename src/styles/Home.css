@@ -7,7 +7,7 @@
 }
 
 .homeContainer.unloggedBody {
-    margin-top: 2.8rem;
+    margin-top: 2.4rem;
 }
 
 .homeContainer h4 {
@@ -77,7 +77,7 @@
         align-content: center;
     }
 
-    .unloggedBody {
-        margin-top: 3vh;
+    .homeContainer.unloggedBody {
+        margin-top: 1.4rem;
     }
 }

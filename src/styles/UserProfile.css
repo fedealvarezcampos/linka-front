@@ -2,7 +2,7 @@
     display: grid;
     place-content: center;
     align-items: start;
-    margin-top: 2.8rem;
+    margin-top: 2.4rem;
     gap: 2rem;
     grid: auto / auto 18rem;
 }

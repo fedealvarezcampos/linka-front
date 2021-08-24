@@ -45,7 +45,7 @@
     margin: auto;
     display: grid;
     grid: auto 1fr auto / 1fr;
-    margin-bottom: 2.8rem;
+    margin-bottom: 2.2rem;
     width: clamp(20rem, 60vw, 50rem);
     height: auto;
     font-family: 'Fira Sans', sans-serif;
