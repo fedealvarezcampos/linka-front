@@ -1,6 +1,6 @@
 import '../styles/LinkPreview.css';
 
-function LinkPreview({ post, notify }) {
+function LinkPreview({ post }) {
     const { REACT_APP_SERVER: baseURL } = process.env;
 
     const altPreview = `${baseURL}images/prevLink.jpg`;
@@ -10,13 +10,13 @@ function LinkPreview({ post, notify }) {
             className="linkPrevContainer"
             target="_blank"
             rel="noreferrer"
-            onClick={() => window.open(post.link, '_blank')}
+            onClick={() => window.open(post?.link, '_blank')}
         >
             <div
                 className="linkPrevImg"
                 style={{
                     backgroundImage: `url(${
-                        (!post?.linkImg?.includes('scontent') && post.linkImg) ||
+                        (!post?.linkImg?.includes('scontent') && post?.linkImg) ||
                         (post?.linkImg?.includes('scontent') && altPreview) ||
                         altPreview
                     })`,
@@ -25,10 +25,10 @@ function LinkPreview({ post, notify }) {
             />
             <div className="linkInfoContainer">
                 <p className="linkPrevTitle">
-                    {(!post?.linkTitle?.includes('Login') && post.linkTitle) ||
+                    {(!post?.linkTitle?.includes('Login') && post?.linkTitle) ||
                         (post?.linkTitle?.includes('Login') && 'Check the link!')}
                 </p>
-                <p className="linkPrevDesc">{post.linkDesc.slice(0, 110) + '...'}</p>
+                <p className="linkPrevDesc">{post?.linkDesc.slice(0, 110) + '...'}</p>
             </div>
         </div>
     );

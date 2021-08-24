@@ -7,7 +7,7 @@ const useGetPosts = sort => useAPIGet((sort && `${baseURL}/posts?sort=${sort}`) 
 
 const useGetSomePosts = (sort, page) => useAPIGet(`${baseURL}/posts?sort=${sort}&page=${page}&limit=4`);
 
-const useGetSinglePost = postId => useAPIGet(`${baseURL}/posts/${postId}`);
+const useGetSinglePost = postId => useAPIGet(postId && `${baseURL}/posts/${postId}`);
 
 const useGetResults = (value, sort, token) => useAPIGet(`${baseURL}/search?q=${value}&sort=${sort}`, token);
 

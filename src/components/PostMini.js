@@ -1,22 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useSetLogNote } from '../context/LogNoteContext';
-import { notifyAuth } from '../helpers/toasts';
 import '../styles/PostMini.css';
 
 function PostMini({ post, user }) {
     const { REACT_APP_SERVER: baseURL } = process.env;
 
-    const setLogNote = useSetLogNote();
-    const token = useSelector(s => s.user?.token);
-
     const postTitleURL = post.title.replaceAll(' ', '-').toLowerCase();
     const altPreview = `${baseURL}images/prevLink.jpg`;
-
-    const handleNote = token => {
-        setLogNote(true);
-        notifyAuth(token);
-    };
 
     return (
         <li className="miniPostContainer">

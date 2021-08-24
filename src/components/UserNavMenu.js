@@ -14,14 +14,13 @@ function UserNavMenu({ show, setShow, nodeRef }) {
         return <Redirect to="/" />;
     };
 
-    if (!user) {
-        return <Redirect to="/" />;
-    }
+    // if (!user) {
+    //     return <Redirect to="/" />;
+    // }
 
     return (
         <>
             {show && user && (
-                // <CSSTransition in={show} timeout={1000} classNames={'transitioned'}>
                 <div ref={nodeRef} className="userMenu dropMenu">
                     <div className="userMenuProfileLink">
                         <NavLink

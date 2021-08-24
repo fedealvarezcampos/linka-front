@@ -55,7 +55,7 @@ const CommentForm = ({
 
     return (
         <>
-            {token ? (
+            {token && (
                 <form className="commentForm" onSubmit={handleSubmit}>
                     <label>
                         <span>Comment:</span>
@@ -73,9 +73,8 @@ const CommentForm = ({
                         SEND
                     </button>
                 </form>
-            ) : (
-                <div className="noCommentsHere">Log in to leave a message!</div>
             )}
+            {!token && <div className="noCommentsHere">Log in to leave a message!</div>}
         </>
     );
 };
