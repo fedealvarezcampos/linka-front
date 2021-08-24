@@ -6,6 +6,10 @@
     grid: auto / auto 18rem;
 }
 
+.homeContainer.unloggedBody {
+    margin-top: 2.8rem;
+}
+
 .homeContainer h4 {
     display: none;
 }
@@ -47,7 +51,7 @@
     }
 
     .unloggedBody {
-        margin-top: 1.2vh;
+        margin-top: 3.5vh;
     }
 }
 
@@ -71,5 +75,9 @@
 
     .homeSidebarContainer {
         align-content: center;
+    }
+
+    .unloggedBody {
+        margin-top: 3vh;
     }
 }

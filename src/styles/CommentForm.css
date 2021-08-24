@@ -33,3 +33,10 @@
     color: var(--alt-highlight-color);
     padding-top: 0.5rem;
 }
+
+@media (max-width: 600px) {
+    .noCommentForm {
+        font-size: 1rem;
+        padding-top: 1rem;
+    }
+}
