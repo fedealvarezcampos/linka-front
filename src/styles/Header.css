@@ -205,10 +205,10 @@
     }
 
     .header.noUser .unloggedHead .button {
-        width: 5.2rem;
-        font-size: 0.55rem;
+        width: 5.3rem;
+        font-size: 0.62rem;
         letter-spacing: 1.2px;
-        padding: 7px 4px 7px 4px;
+        padding: 8px 4px 7px 4px;
         border: 3px solid var(--base-light-color);
     }
 

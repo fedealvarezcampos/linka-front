@@ -94,4 +94,9 @@
         margin-bottom: 3rem;
         font-size: clamp(0.9rem, 2vw, 1rem);
     }
+
+    .commentListContainer {
+        padding: 0.5rem 0.8rem 0.2rem 0.8rem;
+        margin-bottom: 0;
+    }
 }
