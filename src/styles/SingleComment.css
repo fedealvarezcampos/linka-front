@@ -142,4 +142,21 @@
         padding-left: 0.05rem;
         margin-left: 0.8rem;
     }
+
+    .replyLink {
+        font-style: italic;
+        font-size: 0.75rem;
+        color: var(--main-bg-color);
+        transition: color 200ms;
+        cursor: pointer;
+    }
+
+    .replyLink:hover {
+        color: var(--main-bg-color);
+    }
+
+    .replyLink:active {
+        color: var(--alt-highlight-color);
+        transition: color 200ms;
+    }
 }

@@ -40,6 +40,7 @@ const SingleComment = ({ comment, commentNumber, setCommentNumber }) => {
         try {
             deleteComment(postId, comment.commentId, token);
             setDeletedComment('Comment deleted.');
+            setCommentForm(false);
         } catch (error) {
             error?.response && notifyError(error.response.data.error);
             setLogNote(true);
