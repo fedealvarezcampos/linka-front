@@ -27,7 +27,6 @@ function Login({ setError, show, setShow, nodeRef }) {
             passVisibility && setPassVisibility(false);
             dispatch({ type: 'LOGIN', user: response });
         } catch (error) {
-            // setError(error.response.data.error);
             setLogNote(true);
             notifyError(error.response.data.error);
         }

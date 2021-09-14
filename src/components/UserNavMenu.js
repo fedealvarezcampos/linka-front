@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import '../styles/UserNavMenu.css';
 
 function UserNavMenu({ show, setShow, nodeRef }) {
+    const history = useHistory();
     const user = useSelector(s => s.user);
     const dispatch = useDispatch();
 
@@ -10,12 +11,8 @@ function UserNavMenu({ show, setShow, nodeRef }) {
         e.stopPropagation();
         setShow(!show);
         dispatch({ type: 'LOGOUT' });
-        return <Redirect to="/" />;
+        history.replace('/');
     };
-
-    // if (!user) {
-    //     return <Redirect to="/" />;
-    // }
 
     return (
         <>
@@ -44,7 +41,6 @@ function UserNavMenu({ show, setShow, nodeRef }) {
                         </div>
                     </div>
                 </div>
-                // </CSSTransition>
             )}
         </>
     );
