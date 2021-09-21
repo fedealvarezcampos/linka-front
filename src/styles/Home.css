@@ -15,14 +15,12 @@
 }
 
 .homeSidebarContainer {
-    /* position: sticky; */
-    top: 11.6rem;
+    position: fixed;
 }
 
 .homeOuterSidebarContainer {
-    position: sticky;
-    top: 160px;
-    /* padding-bottom: 1rem; */
+    position: relative;
+    top: 0;
     height: stretch;
     overflow: unset;
 }
@@ -37,9 +35,6 @@
     .homeOuterSidebarContainer {
         display: flex;
         align-items: flex-end;
-        /* top: 85px; */
-        /* position: fixed; */
-        /* padding-bottom: 1rem; */
         position: unset;
         height: auto;
         overflow: unset;
@@ -65,10 +60,6 @@
     .homeOuterSidebarContainer {
         display: flex;
         align-items: flex-end;
-        /* top: 55px; */
-        /* position: fixed; */
-        /* padding-bottom: 0.2rem; */
-        /* height: 9.5rem; */
         overflow: unset;
         background-color: var(--main-bg-color);
     }
