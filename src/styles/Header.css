@@ -1,259 +1,259 @@
 .header {
-    display: grid;
-    position: sticky;
-    z-index: 50;
-    top: 0;
-    gap: 20px;
-    grid: 1fr / 1fr auto auto;
-    width: 100%;
-    height: 8rem;
-    padding: 1rem 2.2rem 1rem 2.2rem;
-    box-sizing: border-box;
-    border-bottom: 15px solid var(--base-light-color);
-    background-color: var(--highlight-color);
-    transition: filter 300ms;
+	display: grid;
+	position: sticky;
+	z-index: 50;
+	top: 0;
+	gap: 20px;
+	grid: 1fr / 1fr auto auto;
+	width: 100%;
+	height: 8rem;
+	padding: 1rem 2.2rem 1rem 2.2rem;
+	box-sizing: border-box;
+	border-bottom: 15px solid var(--base-light-color);
+	background-color: var(--highlight-color);
+	transition: filter 300ms;
 }
 
 .header.shadowed {
-    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3));
-    transition: filter 250ms;
+	filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3));
+	transition: filter 250ms;
 }
 
 .header.scrolled {
-    filter: drop-shadow(0 0 0.5rem var(--posts-color));
+	filter: drop-shadow(0 0 0.5rem var(--posts-color));
 }
 
 .header.noUser {
-    grid: 1fr / 1fr auto;
+	grid: 1fr / 1fr auto;
 }
 
 .header .logo {
-    align-self: center;
-    justify-self: start;
-    font-family: 'Exo', sans-serif;
-    font-style: italic;
-    font-size: clamp(2vw, 5vw, 4rem);
-    font-weight: 800;
-    text-decoration: none;
-    color: var(--alt-highlight-color);
-    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
+	align-self: center;
+	justify-self: start;
+	font-family: 'Exo', sans-serif;
+	font-style: italic;
+	font-size: clamp(2vw, 5vw, 4rem);
+	font-weight: 800;
+	text-decoration: none;
+	color: var(--alt-highlight-color);
+	filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
 }
 
 .header .logo span i {
-    display: inline-block;
-    color: var(--alt-highlight-color);
-    padding-left: 0.4rem;
-    transition: filter 250ms;
+	display: inline-block;
+	color: var(--alt-highlight-color);
+	padding-left: 0.4rem;
+	transition: filter 250ms;
 }
 
 .hoveredIcon {
-    filter: drop-shadow(0px 2px 3px #ffa33a);
-    transition: filter 250ms;
+	filter: drop-shadow(0px 2px 3px #ffa33a);
+	transition: filter 250ms;
 }
 
 .header .navProfile {
-    display: grid;
-    grid: auto / auto 5rem auto;
-    z-index: 85;
-    gap: 8px;
-    align-items: center;
-    justify-self: end;
-    float: right;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    font-style: italic;
-    color: var(--base-light-color);
-    /* transition: all 500ms; */
+	display: grid;
+	grid: auto / auto 5rem auto;
+	z-index: 85;
+	gap: 8px;
+	align-items: center;
+	justify-self: end;
+	float: right;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 800;
+	font-style: italic;
+	color: var(--base-light-color);
+	/* transition: all 500ms; */
 }
 
 .header .navProfile:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .header .navProfile .bi-caret-down-fill {
-    transition: color 500ms ease-in-out;
+	transition: color 500ms ease-in-out;
 }
 
 .header .navProfile:hover .bi-caret-down-fill {
-    color: var(--alt-highlight-color);
-    transition: color 500ms ease-in-out;
+	color: var(--alt-highlight-color);
+	transition: color 500ms ease-in-out;
 }
 
 .header .navProfile:hover .avatar {
-    border: 4px solid var(--alt-highlight-color);
-    transform: translatey(-1px);
-    transition: all 500ms ease-in-out;
+	border: 4px solid var(--alt-highlight-color);
+	transform: translatey(-1px);
+	transition: all 500ms ease-in-out;
 }
 
 .header .navProfile i {
-    margin-right: -4px;
+	margin-right: -4px;
 }
 
 .header .unloggedHead {
-    display: grid;
-    width: 20rem;
-    grid: 1fr / auto auto;
-    align-items: center;
-    justify-self: end;
-    justify-items: end;
+	display: grid;
+	width: 20rem;
+	grid: 1fr / auto auto;
+	align-items: center;
+	justify-self: end;
+	justify-items: end;
 }
 
 .headerButtons {
-    display: grid;
-    grid: auto / auto auto auto;
-    gap: 12px;
-    justify-self: center;
+	display: grid;
+	grid: auto / auto auto auto;
+	gap: 12px;
+	justify-self: center;
 }
 
 .headerButtons i {
-    padding-top: 0.65px;
+	padding-top: 0.65px;
 }
 
 .header .navProfile .love {
-    display: grid;
-    grid: 1fr / auto auto;
-    font-size: 18px;
-    color: var(--alt-highlight-color);
-    align-items: start;
-    justify-content: end;
+	display: grid;
+	grid: 1fr / auto auto;
+	font-size: 18px;
+	color: var(--alt-highlight-color);
+	align-items: start;
+	justify-content: end;
 }
 
 .header .navProfile .avatar {
-    width: 4.2rem;
-    height: 4.2rem;
-    justify-self: center;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border: 4px solid var(--base-light-color);
-    border-radius: 50%;
-    transition: border-color 500ms ease-in-out;
+	width: 4.2rem;
+	height: 4.2rem;
+	justify-self: center;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 4px solid var(--base-light-color);
+	border-radius: 50%;
+	transition: border-color 500ms ease-in-out;
 }
 
 .header .navProfile p {
-    margin: 0;
+	margin: 0;
 }
 
 .header .button.navButton {
-    display: flex;
-    align-self: center;
-    justify-self: end;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 12.8px 16px 15px;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 16px;
-    border: 4px solid var(--base-light-color);
-    background-color: var(--posts-color);
-    transition: all 150ms ease-in-out;
+	display: flex;
+	align-self: center;
+	justify-self: end;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 12.8px 16px 15px;
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 16px;
+	border: 4px solid var(--base-light-color);
+	background-color: var(--posts-color);
+	transition: all 150ms ease-in-out;
 }
 
 .header .button.navButton:hover {
-    color: var(--alt-highlight-color);
-    border: 4px solid var(--alt-highlight-color);
-    transition: all 200ms ease-in-out;
+	color: var(--alt-highlight-color);
+	border: 4px solid var(--alt-highlight-color);
+	transition: all 200ms ease-in-out;
 }
 
 .header .button.navButton.active {
-    color: var(--alt-highlight-color);
-    border: 4px solid var(--alt-highlight-color);
-    margin-top: 2px;
-    filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.438));
+	color: var(--alt-highlight-color);
+	border: 4px solid var(--alt-highlight-color);
+	margin-top: 2px;
+	filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.438));
 }
 
 .header .button.navButton.active:hover {
-    color: var(--alt-highlight-color);
-    transform: none;
+	color: var(--alt-highlight-color);
+	transform: none;
 }
 
 .header .button.navButton i {
-    font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 @media (max-width: 600px) {
-    .header {
-        height: 6rem;
-        gap: 10px;
-        padding: 1rem 1rem 1rem 1rem;
-    }
+	.header {
+		height: 6rem;
+		gap: 10px;
+		padding: 1rem 1rem 1rem 1rem;
+	}
 
-    .header .logo {
-        font-size: 6.6vw;
-    }
+	.header .logo {
+		font-size: 6.6vw;
+	}
 
-    .header .navProfile {
-        grid: auto / auto auto auto;
-        gap: 8px;
-        font-size: clamp(0.8rem, 0.8rem, 1.2rem);
-    }
+	.header .navProfile {
+		grid: auto / auto auto auto;
+		gap: 8px;
+		font-size: clamp(0.8rem, 0.8rem, 1.2rem);
+	}
 
-    .header .navProfile .avatar {
-        width: 2.2rem;
-        height: 2.2rem;
-        border: 3px solid var(--base-light-color);
-        justify-self: end;
-    }
+	.header .navProfile .avatar {
+		width: 2.2rem;
+		height: 2.2rem;
+		border: 3px solid var(--base-light-color);
+		justify-self: end;
+	}
 
-    .header .navProfile:hover .avatar {
-        border: 3px solid var(--alt-highlight-color);
-    }
+	.header .navProfile:hover .avatar {
+		border: 3px solid var(--alt-highlight-color);
+	}
 
-    .header.noUser {
-        grid: 1fr / auto auto;
-    }
+	.header.noUser {
+		grid: 1fr / auto auto;
+	}
 
-    .header.noUser .unloggedHead .button {
-        width: 5.3rem;
-        font-size: 0.62rem;
-        letter-spacing: 1.2px;
-        padding: 8px 4px 7px 4px;
-        border: 3px solid var(--base-light-color);
-    }
+	.header.noUser .unloggedHead .button {
+		width: 5.3rem;
+		font-size: 0.62rem;
+		letter-spacing: 1.2px;
+		padding: 8px 4px 7px 4px;
+		border: 3px solid var(--base-light-color);
+	}
 
-    .header.noUser .unloggedHead .button:hover {
-        border: 3px solid var(--alt-highlight-color);
-        transform: translatey(-0.6px);
-    }
+	.header.noUser .unloggedHead .button:hover {
+		border: 3px solid var(--alt-highlight-color);
+		transform: translatey(-0.6px);
+	}
 
-    .header.noUser .unloggedHead .button:active {
-        transform: translatey(0.6px);
-    }
+	.header.noUser .unloggedHead .button:active {
+		transform: translatey(0.6px);
+	}
 
-    .header .button.navButton {
-        width: 1rem;
-        height: 1rem;
-        padding: 10px;
-        border-radius: 9px;
-        border: 2px solid var(--base-light-color);
-    }
+	.header .button.navButton {
+		width: 1rem;
+		height: 1rem;
+		padding: 10px;
+		border-radius: 9px;
+		border: 2px solid var(--base-light-color);
+	}
 
-    .header .button.navButton:hover {
-        border: 2px solid var(--alt-highlight-color);
-        transition: all 200ms ease-in-out;
-    }
+	.header .button.navButton:hover {
+		border: 2px solid var(--alt-highlight-color);
+		transition: all 200ms ease-in-out;
+	}
 
-    .header .button.navButton.active {
-        border: 2px solid var(--alt-highlight-color);
-    }
+	.header .button.navButton.active {
+		border: 2px solid var(--alt-highlight-color);
+	}
 
-    .header .button.navButton i {
-        font-size: 0.6rem;
-        margin-left: 1.65px;
-    }
+	.header .button.navButton i {
+		font-size: 0.6rem;
+		margin-left: 1.65px;
+	}
 
-    .header .navProfile .love {
-        font-size: 12px;
-    }
+	.header .navProfile .love {
+		font-size: 12px;
+	}
 
-    .headerButtons {
-        gap: 4px;
-    }
+	.headerButtons {
+		gap: 4px;
+	}
 
-    .header .unloggedHead {
-        width: auto;
-        grid: auto / auto 6rem;
-        justify-items: end;
-    }
+	.header .unloggedHead {
+		width: auto;
+		grid: auto / auto 6rem;
+		justify-items: end;
+	}
 }
