@@ -45,10 +45,6 @@ body {
 }
 
 @media (max-width: 800px) {
-	body {
-		overflow-y: hidden;
-	}
-
 	::-webkit-scrollbar {
 		width: 4px;
 	}
