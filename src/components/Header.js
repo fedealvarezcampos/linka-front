@@ -70,7 +70,11 @@ function Header({ error, setError }) {
 				)}
 				{user && (
 					<>
-						<nav className="headerButtons">
+						<motion.nav
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1, transition: { duration: 0.3 } }}
+							className="headerButtons"
+						>
 							<button
 								aria-label="activity"
 								className={`button navButton ${activityMenu ? 'active' : ''}`}
@@ -94,7 +98,7 @@ function Header({ error, setError }) {
 							>
 								<i className="bi bi-plus-circle-fill" />
 							</NavLink>
-						</nav>
+						</motion.nav>
 					</>
 				)}
 				{user ? (
