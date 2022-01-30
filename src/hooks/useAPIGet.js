@@ -21,7 +21,9 @@ function useAPIGet(url, token) {
 					setResult(data);
 				})
 				.catch(error => {
-					if (error.response.data.error === 'invalid token') {
+					let err = error.response.data.error;
+
+					if (err === 'invalid token' || err === 'jwt expired') {
 						dispatch({ type: 'LOGOUT' });
 						localStorage.clear('session');
 					}
